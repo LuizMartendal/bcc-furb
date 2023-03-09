@@ -1,0 +1,333 @@
+{
+  "Config": {
+    "Build": {
+      "Board": "arduino:avr:mega:cpu=atmega2560"
+    }
+  },
+  "Version": "2",
+  "Product": "Visuino Pro - Visual Arduino Programming",
+  "Content": "OpenWire Diagram",
+  "Units": [
+    {
+      "Type": "Diagram",
+      "Name": "__OpenWireRootUnit__",
+      "*": [
+        {
+          "X": 528,
+          "Name": "Arduino",
+          "Instance": {
+            "Serial": {
+              "*": [
+                {
+                  "+": "TArduinoHardwareSerial"
+                },
+                {
+                  "+": "TArduinoHardwareSerial"
+                },
+                {
+                  "+": "TArduinoHardwareSerial"
+                },
+                {
+                  "+": "TArduinoHardwareSerial"
+                }
+              ]
+            },
+            "+": "TArduinoBoard",
+            "Modules": {
+              "*": [
+                {
+                  "+": "TArduinoEEPROMModule"
+                },
+                {
+                  "+": "TArduinoWatchdogTimerModule"
+                },
+                {
+                  "+": "TArduinoProcessor2560Module"
+                }
+              ]
+            },
+            "I2CChannels": {
+              "*": [
+                {
+                  "+": "TArduinoI2C"
+                }
+              ]
+            },
+            "Digital": {
+              "*": [
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMInterruptChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Servo1.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoBasicDigitalPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial3Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial3Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial2Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial2Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial1InterruptChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial1InterruptChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalI2C0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalI2C0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                }
+              ]
+            },
+            "SPIChannels": {
+              "*": [
+                {
+                  "+": "TArduinoSPI"
+                }
+              ]
+            },
+            "BoardType": "Arduino Mega 2560"
+          },
+          "*": [],
+          "Type": "Component",
+          "Y": 256
+        },
+        {
+          "X": 336,
+          "Name": "Servo1",
+          "Instance": {
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.SineAnalogGenerator1.OutputPin"
+              }
+            },
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital[3].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item3.DigitalInputPin"
+                }
+              ]
+            },
+            "+": "TArduinoServo"
+          },
+          "*": [],
+          "Type": "Component",
+          "Y": 736
+        },
+        {
+          "X": 256,
+          "Name": "SineAnalogGenerator1",
+          "Instance": {
+            "Frequency": 10,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.Servo1.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoSineGenerator",
+            "Phase": 0
+          },
+          "*": [],
+          "Type": "Component",
+          "Y": 576
+        }
+      ]
+    }
+  ]
+}

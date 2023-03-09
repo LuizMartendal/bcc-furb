@@ -1,0 +1,102 @@
+CREATE TABLE Genero (
+	cd_genero INTEGER NOT NULL,
+	ds_genero VARCHAR(30) NOT NULL,
+	constraint PRIMARY KEY (cd_genero)
+);
+
+CREATE TABLE Censura (
+	cd_censura INTEGER NOT NULL,
+	ds_censura VARCHAR(30) NOT NULL,
+	constraint PRIMARY KEY (cd_censura)
+);
+
+CREATE TABLE Filme (
+	cd_filme INTEGER NOT NULL,
+	cd_censura INTEGER NOT NULL,
+	cd_genero INTEGER NOT NULL,
+	nm_filme VARCHAR(50) NOT NULL,
+	ds_sinopse VARCHAR(250),
+	nr_duracao VARCHAR(20),
+	dt_lancamento DATE,
+	fl_dublado CHAR(1) NOT NULL,
+	CONSTRAINT PRIMARY KEY (cd_filme),
+	CONSTRAINT Filme_Censura_fk FOREIGN KEY (cd_censura) 
+		REFERENCES Censura (cd_censura),
+	CONSTRAINT Filme_Genero_fk FOREIGN KEY (cd_genero)
+		REFERENCES Genero (cd_genero)
+);
+
+CREATE TABLE Ator (
+	cd_ator INTEGER NOT NULL,
+	nm_ator VARCHAR(50) NOT NULL,
+	CONSTRAINT PRIMARY KEY (cd_ator)
+);
+
+CREATE TABLE Filme_Ator (
+	cd_filme INTEGER NOT NULL,
+	cd_ator INTEGER NOT NULL,
+	CONSTRAINT PRIMARY KEY (cd_filme, cd_ator),
+	CONSTRAINT Filme_Ator_Ator_fk FOREIGN KEY (cd_ator)
+		REFERENCES Ator (cd_ator),
+	CONSTRAINT Filme_Ator_Filme_fk FOREIGN KEY (cd_filme)
+		REFERENCES Filme (cd_filme)
+);
+
+INSERT INTO Genero (cd_genero, ds_genero)
+	VALUES (1,'drama');
+INSERT INTO Genero (cd_genero, ds_genero)
+	VALUES (2, 'ação');
+INSERT INTO Genero (cd_genero, ds_genero)
+	VALUES (3, 'comédia');
+
+INSERT INTO Censura (cd_censura, ds_censura)
+	VALUES (1, 'livre');
+INSERT INTO Censura (cd_censura, ds_censura)
+	VALUES (2, '12 anos');
+INSERT INTO Censura (cd_censura, ds_censura)
+	VALUES (3, 'adulto');
+
+INSERT INTO Ator (cd_ator, nm_ator)
+	VALUES (1, 'LUIZ H');
+INSERT INTO Ator (cd_ator, nm_ator)
+	VALUES (2, 'LUIZ C');
+INSERT INTO Ator (cd_ator, nm_ator)
+	VALUES (3, 'LUIZ F');
+INSERT INTO Ator (cd_ator, nm_ator)
+	VALUES (4, 'MARCIA');
+INSERT INTO Ator (cd_ator, nm_ator)
+	VALUES (5, 'ADEMAR');
+
+INSERT INTO Filme (cd_filme, cd_censura, cd_genero, nm_filme, ds_sinopse, nr_duracao, dt_lancamento, fl_dublado)
+	VALUES (1, 1, 3, 'A busca 1', 'Um filme interessante', '110 minutos', '2000-10-16', 'S');
+INSERT INTO Filme (cd_filme, cd_censura, cd_genero, nm_filme, ds_sinopse, nr_duracao, dt_lancamento, fl_dublado)
+	VALUES (2, 2, 3, 'A busca 2', 'Um filme melhor que o antecessor', '160 minutos', '2022-10-25', 'N');
+INSERT INTO Filme (cd_filme, cd_censura, cd_genero, nm_filme, ds_sinopse, nr_duracao, dt_lancamento, fl_dublado)
+	VALUES (3, 3, 2, 'A busca 3', null, '110 minutos', '2022-11-22', 'S');
+INSERT INTO Filme (cd_filme, cd_censura, cd_genero, nm_filme, ds_sinopse, nr_duracao, dt_lancamento, fl_dublado)
+	VALUES (4, 2, 1, 'A busca 4', 'Um filme diferente', NULL, '2022-11-20', 'S');
+INSERT INTO Filme (cd_filme, cd_censura, cd_genero, nm_filme, ds_sinopse, nr_duracao, dt_lancamento, fl_dublado)
+	VALUES (5, 1, 3, 'A busca 5', null, null, NULL, 'S');
+
+INSERT INTO Filme_Ator (cd_filme, cd_ator)
+	VALUES (1, 2);
+INSERT INTO Filme_Ator (cd_filme, cd_ator)
+	VALUES (1, 1);
+INSERT INTO Filme_Ator (cd_filme, cd_ator)
+	VALUES (2, 1);
+INSERT INTO Filme_Ator (cd_filme, cd_ator)
+	VALUES (4, 3);
+INSERT INTO Filme_Ator (cd_filme, cd_ator)
+	VALUES (4, 4);
+INSERT INTO Filme_Ator (cd_filme, cd_ator)
+	VALUES (2, 5);
+
+UPDATE filme 
+	SET fl_dublado = 'S' 
+	WHERE nr_duracao  IS null;
+
+DELETE FROM filme 
+ WHERE ds_sinopse IS NULL;
+	
+
+

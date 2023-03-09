@@ -1,0 +1,187 @@
+{
+  "Config": {
+    "Build": {
+      "Board": "arduino:avr:uno"
+    }
+  },
+  "Version": "2",
+  "Product": "Visuino Pro - Visual Arduino Programming",
+  "Content": "OpenWire Diagram",
+  "Units": [
+    {
+      "Type": "Diagram",
+      "Name": "__OpenWireRootUnit__",
+      "*": [
+        {
+          "X": 256,
+          "Name": "Arduino",
+          "Instance": {
+            "Serial": {
+              "*": [
+                {
+                  "StopBits": 1,
+                  "InputPin": {
+                    "SourcePins": [
+                      {
+                        "Name": "__OpenWireRootUnit__.Arduino.Shields.Ethernet Shield.AddressOutputPin",
+                        "ID": "__OpenWireRootUnit__.Arduino.Shields._Item0.AddressOutputPin"
+                      },
+                      {
+                        "Name": "__OpenWireRootUnit__.Arduino.Shields.Ethernet Shield.GatewayIPOutputPin",
+                        "ID": "__OpenWireRootUnit__.Arduino.Shields._Item0.GatewayIPOutputPin"
+                      },
+                      {
+                        "Name": "__OpenWireRootUnit__.Arduino.Shields.Ethernet Shield.DNSOutputPin",
+                        "ID": "__OpenWireRootUnit__.Arduino.Shields._Item0.DNSOutputPin"
+                      },
+                      {
+                        "Name": "__OpenWireRootUnit__.Arduino.Shields.Ethernet Shield.SubnetMaskIPOutputPin",
+                        "ID": "__OpenWireRootUnit__.Arduino.Shields._Item0.SubnetMaskIPOutputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoHardwareSerial"
+                }
+              ]
+            },
+            "+": "TArduinoBoard",
+            "Modules": {
+              "*": [
+                {
+                  "+": "TArduinoEEPROMModule"
+                },
+                {
+                  "+": "TArduinoWatchdogTimerModule"
+                },
+                {
+                  "+": "TArduinoProcessor328Module"
+                }
+              ]
+            },
+            "Shields": {
+              "*": [
+                {
+                  "AddressOutputPin": {
+                    "SinkPins": [
+                      {
+                        "Name": "__OpenWireRootUnit__.Arduino.Serial[0].InputPin",
+                        "ID": "__OpenWireRootUnit__.Arduino.Serial._Item0.InputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoEthernetShieldV2",
+                  "GatewayIPOutputPin": {
+                    "SinkPins": [
+                      {
+                        "Name": "__OpenWireRootUnit__.Arduino.Serial[0].InputPin",
+                        "ID": "__OpenWireRootUnit__.Arduino.Serial._Item0.InputPin"
+                      }
+                    ]
+                  },
+                  "DNSOutputPin": {
+                    "SinkPins": [
+                      {
+                        "Name": "__OpenWireRootUnit__.Arduino.Serial[0].InputPin",
+                        "ID": "__OpenWireRootUnit__.Arduino.Serial._Item0.InputPin"
+                      }
+                    ]
+                  },
+                  "SubnetMaskIPOutputPin": {
+                    "SinkPins": [
+                      {
+                        "Name": "__OpenWireRootUnit__.Arduino.Serial[0].InputPin",
+                        "ID": "__OpenWireRootUnit__.Arduino.Serial._Item0.InputPin"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "I2CChannels": {
+              "*": [
+                {
+                  "+": "TArduinoI2C"
+                }
+              ]
+            },
+            "Digital": {
+              "*": [
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalI2C0Channel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalI2C0Channel"
+                }
+              ]
+            },
+            "SPIChannels": {
+              "*": [
+                {
+                  "+": "TArduinoSPI"
+                }
+              ]
+            },
+            "BoardType": "Arduino Uno"
+          },
+          "*": [],
+          "Type": "Component",
+          "Y": 256
+        }
+      ]
+    }
+  ]
+}

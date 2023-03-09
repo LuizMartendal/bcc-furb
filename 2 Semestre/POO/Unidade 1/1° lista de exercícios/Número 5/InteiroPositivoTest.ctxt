@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=InteiroPositivoTest
+comment1.params=
+comment1.target=void\ test01_Valor_10_Fatorial()
+comment2.params=
+comment2.target=void\ test02_Valor_20_Fatorial()
+comment3.params=
+comment3.target=void\ test03_DivisoresInteiros_Valorr_14()
+comment4.params=
+comment4.target=void\ test04_DivisoresInteiros_Valorr_18()
+comment5.params=
+comment5.target=void\ test05_Fibonacci_Valor_09()
+comment6.params=
+comment6.target=void\ test05_Fibonacci_Valor_15()
+numComments=7

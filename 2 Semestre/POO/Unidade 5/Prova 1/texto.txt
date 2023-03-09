@@ -1,0 +1,7 @@
+Cliente [nome=Luiz, codigo=123455-6]
+
+Saldo da conta 40028922: 100.0
+Saldo da conta 211205122022: 100.0Cliente [nome=Daniel, codigo=124555-6]
+
+Saldo da conta 205122022: 20.0
+Saldo da conta 40128922: 10.0

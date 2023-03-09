@@ -1,0 +1,494 @@
+{
+  "Config": {
+    "Build": {
+      "Board": "arduino:avr:uno"
+    }
+  },
+  "Version": "2",
+  "Product": "Visuino Pro - Visual Arduino Programming",
+  "Content": "OpenWire Diagram",
+  "Units": [
+    {
+      "Name": "__OpenWireRootUnit__",
+      "*": [
+        {
+          "X": 384,
+          "Name": "Arduino",
+          "Instance": {
+            "Serial": {
+              "*": [
+                {
+                  "InputPin": {
+                    "SourcePins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.MultiplyByValue2.OutputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoHardwareSerial"
+                }
+              ]
+            },
+            "+": "TArduinoBoard",
+            "Modules": {
+              "*": [
+                {
+                  "+": "TArduinoEEPROMModule"
+                },
+                {
+                  "+": "TArduinoWatchdogTimerModule"
+                },
+                {
+                  "+": "TArduinoProcessor328Module"
+                }
+              ]
+            },
+            "I2CChannels": {
+              "*": [
+                {
+                  "+": "TArduinoI2C"
+                }
+              ]
+            },
+            "Digital": {
+              "*": [
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Inverter1.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Inverter2.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Inverter3.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoBasicDigitalPWMSPI0Channel"
+                },
+                {
+                  "InitialValue": true,
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Inverter4.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "IsPullUp": true,
+                  "OutputPin": {
+                    "SinkPins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.Button1.InputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "IsPullUp": true,
+                  "OutputPin": {
+                    "SinkPins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.Button2.InputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "IsPullUp": true,
+                  "OutputPin": {
+                    "SinkPins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.Button3.InputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "IsPullUp": true,
+                  "OutputPin": {
+                    "SinkPins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.Button4.InputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "OutputPin": {
+                    "SinkPins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.MultiplyByValue1.InputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoCombinedAnalogDigitalI2C0Channel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalI2C0Channel"
+                }
+              ]
+            },
+            "SPIChannels": {
+              "*": [
+                {
+                  "+": "TArduinoSPI"
+                }
+              ]
+            },
+            "BoardType": "Arduino Uno"
+          },
+          "Type": "Component",
+          "Y": 256
+        },
+        {
+          "X": 624,
+          "Name": "Button1",
+          "Instance": {
+            "InputPin": {
+              "SourcePin": {
+                "Name": "__OpenWireRootUnit__.Arduino.Digital.Digital[ 14 ]\/AnalogIn[ 0 ].OutputPin",
+                "ID": "__OpenWireRootUnit__.Arduino.Digital._Item14.OutputPin"
+              }
+            },
+            "+": "TArduinoButton"
+          },
+          "Type": "Component",
+          "Y": 992
+        },
+        {
+          "X": 624,
+          "Name": "Button2",
+          "Instance": {
+            "InputPin": {
+              "SourcePin": {
+                "Name": "__OpenWireRootUnit__.Arduino.Digital.Digital[ 15 ]\/AnalogIn[ 1 ].OutputPin",
+                "ID": "__OpenWireRootUnit__.Arduino.Digital._Item15.OutputPin"
+              }
+            },
+            "+": "TArduinoButton"
+          },
+          "Type": "Component",
+          "Y": 1040
+        },
+        {
+          "X": 624,
+          "Name": "Button3",
+          "Instance": {
+            "InputPin": {
+              "SourcePin": {
+                "Name": "__OpenWireRootUnit__.Arduino.Digital.Digital[ 16 ]\/AnalogIn[ 2 ].OutputPin",
+                "ID": "__OpenWireRootUnit__.Arduino.Digital._Item16.OutputPin"
+              }
+            },
+            "+": "TArduinoButton"
+          },
+          "Type": "Component",
+          "Y": 1088
+        },
+        {
+          "X": 624,
+          "Name": "Button4",
+          "Instance": {
+            "InputPin": {
+              "SourcePin": {
+                "Name": "__OpenWireRootUnit__.Arduino.Digital.Digital[ 17 ]\/AnalogIn[ 3 ].OutputPin",
+                "ID": "__OpenWireRootUnit__.Arduino.Digital._Item17.OutputPin"
+              }
+            },
+            "+": "TArduinoButton"
+          },
+          "Type": "Component",
+          "Y": 1136
+        },
+        {
+          "X": 624,
+          "Name": "MultiplyByValue1",
+          "Instance": {
+            "Value": 1023,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.MultiplyByValue2.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoMultiplyByValue",
+            "InputPin": {
+              "SourcePin": {
+                "Name": "__OpenWireRootUnit__.Arduino.Digital.Digital(I2C-SDA)[ 18 ]\/AnalogIn[ 4 ].OutputPin",
+                "ID": "__OpenWireRootUnit__.Arduino.Digital._Item18.OutputPin"
+              }
+            }
+          },
+          "Type": "Component",
+          "Y": 1184
+        },
+        {
+          "X": 800,
+          "Name": "MultiplyByValue2",
+          "Instance": {
+            "Value": 0.00488279992714524,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Serial.Item[ 0 ] (9600).InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Serial._Item0.InputPin"
+                },
+                {
+                  "ID": "__OpenWireRootUnit__.CompareValue1.InputPin"
+                },
+                {
+                  "ID": "__OpenWireRootUnit__.CompareValue2.InputPin"
+                },
+                {
+                  "ID": "__OpenWireRootUnit__.CompareValue3.InputPin"
+                },
+                {
+                  "ID": "__OpenWireRootUnit__.CompareValue4.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoMultiplyByValue",
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.MultiplyByValue1.OutputPin"
+              }
+            }
+          },
+          "Type": "Component",
+          "Y": 1184
+        },
+        {
+          "X": 784,
+          "Name": "CompareValue1",
+          "Instance": {
+            "Value": 1.25,
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.MultiplyByValue2.OutputPin"
+              }
+            },
+            "+": "TArduinoCompareValue",
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.Inverter4.InputPin"
+                }
+              ]
+            },
+            "CompareType": "ctSmallerOrEqual"
+          },
+          "Type": "Component",
+          "Y": 784
+        },
+        {
+          "X": 784,
+          "Name": "CompareValue2",
+          "Instance": {
+            "Value": 2.5,
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.MultiplyByValue2.OutputPin"
+              }
+            },
+            "+": "TArduinoCompareValue",
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.Inverter3.InputPin"
+                }
+              ]
+            },
+            "CompareType": "ctSmallerOrEqual"
+          },
+          "Type": "Component",
+          "Y": 832
+        },
+        {
+          "X": 784,
+          "Name": "CompareValue3",
+          "Instance": {
+            "Value": 3.75,
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.MultiplyByValue2.OutputPin"
+              }
+            },
+            "+": "TArduinoCompareValue",
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.Inverter2.InputPin"
+                }
+              ]
+            },
+            "CompareType": "ctSmallerOrEqual"
+          },
+          "Type": "Component",
+          "Y": 880
+        },
+        {
+          "X": 784,
+          "Name": "CompareValue4",
+          "Instance": {
+            "Value": 4.98999977111816,
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.MultiplyByValue2.OutputPin"
+              }
+            },
+            "+": "TArduinoCompareValue",
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.Inverter1.InputPin"
+                }
+              ]
+            },
+            "CompareType": "ctSmaller"
+          },
+          "Type": "Component",
+          "Y": 928
+        },
+        {
+          "X": 256,
+          "Name": "Inverter1",
+          "Instance": {
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.CompareValue4.OutputPin"
+              }
+            },
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital.Digital[ 9 ].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item9.DigitalInputPin"
+                }
+              ]
+            },
+            "+": "TArduinoBooleanInverter"
+          },
+          "Type": "Component",
+          "Y": 784
+        },
+        {
+          "X": 256,
+          "Name": "Inverter2",
+          "Instance": {
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.CompareValue3.OutputPin"
+              }
+            },
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital.Digital[ 10 ].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item10.DigitalInputPin"
+                }
+              ]
+            },
+            "+": "TArduinoBooleanInverter"
+          },
+          "Type": "Component",
+          "Y": 832
+        },
+        {
+          "X": 256,
+          "Name": "Inverter3",
+          "Instance": {
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.CompareValue2.OutputPin"
+              }
+            },
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital.Digital(SPI-MOSI)[ 11 ].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item11.DigitalInputPin"
+                }
+              ]
+            },
+            "+": "TArduinoBooleanInverter"
+          },
+          "Type": "Component",
+          "Y": 880
+        },
+        {
+          "X": 256,
+          "Name": "Inverter4",
+          "Instance": {
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.CompareValue1.OutputPin"
+              }
+            },
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital.Digital(SPI-MISO)[ 12 ].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item12.DigitalInputPin"
+                }
+              ]
+            },
+            "+": "TArduinoBooleanInverter"
+          },
+          "Type": "Component",
+          "Y": 928
+        }
+      ],
+      "Type": "Diagram",
+      "Selection": [
+        "CompareValue4"
+      ]
+    }
+  ]
+}

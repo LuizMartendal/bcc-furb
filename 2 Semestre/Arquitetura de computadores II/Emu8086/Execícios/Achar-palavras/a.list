@@ -1,0 +1,215 @@
+EMU8086 GENERATED LISTING. MACHINE CODE <- SOURCE.
+ 
+a.com -- emu8086 assembler version: 4.08  
+ 
+[ 15/10/2022  --  11:58:35 ] 
+ 
+===================================================================================================
+[LINE]     LOC: MACHINE CODE                          SOURCE
+===================================================================================================
+ 
+[   1]        :                                       include "emu8086.inc"
+[   2]        :                                       ; You may customize this and other start-up templates;
+[   3]        :                                       ; The location of this template is c:\emu8086\inc\0_com_template.txt
+[   4]        :                                       
+[   5]        :                                       org 100h
+[   6]        :                                       
+[   7]    0100: E9 C3 00 52 50 56 B9 00 00 2E C6 06   DEFINE_SCAN_NUM
+                C3 01 00 B4 00 CD 16 B4 0E CD 10 3C 
+                2D 74 69 3C 0D 75 03 E9 93 00 3C 08 
+                75 1E BA 00 00 8B C1 2E F7 36 C4 01 
+                8B C8 50 B0 20 B4 0E CD 10 58 50 B0 
+                08 B4 0E CD 10 58 EB CB 3C 30 73 02 
+                EB 04 3C 39 76 1A 50 B0 08 B4 0E CD 
+                10 58 50 B0 20 B4 0E CD 10 58 50 B0 
+                08 B4 0E CD 10 58 EB A7 50 8B C1 2E 
+                F7 26 C4 01 8B C8 58 83 FA 00 75 19 
+                2C 30 B4 00 8B D1 03 C8 72 0A EB 8B 
+                2E C6 06 C3 01 01 EB 83 8B CA BA 00 
+                00 8B C1 2E F7 36 C4 01 8B C8 50 B0 
+                08 B4 0E CD 10 58 50 B0 20 B4 0E CD 
+                10 58 50 B0 08 B4 0E CD 10 58 E9 5A 
+                FF 2E 80 3E C3 01 00 74 02 F7 D9 5E 
+                58 5A C3 00 0A 00                   
+[   8]    01C6: EB 12 50 56 8A 04 3C 00 74 07 46 B4   DEFINE_PRINT_STRING
+                0E CD 10 EB F3 5E 58 C3             
+[   9]    01DA: EB 4D 50 51 57 52 B9 00 00 83 FA 01   DEFINE_GET_STRING
+                76 3C 4A B4 00 CD 16 3C 0D 74 30 3C 
+                08 75 1E E3 F2 49 4F 50 B0 08 B4 0E 
+                CD 10 58 50 B0 20 B4 0E CD 10 58 50 
+                B0 08 B4 0E CD 10 58 EB D6 3B CA 73 
+                D2 88 05 47 41 B4 0E CD 10 EB C8 C6 
+                05 00 5A 5F 59 58 C3                
+[  10]    0229: EB 32 50 1E 53 51 57 B8 40 00 8E D8   DEFINE_CLEAR_SCREEN
+                B4 06 B0 00 B7 07 B5 00 B1 00 BF 84 
+                00 8A 35 BF 4A 00 8A 15 FE CA CD 10 
+                B7 00 B2 00 B6 00 B4 02 CD 10 5F 59 
+                5B 1F 58 C3                         
+[  11]    025D: EB 50 50 53 51 52 B9 01 00 BB 10 27   DEFINE_PRINT_NUM_UNS
+                3D 00 00 74 32 83 FB 00 74 35 83 F9 
+                00 74 04 3B C3 72 14 B9 00 00 BA 00 
+                00 F7 F3 04 30 50 8A C0 B4 0E CD 10 
+                58 8B C2 50 BA 00 00 8B C3 2E F7 36 
+                AD 02 8B D8 58 EB CE 50 B0 30 B4 0E 
+                CD 10 58 5A 59 5B 58 C3 0A 00       
+[  12]        :                                       
+[  13]    02AF: BB 7F 03                              MOV BX, OFFSET var1
+[  14]    02B2: E8 67 00                              CALL IMPRIME_STRING
+[  15]        :                                       
+[  16]    02B5: 52                                    PUSH DX
+[  17]    02B6: BF B3 03                              MOV DI, OFFSET substring
+[  18]    02B9: BA 20 00                              MOV DX, 32
+[  19]    02BC: E8 1D FF                              CALL GET_STRING
+[  20]    02BF: 5A                                    POP DX
+[  21]        :                                       
+[  22]    02C0: E8 46 00                              CALL pula_linha
+[  23]        :                                       
+[  24]    02C3: BB 9B 03                              MOV BX, OFFSET var2
+[  25]    02C6: E8 53 00                              CALL IMPRIME_STRING
+[  26]        :                                       
+[  27]    02C9: 52                                    PUSH DX
+[  28]    02CA: BF D5 03                              MOV DI, OFFSET string
+[  29]    02CD: BA 20 00                              MOV DX, 32
+[  30]    02D0: E8 09 FF                              CALL GET_STRING
+[  31]    02D3: 5A                                    POP DX
+[  32]        :                                       
+[  33]    02D4: E8 32 00                              CALL pula_linha
+[  34]        :                                       
+[  35]    02D7:                                       PROCURAR:
+[  36]    02D7: 57                                    PUSH DI
+[  37]    02D8: 56                                    PUSH SI
+[  38]    02D9: 51                                    PUSH CX
+[  39]    02DA: BF D5 03                              MOV DI, offset string
+[  40]    02DD:                                       PROCURAR_M:
+[  41]    02DD: BE B3 03                              MOV SI, offset substring
+[  42]    02E0: 8A 2C                                 MOV CH, [SI]
+[  43]    02E2: 8A 0D                                 MOV CL, [DI]
+[  44]    02E4: 3A E9                                 CMP CH, CL
+[  45]    02E6: 74 08                                 JE PROCURAR_PALAVRA
+[  46]    02E8: 80 3D 00                              CMP [DI], 0
+[  47]    02EB: 74 6C                                 JE RESPOSTA2
+[  48]    02ED: 47                                    INC DI
+[  49]    02EE: EB ED                                 JMP PROCURAR_M
+[  50]    02F0:                                       PROCURAR_PALAVRA:
+[  51]    02F0: 8A 2C                                 MOV CH, [SI]
+[  52]    02F2: 8A 0D                                 MOV CL, [DI]
+[  53]    02F4: 3A E9                                 CMP CH, CL
+[  54]    02F6: 74 08                                 JE IGUAL
+[  55]    02F8: 80 3C 00                              CMP [SI], 0
+[  56]    02FB: 74 36                                 JE RESPOSTA1
+[  57]    02FD: 47                                    INC DI
+[  58]    02FE: EB DD                                 JMP PROCURAR_M
+[  59]    0300:                                       IGUAL:
+[  60]    0300: 80 3C 00                              CMP [SI], 0
+[  61]    0303: 74 2E                                 JE RESPOSTA1
+[  62]    0305: 46                                    INC SI
+[  63]    0306: 47                                    INC DI
+[  64]    0307: EB E7                                 JMP PROCURAR_PALAVRA
+[  65]        :                                       
+[  66]    0309:                                       PULA_LINHA:
+[  67]    0309: 9C                                    PUSHF
+[  68]    030A: 50                                    PUSH AX
+[  69]    030B: 52                                    PUSH DX
+[  70]    030C: B4 02                                 MOV AH,2  ; socorro, destruiram ax
+[  71]    030E: B2 0D                                 MOV DL,13
+[  72]    0310: CD 21                                 INT 21H
+[  73]    0312: B4 02                                 MOV AH,2  ; socorro, destruiram ax
+[  74]    0314: B2 0A                                 MOV DL,10
+[  75]    0316: CD 21                                 INT 21H
+[  76]    0318: 5A                                    POP DX
+[  77]    0319: 58                                    POP AX
+[  78]    031A: 9D                                    POPF
+[  79]    031B: C3                                    RET
+[  80]        :                                       
+[  81]    031C:                                       IMPRIME_STRING:
+[  82]    031C: 9C                                    PUSHF
+[  83]    031D: 50                                    PUSH AX
+[  84]    031E: 53                                    PUSH BX
+[  85]    031F: 52                                    PUSH DX
+[  86]    0320:                                       BUSCA_IMPRIME_STRING:
+[  87]    0320: 8A 17                                 MOV DL,[BX]
+[  88]    0322: 80 FA 00                              CMP DL,0
+[  89]    0325: 74 07                                 JE  SAIDA_IMPRIME_STRING
+[  90]    0327: B4 02                                 MOV AH,2
+[  91]    0329: CD 21                                 INT 21H
+[  92]    032B: 43                                    INC BX
+[  93]    032C: EB F2                                 JMP BUSCA_IMPRIME_STRING
+[  94]    032E:                                       SAIDA_IMPRIME_STRING:
+[  95]    032E: 5A                                    POP DX
+[  96]    032F: 5B                                    POP BX
+[  97]    0330: 58                                    POP AX
+[  98]    0331: 9D                                    POPF
+[  99]    0332: C3                                    RET
+[ 100]        :                                       
+[ 101]    0333:                                       RESPOSTA1:
+[ 102]    0333: 53                                    PUSH BX
+[ 103]    0334: BB F7 03                              MOV BX, OFFSET padrao
+[ 104]    0337: E8 E2 FF                              CALL IMPRIME_STRING
+[ 105]    033A: 5B                                    POP BX
+[ 106]    033B: 53                                    PUSH BX
+[ 107]    033C: BB B3 03                              MOV BX, OFFSET substring
+[ 108]    033F: E8 DA FF                              CALL IMPRIME_STRING
+[ 109]    0342: 5B                                    POP BX
+[ 110]    0343: 53                                    PUSH BX
+[ 111]    0344: BB 04 04                              MOV BX, OFFSET possui
+[ 112]    0347: E8 D2 FF                              CALL IMPRIME_STRING
+[ 113]    034A: 5B                                    POP BX
+[ 114]    034B: 53                                    PUSH BX
+[ 115]    034C: BB D5 03                              MOV BX, OFFSET string
+[ 116]    034F: E8 CA FF                              CALL IMPRIME_STRING
+[ 117]    0352: 5B                                    POP BX
+[ 118]    0353: B4 4C                                 MOV AH, 4CH
+[ 119]    0355: B0 00                                 MOV AL, 0
+[ 120]    0357: CD 21                                 INT 21H
+[ 121]        :                                       
+[ 122]    0359:                                       RESPOSTA2:
+[ 123]    0359: 53                                    PUSH BX
+[ 124]    035A: BB F7 03                              MOV BX, OFFSET padrao
+[ 125]    035D: E8 BC FF                              CALL IMPRIME_STRING
+[ 126]    0360: 5B                                    POP BX
+[ 127]    0361: 53                                    PUSH BX
+[ 128]    0362: BB B3 03                              MOV BX, OFFSET substring
+[ 129]    0365: E8 B4 FF                              CALL IMPRIME_STRING
+[ 130]    0368: 5B                                    POP BX
+[ 131]    0369: 53                                    PUSH BX
+[ 132]    036A: BB 1D 04                              MOV BX, OFFSET naopossui
+[ 133]    036D: E8 AC FF                              CALL IMPRIME_STRING
+[ 134]    0370: 5B                                    POP BX
+[ 135]    0371: 53                                    PUSH BX
+[ 136]    0372: BB D5 03                              MOV BX, OFFSET string
+[ 137]    0375: E8 A4 FF                              CALL IMPRIME_STRING
+[ 138]    0378: 5B                                    POP BX
+[ 139]    0379: B4 4C                                 MOV AH, 4CH
+[ 140]    037B: B0 00                                 MOV AL, 0
+[ 141]    037D: CD 21                                 INT 21H
+[ 142]        :                                       
+[ 143]    037F: 45 6E 74 72 65 20 63 6F 6D 20 75 6D   var1 db "Entre com uma substring:   " ,0
+                61 20 73 75 62 73 74 72 69 6E 67 3A 
+                20 20 20 00                         
+[ 144]    039B: 45 6E 74 72 65 20 63 6F 6D 20 75 6D   var2 db "Entre com uma string:  " ,0
+                61 20 73 74 72 69 6E 67 3A 20 20 00 
+                                                    
+[ 145]    03B3: 20 20 20 20 20 20 20 20 20 20 20 20   substring db 33 dup(" ") ,0
+                20 20 20 20 20 20 20 20 20 20 20 20 
+                20 20 20 20 20 20 20 20 20 00       
+[ 146]    03D5: 20 20 20 20 20 20 20 20 20 20 20 20   string db 33 dup(" ") ,0
+                20 20 20 20 20 20 20 20 20 20 20 20 
+                20 20 20 20 20 20 20 20 20 00       
+[ 147]    03F7: 41 20 73 75 62 73 74 72 69 6E 67 20   padrao db "A substring " ,0
+                00                                  
+[ 148]    0404: 20 65 73 74 61 20 63 6F 6E 74 69 64   possui db " esta contida na string " ,0
+                61 20 6E 61 20 73 74 72 69 6E 67 20 
+                00                                  
+[ 149]    041D: 20 6E 61 6F 20 65 73 74 61 20 63 6F   naopossui db " nao esta contida na string " ,0
+                6E 74 69 64 61 20 6E 61 20 73 74 72 
+                69 6E 67 20 00                      
+[ 150]        :                                       
+[ 151]        :                                       
+ 
+===================================================================================================
+ 
+
+
+
+
+===================================================================================================

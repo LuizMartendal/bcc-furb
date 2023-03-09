@@ -1,0 +1,191 @@
+1. (1,5 Pontos) Ajustes nas estruturas:
+  a. Adicionar uma tabela para registro de clientes. Esta nova tabela deverá apresentar no mínimo os seguintes campos: código, nome, data de nascimento, número de telefone e e-mail (defina o tipo de dados conforme sua compreensão);
+
+CREATE TABLE cliente (
+cd_cliente INTEGER NOT NULL,
+nm_usuario VARCHAR(30) NOT NULL,
+dt_nascimento DATE NOT NULL,
+nr_telefone VARCHAR(15) NOT NULL,
+ds_email VARCHAR(50) NOT NULL,
+CONSTRAINT PRIMARY KEY (cd_cliente)
+);
+
+  b. Em seguida, adicione um campo na tabela "orcamento" que fará referência (FK) para esta tabela criada (cliente);
+
+ALTER TABLE orcamento ADD cd_cliente INTEGER;
+ALTER TABLE orcamento ADD CONSTRAINT FOREIGN KEY (cd_cliente) REFERENCES cliente (cd_cliente);
+
+  c. Insira no mínimo 05 (cinco) clientes e em seguida altere os registros existentes na tabela "orçamento" para vincular a clientes cadastrados;
+
+INSERT INTO cliente(cd_cliente, nm_usuario, dt_nascimento, nr_telefone, ds_email) VALUES (1, "Luiz", "2000-10-10", "33431508", "luiz@furb.br");
+INSERT INTO cliente(cd_cliente, nm_usuario, dt_nascimento, nr_telefone, ds_email) VALUES (2, "Luiz H", "2000-10-10", "33432108", "luiz@furb.br");
+INSERT INTO cliente(cd_cliente, nm_usuario, dt_nascimento, nr_telefone, ds_email) VALUES (3, "Luiz F", "2002-10-09", "33433008", "luizh@furb.br");
+INSERT INTO cliente(cd_cliente, nm_usuario, dt_nascimento, nr_telefone, ds_email) VALUES (4, "Luiz A", "2001-10-10", "33431508", "luizf@furb.br");
+INSERT INTO cliente(cd_cliente, nm_usuario, dt_nascimento, nr_telefone, ds_email) VALUES (5, "Luiz C", "2004-10-08", "33432008", "luizc@furb.br");
+
+UPDATE orcamento SET cd_cliente = 1 WHERE nr_orcamento = 1;
+UPDATE orcamento SET cd_cliente = 2 WHERE nr_orcamento = 2;
+UPDATE orcamento SET cd_cliente = 3 WHERE nr_orcamento = 3;
+UPDATE orcamento SET cd_cliente = 4 WHERE nr_orcamento = 4;
+UPDATE orcamento SET cd_cliente = 5 WHERE nr_orcamento = 5;
+
+
+2. (1,5 Pontos) Listar dados do orçamento: número, data de emissão e valor total, assim como o nome do cliente de todos os orçamentos emitidos entre os dias 03 e 06/11/2022 (inclusive estas datas), ordenando pelo valor total descendente;
+
+SELECT orcamento.nr_orcamento AS "Número", orcamento.dt_emissao AS "Data de emissão", orcamento.vl_total AS "Valor total"
+FROM orcamento JOIN cliente ON orcamento.cd_cliente = cliente.cd_cliente
+WHERE orcamento.dt_emissao >= "2022-11-03" AND orcamento.dt_emissao <= "2022-11-06"
+ORDER BY orcamento.vl_total DESC
+
+3. (1.5 Pontos) Listar a descrição da categoria e a quantidade de produtos cadastrados associada a descrição listada;
+
+SELECT c.ds_categoria AS "Categoria", COUNT(p.cd_produto) AS "Quantidade de produtos"
+FROM categoria c JOIN produto p ON c.cd_categoria = p.cd_categoria
+GROUP BY c.ds_categoria
+
+4. (1.5 Pontos) Listar qual(is) produto(s) não estão vinculado(s) a nenhum orçamento emitido entre os dias 03 e 05/11 (inclusive estas datas);
+
+SELECT p.cd_produto AS "Produto"
+FROM produto p JOIN item_orcamento it ON p.cd_produto = it.cd_produto, orcamento o
+WHERE o.nr_orcamento = it.nr_orcamento AND p.cd_produto NOT IN (SELECT p.cd_produto FROM produto p JOIN item_orcamento it ON p.cd_produto = it.cd_produto, orcamento o WHERE o.dt_emissao >= "2022-11-03" AND o.dt_emissao <= "2022-11-05" AND p.cd_produto)
+GROUP BY p.nm_produto;
+
+5. (1.5 Pontos) Listar o número do orçamento, o valor total do orçamento e a quantidade de produtos de cada orçamento, restringindo apenas aos orçamentos que apresentam três ou mais produtos vinculado ao respectivo orçamento.
+
+SELECT o.nr_orcamento AS "Numero do orçamento", o.vl_total AS "Valor total do orçamento", COUNT(it.cd_produto) AS "Quantidade de produtos"
+FROM item_orcamento it JOIN produto p ON it.cd_produto = p.cd_produto, orcamento o 
+WHERE o.nr_orcamento = it.nr_orcamento
+GROUP BY o.nr_orcamento, o.vl_total
+HAVING COUNT(it.cd_produto) >= 3
+
+
+//Criar tabelas
+
+CREATE TABLE categoria (
+	cd_categoria 	INT NOT NULL,
+	ds_categoria 	VARCHAR(50) NOT NULL,
+	CONSTRAINT 		PRIMARY KEY (cd_categoria)
+);
+
+CREATE TABLE produto (
+	cd_produto		INT NOT NULL,
+	nm_produto 		VARCHAR(50) UNIQUE KEY NOT NULL,
+	qt_estoque 		INT NOT NULL,
+	vl_produto 		DECIMAL(8,2) NOT NULL,
+	cd_categoria 	INT NOT NULL,
+	CONSTRAINT 		PRIMARY KEY (cd_produto),
+	CONSTRAINT 		cd_categoria_fk FOREIGN KEY (cd_categoria)
+		REFERENCES  categoria (cd_categoria)
+);
+
+CREATE TABLE orcamento (
+	nr_orcamento 	INT NOT NULL,
+	dt_emissao 		DATE NOT NULL,
+	vl_total 		DECIMAL(8,2) NOT NULL,
+	CONSTRAINT 		PRIMARY KEY (nr_orcamento)
+);
+
+CREATE TABLE item_orcamento (
+	nr_orcamento 	INT NOT NULL, 
+	cd_produto 		INT NOT NULL,
+	qt_produto 		INT NOT NULL,
+	vl_produto 		DECIMAL(8,2) NOT NULL,
+	vl_total_item 	DECIMAL(8,2) NOT NULL,
+	CONSTRAINT 		PRIMARY KEY (nr_orcamento, cd_produto),
+	CONSTRAINT 		nr_orcamento_fk FOREIGN KEY (nr_orcamento)
+		REFERENCES  orcamento (nr_orcamento),
+	CONSTRAINT 		cd_produto_fk FOREIGN KEY (cd_produto)
+		REFERENCES  produto (cd_produto)
+); 
+
+//Destruir tabelas
+
+DROP TABLE item_orcamento;
+DROP TABLE orcamento;
+DROP TABLE produto;
+DROP TABLE categoria;
+
+//Dados
+
+//Tabela categoria
+INSERT INTO categoria (cd_categoria, ds_categoria)
+	VALUES (1, 'Cimento');
+INSERT INTO categoria (cd_categoria, ds_categoria)
+	VALUES (2, 'Tijolo');
+INSERT INTO categoria (cd_categoria, ds_categoria)
+	VALUES (3, 'Telha');
+INSERT INTO categoria (cd_categoria, ds_categoria)
+	VALUES (4, 'Argamassa');
+INSERT INTO categoria (cd_categoria, ds_categoria)
+	VALUES (5, 'Tintas');
+INSERT INTO categoria (cd_categoria, ds_categoria)
+	VALUES (6, 'Pisos e revestimos');
+INSERT INTO categoria (cd_categoria, ds_categoria)
+	VALUES (7, 'Madeira');
+INSERT INTO categoria (cd_categoria, ds_categoria)
+	VALUES (8, 'Materiais hidráulicos');
+INSERT INTO categoria (cd_categoria, ds_categoria)
+	VALUES (9, 'Materiais elétricos');
+INSERT INTO categoria (cd_categoria, ds_categoria)
+	VALUES (10, 'Fixadores');
+
+//Tabela produto
+INSERT INTO produto (cd_produto, nm_produto, qt_estoque, vl_produto, cd_categoria)
+	VALUES (1, 'Votoran', 230, 36, 1);
+INSERT INTO produto (cd_produto, nm_produto, qt_estoque, vl_produto, cd_categoria)
+	VALUES (2, 'Mauá', 304, 33, 1);
+INSERT INTO produto (cd_produto, nm_produto, qt_estoque, vl_produto, cd_categoria)
+	VALUES (3, 'Nacional', 430, 32, 1);
+INSERT INTO produto (cd_produto, nm_produto, qt_estoque, vl_produto, cd_categoria)
+	VALUES (4, 'Tavares 8 furos', 530, 0.75, 2);
+INSERT INTO produto (cd_produto, nm_produto, qt_estoque, vl_produto, cd_categoria)
+	VALUES (5, 'MPJ 6 furos', 530, 0.61, 2);
+INSERT INTO produto (cd_produto, nm_produto, qt_estoque, vl_produto, cd_categoria)
+	VALUES (6, 'Tavares 21 furos', 530, 1.90, 2);
+INSERT INTO produto (cd_produto, nm_produto, qt_estoque, vl_produto, cd_categoria)
+	VALUES (7, 'Telha colonial Barroket', 530, 0.43, 3);
+INSERT INTO produto (cd_produto, nm_produto, qt_estoque, vl_produto, cd_categoria)
+	VALUES (8, 'Portuguesa Faulin', 5100, 2.19, 3);
+INSERT INTO produto (cd_produto, nm_produto, qt_estoque, vl_produto, cd_categoria)
+	VALUES (9, 'Quartzolit Aci 20kg', 302, 11.24, 4);
+INSERT INTO produto (cd_produto, nm_produto, qt_estoque, vl_produto, cd_categoria)
+	VALUES (10, 'Votomassa aci 20kg', 3430, 13, 4);
+INSERT INTO produto (cd_produto, nm_produto, qt_estoque, vl_produto, cd_categoria)
+	VALUES (11, 'Suvinil acrilico fosco 18l', 30, 636, 5);
+INSERT INTO produto (cd_produto, nm_produto, qt_estoque, vl_produto, cd_categoria)
+	VALUES (12, 'Suvinil acrilico vermemlho', 30, 636, 5);
+INSERT INTO produto (cd_produto, nm_produto, qt_estoque, vl_produto, cd_categoria)
+	VALUES (13, 'Suvinil acrilico preto', 30, 636, 5);
+INSERT INTO produto (cd_produto, nm_produto, qt_estoque, vl_produto, cd_categoria)
+	VALUES (14, 'Suvinil acrilico rosa', 30, 636, 5);
+INSERT INTO produto (cd_produto, nm_produto, qt_estoque, vl_produto, cd_categoria)
+	VALUES (15, 'Cerâmico bege Ilhabella', 3044, 46, 6);
+
+//Tabela orcamento
+INSERT INTO orcamento (nr_orcamento, dt_emissao, vl_total)
+	VALUES (1, '2022-11-01', 1300);
+INSERT INTO orcamento (nr_orcamento, dt_emissao, vl_total)
+	VALUES (2, '2022-11-02', 50);
+INSERT INTO orcamento (nr_orcamento, dt_emissao, vl_total)
+	VALUES (3, '2022-11-07', 60);
+INSERT INTO orcamento (nr_orcamento, dt_emissao, vl_total)
+	VALUES (4, '2022-11-10', 70);
+INSERT INTO orcamento (nr_orcamento, dt_emissao, vl_total)
+	VALUES (5, '2022-11-06', 20);
+
+//Tabela item_orcamento
+INSERT INTO item_orcamento (nr_orcamento, cd_produto, qt_produto, vl_produto, vl_total_item)
+	VALUES (1, 2, 1, 40, 40);
+INSERT INTO item_orcamento (nr_orcamento, cd_produto, qt_produto, vl_produto, vl_total_item)
+	VALUES (1, 2, 2, 630, 1260);
+INSERT INTO item_orcamento (nr_orcamento, cd_produto, qt_produto, vl_produto, vl_total_item)
+	VALUES (2, 3, 20, 2, 40);
+INSERT INTO item_orcamento (nr_orcamento, cd_produto, qt_produto, vl_produto, vl_total_item)
+	VALUES (2, 6, 5, 2, 10);
+INSERT INTO item_orcamento (nr_orcamento, cd_produto, qt_produto, vl_produto, vl_total_item)
+	VALUES (3, 2, 2, 30, 60);
+INSERT INTO item_orcamento (nr_orcamento, cd_produto, qt_produto, vl_produto, vl_total_item)
+	VALUES (4, 3, 35, 2, 70);
+INSERT INTO item_orcamento (nr_orcamento, cd_produto, qt_produto, vl_produto, vl_total_item)
+	VALUES (5, 9, 2, 10, 20);
+

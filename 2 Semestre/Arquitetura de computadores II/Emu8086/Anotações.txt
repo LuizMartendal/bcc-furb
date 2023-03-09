@@ -1,0 +1,728 @@
+Aula 17/08/2022
+-------------------------------------------------------------------------------------------------------------------
+var1: db 0x77
+var2: dw 0x1234
+var3: dw 0x9999
+var4: db "BLUMENAU"
+
+start:
+    MOV BX, offset var4
+    MOV SI, 2
+    mov al, byte [BX,SI] ; ENDERECAMENTO BASEADO MAIS INDEXADO
+    
+    mov byte [BX,SI], 0x99
+    
+    
+    
+    hlt
+   
+
+var1: db "GASPAR"
+
+start:
+    mov si, offset var1
+    lods byte ; joga em al o conteudo apontado por SI e incrementa SI
+    lods byte ; joga em al o conteudo apontado por SI e incrementa SI
+    lods byte ; joga em al o conteudo apontado por SI e incrementa SI
+    lods byte ; joga em al o conteudo apontado por SI e incrementa SI
+    lods byte ; joga em al o conteudo apontado por SI e incrementa SI
+    lods byte ; joga em al o conteudo apontado por SI e incrementa SI
+    hlt    
+    
+
+var1: db "ABOBORAS"
+
+start:
+    MOV SI, OFFSET var1
+    lods word  ; AX<---WORD [SI], E SOMA 2 EM SI
+    lods word  ; AX<---WORD [SI], E SOMA 2 EM SI
+    lods word  ; AX<---WORD [SI], E SOMA 2 EM SI
+    lods word  ; AX<---WORD [SI], E SOMA 2 EM SI
+    hlt
+    
+
+var1: db 0x21
+      db 0x22
+      db 0x23
+      db 0x24
+var2: db 0x99
+      db 0x99
+      db 0x99
+      db 0x99
+start:
+    mov si, offset var1
+    mov di, offset var2
+    
+    movs byte ; [di] <=== [si] então incrementa si e di
+    movs byte ; [di] <=== [si] então incrementa si e di
+    movs byte ; [di] <=== [si] então incrementa si e di
+    movs byte ; [di] <=== [si] então incrementa si e di
+    
+hlt
+
+var1: db 0x21
+      db 0x22
+      db 0x23
+      db 0x24
+var2: db 0x99
+      db 0x99
+      db 0x99
+      db 0x99
+start:
+    mov si, offset var1
+    mov di, offset var2
+    mov cx, 3
+    rep movs byte ; [di] <=== [si] então incrementa si e di
+    
+    
+hlt
+
+var1: db 0x21
+      db 0x22
+      db 0x23
+      db 0x24
+var2: db 0x99
+      db 0x99
+      db 0x99
+      db 0x99
+start:
+    mov si, offset var1
+    mov di, offset var2
+    mov cx, 30
+    rep movs word
+    
+    
+hlt
+
+var1: db 0x21
+      db 0x22
+      db 0x23
+      db 0x24
+var2: db 0x21
+      db 0x22
+      db 0x23
+      db 0x24
+start:
+    mov si, offset var1
+    mov di, offset var2
+    cmps byte ; compara [si] <==> [di], se sim, FLAG Z-1 e incrementa si e di
+    cmps byte ; compara [si] <==> [di], se sim, FLAG Z-1 e incrementa si e di
+    cmps byte ; compara [si] <==> [di], se sim, FLAG Z-1 e incrementa si e di
+    cmps byte ; compara [si] <==> [di], se sim, FLAG Z-1 e incrementa si e di
+    
+    
+hlt
+
+var1: db 0x21
+      db 0x22
+      db 0x23
+      db 0x24
+var2: db 0x21
+      db 0x22
+      db 0x23
+      db 0x24
+start:
+    mov si, offset var1
+    mov di, offset var2
+    mov cx, 3
+    repz cmps byte ; compara [si] <==> [di], se sim, FLAG Z-1 e incrementa si e di
+    
+    
+    
+hlt
+-------------------------------------------------------------------------------------------------------------------
+ 25/08/2022
+-------------------------------------------------------------------------------------------------------------------
+start:
+    MOV SI,0x1111
+    MOV DX,0X2222
+    ADD SI, DX 
+    hlt
+    
+var1: dw 0x1111
+
+start:
+    mov DI, 0x1110
+    add DI, 0x5000
+    
+hlt
+
+var1: dw 0x1111
+
+start:
+    mov DI, 0xffff
+    add DI, 0x0001
+    
+hlt
+
+// estouro
+
+
+
+start:
+    mov si, 0x1000
+    mov di, 0x1000
+    stc // provoca um carryFlag 
+    adc si,di
+    
+hlt
+
+
+start:
+    stc
+    mov cl, 0x99
+    adc byte [0000], cl
+    
+hlt
+
+
+start:
+    MOV AX, 0X4444
+    MOV BX, 0X1111
+    SUB AX,BX
+hlt
+
+
+start:
+    MOV AX, 0X0000
+    MOV BX, 0X0001
+    SUB AX,BX
+hlt
+
+var1: dw 0x8888
+start:
+    MOV BX, 0X0001
+    SUB WORD var1, BX
+hlt
+
+var1: dw 0x8888
+start:
+    SUB byte var1, 1
+hlt
+
+var1: dw 0x8888
+start:
+    SUB byte var1, 1
+    JMP start
+
+
+var1: dw 0x8888
+start:
+    SUB WORD var1, 1
+    JMP start
+
+
+start:
+    MOV DL, 0X11
+    MOV DH, 0X01
+    SUB DL, DH
+    HLT
+
+start:
+    MOV DI, 0X1000
+    ADD DI, 4 ; OCUPA 3BYTES
+    INC DI ; OCUPA 1 BYTE
+    HLT
+
+contador: dw 0x0000
+
+start:
+    inc WORD contador
+    jmp start
+
+
+contador: dw 0x0005
+
+start:
+    sub byte contador, 1
+    jz igual
+    jmp start
+    
+igual:
+hlt
+
+
+start:
+    MOV AL, 2
+    NEG AL
+    HLT
+
+start:
+    mov dx, 2
+    neg dx
+    hlt
+
+temperatura: dw 0x0002
+
+start:
+    neg  word temperatura
+    hlt
+
+start:
+    mov ax, 1
+    mov bx, 1
+    sub ax,bx
+    jz iguais
+    hlt
+iguais:
+hlt
+// comparando
+
+start:
+    mov ax, 1
+    mov bx, 1
+    cmp ax,bx
+hlt
+// comparando da melhor forma
+
+start:
+    mov ax, 1
+    mov bx, 1
+    cmp ax,bx
+    je iguais
+hlt
+
+iguais:
+hlt
+
+JUMP INCONDICIONAL:
+;JMP => JUMP
+
+JUMPS CONDICIONAIS:
+;JNE => JUMP NOT EQUAL
+;JL => JUMP IF LESS
+;JG => JUMP IF GREATER
+;JNL => JUMP IF NOT LESS
+;JNG => JUMP IF NOT GREATER
+;JNLE => JUMP IF NOT LESS OR EQUAL
+;JNGE => JUMP IF NOT GREATER OR EQUAL
+;JC => JUMP IF CARRY
+;JNZ => JUMP NOT EQUAL
+
+
+start:
+    mov ax, 1
+    mov bx, 2
+    cmp ax,bx
+    jg maior
+    hlt
+maior:
+hlt 
+
+start:
+    mov ax, 1
+    mov bx, 2
+    cmp ax,bx
+    jl menor
+    hlt
+menor:
+hlt 
+
+start:
+    mov ax, 1
+    mov bx, 2
+    cmp ax,bx
+    jnl pulesenaoformenor
+    hlt
+pulesenaoformenor:
+hlt 
+
+
+CONTADOR: DW 0X2000
+
+start:
+    MOV BX, 0X1000
+    CMP WORD CONTADOR, BX
+    JE IGUAL
+    HLT
+IGUAL:
+HLT
+
+
+start:
+    mov al, 7
+    mov bl, 6
+    mul bl
+    hlt
+
+multiplicador: db 90
+start:
+    mov al, 182
+    mul byte multiplicador
+    hlt
+
+multiplicador: dw 90
+start:
+    mov ax, 20000
+    mul word multiplicador
+    hlt
+
+
+start:
+    mov al, 5
+    mov bl, 5
+    div bl
+    hlt
+
+
+start:
+    mov ax, 50001
+    mov cx, 10000
+    div cx
+    hlt
+    ; resto fica em dl
+
+
+start:
+    mov ah, 2
+    mov dl, 0x41
+    int 0x21
+
+Exercício
+
+hora: db 0x23
+minuto: db 0x59
+segundos: db 0x55
+start:
+    ADD byte segundos, 1
+    MOV BL, 0X59
+    SUB BL, byte segundos
+    JZ INCREMENTAMINUTO
+    JMP start
+INCREMENTAMINUTO:
+    MOV byte segundos, 00
+    MOV BL, 0x59
+    SUB BL, byte minuto
+    JZ INCREMENTAHORA
+    INC byte minuto
+    JMP start
+INCREMENTAHORA:
+    MOV byte minuto, 00
+    MOV BL, 0x23
+    SUB BL, byte hora
+    JZ ZERARHORAMINUTOSEGUNDO
+    INC byte hora
+    JMP start
+ZERARHORAMINUTOSEGUNDO:
+    MOV byte hora, 00
+    MOV byte minuto, 00
+    MOV byte segundos, 00
+    JMP start
+-------------------------------------------------------------------------------------------------------------------
+01/09/2022
+
+//NOT
+start:
+    MOV BX, 0B1010101010101010; AAAA
+    
+    NOT BX
+    
+    hlt
+
+var1: db 0B10101010; AAAA
+start:
+    
+    NOT byte var1
+    
+    hlt
+
+//AND
+
+var1: db 0b10101110
+start:
+    mov DL, 0b10101001
+    
+    and byte var1, DL
+    hlt
+
+start:
+    MOV DL, 0b10101001
+    AND DL, 0b00001000 ;acender aquele bit
+    CMP DL, 0b00001000
+    JE ACESO
+    JMP APAGADO
+ACESO:
+    hlt
+APAGADO:
+    hlt
+
+status: db 0b10101001
+start:
+    AND byte status, 0b00001000 ;acender aquele bit
+    CMP byte status, 0b00001000
+    JE ACESO
+    JMP APAGADO
+ACESO:
+    hlt
+APAGADO:
+    hlt
+
+status: dw 0b1010101100001010
+start:
+    and word status, 0b0000000100000010
+    cmp word status, 0b0000000100000010
+    je colisao
+    jmp semcolisao
+    
+colisao:
+    hlt
+semcolisao:
+    hlt
+
+start:
+    mov CL, 0b11111111
+    and CL, 0b00001111
+    hlt
+
+//OR
+
+start:
+    mov al, 0b01000100
+    or al, 0b00000010; or serve para acender determinado bit
+    hlt
+
+start:
+    mov al, 0b00000000
+    or al,  0b00000101; or serve para acender determinado bit
+    and al, 0b11111101
+    hlt
+
+//XOR
+
+start:
+    mov al, 0b00000000;1byte + 2bytes
+    xor al,al; 1 byte
+    hlt
+
+contador: db 0x11
+start:
+    mov al, byte contador
+    xor byte contador, al
+    hlt
+
+//TEST
+
+start:
+    ;TEST essa instrução é igual ao and, ou seja, é igual. Mas tem uma diferença
+    ;AND AL, 0b11111111
+    ;TEST al, 0b1111111; faz a mesma coisa que o and, mas testa o estado de um bit, se está aceso ou apagado. Usando o flag z
+    MOV AL,  0b10001110
+    TEST AL, 0b00000001
+    ;se o bit selecionado estiver apagado flag z acende, se o bit selecionado estiver acesso ele apaga
+    JZ APAGADO
+    JMP ACESO
+    
+    APAGADO:
+    HLT
+    ACESO:
+    HLT
+
+/SHL
+
+start:
+    mov al, 0b00000010
+    mov bl, 2
+    mul bl
+    ;ax = al * bl 2 * 2 = 4
+    shl al, 1
+    ;joga os bits para esquerda
+
+start:
+    mov al, 2
+    shl al, 2
+
+//SHR
+
+start:
+    mov al, 16
+    shr al, 2
+    ;joga os bits para esquerda
+
+//INT
+
+start:
+    MOV AH,2 ; servico imprimir caracter
+    MOV DL,48 ; CODIGO ASCII DO "0"
+    INT 0x21 ; chama o S.O
+    
+    MOV AH,2 ; servico imprimir caracter
+    MOV DL,49 ; CODIGO ASCII DO "1"
+    INT 0x21 ; chama o S.O
+    
+    
+    MOV AX, 0b1000010001111000
+    SHL AX,1
+    JC  IMPRIMIR_1
+    JMP IMPRIMIR_0
+
+IMPRIMIR_1:
+    HLT
+    
+IMPRIMIR_0:
+    HLT
+    
+
+start:
+    MOV CX, 16
+    MOV BX, 0b1000010001111000
+ROTATE:
+    SHL BX,1
+    JC  IMPRIMIR_1
+    JMP IMPRIMIR_0
+
+IMPRIMIR_1:
+    MOV AH,2 ; servico imprimir caracter
+    MOV DL,49 ; CODIGO ASCII DO "1"
+    INT 0x21 ; chama o S.O
+    JMP SAIDA
+    
+IMPRIMIR_0:
+    MOV AH,2 ; servico imprimir caracter
+    MOV DL,48 ; CODIGO ASCII DO "0"
+    INT 0x21 ; chama o S.O
+    JMP SAIDA
+SAIDA:
+    DEC CX
+    CMP CX, 0
+    JE FIM
+    JMP ROTATE
+FIM:
+HLT
+-------------------------------------------------------------------------------------------------------------------
+08/09/2022
+
+org 0
+mov si, offset mens1
+mov di, offset mens2
+ret
+
+mens1 db "hello"
+mens2 db "world"
+
+
+
+org 0
+jmp anao
+mens1 db "hello"
+mens2 db "world"
+anao:
+mov si, offset mens1
+mov di, offset mens2
+ret
+
+
+org 0
+mov ah,2
+mov dl, "a"
+int 0x21
+
+mov ah,2
+mov dl, "a"
+int 0x21
+ret
+
+org 0
+lea si, var1; load effective address (mov si, offset var1)
+lea di, var2; (mov di, offset var2)
+movsb ; copia o que está apontado em si e copia para o endereço di
+movsb
+ret
+
+var1 db "oi"
+var2 db "  "
+
+org 0
+lea si, var1; load effective address (mov si, offset var1)
+lea di, var2; (mov di, offset var2)
+mov cx, 2
+rep movsb
+ret
+
+var1 db "oi"
+var2 db "  "
+
+
+org 0
+mov cx, 10
+decrementando:
+dec cx
+jz fim
+jmp decrementando
+fim:
+ret
+
+
+org 0
+lea si, mens1
+lea di, mens2
+cmpsb; compara se [si] == [di], se for igual, flagz = 1 e si = si + 1
+cmpsb
+cmpsb
+cmpsb
+cmpsb
+ret
+
+mens1 db "hello"
+mens2 db "hello"
+
+org 0
+lea si, mens1
+lea di, mens2
+mov al, [si]
+mov ah, [di]
+cmp al, ah
+jz iguais
+iguais:
+ret
+
+mens1 db "hello"
+mens2 db "hello"
+
+
+org 0
+mov ax, 0x1234
+mov bx, 0x5678
+push ax
+push bx
+pop ax
+pop bx
+ret
+
+
+org 0
+mov ax, 0x1234
+mov bx, 0x5678
+xchg ax, bx; trocar os valores (exchange)
+ret
+
+org 0
+CALL AAAA
+RET
+
+AAAA:	
+	CALL BBBB;
+	RET
+BBBB:
+	CALL CCCC
+	RET
+CCCC:
+	RET
+
+org 0
+lea di, mensagem
+busca:
+mov al, [di]
+cmp al, 0
+je fim_expressao
+
+mov ah, 2
+mov dl, al
+int 33
+
+inc di
+jmp busca
+ret
+
+fim_expressao:
+ret
+mensagem dw "Luiz Henrique Martendal"

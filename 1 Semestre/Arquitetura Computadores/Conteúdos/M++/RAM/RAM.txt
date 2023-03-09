@@ -1,0 +1,11 @@
+	MOV 03,#0C; //4 ESCRITAS NA RAM
+	MOV 04,#0D;
+	MOV 05,#0E;
+	MOV 06,#0F;
+
+	MOV #0C,A;
+	MOV #0D,A;
+	MOV #0E,A;
+	MOV #0F,A;
+
+FIM:	JMP FIM;

@@ -1,0 +1,142 @@
+1)	Escreva um programa (8086) para transferir o bloco de dados em VAR1 para nova localização VAR2.
+VAR1 contém 8,3,4,4,5
+
+org 0h
+lea si, var1
+lea di, var2
+mov cx, 5
+rep movsb
+
+ret
+var1 db 8,3,4,4,5
+var2 db 0,0,0,0,0
+
+2)	Escreva um programa (8086) para exibir “COMPUTACAO”, no terminal Burro, o texto se encontra em VAR1.
+Chamada ao S.O
+MOV AH,2
+MOV DL,xx
+INT 0x21
+
+org 0h
+lea di, var1
+busca:
+mov al, [di]
+cmp al, 0
+jz fim_expressao
+
+mov ah, 2
+mov dl, al
+int 33
+
+inc di
+jmp busca
+ret
+
+fim_expressao:
+ret
+
+var1 db "COMPUTACAO"
+
+3)	Escreva um programa (8086) para reverter a sequência de dados em VAR1, que contém “LEUGIM”,0
+
+org 0h 
+lea di, var1
+empilhando:
+mov ax, [di]
+cmp cx, 6
+je desempilhar
+push ax
+inc cx
+inc di
+jmp empilhando
+ret
+desempilhar:
+pop ax
+mov ah,2
+mov dl, al
+int 0x21
+dec cx
+cmp cx, 0
+je fim
+jmp desempilhar
+ret
+fim:
+ret
+
+var1 db "LEUGIM",0
+
+4)	Escreva um programa (8086) que faça a soma da série de 10 números e o resultado seja colocado em DL
+2,3,4,5,6,3,5,4,6,9,"$"
+
+
+org 0h 
+lea di, var
+empilhando:
+mov al, [di]
+cmp cx, 10
+je desempilhar
+push ax
+inc cx
+inc di
+jmp empilhando
+ret
+desempilhar:
+pop ax
+add dl, al
+dec cx
+cmp cx, 0
+je fim
+jmp desempilhar
+ret
+fim:
+ret
+
+var db 2,3,4,5,6,3,5,4,6,9,"$"
+
+5)	Escreva um programa (8086) que encontre número de vezes que a letra ‘e’ existe em "exercicio",0, armazene a contagem em AH
+
+org 0h
+lea di, var1
+loop1:
+mov bl, [di]
+cmp bl, 69
+jz igual
+inc di
+inc cx
+cmp cx, 9
+jz fim
+jmp loop1
+igual:
+inc di
+inc ah
+jmp loop1
+fim:
+ret
+var1 db "exercicio",0
+
+6)	Escreva um programa para encontrar o maior número. em um bloco de dados que se encontra em VAR1, colocar em DH
+2,3,4,5,6,9,5,4,6,3
+
+
+org 0h 
+lea di, var
+verifica:
+mov al, [di]
+cmp cx, 10
+je fim
+inc cx
+inc di
+mov dl, dh
+sub dl, al
+jc adiciona
+jmp verifica
+ret
+adiciona:
+mov dh, al
+jmp verifica
+ret
+
+fim:
+ret
+
+var db 2,3,4,5,6,3,5,4,6,9,"$"

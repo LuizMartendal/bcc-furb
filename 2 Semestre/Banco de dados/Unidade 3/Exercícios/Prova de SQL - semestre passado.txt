@@ -1,0 +1,111 @@
+1. (2,5 Pontos) Criação das tabelas com as respectivas colunas e restrições. Observe que a(s) coluna(s) que corresponde(m) a "PK" apresenta o símbolo de uma chave à esquerda, enquanto a FK segue o padrão já conhecido;
+
+CREATE TABLE categoria (
+cd_categoria INTEGER,
+ds_categoria VARCHAR(50),
+CONSTRAINT PRIMARY KEY (cd_categoria) 
+);
+
+CREATE TABLE hotel (
+cd_hotel   INTEGER,
+nm_hotel   VARCHAR(50),
+ds_website VARCHAR(50),
+ds_email   VARCHAR(50),
+CONSTRAINT PRIMARY KEY (cd_hotel)
+);
+
+CREATE TABLE funcionario (
+cd_funcionario INTEGER,
+cd_hotel       uINTEGER,
+nm_funcionario VARCHAR(50),
+ds_email	VARCHAR(50),
+CONSTRAINT PRIMARY KEY (cd_funcionario),
+CONSTRAINT cd_hotel_fk FOREIGN KEY (cd_hotel) REFERENCES hotel (cd_hotel)
+);
+
+CREATE TABLE quarto (
+nr_quarto    INTEGER,
+cd_hotel     INTEGER,
+cd_categoria INTEGER,
+ds_quarto    VARCHAR(50),
+nr_ocupantes INTEGER,
+CONSTRAINT PRIMARY KEY (nr_quarto, cd_hotel),
+CONSTRAINT cd_categoria_fk FOREIGN KEY (cd_categoria) REFERENCES categoria (cd_categoria)
+);
+
+2. (1,0 Ponto) Considerando a existência das estruturas (questão 1 - tabelas e restrições criadas), construa um conjunto de sentenças SQL para:
+
+    a) Alterar a coluna “DS_EMAIL” da tabela “FUNCIONARIO” para aceitar valores até 100 posições;
+
+ALTER TABLE funcionario 
+	MODIFY ds_email VARCHAR(100);
+
+
+    b) Criar uma restrição para a coluna “DS_CATEGORIA” da tabela “CATEGORIA” para que não permita a inclusão de valores repetidos;
+
+ALTER TABLE categoria
+	ADD CONSTRAINT ds_categoria_uk UNIQUE (ds_categoria);
+
+3. (1,0 Ponto) Inclusão de registros para, no mínimo: 03 (três) hotéis, 10 (dez) quartos em 03 (três) diferentes categorias de quarto. Ainda, inclusão de 05 (cinco) funcionários ligados em, no mínimo, 02 (dois) diferentes hotéis;
+
+INSERT INTO categoria (cd_categoria, ds_categoria) VALUES (1, "Normmal");
+INSERT INTO categoria (cd_categoria, ds_categoria) VALUES (2, "Luxo");
+INSERT INTO categoria (cd_categoria, ds_categoria) VALUES (3, "Super luxo");
+
+INSERT INTO hotel (cd_hotel, nm_hotel, ds_website, ds_email) VALUES (1, "Hotel um", "hotelum.com.br", "hotelum@gmail.com");
+INSERT INTO hotel (cd_hotel, nm_hotel, ds_website, ds_email) VALUES (2, "Hotel dois", "hoteldois.com.br", "hoteldois@gmail.com");
+INSERT INTO hotel (cd_hotel, nm_hotel, ds_website, ds_email) VALUES (3, "Hotel tres", "hoteltres.com.br", "hoteltres@gmail.com");
+
+INSERT INTO funcionario (cd_funcionario, cd_hotel, nm_funcionario, ds_email) VALUES (1, 1, "fun 11", "fun11@g.com");
+INSERT INTO funcionario (cd_funcionario, cd_hotel, nm_funcionario, ds_email) VALUES (2, 1, "fun 12", "fun12@g.com");
+INSERT INTO funcionario (cd_funcionario, cd_hotel, nm_funcionario, ds_email) VALUES (3, 1, "fun 13", "fun13@g.com");
+INSERT INTO funcionario (cd_funcionario, cd_hotel, nm_funcionario, ds_email) VALUES (4, 1, "fun 14", "fun14@g.com");
+INSERT INTO funcionario (cd_funcionario, cd_hotel, nm_funcionario, ds_email) VALUES (5, 1, "fun 15", "fun15@g.com");
+INSERT INTO funcionario (cd_funcionario, cd_hotel, nm_funcionario, ds_email) VALUES (6, 2, "fun 11", "fun11@g.com");
+INSERT INTO funcionario (cd_funcionario, cd_hotel, nm_funcionario, ds_email) VALUES (7, 2, "fun 12", "fun12@g.com");
+INSERT INTO funcionario (cd_funcionario, cd_hotel, nm_funcionario, ds_email) VALUES (8, 2, "fun 13", "fun13@g.com");
+INSERT INTO funcionario (cd_funcionario, cd_hotel, nm_funcionario, ds_email) VALUES (9, 2, "fun 14", "fun14@g.com");
+INSERT INTO funcionario (cd_funcionario, cd_hotel, nm_funcionario, ds_email) VALUES (10, 2, "fun 15", "fun15@g.com");
+INSERT INTO funcionario (cd_funcionario, cd_hotel, nm_funcionario, ds_email) VALUES (11, 3, "fun 13", "fun13@g.com");
+INSERT INTO funcionario (cd_funcionario, cd_hotel, nm_funcionario, ds_email) VALUES (12, 3, "fun 14", "fun14@g.com");
+INSERT INTO funcionario (cd_funcionario, cd_hotel, nm_funcionario, ds_email) VALUES (13, 3, "fun 15", "fun15@g.com");
+
+INSERT INTO quarto (nr_quarto, cd_hotel, cd_categoria, ds_quarto, nr_ocupantes) VALUES (1, 1, 1, "Grande", 8);
+INSERT INTO quarto (nr_quarto, cd_hotel, cd_categoria, ds_quarto, nr_ocupantes) VALUES (2, 1, 2, "Pequeno", 3);
+INSERT INTO quarto (nr_quarto, cd_hotel, cd_categoria, ds_quarto, nr_ocupantes) VALUES (3, 1, 3, "Médio", 5);
+INSERT INTO quarto (nr_quarto, cd_hotel, cd_categoria, ds_quarto, nr_ocupantes) VALUES (4, 1, 1, "Grande", 8);
+INSERT INTO quarto (nr_quarto, cd_hotel, cd_categoria, ds_quarto, nr_ocupantes) VALUES (5, 2, 2, "Médio", 5);
+INSERT INTO quarto (nr_quarto, cd_hotel, cd_categoria, ds_quarto, nr_ocupantes) VALUES (6, 2, 3, "Grande", 8);
+INSERT INTO quarto (nr_quarto, cd_hotel, cd_categoria, ds_quarto, nr_ocupantes) VALUES (7, 2, 1, "Médio", 5);
+INSERT INTO quarto (nr_quarto, cd_hotel, cd_categoria, ds_quarto, nr_ocupantes) VALUES (8, 3, 3, "Grande", 8);
+INSERT INTO quarto (nr_quarto, cd_hotel, cd_categoria, ds_quarto, nr_ocupantes) VALUES (9, 3, 3, "Médio", 5);
+INSERT INTO quarto (nr_quarto, cd_hotel, cd_categoria, ds_quarto, nr_ocupantes) VALUES (10, 3, 1, "Pequeno", 3);
+
+4. (1,0 Ponto) Exibir o nome de todos os funcionários com o respectivo hotel em que está lotado, ordenados pelo nome do hotel, seguido pelo nome do funcionário (ordenação crescente);
+
+SELECT h.nm_hotel AS "Hotel", f.nm_funcionario AS "Funcionario"
+FROM funcionario f 
+	JOIN hotel h ON f.cd_hotel = h.cd_hotel
+ORDER BY h.nm_hotel ASC
+
+5. (1,5 Pontos) Listar os nomes dos hotéis e a descrição da(s) categoria(s) de quarto que cada hotel listado oferece. O resultado desta questão poderá apresentar linhas repetidas (nome do hotel) caso apresente mais de uma categoria associada;
+
+SELECT h.nm_hotel AS "Hotel", GROUP_CONCAT(DISTINCT c.ds_categoria SEPARATOR ", ") AS "Categoria"
+FROM categoria c 
+	JOIN quarto q ON c.cd_categoria = q.cd_categoria,
+	hotel h
+WHERE h.cd_hotel = q.cd_hotel
+GROUP BY h.nm_hotel
+
+6. (1,5 Pontos) Recuperar as categorias (descrição) com a respectiva quantidade de quartos associados a cada categoria listada;
+
+SELECT c.ds_categoria AS "Categoria", COUNT(q.nr_quarto)
+FROM categoria c
+	JOIN quarto q ON c.cd_categoria = q.cd_categoria
+GROUP BY c.ds_categoria
+
+7. (1,5 Pontos) Exibir a descrição da(s) categoria(s) que possui(em) o menor número de quartos cadastrados em toda a rede. Lembro que pode haver mais de uma categoria com a mesma quantidade mínima.
+
+SELECT c.ds_categoria
+FROM categoria c 
+WHERE c.cd_categoria <= all (SELECT COUNT(c.cd_categoria) AS a FROM categoria c JOIN quarto q ON c.cd_categoria = q.cd_categoria GROUP BY c.cd_categoria)

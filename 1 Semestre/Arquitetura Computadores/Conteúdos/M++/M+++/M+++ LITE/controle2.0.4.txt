@@ -1,0 +1,150 @@
+IC-0
+IC-W
+RI-W
+AC-W
+AC-R
+Buf-W
+ULA-R
+Reg-W
+Reg-R
+IN
+OUT
+SP+1
+SP-1
+End-W
+PC+1
+PCH-R
+PCH-W
+PCH-WC
+PCH-WZ
+PCL-R
+PCL-W
+PCL-WC
+PCL-WZ
+STACK-W
+STACK-R
+RAM-W
+RAM-R
+ROM-R
+VAZIO
+VAZIO
+VAZIO
+HD
+
+*
+  // buscar instrução
+  ROM-R RI-W PC+1
+  IC-W
+	
+  // 000 - AC * AC -> AC
+* AC-R Buf-W
+  ULA-R AC-W IC-0
+
+  // 001 - AC * AC -> REG (1 byte)
+* AC-R Buf-W
+  ULA-R Reg-W IC-0
+
+  // 010 - AC * AC -> RAM (2 bytes)
+* ROM-R End-W PC+1
+  AC-R Buf-W
+  ULA-R RAM-W IC-0
+
+  // 011 - AC * AC -> OUT (1 byte)
+* AC-R Buf-W
+  ULA-R OUT IC-0
+
+  // 100 - AC * REG -> AC (1 byte) mov B, A; Add B,A; A<-A+B
+* Reg-R Buf-W
+  ULA-R AC-W IC-0
+
+  // 101 - AC * RAM -> AC (2 bytes)
+* ROM-R End-W PC+1
+  RAM-R Buf-W
+  ULA-R AC-W IC-0
+
+  // 110 - AC * IN -> AC (1 byte)
+* IN Buf-W
+  ULA-R AC-W IC-0
+
+  // 111 - High Decoder
+* ROM-R RI-W HD PC+1
+  IC-W
+
+  // 000 - AC * dado -> AC (3 bytes) mov 32,A; Add 32,A
+* ROM-R Buf-W PC+1
+  ULA-R AC-W IC-0
+
+  // 001 - AC * dado -> REG (3 bytes) add 20, B
+* ROM-R Buf-W PC+1
+  ULA-R Reg-W IC-0
+
+  // 010 - AC * dado -> RAM (3 bytes)
+* ROM-R Buf-W PC+1
+  ROM-R End-W PC+1
+  ULA-R RAM-W IC-0
+
+  // 011 - JMP (jump) (4 byte)
+  // poe na pilha
+* SP-1 ROM-R STACK-W PC+1
+  ROM-R PCL-W
+  SP+1 STACK-R PCH-W IC-0
+  
+  // 100 - JMPC (jump se flag C ativo) (4 byte)
+  // poe na pilha
+* SP-1 ROM-R STACK-W PC+1
+  SP-1 ROM-R STACK-W PC+1
+  SP+1 STACK-R PCL-WC
+  SP+1 STACK-R PCH-WC IC-0
+
+  // 101 - JMPZ (jump se flag Z ativo) (4 byte)
+* SP-1 ROM-R STACK-W PC+1
+  SP-1 ROM-R STACK-W PC+1
+  SP+1 STACK-R PCL-WZ
+  SP+1 STACK-R PCH-WZ IC-0
+
+  // 110 - CALL (chamada de procedimento) (4 byte)
+* SP-1 PCH-R STACK-W
+  SP-1 PCL-R STACK-W
+  SP-1 ROM-R STACK-W PC+1
+  ROM-R PCL-W
+  SP+1 STACK-R PCH-W IC-0
+
+  // 111 - High Decoder
+* ROM-R RI-W HD PC+1
+  IC-W
+
+  // 000 - RET (retorno de procedimento) (3 byte -> highdecoder, highdecoder, 000)
+* SP+1 STACK-R PCL-W
+  SP+1 STACK-R PCH-W
+  PC+1
+  PC+1 IC-0
+
+  // 001 - AC * #REG -> AC (3 bytes -> highdecoder, highdecoder, 001) (#REG enderecamento indireto)
+* Reg-R End-W
+  RAM-R Buf-W
+  ULA-R AC-W IC-0
+
+  // 010 - AC * AC -> #REG (3 bytes -> highdecoder, highdecoder, 001) (#REG enderecamento indireto)
+* Reg-R End-W
+  AC-R Buf-W
+  ULA-R RAM-W IC-0
+    
+  // 011 - PUSH REG (3 bytes -> highdecoder, highdecoder, 011)
+* SP-1 Reg-R STACK-W IC-0
+  
+  // 100 - POP REG (3 bytes -> highdecoder, highdecoder, 100)
+* SP+1 STACK-R Reg-W IC-0
+  
+  // 101 - PUSHA (3 bytes -> highdecoder, highdecoder, 101)
+* SP-1 AC-R STACK-W IC-0
+  
+  // 110 - POPA (3 bytes -> highdecoder, highdecoder, 110)
+* SP+1 STACK-R AC-W IC-0
+
+  // 111 - nenhuma operacao
+* IC-0 
+
+// caso for adicionar mais instruções na M++, substitua a operação acima 111, pelo High Decoder abaixo
+//* ROM-R RI-W HD PC+1
+//  IC-W
+

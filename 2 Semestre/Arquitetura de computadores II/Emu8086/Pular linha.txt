@@ -1,0 +1,14 @@
+PULA_LINHA:                       
+PUSHF
+PUSH AX
+PUSH DX
+MOV AH,2  ; socorro, destruiram ax
+MOV DL,13          
+INT 21H
+MOV AH,2  ; socorro, destruiram ax
+MOV DL,10
+INT 21H
+POP DX          
+POP AX
+POPF
+RET 

@@ -1,0 +1,10 @@
+MOV 99, B;
+	MOV 88, C;
+
+	PUSH B;
+	PUSH C;
+
+	POP B; 
+	POP C;
+
+FIM:	JMP FIM;

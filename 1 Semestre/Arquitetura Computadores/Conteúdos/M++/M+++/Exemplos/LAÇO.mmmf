@@ -1,0 +1,14 @@
+MOV 00,B;
+
+FILL:
+	MOV 99,A;
+	MOV A,#B;
+	MOV B, A;
+	ADD 01, B;
+
+	MOV B, A;
+	SUB 00, A;
+	JMPZ FIM;
+JMP FILL;
+
+FIM:	JMP FIM;

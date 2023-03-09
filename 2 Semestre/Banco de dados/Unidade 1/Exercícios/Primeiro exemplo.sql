@@ -1,0 +1,1 @@
+INSERT INTO func VALUES(110, 'Maria', 5);

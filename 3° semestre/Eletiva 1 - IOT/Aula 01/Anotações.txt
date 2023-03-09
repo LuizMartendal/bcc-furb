@@ -1,0 +1,39 @@
+Ambientes de trabalho:
+	* Tinkercad
+	* Wokwy
+	* Piclab
+- Sensores
+- 
+- Interface de rede
+	- WIFI	
+	- Bluetooth
+	- RJ45
+	- 5G
+	- Lora / LoraWan
+
+www.visuino.com
+Versão PRO
+
+Exemplo acender led:
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(13, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  digitalWrite(13, HIGH);
+  delay(1000);
+  digitalWrite(13, LOW);
+  delay(1000);
+}
+
+Anotações no DontPad:
+
+https://furb-my.sharepoint.com/:u:/g/personal/maw_furb_br/EaWHPp4KzPZCitET1SIyyt4BRkO7tpaNbm7jiNjOFpDHCw?e=uvmfye
+
+https://sourceforge.net/projects/picsim/
+
+https://furb-my.sharepoint.com/:u:/g/personal/maw_furb_br/ETkuyrsF2mJKt5dtE3VuvOcBX1EV89Rwc4KT4padk97D_Q?e=5awcIA
+PICSIMLAB PORTABLE

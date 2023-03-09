@@ -1,0 +1,15 @@
+Arduino				Wiznet
+	Master		Slave
+	
+	Miso	<-	Miso
+	Mosi	->	Mosi
+	clk	(clock) clk
+	cs	----	cs
+
+MISO = Master Input Slave Output
+MOSI = Master Output Slave Input
+CLK = Clock
+CS = Ch Select
+
+
+Outro app usado "TeraTerm"

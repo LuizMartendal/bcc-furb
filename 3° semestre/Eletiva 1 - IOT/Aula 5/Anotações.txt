@@ -1,0 +1,66 @@
+
+https://furb-my.sharepoint.com/:u:/g/personal/maw_furb_br/ETkuyrsF2mJKt5dtE3VuvOcBX1EV89Rwc4KT4padk97D_Q?e=mobyZh
+,
+  "serialMonitor": 
+  {
+  "display": "terminal",
+  "newline": "lf"
+  }
+
+
+https://1drv.ms/u/s!Ak_-1v7Ug-k2gYJH8MbByQL4F_snVAe=stINUd
+
+VISUINO
+https://www.visuino.com/installs/Visuino_Pro_8_0_0_84Beta19.zip
+
+COM VIRTUAL
+https://sourceforge.net/projects/comcom/
+
+COM VIRTUAL II
+https://lcgamboa.github.io/picsimlab_do/stable/Com0comInstallationandConfigurationWindows.html#x40-390006.1
+
+
+VELHO
+https://sourceforge.net/projects/com0com/files/com0com/2.2.2.0/com0com-2.2.2.0-x64-fre-signed.zip/download
+
+https://sourceforge.net/projects/com0com/files/com0com/2.2.2.0/
+
+
+arduino zip
+https://furb-my.sharepoint.com/:u:/g/personal/maw_furb_br/EaWHPp4KzPZCitET1SIyyt4BRkO7tpaNbm7jiNjOFpDHCw?e=YVC0AH
+
+
+https://www.hivemq.com/public-mqtt-broker/
+http://www.hivemq.com/demos/websocket-client/
+http://www.mqtt-dashboard.com/
+
+topico
+testtopic/bcc
+
+
+https://ninab3-python.blogspot.com/2023/02/visuino-picsimlab-sending-hello-to-mqtt.html
+
+===================================
+1 - Tera Term
+2 - Com 0 Com
+
+Conexão com W5500
+P3 - MISO = PINO 12
+P5 - MOSI = PINO 11
+P6-RST = 0 NC
+P7-SCS = PINO 10
+P8-INT = 0 NC
+P9-SLCK = 13
+===================================
+
+testtopic/temperatura
+1883
+broker.hivemq.com
+
+oiiiii
+
+opala 6 caneco
+
+
+https://furb-my.sharepoint.com/:u:/g/personal/maw_furb_br/EeLTgDeNR65No8MXcsZXS-YBBeUedbKcIeSDVcRpsrTURQ?e=pyVehB
+https://furb-my.sharepoint.com/:u:/g/personal/maw_furb_br/EbGDz_KOktdHjw90fy2lOmkBdIRGTKrQlAhtrz3JieuGew?e=wE1MiW

@@ -1,0 +1,42 @@
+CREATE TABLE Genero (
+	cd_genero int not null,
+	ds_genero varchar(30) not null,
+	constraint primary key (cd_genero)
+);
+
+CREATE TABLE Censura (
+	cd_censura int not null,
+	ds_censura varchar(30) not null,
+	constraint primary key (cd_censura)
+);
+
+CREATE TABLE Filme (
+	cd_filme int not null,
+	cd_censura int not null,
+	cd_genero int not null,
+	nm_filme varchar(50) not null,
+	ds_sinopse varchar(250),
+	nr_duracao varchar(20),
+	dt_lancamento date,
+	fl_dublado char(1),
+	constraint primary key (cd_filme),
+	constraint Filme_Censura_fk foreign key (cd_censura)
+	references Censura (cd_censura),
+	constraint Filme_Genero_fk foreign key (cd_genero)
+	references Genero (cd_genero)
+);
+
+CREATE TABLE Ator (
+	cd_ator int not null,
+	nm_ator varchar(50) not null,
+	constraint primary key (cd_ator)
+);
+
+CREATE TABLE Filme_Ator (
+	cd_filme int not null,
+	cd_ator int not null,
+	constraint Filme_Ator_Ator_fk foreign key (cd_ator)
+	references Ator (cd_ator),
+	constraint Filme_Ator_Filme_fk foreign key (cd_filme)
+	references Filme (cd_filme)
+);

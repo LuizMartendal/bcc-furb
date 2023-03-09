@@ -1,0 +1,118 @@
+<html>
+
+<body>
+    <h1>Utilitário para montar memória de controle da M++</h1>
+
+
+    <table width="100%" border="1" cellpadding="10">
+        <tr>
+            <td colspan="4">
+                Abrir arquivos: <input type="file" id="file-input" />
+            </td>
+        </tr>
+        <tr>
+            <td width="100">
+                Controles: <br />
+                <textarea name="controles" id="controles" style="width: 100%" rows="30"></textarea>
+            </td>
+            <td>
+                Memória de Controle: <br />
+                <textarea name="memoria" id="memoria" style="width: 100%" rows="30"></textarea>
+            </td>
+            <td width="100">
+                Decoder: <br />
+                <textarea name="memDecode" id="memDecode" style="width: 100%" rows="30"></textarea>
+            </td>
+            <td width="100">
+                Memória: <br />
+                <textarea name="memControle" id="memControle" style="width: 100%" rows="30"></textarea>
+            </td>
+        </tr>
+    </table>
+
+    <script type="text/javascript">
+        var controlesMap = {};
+        var controles = document.getElementById("controles");
+        var memoria = document.getElementById("memoria");
+        var filein = document.getElementById('file-input');
+        var memControle = document.getElementById('memControle');
+        var memDecode = document.getElementById('memDecode');
+        var formato = "0";
+
+        function atualizarControles() {
+            controlesMap = {};
+            var lista = controles.value.split("\n").filter(function(lin){
+				lin = lin.trim();
+				if (lin.indexOf("//")!=0)
+					return lin.trim;
+			});
+            for (var i = lista.length - 1; i >= 0; i--) {
+                var key = lista[i].toLowerCase().trim();
+                if (key)
+                    controlesMap[key] = 2 ** i;
+            }
+            var len = lista.length / 4;
+            formato = "";
+            for (var i=0; i<len; i++) {
+                formato += "0";
+            }
+            atualizarMemoria();
+        };
+        controles.onkeyup = atualizarControles;
+        controles.onchange = atualizarControles;
+
+        function formata(hex) {
+            hex = hex.toString(16).toUpperCase();
+            var s = formato + hex;
+            return s.substr(s.length - formato.length);
+        }
+
+        function atualizarMemoria() {
+            var decode = [];
+            var saida = [];
+            var linhas = memoria.value.split("\n").filter(function(lin){
+				lin = lin.trim();
+				if (lin.indexOf("//")!=0)
+					return lin.trim;
+			});
+            for (var i = 0; i < linhas.length; i++) {
+				var content = linhas[i].split(/ +/);
+                var hex = 0;
+                for (var j = 0; j < content.length; j++) {
+                    var comando = content[j].toLowerCase().trim();
+                    if (controlesMap[comando]) {
+                        hex += controlesMap[comando];
+                    }
+                }
+                if (linhas[i].trim().indexOf("*")==0){
+                    decode.push(i.toString(16).toUpperCase());
+                }
+                saida.push(formata(hex));
+            }
+            memDecode.value = decode.join("\n");
+            memControle.value = saida.join("\n");
+        }
+
+        memoria.onkeyup = atualizarMemoria;
+        memoria.onchange = atualizarMemoria;
+
+        filein.onchange = function (e) {
+            var file = e.target.files[0];
+            if (!file) {
+                return;
+            }
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var contents = e.target.result;
+                var marca = contents.indexOf("*");
+                controles.value = contents.substr(0, marca).trim();
+                controles.onchange();
+                memoria.value = contents.substr(marca+1, contents.length).trim();
+                memoria.onchange();
+            };
+            reader.readAsText(file);
+        }
+    </script>
+</body>
+
+</html>

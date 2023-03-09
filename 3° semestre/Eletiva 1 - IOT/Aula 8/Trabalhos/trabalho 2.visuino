@@ -1,0 +1,898 @@
+{
+  "Config": {
+    "Build": {
+      "Board": "arduino:avr:mega:cpu=atmega2560"
+    }
+  },
+  "Version": "2",
+  "Product": "Visuino Pro - Visual Arduino Programming",
+  "Content": "OpenWire Diagram",
+  "Units": [
+    {
+      "Type": "Diagram",
+      "Name": "__OpenWireRootUnit__",
+      "*": [
+        {
+          "X": 1952,
+          "Name": "Arduino",
+          "Instance": {
+            "Serial": {
+              "*": [
+                {
+                  "+": "TArduinoHardwareSerial"
+                },
+                {
+                  "+": "TArduinoHardwareSerial"
+                },
+                {
+                  "+": "TArduinoHardwareSerial"
+                },
+                {
+                  "+": "TArduinoHardwareSerial"
+                }
+              ]
+            },
+            "+": "TArduinoBoard",
+            "Modules": {
+              "*": [
+                {
+                  "+": "TArduinoEEPROMModule"
+                },
+                {
+                  "+": "TArduinoWatchdogTimerModule"
+                },
+                {
+                  "+": "TArduinoProcessor2560Module"
+                }
+              ]
+            },
+            "I2CChannels": {
+              "*": [
+                {
+                  "InputPin": {
+                    "SourcePins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.Pressure1.OutputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoI2C"
+                }
+              ]
+            },
+            "Digital": {
+              "*": [
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.LedController1.ChipSelectOutputPin"
+                    }
+                  },
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial3Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial3Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial2Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial2Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial1InterruptChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial1InterruptChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalI2C0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalI2C0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                }
+              ]
+            },
+            "SPIChannels": {
+              "*": [
+                {
+                  "InputPin": {
+                    "SourcePins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.LedController1.OutputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoSPI"
+                }
+              ]
+            },
+            "BoardType": "Arduino Mega 2560"
+          },
+          "Type": "Component",
+          "Y": 256
+        },
+        {
+          "X": 1632,
+          "Name": "LedController1",
+          "Instance": {
+            "PixelGroups": {
+              "*": [
+                {
+                  "Name": "2D Graphics1",
+                  "MirrorHorizontal": true,
+                  "+": "TArduinoMaximLedGraphics2DPixelGroup",
+                  "ReverseHorizontal": true,
+                  "Width": 80,
+                  "Elements": {
+                    "*": [
+                      {
+                        "ClockInputPin": {
+                          "SourcePins": [
+                            {
+                              "Name": "__OpenWireRootUnit__.IntegerMultiSource1.OutputPins.Pin [2]",
+                              "ID": "__OpenWireRootUnit__.IntegerMultiSource1.OutputPins._Pin2"
+                            }
+                          ]
+                        },
+                        "InputPin": {
+                          "SourcePin": {
+                            "ID": "__OpenWireRootUnit__.TextMux1.OutputPin"
+                          }
+                        },
+                        "+": "TArduinoMonochromeGraphicsElementTextFeld",
+                        "Wrap": false,
+                        "@": [
+                          {
+                            "PinName": "PixelGroups.Item [ 0 ].Elements.Item [ 0 ].X",
+                            "@": "X",
+                            "+": "TOWIntegerSinkPinBinding",
+                            "SourcePin": {
+                              "Name": "__OpenWireRootUnit__.IntegerMultiSource1.OutputPins.Pin [1]",
+                              "ID": "__OpenWireRootUnit__.IntegerMultiSource1.OutputPins._Pin1"
+                            },
+                            "Component": "LedController1"
+                          },
+                          {
+                            "PinName": "PixelGroups.Item [ 0 ].Elements.Item [ 0 ].Y",
+                            "@": "Y",
+                            "+": "TOWIntegerSinkPinBinding",
+                            "SourcePin": {
+                              "Name": "__OpenWireRootUnit__.IntegerMultiSource1.OutputPins.Pin [1]",
+                              "ID": "__OpenWireRootUnit__.IntegerMultiSource1.OutputPins._Pin1"
+                            },
+                            "Component": "LedController1"
+                          }
+                        ],
+                        "Name": "Text Field1",
+                        "InitialValue": "",
+                        "HorizontalAlign": "thaCenter"
+                      },
+                      {
+                        "ClockInputPin": {
+                          "SourcePins": [
+                            {
+                              "Name": "__OpenWireRootUnit__.IntegerMultiSource1.OutputPins.Pin [0]",
+                              "ID": "__OpenWireRootUnit__.IntegerMultiSource1.OutputPins._Pin0"
+                            }
+                          ]
+                        },
+                        "Name": "Fill Screen1",
+                        "Color": "tmcNone",
+                        "+": "TArduinoMonochromeGraphicsElementFillScreen"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.SPIChannels.SPI.InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.SPIChannels._Item0.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoMaximLedController",
+            "Intensity": 0.100000001490116,
+            "ChipSelectOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital[10].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item10.DigitalInputPin"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 864
+        },
+        {
+          "X": 800,
+          "Name": "ClockGenerator1",
+          "Instance": {
+            "Frequency": 10,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.Counter1.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoClockGenerator",
+            "@": [
+              {
+                "PinName": "Enabled",
+                "@": "Enabled",
+                "+": "TOWBooleanSinkPinBinding",
+                "SourcePin": {
+                  "ID": "__OpenWireRootUnit__.DigitalMultiMerger1.OutputPin"
+                },
+                "Component": "ClockGenerator1"
+              }
+            ]
+          },
+          "Type": "Component",
+          "Y": 928
+        },
+        {
+          "X": 1008,
+          "Name": "Counter1",
+          "Instance": {
+            "Max": {
+              "Value": 5,
+              "RollOver": false
+            },
+            "Min": {
+              "Value": -8
+            },
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.IntegerMultiSource1.InputPin"
+                },
+                {
+                  "ID": "__OpenWireRootUnit__.CompareValue1.InputPin"
+                },
+                {
+                  "ID": "__OpenWireRootUnit__.CompareValue2.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoCounter",
+            "InputPin": {
+              "SourcePins": [
+                {
+                  "ID": "__OpenWireRootUnit__.ClockGenerator1.OutputPin"
+                }
+              ]
+            },
+            "Reversed": true,
+            "InitialValue": 5
+          },
+          "Type": "Component",
+          "Y": 912
+        },
+        {
+          "X": 1184,
+          "Name": "IntegerMultiSource1",
+          "Instance": {
+            "OutputPins": {
+              "Pins": [
+                {
+                  "Type": "ptSource",
+                  "SinkPins": [
+                    {
+                      "Name": "__OpenWireRootUnit__.LedController1.PixelGroups.2D Graphics1.Elements.Fill Screen.ClockInputPin",
+                      "ID": "__OpenWireRootUnit__.LedController1.PixelGroups._Item0.Elements._Item1.ClockInputPin"
+                    }
+                  ]
+                },
+                {
+                  "Type": "ptSource",
+                  "SinkPins": [
+                    {
+                      "Name": "__OpenWireRootUnit__.LedController1.PixelGroups.Item [ 0 ].Elements.Item [ 0 ].Y",
+                      "ID": "__OpenWireRootUnit__.LedController1.PixelGroups.*._0.Elements.*._0.YInputPin"
+                    },
+                    {
+                      "Name": "__OpenWireRootUnit__.LedController1.PixelGroups.Item [ 0 ].Elements.Item [ 0 ].X",
+                      "ID": "__OpenWireRootUnit__.LedController1.PixelGroups.*._0.Elements.*._0.XInputPin"
+                    }
+                  ]
+                },
+                {
+                  "Type": "ptSource",
+                  "SinkPins": [
+                    {
+                      "Name": "__OpenWireRootUnit__.LedController1.PixelGroups.2D Graphics1.Elements.Text Field.ClockInputPin",
+                      "ID": "__OpenWireRootUnit__.LedController1.PixelGroups._Item0.Elements._Item0.ClockInputPin"
+                    }
+                  ]
+                }
+              ],
+              "Count": 3,
+              "Form": "__OpenWireRootUnit__"
+            },
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.Counter1.OutputPin"
+              }
+            },
+            "+": "TArduinoIntegerMultiSource"
+          },
+          "Type": "Component",
+          "Y": 912
+        },
+        {
+          "X": 1056,
+          "Name": "CompareValue1",
+          "Instance": {
+            "Value": 5,
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.Counter1.OutputPin"
+              }
+            },
+            "+": "TArduinoIntegerCompareValue",
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.Counter2.InputPin"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 1024
+        },
+        {
+          "X": 1232,
+          "Name": "TextMux1",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.LedController1.PixelGroups.2D Graphics1.Elements.Text Field.InputPin",
+                  "ID": "__OpenWireRootUnit__.LedController1.PixelGroups._Item0.Elements._Item0.InputPin"
+                }
+              ]
+            },
+            "InputPins": {
+              "Pins": [
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.FormattedText4.OutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.FormattedText3.OutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.FormattedText2.OutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.FormattedText1.OutputPin"
+                  }
+                }
+              ],
+              "Count": 4,
+              "Form": "__OpenWireRootUnit__"
+            },
+            "+": "TArduinoTextMux",
+            "SelectInputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.Counter2.OutputPin"
+              }
+            }
+          },
+          "Type": "Component",
+          "Y": 1200
+        },
+        {
+          "X": 1040,
+          "Name": "Counter2",
+          "Instance": {
+            "Max": {
+              "Value": 3
+            },
+            "Min": {
+              "Value": 0
+            },
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.TextMux1.SelectInputPin"
+                }
+              ]
+            },
+            "+": "TArduinoCounter",
+            "InputPin": {
+              "SourcePins": [
+                {
+                  "ID": "__OpenWireRootUnit__.CompareValue1.OutputPin"
+                }
+              ]
+            },
+            "InitialValue": 0
+          },
+          "Type": "Component",
+          "Y": 1104
+        },
+        {
+          "X": 928,
+          "Name": "FormattedText1",
+          "Instance": {
+            "Text": "TEMP. %0%1",
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.TextMux1.InputPins.Pin [3]",
+                  "ID": "__OpenWireRootUnit__.TextMux1.InputPins._Pin3"
+                }
+              ]
+            },
+            "+": "TArduinoFormattedText",
+            "Elements": {
+              "*": [
+                {
+                  "Name": "AnalogElement1",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Pressure1.TemperatureOutputPin"
+                    }
+                  },
+                  "+": "TArduinoFormattedTextElementAnalog",
+                  "Precision": 1,
+                  "InitialValue": 0
+                },
+                {
+                  "InitialValue": "C",
+                  "Name": "TextElement1",
+                  "+": "TArduinoFormattedTextElementText"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 1584
+        },
+        {
+          "X": 1152,
+          "Name": "FormattedText2",
+          "Instance": {
+            "Text": "PRESSAO %0%1",
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.TextMux1.InputPins.Pin [2]",
+                  "ID": "__OpenWireRootUnit__.TextMux1.InputPins._Pin2"
+                }
+              ]
+            },
+            "+": "TArduinoFormattedText",
+            "Elements": {
+              "*": [
+                {
+                  "Name": "AnalogElement1",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Pressure1.PressureOutputPin"
+                    }
+                  },
+                  "+": "TArduinoFormattedTextElementAnalog",
+                  "Precision": 0,
+                  "InitialValue": 0
+                },
+                {
+                  "InitialValue": "Pa",
+                  "Name": "TextElement1",
+                  "+": "TArduinoFormattedTextElementText"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 1584
+        },
+        {
+          "X": 272,
+          "Name": "Delay1",
+          "Instance": {
+            "CanRestart": false,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.DigitalValue2.ClockInputPin"
+                }
+              ]
+            },
+            "+": "TArduinoDelay",
+            "StartInputPin": {
+              "SourcePins": [
+                {
+                  "ID": "__OpenWireRootUnit__.CompareValue2.OutputPin"
+                }
+              ]
+            },
+            "Interval": 5000000
+          },
+          "Type": "Component",
+          "Y": 1104
+        },
+        {
+          "X": 448,
+          "Name": "DigitalValue1",
+          "Instance": {
+            "ClockInputPin": {
+              "SourcePins": [
+                {
+                  "ID": "__OpenWireRootUnit__.CompareValue2.OutputPin"
+                }
+              ]
+            },
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.DigitalMultiMerger1.InputPins.Pin [0]",
+                  "ID": "__OpenWireRootUnit__.DigitalMultiMerger1.InputPins._Pin0"
+                }
+              ]
+            },
+            "+": "TArduinoBooleanValue"
+          },
+          "Type": "Component",
+          "Y": 976
+        },
+        {
+          "X": 432,
+          "Name": "DigitalValue2",
+          "Instance": {
+            "ClockInputPin": {
+              "SourcePins": [
+                {
+                  "ID": "__OpenWireRootUnit__.Delay1.OutputPin"
+                }
+              ]
+            },
+            "Value": true,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.DigitalMultiMerger1.InputPins.Pin [1]",
+                  "ID": "__OpenWireRootUnit__.DigitalMultiMerger1.InputPins._Pin1"
+                }
+              ]
+            },
+            "+": "TArduinoBooleanValue"
+          },
+          "Type": "Component",
+          "Y": 1056
+        },
+        {
+          "X": 608,
+          "Name": "DigitalMultiMerger1",
+          "Instance": {
+            "InputPins": {
+              "Form": "__OpenWireRootUnit__",
+              "Pins": [
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.DigitalValue1.OutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.DigitalValue2.OutputPin"
+                  }
+                }
+              ]
+            },
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.ClockGenerator1.Enabled",
+                  "ID": "__OpenWireRootUnit__.ClockGenerator1.EnabledInputPin"
+                }
+              ]
+            },
+            "+": "TArduinoDigitalMultiMerger"
+          },
+          "Type": "Component",
+          "Y": 960
+        },
+        {
+          "X": 256,
+          "Name": "CompareValue2",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.DigitalValue1.ClockInputPin"
+                },
+                {
+                  "ID": "__OpenWireRootUnit__.Delay1.StartInputPin"
+                }
+              ]
+            },
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.Counter1.OutputPin"
+              }
+            },
+            "+": "TArduinoIntegerCompareValue"
+          },
+          "Type": "Component",
+          "Y": 976
+        },
+        {
+          "X": 592,
+          "Name": "Pressure1",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.I2CChannels.I2C.InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.I2CChannels._Item0.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoPressureBMP180",
+            "PressureOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.FormattedText2.Elements.AnalogElement.InputPin",
+                  "ID": "__OpenWireRootUnit__.FormattedText2.Elements._Item0.InputPin"
+                }
+              ]
+            },
+            "TemperatureOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.FormattedText1.Elements.AnalogElement.InputPin",
+                  "ID": "__OpenWireRootUnit__.FormattedText1.Elements._Item0.InputPin"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 1616
+        },
+        {
+          "X": 1376,
+          "Name": "FormattedText3",
+          "Instance": {
+            "Text": "ME DA 10",
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.TextMux1.InputPins.Pin [1]",
+                  "ID": "__OpenWireRootUnit__.TextMux1.InputPins._Pin1"
+                }
+              ]
+            },
+            "+": "TArduinoFormattedText"
+          },
+          "Type": "Component",
+          "Y": 1584
+        },
+        {
+          "X": 1568,
+          "Name": "FormattedText4",
+          "Instance": {
+            "Text": "OLA MIGUEL",
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.TextMux1.InputPins.Pin [0]",
+                  "ID": "__OpenWireRootUnit__.TextMux1.InputPins._Pin0"
+                }
+              ]
+            },
+            "+": "TArduinoFormattedText"
+          },
+          "Type": "Component",
+          "Y": 1584
+        }
+      ]
+    }
+  ]
+}

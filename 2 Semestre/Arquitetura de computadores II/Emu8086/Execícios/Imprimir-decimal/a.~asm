@@ -1,0 +1,50 @@
+
+; You may customize this and other start-up templates;
+; The location of this template is c:\emu8086\inc\0_com_template.txt
+
+org 100h
+
+MOV AX, 12345
+MOV CX, 10
+
+divisao:
+MOV DX, 0
+DIV CX
+PUSH DX
+CMP AX, 0
+JE imprimir
+INC BX
+JMP divisao
+ret
+imprimir:
+POP DX
+MOV AH, 2
+ADD DX, 48
+INT 0x21
+CMP BX, 0
+JE fim
+DEC BX
+JMP imprimir
+ret
+fim:
+
+ret
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+; [SOURCE]: C:\Users\rique\OneDrive\Estudos\FURB\2 Semestre\Arquitetura de computadores II\Novos conteúdos 8086.asm

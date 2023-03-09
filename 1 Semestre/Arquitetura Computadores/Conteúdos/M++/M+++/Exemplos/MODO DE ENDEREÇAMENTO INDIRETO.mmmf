@@ -1,0 +1,9 @@
+MOV 99, A;
+	MOV 20, E;
+
+	MOV A, #E;
+	MOV #E, A;
+	
+	MOV A, C;
+
+FIM:	JMP FIM;

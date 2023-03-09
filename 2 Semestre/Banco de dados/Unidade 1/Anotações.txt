@@ -1,0 +1,7 @@
+Aula 23/08/2022
+---------------------------------------------------------------------------------------------------------------------
+1 para 1 chave estrangeira para os dois
+1 para n chave estrangeira fica com N
+n para n criar uma nova estrutura para ligação entre as outras, onde, juntos formam um chave primaria
+
+---------------------------------------------------------------------------------------------------------------------

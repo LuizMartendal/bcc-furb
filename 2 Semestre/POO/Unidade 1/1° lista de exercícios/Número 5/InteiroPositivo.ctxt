@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=InteiroPositivo
+comment1.params=valor
+comment1.target=void\ setValor(int)
+comment2.params=
+comment2.target=int\ getValor()
+comment3.params=outro
+comment3.target=long\ multiplicar(InteiroPositivo)
+comment4.params=
+comment4.target=long\ fatorial()
+comment5.params=
+comment5.target=java.lang.String\ divisoresInteiros()
+comment6.params=
+comment6.target=int[]\ fibonacci()
+comment7.params=
+comment7.target=double\ valorH()
+comment8.params=
+comment8.target=double\ valorI()
+comment9.params=
+comment9.target=double\ valorP()
+numComments=10

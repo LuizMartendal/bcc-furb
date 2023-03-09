@@ -1,0 +1,57 @@
+IMPRIME WORD
+
+BX = 3 5 3 4 5
+
+35345 /10  = 3534 = 5
+3534 / 10 = 353 = 4
+353 / 10 = 35 = 3
+35 / 10 = 3 = 5
+3 / 10 = 0 = 3
+
+DIV
+ DX:AX m AX /CX (AX: quoc.;DX: resto)  DX (16 BITS) = DL
+
+MOV AX,35345
+MOV CX,10
+DIV CX
+
+PUSH ....  5 4 3 5 3
+BX = 234 (3 PUSHS) NAO ESQUECA DE CONTAR...CX
+
+ 0--31  SAO DE CONTROLE
+ 
+MOV AH,2
+MOV DL,XX                 2---->'2'
+INT 0x21
+ 
+ ADD DL,48               ADD DL,'0'
+
+Código da atividade
+
+org 0h
+mov cx, 10
+mov ax, 0
+busca:
+mov dx, 0
+div cx
+push dx
+cmp ax, 0
+je imprimir
+inc bx
+jmp busca
+ret
+
+imprimir:
+pop dx
+mov ah, 2
+add dl, 48
+int 0x21
+cmp bx, 0
+je fim
+dec bx
+jmp imprimir
+ret
+
+fim:
+ret
+ 
