@@ -1,25 +1,24 @@
 package Exercicio1;
 
-public interface Lista {
+public interface Lista<T> {
 
-    void inserir(int valor);
+    void inserir(T valor);
 
-    int buscar(int valor);
+    int buscar(T valor);
 
     boolean estaVazia();
 
-    void retirar(int valor);
+    void retirar(T valor);
 
     String exibir();
 
-    Lista copiar();
+    Lista<T> copiar();
 
-    void concatenar(Lista outra);
+    void concatenar(Lista<T> outra);
 
     int getTamanho();
 
-    int pegar(int pos);
+    T pegar(int pos);
 
-    Lista dividir();
-
+    Lista<T> dividir();
 }

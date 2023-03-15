@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form action="#" method="get">
+            <input type="text" name="name" id="name" placeholder="Name" min="2" max="50" required autofocus><br><br>
+            <input type="password" name="password" id="password" placeholder="Password" min="8" required><br><br>
+            <input type="number" name="idade" id="" placeholder="Idade"><br><br>
+            <input type="text" name="campo1" id="" value="Luiz" readonly>
+            <input type="text" name="campo2" value="Henrique" disabled><br><br>
+            <input type="hidden" name="secreto" value="privado">
+            <label for="manterLogin">Manter logado?</label>
+            <input type="checkbox"><br><br>
+            <input type="radio" name="curso" id="curso1" checked value="BCC">
+            <label for="curso1">Ciência da Computação</label>
+            <input type="radio" name="curso" id="curso2" value="SIS">
+            <label for="curso2">Sistema de Informação</label><br><br>
+            <input type="date" name="date" id="">
+            <input type="datetime" name="date_time" id="">
+            <input type="datetime-local" name="date_time_local" id=""><br><br>
+            <label for="city">Cidade</label>
+            <select name="city" id="city">
+                <option value="BNU">Blumenau</option>
+                <option value="GPR">Gaspar</option>
+                <option value="ITJ">Itajaí</option>
+            </select><br><br>
+            <input type="submit" value="Autenticar">
+            <input type="reset" value="Apagar">
+        </form>
+    </div>
+</body>
+</html>

@@ -3,15 +3,15 @@ package Exercicio2;
 import Exercicio1.Lista;
 import Exercicio1.ListaEstatica;
 
-public class ListaEncadeada implements Lista {
+public class ListaEncadeada<T> implements Lista<T> {
 
-    private NoLista primeiro;
-    private NoLista ultimo;
+    private NoLista<T> primeiro;
+    private NoLista<T> ultimo;
     private int qtdElementos;
 
     @Override
-    public void inserir(int valor) {
-        NoLista novo = new NoLista();
+    public void inserir(T valor) {
+        NoLista<T> novo = new NoLista<>();
         novo.setInfo(valor);
         if (estaVazia()) {
             primeiro = novo;
@@ -23,13 +23,13 @@ public class ListaEncadeada implements Lista {
     }
 
     @Override
-    public int buscar(int valor) {
-        NoLista p = primeiro;
+    public int buscar(T valor) {
+        NoLista<T> p = primeiro;
 
         int contador = 0;
 
         while (p != null) {
-            if (p.getInfo() == valor) {
+            if (p.getInfo().equals(valor)) {
                 return contador;
             }
             contador++;
@@ -49,23 +49,23 @@ public class ListaEncadeada implements Lista {
     }
 
     @Override
-    public void retirar(int valor) {
-        NoLista anterior = null;
-        NoLista p = primeiro;
+    public void retirar(T valor) {
+        NoLista<T> anterior = null;
+        NoLista<T> p = primeiro;
 
-        while (p != null && p.getInfo() != valor) {
+        while (p != null && !p.getInfo().equals(valor)) {
             anterior = p;
             p = p.getProx();
         }
 
         if (p != null) {
-            if (anterior == null) {
-                this.primeiro = p.getProx();
-            } else {
+            if (p.getInfo().equals(primeiro.getInfo())) {
+                primeiro = p.getProx();
+            }  else {
                 anterior.setProx(p.getProx());
             }
 
-            if (p.getProx() == null) {
+            if (p.getInfo().equals(ultimo.getInfo())) {
                 ultimo = anterior;
             }
 
@@ -77,7 +77,7 @@ public class ListaEncadeada implements Lista {
     public String exibir() {
         String str = "[ ";
 
-        NoLista p = primeiro;
+        NoLista<T> p = primeiro;
 
         while(p != null) {
             str += p.getInfo() + " ";
@@ -88,14 +88,15 @@ public class ListaEncadeada implements Lista {
     }
 
     @Override
-    public Lista copiar() {
-        ListaEncadeada lista = new ListaEncadeada();
-        NoLista p = primeiro;
+    public Lista<T> copiar() {
+        ListaEncadeada<T> lista = new ListaEncadeada<>();
+        NoLista<T> p = primeiro;
 
         int contador = 0;
 
         while (contador < qtdElementos) {
-            lista.inserir(pegar(contador));
+            lista.inserir(p.getInfo());
+            p = p.getProx();
             contador++;
         }
 
@@ -103,15 +104,16 @@ public class ListaEncadeada implements Lista {
     }
 
     @Override
-    public void concatenar(Lista outra) {
+    public void concatenar(Lista<T> outra) {
         if (outra == null) {
             throw new IllegalArgumentException("Lista não pode ser nula.");
         }
 
         int qtd = 0;
-
+        NoLista<T> no = primeiro;
         while (qtd < outra.getTamanho()) {
-            inserir(outra.pegar(qtd));
+            inserir(no.getInfo());
+            no = no.getProx();
             qtd++;
         }
     }
@@ -122,8 +124,8 @@ public class ListaEncadeada implements Lista {
     }
 
     @Override
-    public int pegar(int pos) {
-        NoLista p = primeiro;
+    public T pegar(int pos) {
+        NoLista<T> p = primeiro;
 
         int contador = 0;
 
@@ -135,28 +137,29 @@ public class ListaEncadeada implements Lista {
             contador++;
         }
 
-        return -1;
+        return null;
     }
 
     @Override
-    public Lista dividir() {
+    public Lista<T> dividir() {
         int indice = getTamanho() / 2;
-
-        ListaEncadeada lista = new ListaEncadeada();
+        NoLista<T> no = primeiro;
+        ListaEncadeada<T> lista = new ListaEncadeada<>();
 
         while (indice < getTamanho()) {
-            lista.inserir(pegar(indice));
+            lista.inserir(no.getInfo());
+            no = no.getProx();
             indice++;
         }
 
         indice = getTamanho() / 2;
+        int item = getTamanho() / 2;
+        int tamanho = getTamanho();
 
-        while (indice < getTamanho()) {
-            retirar(indice);
+        while (indice < tamanho) {
+            retirar(pegar(item));
             indice++;
         }
-
-        qtdElementos = getTamanho() / 2;
 
         return lista;
     }
