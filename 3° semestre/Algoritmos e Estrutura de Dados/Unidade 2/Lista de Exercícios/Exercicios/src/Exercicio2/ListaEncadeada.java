@@ -110,10 +110,9 @@ public class ListaEncadeada<T> implements Lista<T> {
         }
 
         int qtd = 0;
-        NoLista<T> no = primeiro;
         while (qtd < outra.getTamanho()) {
-            inserir(no.getInfo());
-            no = no.getProx();
+            T valor = outra.pegar(qtd);
+            inserir(valor);
             qtd++;
         }
     }
@@ -142,25 +141,27 @@ public class ListaEncadeada<T> implements Lista<T> {
 
     @Override
     public Lista<T> dividir() {
-        int indice = getTamanho() / 2;
+        int indice = 0;
         NoLista<T> no = primeiro;
+        NoLista<T> ultimoNo = null;
         ListaEncadeada<T> lista = new ListaEncadeada<>();
 
         while (indice < getTamanho()) {
-            lista.inserir(no.getInfo());
+            if (indice == (getTamanho() / 2) - 1) {
+                ultimoNo = no;
+            } else if (indice == getTamanho() / 2) {
+                lista.primeiro = no;
+            } else if (indice == getTamanho() - 1) {
+                lista.ultimo = no;
+            }
             no = no.getProx();
             indice++;
         }
 
-        indice = getTamanho() / 2;
-        int item = getTamanho() / 2;
-        int tamanho = getTamanho();
-
-        while (indice < tamanho) {
-            retirar(pegar(item));
-            indice++;
-        }
-
+        ultimoNo.setProx(null);
+        ultimo = ultimoNo;
+        lista.qtdElementos = getTamanho() / 2 + 1;
+        qtdElementos = (getTamanho() / 2);
         return lista;
     }
 }

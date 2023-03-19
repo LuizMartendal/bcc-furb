@@ -49,6 +49,7 @@ public class TesteListaDinamica {
         System.out.println("Lista 2 tam = "+lista2.getTamanho());
         lista1.concatenar(lista2);
         System.out.println("Lista 1 = " + lista1.exibir());
+        System.out.println("Tamanho da Lista 1 = " + lista1.getTamanho());
     }
 
 }
