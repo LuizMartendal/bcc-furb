@@ -1,0 +1,46 @@
+body {
+    margin: 0px;
+}
+
+header {
+    background-color: rgb(94, 94, 255);
+    font-size: 3em;
+}
+
+.estilo1 {
+    color: blueviolet;
+}
+
+.estilo2 {
+    color: red;
+}
+
+img {
+    width: 5vw;
+    height: 5vh;
+}
+
+iframe {
+    width: 50vw;
+    height: 40vh;
+}
+
+p {
+    width: 50vw;
+}
+
+.botao { 
+    border-radius: 50px;
+    background-color: rgb(94, 94, 255);
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.navbar > li {
+    display: inline-block;
+}
+
+.botao:hover {
+    text-decoration: underline;
+}

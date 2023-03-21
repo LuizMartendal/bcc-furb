@@ -1,0 +1,53 @@
+body {
+    margin: 0px;
+}
+
+header {
+    width: 100vw;
+    font-size: larger;
+    background-color: lightblue;
+    height: 8vh;
+    font-size: 6vh;
+}
+
+.navbar > li{
+    display: inline-block;
+}
+
+.button-li {
+    border-radius: 50px;
+    background-color: lightblue;
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.button-li:hover {
+    background-color: rgb(94, 94, 255);
+}
+
+.div-image {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.image {
+    border-radius: 50%;
+    width: 100vw;
+    height: 100vh;
+}
+
+td {
+    border: 2px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 30vw;
+    height: 30vh;
+}
+
