@@ -10,6 +10,8 @@ import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Apresentacao {
 
@@ -65,12 +67,12 @@ public class Apresentacao {
 		rdbtnPilhaVetor.setBounds(148, 109, 143, 39);
 		panel.add(rdbtnPilhaVetor);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Pilha Lista");
-		rdbtnNewRadioButton_1.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton_1.setFont(new Font("Arial", Font.BOLD, 20));
-		buttonGroup.add(rdbtnNewRadioButton_1);
-		rdbtnNewRadioButton_1.setBounds(281, 109, 152, 39);
-		panel.add(rdbtnNewRadioButton_1);
+		JRadioButton rdbtnPilhaLista = new JRadioButton("Pilha Lista");
+		rdbtnPilhaLista.setHorizontalAlignment(SwingConstants.CENTER);
+		rdbtnPilhaLista.setFont(new Font("Arial", Font.BOLD, 20));
+		buttonGroup.add(rdbtnPilhaLista);
+		rdbtnPilhaLista.setBounds(281, 109, 152, 39);
+		panel.add(rdbtnPilhaLista);
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Arial Black", Font.BOLD, 14));
@@ -79,11 +81,25 @@ public class Apresentacao {
 		textField.setColumns(10);
 		
 		JButton btnCalcular = new JButton("CALCULAR");
+		btnCalcular.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String expressao = textField.getText();
+				int tipoDePilha = rdbtnPilhaVetor.isSelected() ? 0 : 1;
+				Calculadora calculadora = new Calculadora(expressao, tipoDePilha);
+				String resultado = calculadora.calcular();
+				textField.setText(resultado);
+			}
+		});
 		btnCalcular.setFont(new Font("Arial Black", Font.BOLD, 12));
 		btnCalcular.setBounds(162, 282, 119, 39);
 		panel.add(btnCalcular);
 		
 		JButton btnLimpar = new JButton("LIMPAR");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText(null);
+			}
+		});
 		btnLimpar.setFont(new Font("Arial Black", Font.BOLD, 12));
 		btnLimpar.setBounds(291, 282, 119, 39);
 		panel.add(btnLimpar);

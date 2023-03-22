@@ -1,10 +1,10 @@
 package pilhas;
 
-import listas.ListaPilhaEncadeada;
+import listas.ListaEncadeada;
 
 public class PilhaLista<T> implements Pilha<T> {
 
-    private final ListaPilhaEncadeada<T> lista = new ListaPilhaEncadeada<>();
+    private final ListaEncadeada<T> lista = new ListaEncadeada<>();
 
     public PilhaLista() {}
 

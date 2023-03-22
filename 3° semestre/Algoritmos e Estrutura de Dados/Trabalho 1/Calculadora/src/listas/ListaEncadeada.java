@@ -1,6 +1,6 @@
 package listas;
 
-public class ListaPilhaEncadeada<T> implements Lista<T> {
+public class ListaEncadeada<T> implements Lista<T> {
 
     private NoLista<T> primeiro;
     private NoLista<T> ultimo;
@@ -86,7 +86,7 @@ public class ListaPilhaEncadeada<T> implements Lista<T> {
 
     @Override
     public Lista<T> copiar() {
-        ListaPilhaEncadeada<T> lista = new ListaPilhaEncadeada<>();
+    	ListaEncadeada<T> lista = new ListaEncadeada<>();
         NoLista<T> p = primeiro;
 
         int contador = 0;
@@ -141,7 +141,7 @@ public class ListaPilhaEncadeada<T> implements Lista<T> {
         int indice = 0;
         NoLista<T> no = primeiro;
         NoLista<T> ultimoNo = null;
-        ListaPilhaEncadeada<T> lista = new ListaPilhaEncadeada<>();
+        ListaEncadeada<T> lista = new ListaEncadeada<>();
 
         while (indice < getTamanho()) {
             if (indice == (getTamanho() / 2) - 1) {
