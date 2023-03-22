@@ -59,8 +59,7 @@ public class Calculadora {
 
 	private void manipularExpressao() {
 		expressaoNula();
-		
-		
+
 	}
 
 	private void validarExpressao() {
