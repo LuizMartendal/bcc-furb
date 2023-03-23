@@ -21,7 +21,7 @@ public class ListaEncadeada<T> implements Lista<T> {
 
     @Override
     public int buscar(T valor) {
-        NoLista<T> p = primeiro;
+        NoLista<T> p = primeiro;	
 
         int contador = 0;
 
@@ -38,7 +38,7 @@ public class ListaEncadeada<T> implements Lista<T> {
 
     @Override
     public boolean estaVazia() {
-        if (primeiro == null) {
+        if (qtdElementos == 0) {
             return true;
         }
 
