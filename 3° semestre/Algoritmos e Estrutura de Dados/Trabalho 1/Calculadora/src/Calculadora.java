@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 import javax.swing.JOptionPane;
 
 import pilhas.Pilha;
@@ -53,17 +55,58 @@ public class Calculadora {
 		} else {
 			this.pilha = new PilhaLista<>();
 		}
-		
-		return this.manipularExpressao();
+		DecimalFormat df = new DecimalFormat("0.00"); 
+		return df.format(this.manipularExpressao());
 	}
 
 	private String manipularExpressao() {
 		expressaoNula();
+		
+		int qtdOperandos = 0;
+		
+		Double primeiroOperando = 0.0;
+		Double segundoOperando = 0.0;
+		String operador = "";
+		
 		String[] lista = this.expressao.split(" ");
 		ListaEncadeada<String> novaLista = validarExpressao(lista);
+		
 		String resultado = "";
 		for (int i = novaLista.getTamanho() - 1; i >= 0 ; i--) {
-			resultado += novaLista.pegar(i);
+			if (this.verificarSeEOperando(novaLista.pegar(i))) {
+				if (qtdOperandos == 2) {
+					throw new RuntimeException("Expressão inválida!");
+				}
+				operador = "";
+				
+				pilha.push(novaLista.pegar(i));
+				qtdOperandos++;
+			} else if (this.verificarSeEOperador(novaLista.pegar(i))) {
+				
+				operador = novaLista.pegar(i);
+				segundoOperando = Double.parseDouble(pilha.pop());
+				primeiroOperando = Double.parseDouble(pilha.pop());
+				
+				switch (operador) {
+					case "+":
+						resultado = "" + (primeiroOperando + segundoOperando);
+						break;
+					case "-":
+						resultado = "" + (primeiroOperando - segundoOperando);
+						break;
+					case "*":
+						resultado = "" + (primeiroOperando * segundoOperando);
+						break;
+					case "/":
+						if (segundoOperando == 0) {
+							throw new IllegalArgumentException("Não existe divisão por zero!");
+						}
+						resultado = "" + (primeiroOperando / segundoOperando);
+						break;
+				}
+				pilha.push(resultado);
+				qtdOperandos = 1;
+			}
 		}
 		return resultado;
 	}
