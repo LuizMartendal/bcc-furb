@@ -56,7 +56,7 @@ public class Calculadora {
 			this.pilha = new PilhaLista<>();
 		}
 		DecimalFormat df = new DecimalFormat("0.00"); 
-		return df.format(this.manipularExpressao());
+		return df.format(Double.parseDouble(this.manipularExpressao()));
 	}
 
 	private String manipularExpressao() {
