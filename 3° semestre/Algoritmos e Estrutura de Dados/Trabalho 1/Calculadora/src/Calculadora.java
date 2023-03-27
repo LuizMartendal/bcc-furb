@@ -28,7 +28,7 @@ public class Calculadora {
 
 	public void setExpressao(String expressao) {
 		if (expressao.isBlank() || expressao.isEmpty()) {
-			throw new RuntimeException("Expressão não pode ser nula!");
+			throw new RuntimeException("Expressão não pode ser null!");
 		} else {
 			this.expressao = expressao;
 		}
@@ -74,8 +74,8 @@ public class Calculadora {
 		String resultado = "";
 		for (int i = novaLista.getTamanho() - 1; i >= 0 ; i--) {
 			if (this.verificarSeEOperando(novaLista.pegar(i))) {
-				if (qtdOperandos == 2) {
-					throw new RuntimeException("Expressão inválida!");
+				if (qtdOperandos == 2 && i == 0) {
+					throw new RuntimeException("Expressão inválida!\nNão foram identificados operadores suficientes.");
 				}
 				operador = "";
 				
@@ -103,6 +103,11 @@ public class Calculadora {
 						}
 						resultado = "" + (primeiroOperando / segundoOperando);
 						break;
+					case "^":
+						resultado = "" + (Math.pow(primeiroOperando, segundoOperando));
+						break;
+					default:
+						throw new IllegalArgumentException("Operador inválido!");
 				}
 				pilha.push(resultado);
 				qtdOperandos = 1;
@@ -112,35 +117,41 @@ public class Calculadora {
 	}
 
 	private ListaEncadeada<String> validarExpressao(String[] lista) {
+		int qtdTotalOperandos = 0;
 		int qtdOperandos = 0;
 		int qtdOperadores = 0;
 		
 		ListaEncadeada<String> novaLista = new ListaEncadeada<>();
 		for (int i = 0; i < lista.length; i++) {
+			if (lista[i].contains(",")) {
+				lista[i] = lista[i].replace(',', '.');
+			}
 			if (novaLista.estaVazia()) {
 				if (this.verificarSeEOperando(lista[i])) {
 					novaLista.inserir(lista[i]);
 					qtdOperandos++;
+					qtdTotalOperandos++;
 				}else {
-					throw new RuntimeException("Expressão inválida!");
+					throw new RuntimeException("Expressão inválida!\nO primeiro elemento da expressão deve ser um número!\nPor regra de negócio, a expressão não pode iniciar com espaço, caso seja esse o problema...");
 				}
 			} else if (this.verificarSeEOperando(lista[i]) && i < lista.length - 1) {
 				if (qtdOperandos == 2) {
-					throw new RuntimeException("Expressão inválida!");
+					throw new RuntimeException("Expressão inválida!\nNão foi possível identificar operadores suficientes para concluir a operação!");
 				} else if (qtdOperandos == 0) {
 					qtdOperadores = 0;
 				}
 				novaLista.inserir(lista[i]);
 				qtdOperandos++;
+				qtdTotalOperandos++;
 			} else if (this.verificarSeEOperador(lista[i])) {
-				if (qtdOperadores == 1 || novaLista.getTamanho() < 4 && qtdOperandos != 2) {
-					throw new RuntimeException("Expressão inválida!");
+				if ((qtdOperadores == 1 && qtdTotalOperandos < 4) || (novaLista.getTamanho() < 4 && qtdOperandos != 2)) {
+					throw new RuntimeException("Expressão inválida!\nNão foi possível identificar operandos suficientes para concluir a operação!");
 				}
 				novaLista.inserir(lista[i]);
 				qtdOperadores++;
 				qtdOperandos = 0;
 			} else if (lista[i] != "") {
-				throw new RuntimeException("Expressão inválida!");
+				throw new RuntimeException("Expressão inválida!\nVerifique se a quantidade de operadores está correta, ou algum símbolo inválido!");
 			}
 		}
 		return novaLista;
@@ -148,7 +159,7 @@ public class Calculadora {
 	
 	private boolean verificarSeEOperador(String valor) {
 		if (valor.equals("")) return false;
-		String[] operadores = {"+", "-", "*", "/"};
+		String[] operadores = {"+", "-", "*", "/", "^"};
 		if (valor.length() == 1) {
 			for (String o: operadores) {
 				if (valor.equals(o)) {
