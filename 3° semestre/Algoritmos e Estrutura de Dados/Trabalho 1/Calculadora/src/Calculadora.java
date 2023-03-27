@@ -132,7 +132,11 @@ public class Calculadora {
 					qtdOperandos++;
 					qtdTotalOperandos++;
 				}else {
-					throw new RuntimeException("Expressão inválida!\nO primeiro elemento da expressão deve ser um número!\nPor regra de negócio, a expressão não pode iniciar com espaço, caso seja esse o problema...");
+					throw new RuntimeException("Expressão inválida!" +
+							"					\nAlguns possíveis motivos:\n" +
+							"					O primeiro elemento da expressão deve ser um número;\n" +
+							"					Algum número possui mais de uma vírgula ou ponto;" +
+							"					\nPor regra de negócio, a expressão não pode iniciar com espaço, caso seja esse o problema...");
 				}
 			} else if (this.verificarSeEOperando(lista[i]) && i < lista.length - 1) {
 				if (qtdOperandos == 2) {
