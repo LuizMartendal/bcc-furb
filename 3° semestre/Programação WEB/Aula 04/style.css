@@ -1,0 +1,81 @@
+body {
+    margin: 0px;
+}
+
+header {
+    background-color: lightblue;
+    width: 100vw;
+    height: 10vh;
+    font-size: 7vh;
+    animation: header 3s infinite;
+}
+
+@keyframes header {
+    50% { background-color: lightseagreen;}
+}
+
+.button-next-page {
+    border-radius: 50px;
+    background-color: lightblue;
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    position: relative;
+    animation: button-next-page 5s infinite;
+}
+
+@keyframes button-next-page {
+    0% { background-color: lightcoral; left: 0px; top: 0px; }
+    25% { background-color: lightgoldenrodyellow; left: 25px; top: 0px; }
+    50% { background-color: lightsalmon; left: 50px; top: 0px; }
+    75% { background-color: lightseagreen; left: 75px; top: 0px; }
+    100% { background-color: lightslategray; left: 100px; top: 0px; }
+}
+
+.button-next-page:hover {
+    background-color: lightseagreen;
+}
+
+li {
+    background-color: lightblue;
+    width: 10vw;
+    border-radius: 25px;
+    margin: 5px;
+}
+
+li:hover {
+    background-color: lightseagreen;
+    width: 10vw;
+}
+
+footer {
+    background-color: lightblue;
+    width: 100vw;
+    height: 5vh;
+    margin-top: 50vh;
+    font-size: 4vh;
+    animation: footer 3s infinite;
+}
+
+@keyframes footer {
+    50% { background-color: lightseagreen; }
+}
+
+input {
+    margin: 5px;
+    border-radius: 25px;
+    border-width: 0px;
+    border-bottom-width: 1px;
+}
+
+input[type="password"] {
+    background-color: lightgreen;
+}
+
+input[type="email"] {
+    background-color: lightseagreen;
+}
+
+input:focus {
+    background-color: lightblue;
+}
