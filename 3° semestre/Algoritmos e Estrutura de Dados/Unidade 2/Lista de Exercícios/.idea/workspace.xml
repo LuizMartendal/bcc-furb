@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fb68774-202c-4b71-a242-b3ccdae4bebb" name="Changes" comment="" />
+    <list default="true" id="2fb68774-202c-4b71-a242-b3ccdae4bebb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Exercicios/src/Exercicio4/Fila.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exercicios/src/Exercicio4/FilaVetor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exercicios/src/Exercicio4/FilaVetorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exercicios/src/Exercicio5/FilaLista.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exercicios/src/Exercicio5/FilaListaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Trabalho 1/Calculadora/bin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Trabalho 1/Calculadora/bin/Calculadora.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Trabalho 1/Calculadora/bin/Calculadora.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercicios/Exercicios.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Exercicios/Exercicios.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercicios/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios/Exercicio1/Lista.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios/Exercicio1/Lista.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios/Exercicio1/ListaEstatica.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios/Exercicio1/ListaEstatica.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios/Exercicio1/TesteListaEstatica.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios/Exercicio1/TesteListaEstatica.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios/Exercicio2/ListaEncadeada.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios/Exercicio2/ListaEncadeada.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios/Exercicio2/NoLista.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios/Exercicio2/NoLista.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios/Exercicio2/TesteListaDinamica.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios/Exercicio2/TesteListaDinamica.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios/Main.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +33,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -22,24 +41,85 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Mhq8PlZhnpJkHL1l8kRACLdy9p" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "jdk.selected.JAVA_MODULE": "19",
-    "last_opened_file_path": "E:/GitHub Repositories/FURB/3° semestre/Algoritmos e Estrutura de Dados/Unidade 2/Lista de Exercícios",
-    "settings.editor.selected.configurable": "advanced.settings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/luizm/Documents/FURB/3° semestre/Algoritmos e Estrutura de Dados/Unidade 2/Lista de Exercícios&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="Exercicio1" />
       <recent name="Exercicio2" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="Exercicio5" />
+      <recent name="Exercicio4" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.FilaListaTest">
+    <configuration name="FilaListaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Exercicios" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Exercicio5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Exercicio5" />
+      <option name="MAIN_CLASS_NAME" value="Exercicio5.FilaListaTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FilaVetorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Exercicios" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Exercicio4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Exercicio4" />
+      <option name="MAIN_CLASS_NAME" value="Exercicio4.FilaVetorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.FilaListaTest" />
+        <item itemvalue="JUnit.FilaVetorTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -49,7 +129,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1678230001231</updated>
+      <workItem from="1680040756201" duration="504000" />
+      <workItem from="1680042984582" duration="7387000" />
+      <workItem from="1680104164137" duration="5000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
