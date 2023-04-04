@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="dffbc637-a18c-4370-8314-827bcdd4f3ce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bin/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bin/Calculadora.class" beforeDir="false" afterPath="$PROJECT_DIR$/../bin/Calculadora.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Calculadora.java" beforeDir="false" afterPath="$PROJECT_DIR$/Calculadora.java" afterDir="false" />
-    </list>
+    <list default="true" id="f52ee046-9e36-4906-b095-93ca3d2041fc" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectId" id="2NZlzdJwWg93qvDwa4ZOCfezhLU" />
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2NbbL5dp7aBDVWpMOWQwBYoe4mA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -22,9 +23,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/GitHub Repositories/FURB/3° semestre/Algoritmos e Estrutura de Dados/Trabalho 1/Calculadora/src",
+    "last_opened_file_path": "C:/Users/luizm/Documents/FURB/3° semestre/Algoritmos e Estrutura de Dados/Trabalho 1/Calculadora/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
+    "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
@@ -32,12 +37,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dffbc637-a18c-4370-8314-827bcdd4f3ce" name="Changes" comment="" />
-      <created>1679879748731</created>
+      <changelist id="f52ee046-9e36-4906-b095-93ca3d2041fc" name="Changes" comment="" />
+      <created>1679935669898</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1679879748731</updated>
-      <workItem from="1679879749695" duration="147000" />
+      <updated>1679935669898</updated>
+      <workItem from="1679935670883" duration="490000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,7 @@
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 import javax.swing.JOptionPane;
 
@@ -7,7 +10,7 @@ import pilhas.PilhaLista;
 import pilhas.PilhaVetor;
 import listas.ListaEncadeada;
 
-public class Calculadora {
+public class Calculadora<T> {
 	
 	private String expressao;
 	private int tipoDePilha;
@@ -63,63 +66,84 @@ public class Calculadora {
 		expressaoNula();
 		
 		int qtdOperandos = 0;
-		
-		Double primeiroOperando = 0.0;
-		Double segundoOperando = 0.0;
+
+		List<Double> operandos = new ArrayList<>();
 		String operador = "";
 		
 		String[] lista = this.expressao.split(" ");
 		ListaEncadeada<String> novaLista = validarExpressao(lista);
 		
-		String resultado = "";
+		Double resultado = 0.0;
 		for (int i = novaLista.getTamanho() - 1; i >= 0 ; i--) {
 			if (this.verificarSeEOperando(novaLista.pegar(i))) {
 				if (qtdOperandos == 2 && i == 0) {
 					throw new RuntimeException("Expressão inválida!\nNão foram identificados operadores suficientes.");
 				}
-				operador = "";
+				if (!operador.equals("+")) {
+					operador = "";
+				}
 				
 				pilha.push(novaLista.pegar(i));
 				qtdOperandos++;
 			} else if (this.verificarSeEOperador(novaLista.pegar(i))) {
 				
 				operador = novaLista.pegar(i);
-				segundoOperando = Double.parseDouble(pilha.pop());
-				primeiroOperando = Double.parseDouble(pilha.pop());
-				
+				int ignorar = 0;
+				if (qtdOperandos > 2 && !operador.equals("+")) {
+					ignorar = qtdOperandos - 1;
+				}
+				while (qtdOperandos > ignorar) {
+					operandos.add(Double.parseDouble(pilha.pop()));
+					qtdOperandos--;
+				}
+
 				switch (operador) {
 					case "+":
-						resultado = "" + (primeiroOperando + segundoOperando);
+						for (int j = operandos.size() -1; j >= 0; j--) {
+							resultado += operandos.get(j);
+						}
 						break;
 					case "-":
-						resultado = "" + (primeiroOperando - segundoOperando);
+						for (int j = operandos.size() -1; j >= 0; j--) {
+							resultado -= operandos.get(j);
+						}
 						break;
 					case "*":
-						resultado = "" + (primeiroOperando * segundoOperando);
+						resultado = operandos.get(operandos.size() -1);
+						for (int j = operandos.size() -2; j >= 0; j--) {
+							resultado *= operandos.get(j);
+						}
 						break;
 					case "/":
-						if (segundoOperando == 0) {
+						if (operandos.get(0) == 0) {
 							throw new IllegalArgumentException("Não existe divisão por zero!");
 						}
-						resultado = "" + (primeiroOperando / segundoOperando);
+						resultado = operandos.get(1) / operandos.get(0);
 						break;
 					case "^":
-						resultado = "" + (Math.pow(primeiroOperando, segundoOperando));
+						resultado = (Math.pow(operandos.get(1), operandos.get(0)));
 						break;
 					default:
 						throw new IllegalArgumentException("Operador inválido!");
 				}
-				pilha.push(resultado);
+				operandos.clear();
+				pilha.push(""+resultado);
 				qtdOperandos = 1;
+				if (i != 0) {
+					resultado = 0.0;
+				}
 			}
 		}
-		return resultado;
+		return ""+resultado;
 	}
 
 	private ListaEncadeada<String> validarExpressao(String[] lista) {
 		int qtdTotalOperandos = 0;
+		int qtdTotalOperadores = 0;
+		int qtdExpressoes = 0;
 		int qtdOperandos = 0;
 		int qtdOperadores = 0;
+		String operador = "";
 		
 		ListaEncadeada<String> novaLista = new ListaEncadeada<>();
 		for (int i = 0; i < lista.length; i++) {
@@ -139,20 +163,37 @@ public class Calculadora {
 							"					\nPor regra de negócio, a expressão não pode iniciar com espaço, caso seja esse o problema...");
 				}
 			} else if (this.verificarSeEOperando(lista[i]) && i < lista.length - 1) {
-				if (qtdOperandos == 2) {
-					throw new RuntimeException("Expressão inválida!\nNão foi possível identificar operadores suficientes para concluir a operação!");
-				} else if (qtdOperandos == 0) {
+				 if (qtdOperandos == 0) {
 					qtdOperadores = 0;
+					 qtdExpressoes++;
 				}
 				novaLista.inserir(lista[i]);
 				qtdOperandos++;
 				qtdTotalOperandos++;
 			} else if (this.verificarSeEOperador(lista[i])) {
-				if ((qtdOperadores == 1 && qtdTotalOperandos < 4) || (novaLista.getTamanho() < 4 && qtdOperandos != 2)) {
+				if ((qtdOperadores == 1 && qtdTotalOperandos < 4)) {
 					throw new RuntimeException("Expressão inválida!\nNão foi possível identificar operandos suficientes para concluir a operação!");
+				}
+				operador = lista[i];
+
+				if (qtdOperadores >= 2) {
+					throw new RuntimeException("Expressão inválida!\nNão foi possível identificar operandos suficientes para concluir a operação!");
+				}
+
+				if (qtdTotalOperadores - qtdExpressoes != 1 && qtdTotalOperandos > 2) {
+					throw new RuntimeException("Expressão inválida!\nNão foi possível identificar operandos suficientes para concluir a operação!");
+				}
+
+				if (qtdOperandos > 2 && !operador.equals("+")) {
+					throw new RuntimeException("Expressão inválida!\nNão foi possível identificar operadores suficientes para concluir a operação!");
+				}
+
+				if (qtdTotalOperandos == 8) {
+					System.out.println(5);
 				}
 				novaLista.inserir(lista[i]);
 				qtdOperadores++;
+				qtdTotalOperadores++;
 				qtdOperandos = 0;
 			} else if (lista[i] != "") {
 				throw new RuntimeException("Expressão inválida!\nVerifique se a quantidade de operadores está correta, ou algum símbolo inválido!");

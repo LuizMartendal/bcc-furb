@@ -114,7 +114,7 @@ public class Apresentacao {
 				String expressao = txtEx.getText();
 				int tipoDePilha = rdbtnPilhaVetor.isSelected() ? 0 : 1;
 				try {
-					Calculadora calculadora = new Calculadora(expressao, tipoDePilha);
+					Calculadora<Double> calculadora = new Calculadora<>(expressao, tipoDePilha);
 					String resultado = calculadora.calcular();
 					txtEx.setText(resultado);
 				} catch (Exception e2) {

@@ -49,20 +49,21 @@ public class ListaEncadeada<T> implements Lista<T> {
     public void retirar(T valor) {
         NoLista<T> anterior = null;
         NoLista<T> p = primeiro;
-
+        int indice = 0;
         while (p != null && !p.getInfo().equals(valor)) {
             anterior = p;
             p = p.getProx();
+            indice++;
         }
 
         if (p != null) {
-            if (p.getInfo().equals(primeiro.getInfo())) {
+            if (indice == 0) {
                 primeiro = p.getProx();
-            }  else {
+            } else {
                 anterior.setProx(p.getProx());
             }
 
-            if (p.getInfo().equals(ultimo.getInfo())) {
+            if (indice == this.qtdElementos - 1) {
                 ultimo = anterior;
             }
 
