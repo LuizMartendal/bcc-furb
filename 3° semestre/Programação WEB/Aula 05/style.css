@@ -1,0 +1,85 @@
+body {
+    margin: 0px;
+}
+
+header {
+    background-color: blueviolet;
+    height: 10vh;
+    font-size: 8vh;
+    color: indigo;
+}
+
+footer {
+    background-color: blueviolet;
+    position: fixed;
+    bottom: 0px;
+    width: 100vw;
+    font-size: 5vh;
+    color: indigo;
+}
+
+.menu > li {
+    font-size: 3vh;
+    list-style: none;
+    background-color: blueviolet;
+    border-radius: 15%;
+    padding: 8px;
+    display: inline-block;
+}
+
+li > a {
+    color: indigo;
+    text-decoration: none;
+}
+
+.submenu {
+    list-style: none;
+    display: none;
+    position: fixed;
+}
+
+.submenu > li > a {
+    color: indigo
+}
+
+.menu > li:hover .submenu {
+    display: block;
+}
+
+.flexBox {
+    background-color: blueviolet;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.flexBox div {
+    color: white;
+    background-color: darkmagenta;
+    margin: 10px;
+    padding: 1em;
+    font-size: 2em;
+}
+
+.grid {
+    background-color: red;
+    color: white;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 5px;
+}
+
+@media screen and (max-width: 320px) {
+    .grid {
+        grid-template-columns: auto auto;
+    }
+}
+
+.grid div {
+    font-size: 2em;
+    background-color: lightcoral;
+    border: 1px solid black;
+
+}
+
