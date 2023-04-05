@@ -219,15 +219,23 @@ public class ListaEncadeada<T> implements Lista<T>, Comparable<T> {
         if (getTamanho() < outraLista.getTamanho()) {
             p = primeiro;
             outro.setInfo(outraLista.pegar(0));
+            int qtd = 0;
             for (int i = 0; i < getTamanho(); i++) {
-
+                if (p.getInfo().toString().compareTo(outro.getInfo().toString()) == 0) {
+                    qtd++;
+                }
                 for (int j = 0; j < outraLista.getTamanho(); j++) {
-                    if (p.getInfo().toString().compareTo(outro.getInfo().toString()) == 0) {
-                        outraLista.inserir(p.getInfo());
-                    }
                     outro.setInfo(outraLista.pegar(j));
+                    if (p.getInfo().toString().compareTo(outro.getInfo().toString()) == 0) {
+                        qtd++;
+                    }
+                }
+                if (qtd > 0) {
+                    nova.insereOrdenado(p.getInfo());
                 }
                 p = p.getProx();
+                qtd = 0;
+                System.out.println(nova.exibir());
             }
         } else {
             p.setInfo(outraLista.pegar(0));
