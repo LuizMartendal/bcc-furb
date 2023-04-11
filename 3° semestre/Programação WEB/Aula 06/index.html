@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 8</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header onclick="changeColor()" id="header">
+        <p>Header</p>
+    </header>
+    <main>
+        <button id="button" onclick="addClass('button')">Clique aqui!</button>
+        <div>
+            <p onclick="mostraAlert()">Clique aqui também!</p>
+            <input type="text" name="input" id="input" onchange="setHeader('input')">
+        </div>
+        <div id="div2">
+            <button id="buttonCriarParagrafo" onclick="criarParagrafo('div2')">Criar parágrafo</button>
+        </div>
+    </main>
+    <footer id="footer" onclick="changeColor()">
+        Footer
+    </footer>
+    <script>
+        function mostraAlert() {
+            alert('Ae cumpadi dentro da div')
+        }
+    </script>
+</body>
+</html>

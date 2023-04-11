@@ -1,0 +1,38 @@
+body {
+    margin: 0px;
+}
+
+header {
+    background-color: lightblue;
+    height: 10vh;
+    font-size: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: green;
+}
+
+footer {
+    background-color: lightblue;
+    height: 8vh;
+    font-size: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0px;
+    width: 100vw;
+    color: green;
+}
+
+div, main {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button {
+    background-color: blue;
+}
