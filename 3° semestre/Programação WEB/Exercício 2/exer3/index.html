@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>Exer3</header>
+
+    <main>
+        <div class="box">
+            <button onclick="olaMundo()">Olá mundo!</button>
+        </div>
+
+        <div class="list-box">
+            <ul>
+                <li id="pizza" onclick="alertFood('pizza')">Pizza</li>
+                <li id="carne" onclick="alertFood('carne')">Carne</li>
+                <li id="macarrao" onclick="alertFood('macarrao')">Macarrão</li>
+                <li id="melancia" onclick="alertFood('melancia')">Melancia</li>
+                <li id="x" onclick="alertFood('x')">X-Costela</li>
+            </ul>
+        </div>
+
+        <div>
+            <input type="number" id="number">
+            <button onclick="verificarNumero('number')">Verificar</button>
+        </div>
+    </main>
+    
+    <footer>Footer</footer>
+    <script>
+        function olaMundo() {
+            alert('Olá mundo!')
+        }
+
+        function alertFood(value) {
+            const element = document.getElementById(value);
+            alert(element.textContent);
+        }
+
+        function verificarNumero(value) {
+            const number = document.getElementById(value).value;
+            if (number % 2 == 0) {
+                alert('O número é par');
+            } else {
+                alert('O número é ímpar');
+            }
+        }
+    </script>
+</body>
+</html>

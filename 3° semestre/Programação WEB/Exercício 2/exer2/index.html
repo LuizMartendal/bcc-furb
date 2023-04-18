@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>Exer2</header>
+
+    <main>
+        <div class="box">
+            <input type="text"id="input" onkeyup="mostrarFrase()">
+            <button onclick="mostrarTamanho()">Mostrar tamanho atual</button>
+            <p id="frase"></p>
+            <p id="tamanho"></p>
+        </div>
+    </main>
+    
+    <footer>Footer</footer>
+    <script>
+        function mostrarFrase() {
+            const input = document.getElementById('input').value;
+            document.getElementById('frase').innerHTML = input;
+        }
+
+        function mostrarTamanho() {
+            const input = document.getElementById('input').value;
+            console.log(input);
+            document.getElementById('tamanho').innerHTML = 'O tamanho atual do campo é ' + input.length;
+        }
+    </script>
+</body>
+</html>

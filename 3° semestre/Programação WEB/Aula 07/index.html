@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 9</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>Página 9</header>
+
+    <main>
+        <div>
+            <input type="text" name="login" id="login">
+            <button onclick="armazenaCookie()">Armazenar cookie</button>
+            <br>
+            <input type="text" name="login-local-storage" id="login-local-storage">
+            <button onclick="armazenaLocalStorage('login-local-storage')">Armazenar LocalStorage</button>
+        </div>
+    </main>
+    
+    <footer>
+        Footer
+    </footer>
+
+    <script>
+        function armazenaCookie() {
+            const input = document.getElementById('login').value;
+            document.cookie = 'login=' + input;
+            input.value = '';
+
+        }
+
+        function armazenaLocalStorage(id) {
+            const input = document.getElementById(id);
+            localStorage.setItem(input.value, input.value);
+            input.value = '';
+        }
+    </script>
+</body>
+</html>

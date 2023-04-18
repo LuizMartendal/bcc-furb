@@ -1,0 +1,24 @@
+body {
+    margin: 0px;
+}
+
+header {
+    height: 8vh;
+    font-size: 7vh;
+    background-color: lightblue;
+    padding: 1vh;
+}
+
+main {
+    padding: 1vh;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    height: 5vh;
+    font-size: 5vh;
+    padding: 1vh;
+    background-color: lightblue;
+    width: 100vw;
+}

@@ -15,13 +15,23 @@ function changeColor() {
 }
 
 function addClass(value) {
-    const element = document.getElementById(value);
-    element.classList.addClass(value);
+    let element = document.getElementsByClassName(value);
+    console.log(element);
+    if (element.length != 0) {
+        this.deleteClass(value);
+    } else {
+        let element = document.getElementById(value);
+        element.classList.add(value);
+    }
 }
 
 function deleteClass(value) {
-    const element = document.getElementsByClassName(value);
-    element.classList.deleteClass(value);
+    let className = '.' + value;
+    const element = document.querySelector(className);
+    if (element) {
+        element.classList.deleteClass = value;
+        element.style.backgroundColor = 'white';
+    }
 }
 
 function toggleClass(value) {
