@@ -27,8 +27,8 @@ footer {
 }
 
 #box {
-    margin: 10vh 25vw 25vh 25vw;
-    height: 50vh;
+    margin: 10vh 25vw;
+    height: 65vh;
     background-color: lightblue;
 }
 
@@ -50,18 +50,21 @@ input {
 }
 
 .flexBox {
-    margin-top: 5vh;
+    margin-top: 3vh;
+    margin-left: 4vw;
     display: grid;
     grid-template-columns: auto auto auto auto auto;
-    gap: 2px;
+    gap: 5px;
     align-content: center;
+    height: 45vh;
+    width: 40vw;
 }
 
 .flexBox div {
     color: black;
     border: 1px solid black;
-    margin: 5px;
-    padding: 10px;
+    margin: 5%; 
+    padding: 10%;
     font-size: 2em;
     text-align: center;
 }
