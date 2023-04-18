@@ -1,0 +1,67 @@
+body {
+    margin: 0px;
+}
+
+header {
+    height: 8vh;
+    font-size: 8vh;
+    padding: 10px;
+    background-color: lightblue;
+    width: 100vw;
+    text-align: center;
+}
+
+main {
+    padding: 10px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    height: 6vh;
+    background-color: lightblue;
+    font-size: 6vh;
+    padding: 10px;
+    width: 100vw;
+    text-align: center;
+}
+
+#box {
+    margin: 10vh 25vw 25vh 25vw;
+    height: 50vh;
+    background-color: lightblue;
+}
+
+input {
+    height: 80%;
+    width: 50%;
+    font-size: 2em;
+    color: lightblue;
+    text-align: center;
+}
+
+.input-box {
+    padding-top: 40px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+}
+
+.flexBox {
+    margin-top: 5vh;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 2px;
+    align-content: center;
+}
+
+.flexBox div {
+    color: black;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 10px;
+    font-size: 2em;
+    text-align: center;
+}

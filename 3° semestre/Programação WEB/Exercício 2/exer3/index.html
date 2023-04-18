@@ -29,6 +29,30 @@
             <input type="number" id="number">
             <button onclick="verificarNumero('number')">Verificar</button>
         </div>
+
+        <div>
+            <table>
+                <th id="Col1" onclick="alertTable('Col1')">Col1</th>
+                <th id="Col2" onclick="alertTable('Col2')">Col2</th>
+                <th id="Col3" onclick="alertTable('Col3')">Col3</th>
+
+                <tr>
+                    <td id="Lin1" onclick="alertTable('Lin1')">Lin1</td>
+                    <td id="Lin2" onclick="alertTable('Lin2')">Lin2</td>
+                    <td id="Lin3" onclick="alertTable('Lin3')">Lin3</td>
+                </tr>
+                <tr>
+                    <td id="Lin4" onclick="alertTable('Lin4')">Lin4</td>
+                    <td id="Lin5" onclick="alertTable('Lin5')">Lin5</td>
+                    <td id="Lin6" onclick="alertTable('Lin6')">Lin6</td>
+                </tr>
+                <tr>
+                    <td id="Lin7" onclick="alertTable('Lin7')">Lin7</td>
+                    <td id="Lin8" onclick="alertTable('Lin8')">Lin8</td>
+                    <td id="Lin9" onclick="alertTable('Lin9')">Lin9</td>
+                </tr>
+            </table>
+        </div>
     </main>
     
     <footer>Footer</footer>
@@ -49,6 +73,11 @@
             } else {
                 alert('O número é ímpar');
             }
+        }
+
+        function alertTable(id) {
+            const value = document.getElementById(id).textContent;
+            alert(value);
         }
     </script>
 </body>

@@ -26,3 +26,16 @@ footer {
 .box {
     padding: 10px;
 }
+
+table {
+    margin: 2vh;
+    border: 2px solid;
+    border-collapse: collapse;
+    width: 30vw;
+    padding: 2em;
+}
+
+td, th {
+    border: 2px solid;
+    font-size: 2em;
+}
