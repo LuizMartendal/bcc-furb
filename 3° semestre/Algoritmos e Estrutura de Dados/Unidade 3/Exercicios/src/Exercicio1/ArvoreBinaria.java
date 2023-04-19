@@ -1,29 +1,13 @@
 package Exercicio1;
 
-public class ArvoreBinaria<T> {
+import Exercicio2.ArvoreBinariaAbstract;
 
-    private NoArvoreBinaria<T> raiz;
+public class ArvoreBinaria<T> extends ArvoreBinariaAbstract<T> {
 
     ArvoreBinaria() {}
 
-    public void setRaiz(NoArvoreBinaria<T> raiz) {
-        this.raiz = raiz;
-    }
-
-    public boolean vazia() {
-        return raiz == null;
-    }
-
-    public NoArvoreBinaria<T> pertence(T info) {
-        return raiz.pertence(info);
-    }
-
     @Override
-    public String toString() {
-        String str = "";
-
-        str += raiz.imprimePre();
-
-        return str + "";
+    public void setRaiz(NoArvoreBinaria<T> raiz) {
+        super.setRaiz(raiz);
     }
 }

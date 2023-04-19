@@ -6,7 +6,7 @@ public class NoArvoreBinaria<T> {
     private NoArvoreBinaria<T> esq = null;
     private NoArvoreBinaria<T> dir = null;
 
-    NoArvoreBinaria(T info) {
+    protected NoArvoreBinaria(T info) {
         this.setInfo(info);
     }
 
@@ -44,13 +44,13 @@ public class NoArvoreBinaria<T> {
 
         if (esq != null) {
             str += esq.imprimePre();
-        } else {
+        } else if (this.esq == null && this.dir != null) {
             str += "<>";
         }
 
         if (dir != null) {
             str += dir.imprimePre();
-        } else {
+        }  else if (this.dir == null && this.esq != null) {
             str += "<>";
         }
 
