@@ -12,6 +12,14 @@ public class TesteArvoreBinariaBST {
         arvoreBST.inserir(70);
         arvoreBST.inserir(50);
         arvoreBST.inserir(50);
+        arvoreBST.inserir(29);
+        arvoreBST.inserir(34);
+        arvoreBST.inserir(33);
+        arvoreBST.inserir(85);
+        arvoreBST.inserir(84);
+        arvoreBST.inserir(86);
+        System.out.println(arvoreBST.toString());
+        arvoreBST.retirar(30);
         System.out.println(arvoreBST.toString());
     }
 }

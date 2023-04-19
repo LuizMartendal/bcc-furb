@@ -17,7 +17,7 @@ public class ArvoreBST<T extends Comparable<T>>  extends ArvoreBinariaAbstract<T
     }
 
     public void retirar(T info) {
-
+        ((NoArvoreBST<T>)this.getRaiz()).retirar(info);
     }
 
     @Override
