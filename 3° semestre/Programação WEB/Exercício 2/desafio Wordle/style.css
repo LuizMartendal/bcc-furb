@@ -9,10 +9,21 @@ header {
     background-color: lightblue;
     width: 100vw;
     text-align: center;
+    animation: header 1s infinite
+}
+
+@keyframes header {
+    25% { background-color: lightcoral; }
+    50% { background-color: lightgreen; }
+    75% { background-color: lightsalmon; }
+    100% { background-color: lightskyblue; }
 }
 
 main {
-    padding: 10px;
+    margin: 5vh 25vw 5vh 25vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 footer {
@@ -24,12 +35,28 @@ footer {
     padding: 10px;
     width: 100vw;
     text-align: center;
+    animation: footer 1s infinite;
+}
+
+@keyframes footer {
+    25% { background-color: lightcoral; }
+    50% { background-color: lightgreen; }
+    75% { background-color: lightsalmon; }
+    100% { background-color: lightskyblue; }
 }
 
 #box {
-    margin: 10vh 25vw;
     height: 65vh;
+    border-radius: 50px;
     background-color: lightblue;
+    animation: div 3s infinite;
+}
+
+@keyframes div {
+    25% { background-color: lightcoral; }
+    50% { background-color: lightgreen; }
+    75% { background-color: lightsalmon; }
+    100% { background-color: lightskyblue; }
 }
 
 input {
@@ -46,17 +73,17 @@ input {
     width: 100%;
     align-items: center;
     justify-content: center;
-    height: 10%;
+    height: 8%;
 }
 
 .flexBox {
-    margin-top: 3vh;
-    margin-left: 4vw;
+    margin-top: 10%;
+    margin-left: 2vw;
+    margin-right: 4vw;
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     gap: 5px;
-    align-content: center;
-    height: 45vh;
+    height: 10vh;
     width: 40vw;
 }
 
