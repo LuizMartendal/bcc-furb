@@ -14,11 +14,18 @@ public class TesteRandom {
         int qtd = s.nextInt();
 
         ArrayList<NoArvoreBST<Integer>> nos = new ArrayList<>();
+        int[] elementos = new int[qtd];
 
         for (int i = 0; i < qtd; i++) {
             int n = new Random().nextInt();
+            elementos[i] = n;
             arvoreBST.inserir(n);
         }
-        System.out.println(arvoreBST.toString());
+        System.out.println("Árvore completa: " + arvoreBST.toString());
+        for (int i = 0; i < qtd; i++) {
+            arvoreBST.retirar(elementos[i]);
+        }
+        System.out.println("Árvore após retirada de todos elementos: " + arvoreBST.toString());
+        s.close();
     }
 }

@@ -19,7 +19,9 @@ public class TesteArvoreBinariaBST {
         arvoreBST.inserir(84);
         arvoreBST.inserir(86);
         System.out.println(arvoreBST.toString());
-        arvoreBST.retirar(30);
+        arvoreBST.retirar(50);
+        arvoreBST.retirar(50);
+        arvoreBST.retirar(50);
         System.out.println(arvoreBST.toString());
     }
 }

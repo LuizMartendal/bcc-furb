@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle</title>
+
+    <style>
+        body {
+            margin: 0px;
+            background-color: rgb(44, 44, 44);
+        }
+
+        header {
+            height: 8vh;
+            font-size: 8vh;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            width: 100vw;
+            text-align: center;
+        }
+
+        main {
+            margin: 5vh 25vw 5vh 25vw;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0px;
+            height: 6vh;
+            font-size: 6vh;
+            padding: 10px;
+            width: 100vw;
+            text-align: center;
+        }
+
+        #box {
+            height: 65vh;
+            border-radius: 50px;
+            background-color: back;
+        }
+
+        input {
+            height: 80%;
+            width: 50%;
+            font-size: 2em;
+            color: black;
+            text-align: center;
+        }
+
+        .input-box {
+            padding-top: 40px;
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            height: 8%;
+        }
+
+        .flexBox {
+            margin-top: 10%;
+            margin-left: 4vw;
+            margin-right: 4vw;
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            gap: 5px;
+            height: 10vh;
+            width: 40vw;
+        }
+
+        .flexBox div {
+            color: black;
+            border: 1px solid black;
+            margin: 5%; 
+            padding: 10%;
+            font-size: 2em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>Wordle</header>
+
+    <main>
+        <div id="box">
+            <div class="input-box">
+                <input type="text" id="input" maxlength="5" onkeyup="enterPress()">
+            </div>
+            <div class="flexBox" id="flexBox">
+                
+            </div>
+        </div>
+    </main>
+    
+    <footer></footer>
+
+    <script>
+        var palavras = ['sagaz', 'âmago', 'mexer, êxito', 'termo',
+                'nobre', 'senso', 'afeto', 'algoz', 'plena',
+                'mutua', 'fazer', 'vigor', 'ideia', 'poder',
+                'moral', 'honra', 'sonho', 'anexo', 'casal']
+
+        //var palavra = palavras[parseInt(Math.random() * 19)]
+        var palavra = 'mexer'
+        var tentativas = 1;
+
+        function enterPress() {
+            console.log(palavra);
+            const input = document.getElementById('input')
+            if (input.onkeyup.arguments[0].key === 'Enter') {
+                verificar(input)
+                input.value = ''
+            }
+        }
+
+        async function verificar(input) {   
+            const valor = input.value.toLowerCase()
+            if (valor === palavra) {
+                for (i = 0; i < valor.length; i++) {
+                    criarQuadrado(valor.charAt(i) , i)
+                }
+                acertou() 
+                await new Promise(r => setTimeout(() => r(), 3000))
+                location.reload()
+            } else {
+                if (tentativas == 6) {
+                    alert('Game over! A palavra do dia é: ' + palavra)
+                    location.reload()
+                } else {
+                    for (i = 0; i < 5; i++) {
+                        criarQuadrado(valor.charAt(i) , i)
+                    } 
+                    tentativas++
+                }
+            }
+        }
+
+        function criarQuadrado(char, i) {
+            if (char === '') {
+                char = '-'
+            }
+            const novo = document.createElement('div')
+            novo.innerHTML = char.toUpperCase()
+            let cor = 'green'
+            if (palavra.includes(char) && char != palavra.charAt(i)) {
+                cor = 'yellow'
+            } 
+            if (!palavra.includes(char)) {
+                cor = 'red'
+            }
+            novo.style.backgroundColor = cor
+            document.getElementById('flexBox').appendChild(novo)
+        }
+
+        function acertou() {
+            if (tentativas >= 4) {
+                alert(`Caramba cara... ${tentativas} tentativas para achar a palavra? ...`)
+            } else if (tentativas > 1) {
+                alert(`Parabéns! Você adivinhou a palavra com apenas ${tentativas} tentativas.`)
+            } else {
+                alert(`Você é uma máquina!! Uma lenda! Conseguiu adivinhar a palavra de primeira! Cagão...`)
+            }    
+        }
+    </script>
+</body>
+</html>

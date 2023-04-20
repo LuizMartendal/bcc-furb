@@ -1,22 +1,16 @@
 body {
     margin: 0px;
+    background-color: rgb(44, 44, 44);
 }
 
 header {
     height: 8vh;
     font-size: 8vh;
     padding: 10px;
-    background-color: lightblue;
+    background-color: black;
+    color: white;
     width: 100vw;
     text-align: center;
-    animation: header 1s infinite
-}
-
-@keyframes header {
-    25% { background-color: lightcoral; }
-    50% { background-color: lightgreen; }
-    75% { background-color: lightsalmon; }
-    100% { background-color: lightskyblue; }
 }
 
 main {
@@ -30,40 +24,23 @@ footer {
     position: fixed;
     bottom: 0px;
     height: 6vh;
-    background-color: lightblue;
     font-size: 6vh;
     padding: 10px;
     width: 100vw;
     text-align: center;
-    animation: footer 1s infinite;
-}
-
-@keyframes footer {
-    25% { background-color: lightcoral; }
-    50% { background-color: lightgreen; }
-    75% { background-color: lightsalmon; }
-    100% { background-color: lightskyblue; }
 }
 
 #box {
     height: 65vh;
     border-radius: 50px;
-    background-color: lightblue;
-    animation: div 3s infinite;
-}
-
-@keyframes div {
-    25% { background-color: lightcoral; }
-    50% { background-color: lightgreen; }
-    75% { background-color: lightsalmon; }
-    100% { background-color: lightskyblue; }
+    background-color: back;
 }
 
 input {
     height: 80%;
     width: 50%;
     font-size: 2em;
-    color: lightblue;
+    color: black;
     text-align: center;
 }
 
@@ -78,7 +55,7 @@ input {
 
 .flexBox {
     margin-top: 10%;
-    margin-left: 2vw;
+    margin-left: 4vw;
     margin-right: 4vw;
     display: grid;
     grid-template-columns: auto auto auto auto auto;

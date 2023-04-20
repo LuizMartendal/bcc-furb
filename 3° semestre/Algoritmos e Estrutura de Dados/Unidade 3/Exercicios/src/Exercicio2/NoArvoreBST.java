@@ -42,72 +42,22 @@ public class NoArvoreBST<T extends Comparable<T>> extends NoArvoreBinaria<T> {
         }
     }
 
-    public void retirar(T info) {
-        if (info.compareTo(this.getInfo()) < 0) {
-            if ((NoArvoreBST<T>)this.getEsq() != null) {
-                if (((NoArvoreBST<T>)this.getEsq()).getInfo().equals(info)) {
-                    if (((NoArvoreBST<T>)this.getEsq()).getEsq() == null && ((NoArvoreBST<T>)this.getEsq()).getDir() == null) {
-                        this.setEsq(null);
-                    } else if (((NoArvoreBST<T>)this.getEsq()).getEsq() != null && ((NoArvoreBST<T>)this.getEsq()).getDir() != null) {
-                        NoArvoreBST<T> noesq = (NoArvoreBST<T>) ((NoArvoreBST<T>)this.getEsq()).getEsq();
-                        NoArvoreBST<T> no = (NoArvoreBST<T>) ((NoArvoreBST<T>)this.getEsq()).getDir();
-                        NoArvoreBST<T> novo = null;
-                        while (true) {
-                            if ((NoArvoreBST<T>)((NoArvoreBST<T>)no.getEsq()).getEsq() == null) {
-                                novo = ((NoArvoreBST<T>)no.getEsq());
-                                novo.setDir((NoArvoreBST<T>) ((NoArvoreBST<T>)this.getEsq()).getDir());
-                                no.setEsq(null);
-                                novo.setEsq(noesq);
-                                this.setEsq(novo);
-                                break;
-                            }
-                            no = ((NoArvoreBST<T>)no.getEsq());
-                        }
-                    } else {
-                        if (((NoArvoreBST<T>)this.getEsq()).getDir() != null) {
-                            this.setEsq(((NoArvoreBST<T>)this.getEsq()).getDir());
-                        } else {
-                            this.setEsq(((NoArvoreBST<T>)this.getEsq()).getEsq());
-                        }
-                    }
-                }
-                if (((NoArvoreBST<T>)this.getEsq()) != null) {
-                    ((NoArvoreBST<T>)this.getEsq()).retirar(info);
-                }
-            }
+    public void retirar(NoArvoreBST<T> raiz, T info) {
+        if (info.compareTo(this.getInfo()) == 0) {
+
+        } else if (info.compareTo(this.getInfo()) < 0) {
+            this.retiarEsq(info);
         } else {
-            if ((NoArvoreBST<T>)this.getDir() != null) {
-                if (((NoArvoreBST<T>)this.getDir()).getInfo().equals(info)) {
-                    if (((NoArvoreBST<T>)this.getDir()).getDir() == null && ((NoArvoreBST<T>)this.getDir()).getEsq() == null) {
-                        this.setDir(null);
-                    } else if (((NoArvoreBST<T>)this.getDir()).getDir() != null && ((NoArvoreBST<T>)this.getDir()).getEsq() != null) {
-                        NoArvoreBST<T> noesq = (NoArvoreBST<T>) ((NoArvoreBST<T>)this.getDir()).getEsq();
-                        NoArvoreBST<T> no = (NoArvoreBST<T>) ((NoArvoreBST<T>)this.getDir()).getDir();
-                        NoArvoreBST<T> novo = null;
-                        while (true) {
-                            if ((NoArvoreBST<T>)((NoArvoreBST<T>)no.getEsq()).getEsq() == null) {
-                                novo = ((NoArvoreBST<T>)no.getEsq());
-                                novo.setDir((NoArvoreBST<T>) ((NoArvoreBST<T>)this.getDir()).getDir());
-                                no.setEsq(null);
-                                novo.setEsq(noesq);
-                                this.setDir(novo);
-                                break;
-                            }
-                            no = ((NoArvoreBST<T>)no.getEsq());
-                        }
-                    } else {
-                        if (((NoArvoreBST<T>)this.getDir()).getDir() != null) {
-                            this.setDir(((NoArvoreBST<T>)this.getDir()).getDir());
-                        } else {
-                            this.setDir(((NoArvoreBST<T>)this.getDir()).getEsq());
-                        }
-                    }
-                }
-                if (((NoArvoreBST<T>)this.getDir()) != null) {
-                    ((NoArvoreBST<T>)this.getDir()).retirar(info);
-                }
-            }
+            this.retirarDir(info);
         }
+    }
+
+    public void retiarEsq(T info) {
+
+    }
+
+    public void retirarDir(T info) {
+
     }
 
     public String imprime() {

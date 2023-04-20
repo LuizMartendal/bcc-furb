@@ -15,18 +15,17 @@ function enterPress() {
     }
 }
 
-async function verificar(input) {
-    debugger;
+async function verificar(input) {   
     const valor = input.value.toLowerCase()
     if (valor === palavra) {
         for (i = 0; i < valor.length; i++) {
             criarQuadrado(valor.charAt(i) , i)
-        } 
-            alert('Parabéns! Você adivinhou a palavra do dia com apenas ' + tentativas + " tentativas")
-            await new Promise(r => setTimeout(() => r(), 3000))
-            location.reload()
+        }
+        acertou() 
+        await new Promise(r => setTimeout(() => r(), 3000))
+        location.reload()
     } else {
-        if (tentativas == 4) {
+        if (tentativas == 6) {
             alert('Game over! A palavra do dia é: ' + palavra)
             location.reload()
         } else {
@@ -53,4 +52,14 @@ function criarQuadrado(char, i) {
     }
     novo.style.backgroundColor = cor
     document.getElementById('flexBox').appendChild(novo)
+}
+
+function acertou() {
+    if (tentativas >= 4) {
+        alert(`Caramba cara... ${tentativas} tentativas para achar a palavra? ...`)
+    } else if (tentativas > 1) {
+        alert(`Parabéns! Você adivinhou a palavra com apenas ${tentativas} tentativas.`)
+    } else {
+        alert(`Você é uma máquina!! Uma lenda! Conseguiu adivinhar a palavra de primeira! Cagão...`)
+    }    
 }
