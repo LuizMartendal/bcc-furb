@@ -43,67 +43,112 @@ public class NoArvoreBST<T extends Comparable<T>> extends NoArvoreBinaria<T> {
     }
 
     public void retirar(T info) {
-        if (this.getInfo().compareTo(info) < 0) {
-            if (this.getEsq() != null) {
-                ((NoArvoreBST<T>)this.getEsq()).retirar(info);
+        while (true) {
+            if (info.compareTo(this.getInfo()) < 0) {
+                if (this.getEsq() != null) {
+                    if (!this.getEsq().getInfo().equals(info)) {
+                        ((NoArvoreBST<T>) this.getEsq()).retirar(info);
+                        break;
+                    }
+
+                    if (this.getEsq().getEsq() == null && this.getEsq().getDir() == null) {
+                        if (this.getEsq().getInfo().equals(info)) {
+                            this.setEsq(null);
+                        }
+                        break;
+                    } else if (this.getEsq().getEsq() != null && this.getEsq().getDir() != null) {
+                        retirarComDoisNos(info, "esq");
+                        break;
+                    } else {
+                        retirarComUmNo(info);
+                        break;
+                    }
+                }
             }
-        }
-        if (this.getInfo().compareTo(info) > 0) {
-            if (this.getDir() != null) {
-                ((NoArvoreBST<T>)this.getDir()).retirar(info);
-            }
-        } else {
-            if (this.getEsq().getEsq() == null && this.getEsq().getDir() == null) {
-                this.retirarFolha(info);
-            } else if (this.getEsq().getEsq() != null && this.getEsq().getDir() != null) {
-                retirarComDoisNos(info);
-            } else {
-                retirarComUmNo(info);
+            if (info.compareTo(this.getInfo()) >= 0) {
+                if (this.getDir() != null) {
+                    if (!this.getDir().getInfo().equals(info)) {
+                        ((NoArvoreBST<T>) this.getDir()).retirar(info);
+                        break;
+                    }
+
+                    if (this.getDir().getEsq() == null && this.getDir().getDir() == null) {
+                        if (this.getDir().getInfo().equals(info)) {
+                            this.setDir(null);
+                        }
+                        break;
+                    } else if (this.getDir().getEsq() != null && this.getDir().getDir() != null) {
+                        retirarComDoisNos(info, "dir");
+                        break;
+                    } else {
+                        retirarComUmNo(info);
+                        break;
+                    }
+                }
             }
         }
     }
 
-    private void retirarFolha(T info) {
-        if (this.getEsq().getInfo().equals(info) && this.getEsq() != null) {
-            this.setEsq(null);
-        } else if (this.getDir().getInfo().equals(info) && this.getDir() != null){
-            this.setDir(null);
+    private void retirarComDoisNos(T info, String lado) {
+        NoArvoreBST<T> noEsq = null;
+        NoArvoreBST<T> no = null;
+        NoArvoreBST<T> novo = null;
+        if (lado.equals("dir")) {
+            noEsq = (NoArvoreBST<T>) this.getDir().getEsq();
+            no = (NoArvoreBST<T>) this.getDir().getDir();
+            novo = (NoArvoreBST<T>) this.getDir().getDir();
         } else {
-            this.setInfo(null);
+            noEsq = (NoArvoreBST<T>) this.getEsq().getEsq();
+            no = (NoArvoreBST<T>) this.getEsq().getDir();
+            novo = (NoArvoreBST<T>) this.getEsq().getDir();
         }
-    }
 
-    private void retirarComDoisNos(T info) {
-        NoArvoreBST<T> noEsq = (NoArvoreBST<T>) this.getEsq();
-        NoArvoreBST<T> no = (NoArvoreBST<T>) this.getDir();
-        NoArvoreBST<T> novo = (NoArvoreBST<T>) this.getDir();
-        novo.setDir(this.getDir());
-        while (no.getEsq() != null) {
-            if (no.getEsq().getInfo().equals(info) && no.getEsq().getInfo() == null) {
-                novo = (NoArvoreBST<T>) no.getEsq();
-                no.setEsq(null);
-                novo.setEsq(noEsq);
+        if (no.getEsq() == null) {
+            novo.setEsq(noEsq);
+            if (lado.equals("dir")) {
+                this.setDir(novo);
             } else {
-                no = (NoArvoreBST<T>) no.getEsq();
+                this.setEsq(novo);
+            }
+        } else {
+            while (no.getEsq() != null) {
+                if (no.getEsq().getInfo().equals(info) && no.getEsq().getEsq() == null) {
+                    novo = (NoArvoreBST<T>) no.getEsq();
+                    no.setEsq(null);
+                    novo.setEsq(noEsq);
+                    break;
+                } else {
+                    no = (NoArvoreBST<T>) no.getEsq();
+                }
+            }
+            if (lado.equals("dir")) {
+                novo.setDir(this.getDir().getDir());
+                this.setDir(novo);
+            } else {
+                novo.setDir(this.getEsq().getDir());
+                this.setEsq(novo);
             }
         }
     }
 
     private void retirarComUmNo(T info) {
-        if (this.getEsq().getInfo().equals(info)) {
-            if (this.getEsq().getEsq() == null) {
-                this.setEsq(null);
-            } else {
-                this.setEsq(this.getEsq().getEsq());
+        if (this.getEsq() != null) {
+            if (this.getEsq().getInfo().equals(info)) {
+                if (this.getEsq().getEsq() == null) {
+                    this.setEsq(null);
+                } else {
+                    this.setEsq(this.getEsq().getEsq());
+                }
             }
-        } else if (this.getDir().getInfo().equals(info)){
-            if (this.getDir() == null) {
-                this.setDir(null);
-            } else {
-                this.setDir(this.getDir().getDir());
+        }
+        if (this.getDir() != null){
+            if (this.getDir().getInfo().equals(info)) {
+                if (this.getDir().getDir() == null) {
+                    this.setDir(null);
+                } else {
+                    this.setDir(this.getDir().getDir());
+                }
             }
-        } else {
-            this.setInfo(null);
         }
     }
 

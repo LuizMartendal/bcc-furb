@@ -28,6 +28,9 @@ public class ArvoreBST<T extends Comparable<T>>  extends ArvoreBinariaAbstract<T
 
     @Override
     public String toString() {
+        if (((NoArvoreBST<T>)this.getRaiz()) == null) {
+            return "<>";
+        }
         return ((NoArvoreBST<T>)this.getRaiz()).imprime();
     }
 }

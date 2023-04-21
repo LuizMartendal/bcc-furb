@@ -20,12 +20,16 @@ public class TesteRandom {
             int n = new Random().nextInt(0, 100);
             elementos[i] = n;
             arvoreBST.inserir(n);
+            System.out.println("Adicionando o elemento: " + elementos[i] +
+                    "\nÁrvore: " + arvoreBST);
         }
-        System.out.println("Árvore completa: " + arvoreBST.toString());
-        for (int i = 0; i < qtd; i++) {
+        System.out.println("Árvore completa: " + arvoreBST);
+        for (int i = qtd - 1; i >= 0; i--) {
             arvoreBST.retirar(elementos[i]);
+            System.out.println("Tirando o elemento: " + elementos[i] +
+                                "\nÁrvore: " + arvoreBST);
         }
-        System.out.println("Árvore após retirada de todos elementos: " + arvoreBST.toString());
+        System.out.println("Árvore após retirada de todos elementos: " + arvoreBST);
         s.close();
     }
 }

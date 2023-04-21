@@ -117,6 +117,7 @@ public class Apresentacao {
 					Calculadora<Double> calculadora = new Calculadora<>(expressao, tipoDePilha);
 					String resultado = calculadora.calcular();
 					txtEx.setText(resultado);
+					System.out.println("olá");
 				} catch (Exception e2) {
 					e2.printStackTrace();
 					JOptionPane.showMessageDialog(null, e2.getLocalizedMessage());
