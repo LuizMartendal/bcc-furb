@@ -42,22 +42,69 @@ public class NoArvoreBST<T extends Comparable<T>> extends NoArvoreBinaria<T> {
         }
     }
 
-    public void retirar(NoArvoreBST<T> raiz, T info) {
-        if (info.compareTo(this.getInfo()) == 0) {
-
-        } else if (info.compareTo(this.getInfo()) < 0) {
-            this.retiarEsq(info);
+    public void retirar(T info) {
+        if (this.getInfo().compareTo(info) < 0) {
+            if (this.getEsq() != null) {
+                ((NoArvoreBST<T>)this.getEsq()).retirar(info);
+            }
+        }
+        if (this.getInfo().compareTo(info) > 0) {
+            if (this.getDir() != null) {
+                ((NoArvoreBST<T>)this.getDir()).retirar(info);
+            }
         } else {
-            this.retirarDir(info);
+            if (this.getEsq().getEsq() == null && this.getEsq().getDir() == null) {
+                this.retirarFolha(info);
+            } else if (this.getEsq().getEsq() != null && this.getEsq().getDir() != null) {
+                retirarComDoisNos(info);
+            } else {
+                retirarComUmNo(info);
+            }
         }
     }
 
-    public void retiarEsq(T info) {
-
+    private void retirarFolha(T info) {
+        if (this.getEsq().getInfo().equals(info) && this.getEsq() != null) {
+            this.setEsq(null);
+        } else if (this.getDir().getInfo().equals(info) && this.getDir() != null){
+            this.setDir(null);
+        } else {
+            this.setInfo(null);
+        }
     }
 
-    public void retirarDir(T info) {
+    private void retirarComDoisNos(T info) {
+        NoArvoreBST<T> noEsq = (NoArvoreBST<T>) this.getEsq();
+        NoArvoreBST<T> no = (NoArvoreBST<T>) this.getDir();
+        NoArvoreBST<T> novo = (NoArvoreBST<T>) this.getDir();
+        novo.setDir(this.getDir());
+        while (no.getEsq() != null) {
+            if (no.getEsq().getInfo().equals(info) && no.getEsq().getInfo() == null) {
+                novo = (NoArvoreBST<T>) no.getEsq();
+                no.setEsq(null);
+                novo.setEsq(noEsq);
+            } else {
+                no = (NoArvoreBST<T>) no.getEsq();
+            }
+        }
+    }
 
+    private void retirarComUmNo(T info) {
+        if (this.getEsq().getInfo().equals(info)) {
+            if (this.getEsq().getEsq() == null) {
+                this.setEsq(null);
+            } else {
+                this.setEsq(this.getEsq().getEsq());
+            }
+        } else if (this.getDir().getInfo().equals(info)){
+            if (this.getDir() == null) {
+                this.setDir(null);
+            } else {
+                this.setDir(this.getDir().getDir());
+            }
+        } else {
+            this.setInfo(null);
+        }
     }
 
     public String imprime() {

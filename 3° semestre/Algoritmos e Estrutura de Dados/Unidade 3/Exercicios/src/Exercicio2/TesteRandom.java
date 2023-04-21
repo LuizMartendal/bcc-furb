@@ -17,7 +17,7 @@ public class TesteRandom {
         int[] elementos = new int[qtd];
 
         for (int i = 0; i < qtd; i++) {
-            int n = new Random().nextInt();
+            int n = new Random().nextInt(0, 100);
             elementos[i] = n;
             arvoreBST.inserir(n);
         }
