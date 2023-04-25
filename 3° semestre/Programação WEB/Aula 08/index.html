@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 10</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./Pessoa.js"></script>
+</head>
+<body>
+    <header>Página 9</header>
+
+    <main>
+        <div>
+            <input type="text" name="nmPessoa" id="nmPessoa">
+            <input type="date" name="dtNascimento" id="dtNascimento">
+            <button onclick="instanciarPessoa()">Instaciar Pessoa</button>
+            <br>
+            <input type="text" name="nmCurso" id="nmCurso">
+            <button onclick="instanciarAluno()">Instanciar Aluno</button>
+            <br>
+            <input type="text" name="nmDepto" id="nmDepto">
+            <button onclick="instanciarProfessor()">Instanciar Professor</button>
+        </div>
+    </main>
+    
+    <footer>
+        Footer
+    </footer>
+
+    <script>
+        function instanciarPessoa() {
+            var vPessoa = new Pessoa(
+                document.getElementById('nmPessoa').value,
+                document.getElementById('dtNascimento').value
+            )
+            console.log(vPessoa.getNmPessoa());
+            console.log(vPessoa.getDtNascimento());
+        }
+
+        function instanciarProfessor() {
+            var vProfessor = new Professor(
+                document.getElementById('nmPessoa').value,
+                document.getElementById('dtNascimento').value,
+                document.getElementById('nmDepto').value
+            )
+            console.log(vProfessor.getNmPessoa());
+            console.log(vProfessor.getDtNascimento());
+            console.log(vProfessor.getNmDepto());
+        }
+    </script>
+</body>
+</html>
