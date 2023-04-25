@@ -6,7 +6,7 @@ header {
     position: fixed;
     top: 0px;
 
-    background-color: rgba(12, 12, 12, 0.895);
+    background-color: black;
     height: 10vh;
     width: 100vw;
 
@@ -18,12 +18,14 @@ header > a {
     height: 8vh;
     padding: 1px;
     margin: 10px;
+    margin-left: 1vw;
 
     display: flex;
     align-items: center;
 
     text-decoration: none;
 }
+
 
 header > a > img {
     background-color: white;
@@ -39,13 +41,17 @@ header > a > h1 {
     font-style: italic;
 }
 
+header a > h1:hover {
+    color: lightgray;
+}
+
 footer {
     position: fixed;
     bottom: 0px;
     display: flex;
     justify-content: center;
 
-    background-color: rgba(12, 12, 12, 0.895);
+    background-color: black;
     color: white;
 
     font-size: large;
@@ -56,35 +62,70 @@ footer {
 
 main { 
     margin-top: 10vh;
-    background-color: lightblue;
-    height: 100vh;
+    background-color: rgba(12, 12, 12, 0.895);
+
+    min-height: 100vh;
     width: 100vw;
 }
-main > menu {
-    background-color: rgba(12, 12, 12 ,0.895);
-    width: 5vw;
+
+.navigation {
+    margin: 5px;
+    position: fixed;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 8vw;
+    padding: 0;
 }
-main > menu > div {
-    margin: 10px;
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     width: 6vw;
 }
-main > menu > div > a {
-    text-decoration: none;
-    border-radius: 1vw;
 
+.list {
+    margin: 5px;
+}
+
+.list a {
     background-color: white;
-    color: black;
+    color: rgba(12, 12, 12, 0.895);
+    font-size: 1vw;
 
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
+    align-items: center;
+
+    padding: 10px;
+    border-radius: 1vw;
+    text-decoration: none;
+    width: 3vw;
 }
-main > menu > div > a > img {
+
+.list a:hover {
+    background-color: lightgray;
+    width: 4vw;
+}
+
+.list a img {
     height: 50%;
     width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .navigation {
+        width: 100vw;
+        height: 8vh;
+        padding: 0;
+        top: 8vh;
+    }
+
+    .navigation ul {
+        width: 100vw;
+        height: 7vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
 }
