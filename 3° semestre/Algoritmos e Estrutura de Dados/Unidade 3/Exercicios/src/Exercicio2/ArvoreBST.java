@@ -112,39 +112,44 @@ public class ArvoreBST<T extends Comparable<T>>  extends ArvoreBinariaAbstract<T
         return noComMaiorElemento.getInfo();
     }
 
-    public NoArvoreBST<T> getSucessor(T info) {
+    public T getSucessor(T info) {
         NoArvoreBST<T> no = this.buscar(info);
         if (this.getRaiz() == null || this.maiorElemento().equals(info)) {
             return null;
         }
         if (no.getDir() != null) {
-            return this.identificarSucessor(no);
+            return this.identificarSucessor(no).getInfo();
         }
         NoArvoreBST<T> noPai = this.identificarPai(no);
         while (noPai.getDir() == no) {
             no = noPai;
             noPai = this.identificarPai(no);
         }
-        return noPai;
+        return noPai.getInfo();
     }
 
-    public NoArvoreBST<T> getAntecessor(T info) {
+    private NoArvoreBST<T> identificarAntecessor(NoArvoreBST<T> no) {
+        NoArvoreBST<T> noAntecessor = (NoArvoreBST<T>) no.getEsq();
+        while (noAntecessor.getDir() != null) {
+            noAntecessor = (NoArvoreBST<T>) noAntecessor.getDir();
+        }
+        return noAntecessor;
+    }
+
+    public T getAntecessor(T info) {
         NoArvoreBST<T> no = this.buscar(info);
         if (this.getRaiz() == null || this.menorElemento().equals(info)) {
             return null;
         }
         if (no.getEsq() != null) {
-            return this.(no);
+            return this.identificarAntecessor(no).getInfo();
         }
         NoArvoreBST<T> noPai = this.identificarPai(no);
         while (noPai.getEsq() == no) {
             no = noPai;
             noPai = this.identificarPai(no);
         }
-        return noPai;
+        return noPai.getInfo();
     }
 
-    public String toStringOrdered() {
-
-    }
 }

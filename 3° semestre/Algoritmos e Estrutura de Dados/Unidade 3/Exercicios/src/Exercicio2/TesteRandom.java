@@ -23,7 +23,21 @@ public class TesteRandom {
             System.out.println("Adicionando o elemento: " + elementos[i] +
                     "\nÁrvore: " + arvoreBST);
         }
+
         System.out.println("Árvore completa: " + arvoreBST);
+
+        System.out.println("Menor valor = "+arvoreBST.menorElemento());
+        System.out.println("Maior valor = "+arvoreBST.maiorElemento());
+
+
+        for (int i=0; i < elementos.length; i++) {
+            System.out.println("Sucessor de "+elementos[i]+" = "+arvoreBST.getSucessor(elementos[i]));
+        }
+
+        for (int i=0; i < elementos.length; i++) {
+            System.out.println("Antecessor de "+elementos[i]+" = "+arvoreBST.getAntecessor(elementos[i]));
+        }
+
         for (int i = qtd - 1; i >= 0; i--) {
             arvoreBST.retirar(elementos[i]);
             System.out.println("Tirando o elemento: " + elementos[i] +

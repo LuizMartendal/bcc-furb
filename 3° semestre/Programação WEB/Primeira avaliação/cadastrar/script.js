@@ -4,6 +4,7 @@ function logout() {
 }
 
 function isLogged() {
+    document.getElementById('this').style.backgroundColor = 'lightgray'
     if (localStorage.getItem('login') == null) {
         location.href = '/Primeira%20avaliação/login/index.html'
     } else {
@@ -45,13 +46,28 @@ function custom() {
     const selected = document.getElementById('custom-page').value
     if (selected === 'custom') {
         const header = document.getElementById('header')
-        header.style.backgroundColor = 'gray'
+        header.style.backgroundColor = 'rgba(12, 12, 12, 0.895)'
         const main = document.getElementById('main')
         main.style.backgroundColor = 'black'
         const footer = document.getElementById('footer')
-        footer.style.backgroundColor = 'gray'
+        footer.style.backgroundColor = 'rgba(12, 12, 12, 0.895)'
+        const form = document.getElementById('form')
+        form.style.backgroundColor = 'rgba(12, 12, 12, 0.895)'
+        const body = document.getElementsByTagName('body')[0]
+        body.style.fontFamily = 'roboto'
+        body.style.fontStyle = 'italic'
     } else {
-
+        const header = document.getElementById('header')
+        header.style.backgroundColor = 'black'
+        const main = document.getElementById('main')
+        main.style.backgroundColor = 'rgba(12, 12, 12, 0.895)'
+        const footer = document.getElementById('footer')
+        footer.style.backgroundColor = 'black'
+        const form = document.getElementById('form')
+        form.style.backgroundColor = 'black'
+        const body = document.getElementsByTagName('body')[0]
+        body.style.fontFamily = 'arial'
+        body.style.fontStyle = 'normal'
     }
 }
 

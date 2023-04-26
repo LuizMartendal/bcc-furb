@@ -9,11 +9,8 @@ function autenticar() {
     }
 }
 
-setInterval(isLogged(), 1000)
-
 function isLogged() {
-    const login = document.getElementById('login-page')
-    const logout = document.getElementById('logout-page')
+    document.getElementById('login-page').style.backgroundColor = 'lightgray'
     
     if (localStorage.getItem('login') != null) {
         location.href = '/Primeira%20avaliação/home/index.html'
