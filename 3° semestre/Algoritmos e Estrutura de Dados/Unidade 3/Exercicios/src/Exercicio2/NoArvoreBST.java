@@ -42,116 +42,6 @@ public class NoArvoreBST<T extends Comparable<T>> extends NoArvoreBinaria<T> {
         }
     }
 
-    public void retirar(T info) {
-        while (true) {
-            if (info.compareTo(this.getInfo()) < 0) {
-                if (this.getEsq() != null) {
-                    if (!this.getEsq().getInfo().equals(info)) {
-                        ((NoArvoreBST<T>) this.getEsq()).retirar(info);
-                        break;
-                    }
-
-                    if (this.getEsq().getEsq() == null && this.getEsq().getDir() == null) {
-                        if (this.getEsq().getInfo().equals(info)) {
-                            this.setEsq(null);
-                        }
-                        break;
-                    } else if (this.getEsq().getEsq() != null && this.getEsq().getDir() != null) {
-                        retirarComDoisNos(info, "esq");
-                        break;
-                    } else {
-                        retirarComUmNo(info);
-                        break;
-                    }
-                }
-            }
-            if (info.compareTo(this.getInfo()) >= 0) {
-                if (this.getDir() != null) {
-                    if (!this.getDir().getInfo().equals(info)) {
-                        ((NoArvoreBST<T>) this.getDir()).retirar(info);
-                        break;
-                    }
-
-                    if (this.getDir().getEsq() == null && this.getDir().getDir() == null) {
-                        if (this.getDir().getInfo().equals(info)) {
-                            this.setDir(null);
-                        }
-                        break;
-                    } else if (this.getDir().getEsq() != null && this.getDir().getDir() != null) {
-                        retirarComDoisNos(info, "dir");
-                        break;
-                    } else {
-                        retirarComUmNo(info);
-                        break;
-                    }
-                }
-            }
-        }
-    }
-
-    private void retirarComDoisNos(T info, String lado) {
-        NoArvoreBST<T> noEsq = null;
-        NoArvoreBST<T> no = null;
-        NoArvoreBST<T> novo = null;
-        if (lado.equals("dir")) {
-            noEsq = (NoArvoreBST<T>) this.getDir().getEsq();
-            no = (NoArvoreBST<T>) this.getDir().getDir();
-            novo = (NoArvoreBST<T>) this.getDir().getDir();
-        } else {
-            noEsq = (NoArvoreBST<T>) this.getEsq().getEsq();
-            no = (NoArvoreBST<T>) this.getEsq().getDir();
-            novo = (NoArvoreBST<T>) this.getEsq().getDir();
-        }
-
-        if (no.getEsq() == null) {
-            novo.setEsq(noEsq);
-            if (lado.equals("dir")) {
-                this.setDir(novo);
-            } else {
-                this.setEsq(novo);
-            }
-        } else {
-            while (no.getEsq() != null) {
-                if (no.getEsq().getInfo().equals(info) && no.getEsq().getEsq() == null) {
-                    novo = (NoArvoreBST<T>) no.getEsq();
-                    no.setEsq(null);
-                    novo.setEsq(noEsq);
-                    break;
-                } else {
-                    no = (NoArvoreBST<T>) no.getEsq();
-                }
-            }
-            if (lado.equals("dir")) {
-                novo.setDir(this.getDir().getDir());
-                this.setDir(novo);
-            } else {
-                novo.setDir(this.getEsq().getDir());
-                this.setEsq(novo);
-            }
-        }
-    }
-
-    private void retirarComUmNo(T info) {
-        if (this.getEsq() != null) {
-            if (this.getEsq().getInfo().equals(info)) {
-                if (this.getEsq().getEsq() == null) {
-                    this.setEsq(null);
-                } else {
-                    this.setEsq(this.getEsq().getEsq());
-                }
-            }
-        }
-        if (this.getDir() != null){
-            if (this.getDir().getInfo().equals(info)) {
-                if (this.getDir().getDir() == null) {
-                    this.setDir(null);
-                } else {
-                    this.setDir(this.getDir().getDir());
-                }
-            }
-        }
-    }
-
     public String imprime() {
         String str = "<";
 
@@ -176,5 +66,23 @@ public class NoArvoreBST<T extends Comparable<T>> extends NoArvoreBinaria<T> {
         }
 
         return str += ">";
+    }
+
+    public NoArvoreBST<T> identificarUnicoFilho() {
+        if (this.getDir() != null) {
+            return (NoArvoreBST<T>) this.getDir();
+        }
+        return (NoArvoreBST<T>) this.getEsq();
+    }
+
+    public int getGrau() {
+        int grau = 0;
+        if (this.getDir() != null) {
+            grau++;
+        }
+        if (this.getEsq() != null) {
+            grau++;
+        }
+        return grau;
     }
 }

@@ -30,8 +30,9 @@ header > a {
 header > a > img {
     background-color: white;
     border-radius: 1vw;
-    height: 8vh;
+    height: 6vh;
     margin-right: 10px;
+    padding: 1vh;
 }
 
 header > a > h1 {
@@ -68,7 +69,7 @@ main {
     width: 100vw;
 }
 
-.navigation {
+.navigation {   
     margin: 5px;
     position: fixed;
     height: 100vh;
@@ -77,6 +78,8 @@ main {
 }
 
 .navigation ul {
+    border-right: 1px solid white;
+    height: 85vh;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -112,12 +115,87 @@ main {
     width: 50%;
 }
 
-@media screen and (max-width: 768px) {
+.box-form {
+    width: 90vw;
+    margin: 2em;
+
+    position: fixed;
+    left: 8vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    border: 1px solid white;
+    border-radius: 1vw;
+    padding: 2%;
+
+    height: 50vh;
+    width: 35vw;
+
+    display: flex;
+    flex-direction: column;
+
+    color: white;
+}
+
+form label {
+    margin-left: 10%;
+    margin-bottom: 5%;
+    font-size: larger;
+}
+
+form label:nth-child(1) {
+    margin-top: 10%;
+}
+
+form label section {
+    margin-left: 5%;
+    background-color: transparent;
+    border-radius: 1vw;
+    border: 1px solid white;
+    width: 80%;
+}
+
+form label section input {
+    padding: 10px;
+    font-size: large;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: white;
+    outline: none;
+}
+
+.autenticar {
+    position: relative;
+    top: 10vh;
+    left: 14vw;
+
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 1vw;
+
+    width: 7vw;
+    height: 12%;
+    font-size: 1vw;
+    cursor: pointer;
+}
+
+.autenticar:hover {
+    background-color: lightgray;
+    color: black;
+}
+
+@media screen and (max-width: 769px) {
     .navigation {
         width: 100vw;
         height: 8vh;
         padding: 0;
-        top: 8vh;
+        top: 10vh;
     }
 
     .navigation ul {
@@ -127,5 +205,122 @@ main {
         flex-direction: row;
         align-items: center;
         justify-content: center;
+        border-bottom: 1px solid white;
     }
+
+    .box-form {
+        margin-top: 10vh;
+        left: 1vw;
+    }
+
+    .autenticar {
+        width: 60%;
+        font-size: 2vh;
+        left: 7vw;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .box-form {
+        left: -2vw;
+    }
+
+    form {
+        height: 40vh;
+    }
+
+    .autenticar {
+        top: 10vh;
+    }
+}
+
+.user {
+    position: absolute;
+    right: 3vw;
+    color: white;
+}
+
+.box-form-cadastrar {
+    width: 90vw;
+    height: 100vh;
+    margin: 2vh;
+
+    position: fixed;
+    left: 8vw;
+}
+
+.form-cadastrar {
+    position: fixed;
+    left: 33vw;
+
+    border: 1px solid white;
+    border-radius: 1vw;
+    padding: 1vh;
+
+    height: 75vh;
+    width: 35vw;
+
+    display: flex;
+    flex-direction: column;
+
+    color: white;
+}
+
+.form-cadastrar label:nth-child(1) {
+    margin-top: 5%;
+}
+
+.form-cadastrar label {
+    height: 6vh;
+}
+
+.cadastrar {
+    position: relative;
+    top: 3vh;
+    left: 14vw;
+
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 1vw;
+
+    width: 7vw;
+    height: 8%;
+    font-size: 1vw;
+    cursor: pointer;
+}
+
+.cadastrar:hover {
+    background-color: lightgray;
+    color: black;
+}
+
+.date {
+    width: 90%;
+    cursor: pointer;
+}
+
+.sexo > label {
+    font-size: large;
+}
+
+.editPage {
+    top: 11vh;
+    position: fixed;
+    right: 2vw;
+    width: 5vw;
+    height: 5vh;
+}
+
+.editPage > select { 
+    width: 5vw;
+    height: 3vh;
+    background-color: transparent;
+    color: white;
+    border-radius: 2rem;
+    cursor: pointer;
+} 
+
+.editPage > select > option { 
+    color: black;
 }

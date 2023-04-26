@@ -10,10 +10,13 @@
 </head>
 <body>
     <header>
-        <a href="">
+        <a href="../home/index.html">
             <img src="../imgs/logo.png" alt="Logo">
             <h1>DevTech</h1>
         </a>
+        <div class="user" id="user">
+            Usuário não autenticado
+        </div>
     </header>
     <main>
         <menu class="navigation">
@@ -25,19 +28,36 @@
                     </a>
                 </li>
                 <li class="list">
-                    <a href="../login/index.html">
+                    <a href="./index.html" id="login-page">
                         <img src="../imgs/login.png" alt="Login">
                         Login
                     </a>
                 </li>
                 <li class="list">
-                    <a href="">
+                    <a href="../cadastrar/index.html">
                         <img src="../imgs/cadastrar.png" alt="Cadastrar">
                         Cadastrar
                     </a>
                 </li>
             </ul>
         </menu>
+        <div class="box-form">
+            <form action="#">
+                <label for="login">
+                    Login
+                    <section>
+                        <input type="text" name="login" id="login" required>
+                    </section>
+                </label>
+                <label for="password">
+                    Senha
+                    <section>
+                        <input type="password" name="password" id="password" required>
+                    </section>
+                </label>
+                <input type="submit" class="autenticar" onclick="autenticar()" value="Autenticar">
+            </form>
+        </div>
     </main>
     <footer>
         Luiz Henrique Martendal

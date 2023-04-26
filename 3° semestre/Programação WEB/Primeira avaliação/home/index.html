@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="../style.css">
     <script src="./script.js"></script>
 </head>
-<body>
+<body onpageshow="isLogged()">
     <header>
-        <a href="">
+        <a href="./index.html">
             <img src="../imgs/logo.png" alt="Logo">
             <h1>DevTech</h1>
         </a>
+        <div class="user" id="user">
+            Usuário não autenticado
+        </div>
     </header>
     <main>
         <menu class="navigation">
@@ -24,16 +27,22 @@
                         Home
                     </a>
                 </li>
-                <li class="list">
+                <li class="list" id="login-page">
                     <a href="../login/index.html">
                         <img src="../imgs/login.png" alt="Login">
                         Login
                     </a>
                 </li>
                 <li class="list">
-                    <a href="">
+                    <a href="../cadastrar/index.html">
                         <img src="../imgs/cadastrar.png" alt="Cadastrar">
                         Cadastrar
+                    </a>
+                </li>
+                <li class="list" id="logout-page">
+                    <a onclick="logout()">
+                        <img src="../imgs/login.png" alt="Login">
+                        Logout
                     </a>
                 </li>
             </ul>
