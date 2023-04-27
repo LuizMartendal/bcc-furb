@@ -84,7 +84,8 @@ main {
     height: 85vh;
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding-left: 0;
+    padding-right: 10%;
     width: 6vw;
 }
 
@@ -189,7 +190,7 @@ form label section input {
 }
 
 .autenticar:hover {
-    background-color: rgba(12, 12, 12, 0.895);
+    background-color: rgba(124, 123, 123, 0.436);
     color: black;
 }
 
@@ -301,7 +302,7 @@ form label section input {
 }
 
 .cadastrar:hover {
-    background-color: rgba(12, 12, 12, 0.895);
+    background-color: rgba(124, 123, 123, 0.436);
     color: black;
 }
 
@@ -424,12 +425,22 @@ form label section input {
     .editPage > select { 
         width: 8vw
     } 
+    .content {
+        margin-top: 10vh;
+        height: 70vh;
+    }
+    .content img {
+        height: 60vh;
+    }
 }
 
 @media screen and (max-width: 580px) {
     header > a > h1 {
         color: white;
         font-size: 8vw;
+    }
+    header > div {
+        font-size: 2vw;
     }
     .form-cadastrar {
         height: 60vh;
