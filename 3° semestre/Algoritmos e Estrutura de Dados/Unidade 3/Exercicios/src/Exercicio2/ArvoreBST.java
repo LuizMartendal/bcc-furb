@@ -1,19 +1,22 @@
 package Exercicio2;
 
+import java.util.ArrayList;
+
 public class ArvoreBST<T extends Comparable<T>>  extends ArvoreBinariaAbstract<T> {
 
-    public ArvoreBST() { }
+    public ArvoreBST() {
+    }
 
     public void inserir(T info) {
         if (this.getRaiz() == null) {
             this.setRaiz(new NoArvoreBST<>(info));
         } else {
-            ((NoArvoreBST<T>)this.getRaiz()).inserir(info);
+            ((NoArvoreBST<T>) this.getRaiz()).inserir(info);
         }
     }
 
     public NoArvoreBST<T> buscar(T info) {
-        return ((NoArvoreBST<T>)this.getRaiz()).buscar(info);
+        return ((NoArvoreBST<T>) this.getRaiz()).buscar(info);
     }
 
     public void retirar(T info) {
@@ -84,10 +87,10 @@ public class ArvoreBST<T extends Comparable<T>>  extends ArvoreBinariaAbstract<T
 
     @Override
     public String toString() {
-        if (((NoArvoreBST<T>)this.getRaiz()) == null) {
+        if (((NoArvoreBST<T>) this.getRaiz()) == null) {
             return "<>";
         }
-        return ((NoArvoreBST<T>)this.getRaiz()).imprime();
+        return ((NoArvoreBST<T>) this.getRaiz()).imprime();
     }
 
     public T menorElemento() {
@@ -152,4 +155,11 @@ public class ArvoreBST<T extends Comparable<T>>  extends ArvoreBinariaAbstract<T
         return noPai.getInfo();
     }
 
+    public String toStringOrdered() {
+        if (this.getRaiz() == null) {
+            return "";
+        }
+        return "";
+    }
 }
+
