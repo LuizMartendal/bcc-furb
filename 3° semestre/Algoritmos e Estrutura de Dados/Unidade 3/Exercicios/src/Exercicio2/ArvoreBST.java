@@ -167,30 +167,9 @@ public class ArvoreBST<T extends Comparable<T>>  extends ArvoreBinariaAbstract<T
         if (this.getRaiz() == null) {
             return "";
         }
+        String str = "";
 
-        NoArvoreBST<T> no = this.buscar(this.menorElemento());
-
-        String str = no.getInfo().toString();
-        no = this.buscar(this.getSucessor(no.getInfo()));
-
-        while (no != null) {
-            str += ", " + no.getInfo().toString();
-
-            if (no == this.identificarMaiorElemento()) {
-                no = null;
-            } else {
-                if (no.getDir() != null) {
-                    no = this.identificarSucessor(no);
-                } else {
-                    NoArvoreBST<T> noPai = this.identificarPai(no);
-                    while (noPai.getDir() == no) {
-                        no = noPai;
-                        noPai = this.identificarPai(no);
-                    }
-                    no = noPai;
-                }
-            }
-        }
+        
 
         return str;
     }
