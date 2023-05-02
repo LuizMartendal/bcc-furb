@@ -25,7 +25,7 @@ public class TesteRandom {
         }
 
         System.out.println("Árvore completa: " + arvoreBST);
-        System.out.println(arvoreBST.toStringOrdered());
+        System.out.println("Elementos ordenados em ordem crescente: " + arvoreBST.toStringOrdered());
         System.out.println("Menor valor = "+arvoreBST.menorElemento());
         System.out.println("Maior valor = "+arvoreBST.maiorElemento());
 

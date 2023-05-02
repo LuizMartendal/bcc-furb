@@ -115,6 +115,14 @@ public class ArvoreBST<T extends Comparable<T>>  extends ArvoreBinariaAbstract<T
         return noComMaiorElemento.getInfo();
     }
 
+    public NoArvoreBST<T> identificarMaiorElemento() {
+        NoArvoreBST<T> noComMaiorElemento = (NoArvoreBST<T>) this.getRaiz();
+        while (noComMaiorElemento.getDir() != null) {
+            noComMaiorElemento = (NoArvoreBST<T>) noComMaiorElemento.getDir();
+        }
+        return noComMaiorElemento;
+    }
+
     public T getSucessor(T info) {
         NoArvoreBST<T> no = this.buscar(info);
         if (this.getRaiz() == null || this.maiorElemento().equals(info)) {
@@ -159,7 +167,32 @@ public class ArvoreBST<T extends Comparable<T>>  extends ArvoreBinariaAbstract<T
         if (this.getRaiz() == null) {
             return "";
         }
-        return ((NoArvoreBST<T>) this.getRaiz()).toStringOrdered();
+
+        NoArvoreBST<T> no = this.buscar(this.menorElemento());
+
+        String str = no.getInfo().toString();
+        no = this.buscar(this.getSucessor(no.getInfo()));
+
+        while (no != null) {
+            str += ", " + no.getInfo().toString();
+
+            if (no == this.identificarMaiorElemento()) {
+                no = null;
+            } else {
+                if (no.getDir() != null) {
+                    no = this.identificarSucessor(no);
+                } else {
+                    NoArvoreBST<T> noPai = this.identificarPai(no);
+                    while (noPai.getDir() == no) {
+                        no = noPai;
+                        noPai = this.identificarPai(no);
+                    }
+                    no = noPai;
+                }
+            }
+        }
+
+        return str;
     }
 }
 
