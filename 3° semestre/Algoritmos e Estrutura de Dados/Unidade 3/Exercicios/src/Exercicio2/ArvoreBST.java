@@ -159,7 +159,7 @@ public class ArvoreBST<T extends Comparable<T>>  extends ArvoreBinariaAbstract<T
         if (this.getRaiz() == null) {
             return "";
         }
-        return "";
+        return ((NoArvoreBST<T>) this.getRaiz()).toStringOrdered();
     }
 }
 

@@ -85,4 +85,13 @@ public class NoArvoreBST<T extends Comparable<T>> extends NoArvoreBinaria<T> {
         }
         return grau;
     }
+
+    public String toStringOrdered() {
+        String str = "";
+
+
+
+        return str;
+    }
 }
+
