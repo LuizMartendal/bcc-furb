@@ -7,7 +7,7 @@ public class ArvoreBinaria<T> extends ArvoreBinariaAbstract<T> {
     ArvoreBinaria() {}
 
     @Override
-    public void setRaiz(NoArvoreBinaria<T> raiz) {
+    public void setRaiz(Exercicio1.NoArvoreBinaria<T> raiz) {
         super.setRaiz(raiz);
     }
 }
