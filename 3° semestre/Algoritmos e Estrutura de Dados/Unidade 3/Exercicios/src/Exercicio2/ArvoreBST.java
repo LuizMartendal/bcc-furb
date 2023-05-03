@@ -1,5 +1,8 @@
 package Exercicio2;
 
+import Exercicio2.ArvoreBinariaAbstract;
+import Exercicio2.NoArvoreBST;
+
 import java.util.ArrayList;
 
 public class ArvoreBST<T extends Comparable<T>>  extends ArvoreBinariaAbstract<T> {
@@ -104,6 +107,17 @@ public class ArvoreBST<T extends Comparable<T>>  extends ArvoreBinariaAbstract<T
         return noComMenorElemento.getInfo();
     }
 
+    public NoArvoreBST<T> identificarMenorElemento() {
+        if (this.getRaiz() == null) {
+            return null;
+        }
+        NoArvoreBST<T> noComMenorElemento = (NoArvoreBST<T>) this.getRaiz();
+        while (noComMenorElemento.getEsq() != null) {
+            noComMenorElemento = (NoArvoreBST<T>) noComMenorElemento.getEsq();
+        }
+        return noComMenorElemento;
+    }
+
     public T maiorElemento() {
         if (this.getRaiz() == null) {
             return null;
@@ -165,13 +179,40 @@ public class ArvoreBST<T extends Comparable<T>>  extends ArvoreBinariaAbstract<T
 
     public String toStringOrdered() {
         if (this.getRaiz() == null) {
-            return "";
+            return "{}";
         }
-        String str = "";
+        String str = "{ ";
 
-        
+        NoArvoreBST<T> no = this.identificarMenorElemento();
+        str += no.getInfo().toString();
 
-        return str;
+        while (this.getNoComElementoSucessor(no) != null) {
+            no = this.getNoComElementoSucessor(no);
+            str += ", " + no.getInfo().toString();
+        }
+
+        return str + " }";
+    }
+
+    public NoArvoreBST<T> getNoComElementoSucessor(NoArvoreBST<T> no) {
+        if (this.identificarMaiorElemento() == no) {
+            return null;
+        }
+
+        if (no.getDir() != null) {
+            NoArvoreBST<T> noSucessor = (NoArvoreBST<T>) no.getDir();
+            while (noSucessor.getEsq() != null) {
+                noSucessor = (NoArvoreBST<T>) noSucessor.getEsq();
+            }
+            return noSucessor;
+        }
+
+        NoArvoreBST<T> noPai = this.identificarPai(no);
+        while (noPai.getDir() == no) {
+            no = noPai;
+            noPai = this.identificarPai(no);
+        }
+        return noPai;
     }
 }
 

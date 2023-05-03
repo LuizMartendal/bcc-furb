@@ -1,4 +1,7 @@
-package Exercicio2;
+package Exercicio2.Testes;
+
+import Exercicio2.ArvoreBST;
+import Exercicio2.NoArvoreBST;
 
 import java.util.ArrayList;
 import java.util.Random;
