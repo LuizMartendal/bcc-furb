@@ -7,9 +7,7 @@ public abstract class ArvoreBinariaAbstract<T> {
     public ArvoreBinariaAbstract() {}
 
     protected void setRaiz(NoArvoreBinaria<T> no) {
-        if (no != null) {
-            this.raiz = no;
-        }
+        this.raiz = no;
     }
 
     protected NoArvoreBinaria<T> getRaiz() {
