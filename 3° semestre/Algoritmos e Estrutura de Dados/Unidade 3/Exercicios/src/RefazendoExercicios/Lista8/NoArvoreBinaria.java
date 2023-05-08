@@ -1,7 +1,7 @@
-package RefazendoExercicios.Lista6;
+package RefazendoExercicios.Lista8;
 
 public class NoArvoreBinaria<T> {
-    
+
     private T info;
     private NoArvoreBinaria<T> noEsq;
     private NoArvoreBinaria<T> noDir;
@@ -12,59 +12,44 @@ public class NoArvoreBinaria<T> {
 
     public NoArvoreBinaria(T info, NoArvoreBinaria<T> noEsq, NoArvoreBinaria<T> noDir) {
         this.info = info;
-        this.setNoEsq(noEsq);
-        this.setNoDir(noDir);
+        this.noEsq = noEsq;
+        this.noDir = noDir;
     }
 
     public NoArvoreBinaria<T> pertence(T info) {
-        if (this.getInfo() == null) {
-            return null;
-        }
-
         if (this.getInfo().equals(info)) {
             return this;
         }
-
         if (this.getNoEsq() != null) {
             NoArvoreBinaria<T> no = this.getNoEsq().pertence(info);
             if (no != null) {
                 return no;
             }
         }
-
         if (this.getNoDir() != null) {
             return this.getNoDir().pertence(info);
         }
-
         return null;
     }
 
     public String imprimePre() {
-        if (this.getInfo() == null) {
-            return "<>";
-        }
-
         String str = "<";
-
         str += this.getInfo();
-
         if (this.getNoEsq() != null) {
             str += this.getNoEsq().imprimePre();
         } else if (this.getNoDir() != null) {
             str += "<>";
         }
-
         if (this.getNoDir() != null) {
             str += this.getNoDir().imprimePre();
         } else if (this.getNoEsq() != null) {
             str += "<>";
         }
-
         return str += ">";
     }
 
     public T getInfo() {
-        return this.info;
+        return info;
     }
 
     public void setInfo(T info) {
@@ -72,7 +57,7 @@ public class NoArvoreBinaria<T> {
     }
 
     public NoArvoreBinaria<T> getNoEsq() {
-        return this.noEsq;
+        return noEsq;
     }
 
     public void setNoEsq(NoArvoreBinaria<T> noEsq) {
@@ -80,7 +65,7 @@ public class NoArvoreBinaria<T> {
     }
 
     public NoArvoreBinaria<T> getNoDir() {
-        return this.noDir;
+        return noDir;
     }
 
     public void setNoDir(NoArvoreBinaria<T> noDir) {

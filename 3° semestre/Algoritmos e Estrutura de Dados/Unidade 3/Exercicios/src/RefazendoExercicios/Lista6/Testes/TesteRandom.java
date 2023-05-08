@@ -1,6 +1,6 @@
 package RefazendoExercicios.Lista6.Testes;
 
-import Lista6.ArvoreBST;
+import RefazendoExercicios.Lista6.ArvoreBST;
 
 import java.util.Random;
 import java.util.Scanner;

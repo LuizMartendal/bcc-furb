@@ -1,4 +1,4 @@
-package RefazendoExercicios.Lista6;
+package RefazendoExercicios.Lista8;
 
 public class NoArvoreBST<T extends Comparable<T>> extends NoArvoreBinaria<T> {
 
@@ -11,13 +11,13 @@ public class NoArvoreBST<T extends Comparable<T>> extends NoArvoreBinaria<T> {
             if (this.getNoEsq() != null) {
                 ((NoArvoreBST<T>)this.getNoEsq()).inserir(info);
             } else {
-                this.setNoEsq(new NoArvoreBST<T>(info));
+                this.setNoEsq(new NoArvoreBST<>(info));
             }
         } else {
             if (this.getNoDir() != null) {
                 ((NoArvoreBST<T>)this.getNoDir()).inserir(info);
             } else {
-                this.setNoDir(new NoArvoreBST<T>(info));
+                this.setNoDir(new NoArvoreBST<>(info));
             }
         }
     }
@@ -26,25 +26,33 @@ public class NoArvoreBST<T extends Comparable<T>> extends NoArvoreBinaria<T> {
         if (this.getInfo().equals(info)) {
             return this;
         }
-
-        if (info.compareTo(this.getInfo()) < 1) {
-            if (this.getNoEsq() == null) {
-                return null;
-            } else {
-                NoArvoreBST<T> no = ((NoArvoreBST<T>)this.getNoEsq()).buscar(info);
-                if (no != null) {
-                    return no;
-                }
+        if (info.compareTo(this.getInfo()) < 0) {
+            if (this.getNoEsq() != null) {
+                return ((NoArvoreBST<T>) this.getNoEsq()).buscar(info);
             }
         } else {
-            if (this.getNoDir() == null) {
-                return null;
-            } else {
+            if (this.getNoDir() != null) {
                 return ((NoArvoreBST<T>)this.getNoDir()).buscar(info);
             }
         }
-
         return null;
     }
-    
+
+    public int getGrau() {
+        int grau = 0;
+        if (this.getNoEsq() != null) {
+            grau++;
+        }
+        if (this.getNoDir() != null) {
+            grau++;
+        }
+        return grau;
+    }
+
+    public NoArvoreBST<T> getUnicoFilho() {
+        if (this.getNoEsq() != null) {
+            return (NoArvoreBST<T>) this.getNoEsq();
+        }
+        return (NoArvoreBST<T>) this.getNoDir();
+    }
 }

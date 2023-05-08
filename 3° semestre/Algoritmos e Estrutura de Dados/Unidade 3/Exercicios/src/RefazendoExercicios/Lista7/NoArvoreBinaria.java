@@ -1,4 +1,4 @@
-package RefazendoExercicios.Lista6;
+package RefazendoExercicios.Lista7;
 
 public class NoArvoreBinaria<T> {
     
