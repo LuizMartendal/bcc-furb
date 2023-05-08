@@ -1,4 +1,7 @@
-package Exercicio1;
+package RefazendoExercicios.Lista5.Testes;
+
+import RefazendoExercicios.Lista5.ArvoreBinaria;
+import RefazendoExercicios.Lista5.NoArvoreBinaria;
 
 public class TesteArvoreBinaria {
 
@@ -10,7 +13,7 @@ public class TesteArvoreBinaria {
         NoArvoreBinaria<Integer> no6 = new NoArvoreBinaria<>(6);
         NoArvoreBinaria<Integer> no7 = new NoArvoreBinaria<>(7);
         NoArvoreBinaria<Integer> no8 = new NoArvoreBinaria<>(8);
-        no7.setEsq(no8);
+        no7.setNoEsq(no8);
         NoArvoreBinaria<Integer> no3 = new NoArvoreBinaria<>(3, no6, no7);
 
         NoArvoreBinaria<Integer> no1 = new NoArvoreBinaria<>(1, no2, no3);

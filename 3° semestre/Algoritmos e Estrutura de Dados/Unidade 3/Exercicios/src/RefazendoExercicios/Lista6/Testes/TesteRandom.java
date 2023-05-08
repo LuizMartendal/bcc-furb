@@ -1,9 +1,9 @@
-package Lista6.Testes;
+package RefazendoExercicios.Lista6.Testes;
+
+import Lista6.ArvoreBST;
 
 import java.util.Random;
 import java.util.Scanner;
-
-import Lista6.ArvoreBST;
 
 public class TesteRandom {
 

@@ -1,8 +1,7 @@
 package Lista8.Testes;
 
-
-import Exercicio2.Veiculo;
 import Lista8.ArvoreBST;
+import Lista8.Veiculo;
 
 public class TesteArvoreBinariaBST {
 
@@ -38,7 +37,7 @@ public class TesteArvoreBinariaBST {
 
         System.out.println(arvoreBST);
 
-        Exercicio2.ArvoreBST<Veiculo> arvoreBST2 = new Exercicio2.ArvoreBST<>();
+        ArvoreBST<Veiculo> arvoreBST2 = new ArvoreBST<>();
 
         Veiculo a = new Veiculo("MJT-7432", "Fusca", 1912, "Pedro");
         Veiculo b = new Veiculo("MIT-8008", "Celta", 1999, "Douglas");

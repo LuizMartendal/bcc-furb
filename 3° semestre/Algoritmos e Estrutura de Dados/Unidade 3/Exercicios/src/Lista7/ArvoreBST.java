@@ -1,7 +1,6 @@
 package Lista7;
 
 import Lista6.ArvoreBinariaAbstract;
-import Lista7.NoArvoreBST;
 
 public class ArvoreBST<T extends Comparable<T>> extends ArvoreBinariaAbstract<T> {
 

@@ -1,9 +1,6 @@
 package Lista8.Testes;
 
 import Lista8.ArvoreBST;
-import Lista8.NoArvoreBST;
-
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -16,7 +13,6 @@ public class TesteRandom {
         System.out.print("Quantidade de nós: ");
         int qtd = s.nextInt();
 
-        ArrayList<NoArvoreBST<Integer>> nos = new ArrayList<>();
         int[] elementos = new int[qtd];
 
         for (int i = 0; i < qtd; i++) {
