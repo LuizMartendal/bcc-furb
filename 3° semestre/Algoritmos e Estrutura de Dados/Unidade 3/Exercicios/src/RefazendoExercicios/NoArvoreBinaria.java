@@ -1,4 +1,4 @@
-package RefazendoExercicios.Lista8;
+package RefazendoExercicios;
 
 public class NoArvoreBinaria<T> {
 
@@ -17,35 +17,42 @@ public class NoArvoreBinaria<T> {
     }
 
     public NoArvoreBinaria<T> pertence(T info) {
-        if (this.getInfo().equals(info)) {
+        if (this.info.equals(info)) {
             return this;
         }
-        if (this.getNoEsq() != null) {
-            NoArvoreBinaria<T> no = this.getNoEsq().pertence(info);
+
+        if (this.noEsq != null) {
+            NoArvoreBinaria<T> no = this.noEsq.pertence(info);
             if (no != null) {
                 return no;
             }
         }
-        if (this.getNoDir() != null) {
-            return this.getNoDir().pertence(info);
+
+        if (this.noDir != null) {
+            return this.noDir.pertence(info);
         }
+
         return null;
     }
 
     public String imprimePre() {
         String str = "<";
-        str += this.getInfo();
-        if (this.getNoEsq() != null) {
-            str += this.getNoEsq().imprimePre();
-        } else if (this.getNoDir() != null) {
+
+        str += this.info.toString();
+
+        if (this.noEsq != null) {
+            str += this.noEsq.imprimePre();
+        } else if (this.noDir != null) {
             str += "<>";
         }
-        if (this.getNoDir() != null) {
-            str += this.getNoDir().imprimePre();
-        } else if (this.getNoEsq() != null) {
+
+        if (this.noDir != null) {
+            str += this.noDir.imprimePre();
+        } else if (this.noEsq != null) {
             str += "<>";
         }
-        return str += ">";
+
+        return str;
     }
 
     public T getInfo() {

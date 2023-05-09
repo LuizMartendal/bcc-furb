@@ -1,8 +1,8 @@
-package RefazendoExercicios.Lista7;
+package RefazendoExercicios;
 
-public abstract class ArvoreBinariaAbstract<T> {
-    
-    private NoArvoreBinaria<T> raiz;
+public class ArvoreBinariaAbstract<T> {
+
+    protected NoArvoreBinaria<T> raiz;
 
     public ArvoreBinariaAbstract() {}
 
@@ -10,24 +10,17 @@ public abstract class ArvoreBinariaAbstract<T> {
         this.raiz = no;
     }
 
-    public NoArvoreBinaria<T> getRaiz() {
-        return this.raiz;
-    }
-
     public boolean vazia() {
-        if (raiz == null) {
-            return true;
+        if (this.raiz != null) {
+            return false;
         }
-        return false;
+
+        return true;
     }
 
     public NoArvoreBinaria<T> pertence(T info) {
         if (vazia()) {
             return null;
-        }
-
-        if (raiz.getInfo().equals(info)) {
-            return this.raiz;
         }
 
         return this.raiz.pertence(info);
@@ -38,6 +31,7 @@ public abstract class ArvoreBinariaAbstract<T> {
         if (vazia()) {
             return "<>";
         }
+
         return this.raiz.imprimePre();
     }
 }

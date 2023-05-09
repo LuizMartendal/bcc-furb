@@ -22,9 +22,9 @@ public class NoArvoreBinaria<T> {
         }
 
         if (this.noEsq != null) {
-            NoArvoreBinaria<T> novo = this.noEsq.pertence(info);
-            if (novo != null) {
-                return novo;
+            NoArvoreBinaria<T> no = this.noEsq.pertence(info);
+            if (no != null) {
+                return no;
             }
         }
 

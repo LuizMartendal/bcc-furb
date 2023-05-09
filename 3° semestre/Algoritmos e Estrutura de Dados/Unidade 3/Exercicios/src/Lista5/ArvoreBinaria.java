@@ -7,28 +7,28 @@ public class ArvoreBinaria<T> {
     public ArvoreBinaria() {}
 
     public void setRaiz(NoArvoreBinaria<T> no) {
-        if (no != null) {
-            this.raiz = no;
-        }
-    }
-
-    public NoArvoreBinaria<T> getRaiz() {
-        return this.raiz;
+        this.raiz = no;
     }
 
     public boolean vazia() {
-        if (this.raiz == null) {
-            return true;
+        if (this.raiz != null) {
+            return false;
         }
-        return false;
+        return true;
     }
 
     public NoArvoreBinaria<T> pertence(T info) {
-        return this.getRaiz().pertence(info);
+        if (vazia()) {
+            return null;
+        }
+        return this.raiz.pertence(info);
     }
 
     @Override
     public String toString() {
-        return this.getRaiz().imprimePre();
+        if (vazia()) {
+            return null;
+        }
+        return this.raiz.imprimePre();
     }
 }
