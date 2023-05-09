@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 2</title>
+</head>
+<body>
+    <h1>Página 2</h1>
+    <p><a href="index.html">Retorna ao início.</a></p>
+    <p><a href="https://www.google.com" target="_blank">Ir para o Google.</a></p>
+    <p><a href="index.html#fim">Ir para o final do início.</a></p>
+    <p><a href="pagina3.html">Página 3</a></p>
+    <div>
+        <form action="#" method="get">
+            <input type="text" maxlength="10" size="10" name="login" id="" required autofocus placeholder="Informe o login"><br>
+            <input type="password" name="senha" id="" required><br>
+            <input type="number" name="idade" id="" min="15" max="120" placeholder="Idade"><br>
+            <input type="text" name="campo1" id="" value="Marcos" readonly>
+            <input type="text" name="campo2" id="" value="Cardoso" disabled>
+            <input type="hidden" name="secreto" value="privado"><br>
+            <label for="manterLogin"> Manter conectado? </label><input type="checkbox" name="manterLogin" id="manterLogin" value="S"><br>
+            <input type="radio" name="curso" id="curso1" value="BCC" checked><label for="curso1">Ciência da Computação</label><br>
+            <input type="radio" name="curso" id="curso2" value="SIS"><label for="curso2">Sistemas de Informação</label><br>
+            <label for="cidade">Cidade:</label><select name="cidade" id="cidade">
+                <option value="BNU">Blumenau</option>
+                <option value="GPR">Gaspar</option>
+                <option value="ITJ" selected>Itajaí</option>
+            </select><br>
+            <input type="date" name="dtNasc" id=""><input type="datetime-local" name="dtCompleta" id=""><br>
+            <input type="file" name="arquivo" id=""><br>
+            <input type="submit" value="Autenticar"><input type="reset" value="Apagar">
+        </form>
+    </div>
+</body>
+</html>

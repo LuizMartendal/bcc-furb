@@ -1,0 +1,57 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0px;
+}
+
+nav {
+    background-color: blue;
+    color: white;
+    padding: 5px;
+    a {
+        color: white;
+        text-decoration: none;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+    }
+    a:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    li {
+        list-style: none;
+    }
+}
+
+$corFundo: blue;
+$corFonte: white;
+
+header {
+    background-color: $corFundo;
+    color: $corFonte;
+}
+
+footer {
+    background-color: $corFundo;
+    color: $corFonte;
+}
+
+.botaoPadrao {
+    font-weight: bold;
+    color: white;
+    border-radius: 25px;
+}
+
+.botaoDefault {
+    @extend .botaoPadrao;
+    background-color: royalblue;
+}
+
+.botaoOk {
+    @extend .botaoPadrao;
+    background-color: green;
+}
+
+.botaoAlerta {
+    @extend .botaoPadrao;
+    background-color: red;
+}

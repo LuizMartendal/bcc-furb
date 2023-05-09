@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Página 9</title>
+</head>
+<body>
+    <header>Página 9</header>
+    <main>
+        <a href="pagina8.html">Página 8</a>
+        <a href="pagina10.html">Página 10</a>
+    </main>
+    <script>
+        const vetNumeros = [12,34,45,23,67];
+        /*var item1 = vetNumeros[0];
+        var item2 = vetNumeros[1];
+        var itemN = vetNumeros[4];*/
+        //var [item0, item1, item2, item3, item4] = vetNumeros;
+        var [item0,,,,item4] = vetNumeros;
+        //console.log(item0+' - '+item1+' - '+item2+' - '+item3+' - '+item4);
+        console.log(item0+' - '+item4);
+
+        function mostraCarro(pCarro) {
+            console.log("Marca "+pCarro.marca+", modelo "+pCarro.modelo);
+        }
+        function mostraCarro2({ ano, cor, marca, modelo, proprietario: { nome } }) {
+            console.log("Marca "+marca+" modelo "+modelo+
+                " ano "+ano+" cor "+cor+" proprietario "+nome);
+        }
+
+        const carro = {
+            marca: "Ford",
+            modelo: "Mustang",
+            ano: 2020,
+            cor: "azul",
+            proprietario: {
+                nome: "Marcos",
+                cidade: "Blumenau"
+            }
+        };
+
+        mostraCarro(carro);
+        mostraCarro2(carro);
+
+        const vetor1 = [12, 567, 123];
+        const vetor2 = [564, 798, 684];
+        //var vetor3 = vetor1+vetor2;
+        var vetor3 = [...vetor1, ...vetor2];
+        console.log(vetor3);
+        var [var0, var1, ...vetor4] = vetor3;
+        console.log(var0+" "+var1);
+        console.log(vetor4);
+
+        const carro1 = {
+            marca: "Volkswagen",
+            modelo: "Gol",
+            ano: 2000
+        };
+        const carro2 = {
+            cor: "branca",
+            ano: 2010,
+            proprietario: {
+                nome: "Marcos",
+                cidade: "Blumenau"
+            }
+        };
+        const carro3 = {...carro1, ...carro2};
+        console.log(carro3);
+        const mix1 = { ...vetor1, ...carro1 };
+        console.log(mix1);
+        const mix2 = [ ...vetor1, carro1];
+        console.log(mix2);
+        console.log(mix2[0]);
+        console.log(mix2[3].marca);
+
+        var numero = 5;
+        if ((numero % 2) == 0) {
+            console.log('É par!');
+        } else {
+            console.log('É ímpar!');
+        }
+        var mensagem = ((numero % 2) == 0) ? "É par!" : "É ímpar!";
+        console.log(mensagem);
+    </script>
+    <script type="module">
+        import funcExport from './js/functions2.js';
+        funcExport('teste');
+    </script>
+</body>
+</html>

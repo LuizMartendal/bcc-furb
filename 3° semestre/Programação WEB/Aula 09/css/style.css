@@ -1,0 +1,248 @@
+body {
+    margin: 0px;
+}
+header {
+    background-color: bisque;
+    font-size: 3em;
+    font-family: 'Alkatra', cursive;
+    position: sticky;
+    top: 0px;
+}
+
+.estilo {
+    font-size: 1.2em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.estilo2 {
+    width: 50vw;
+    background-color: chartreuse;
+}
+
+img {
+    width: 100vw;
+}
+
+#paragrafo {
+    color: brown;
+}
+
+.botao {
+    text-decoration: none;
+    background-color: green;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.botao:hover {
+    text-decoration: underline;
+}
+
+.botao:active {
+    color: black;
+}
+
+.menuPrincipal > li {
+    display: inline-block;
+}
+
+.menuPrincipal > li:hover {
+    text-decoration: underline;
+}
+
+.lista li:last-child {
+    font-weight: bold;
+    color: brown;
+}
+
+.lista li:first-child {
+    background-color: aquamarine;
+}
+
+.lista li:nth-child(3) {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.tabela, .tabela td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+.tabela tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+.tabela tr:hover {
+    background-color: lightblue;
+}
+
+.tabela tr:active {
+    font-weight: bold;
+}
+
+input {
+    margin: 5px;
+    background-color: yellow;
+    border-radius: 25px;
+    border-width: 0px;
+    border-bottom-width: 1px;
+}
+
+input[type="password"],[type="number"] {
+    background-color: green;
+}
+
+input:focus {
+    background-color: red;
+}
+
+.animacao1 {
+    width: 33vw;
+    height: 100px;
+    background-color: red;
+    animation: animacao1 10s infinite;
+}
+
+@keyframes animacao1 {
+    /*from { background-color: red; }
+    to { background-color: blue;}*/
+    0% { background-color: red; }
+    50% {background-color: blue; }
+    100% { background-color: red; }
+}
+
+.animacao2 {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50px;
+    position: relative;
+    animation: animacao2 10s infinite;
+}
+
+@keyframes animacao2 {
+    0% { background-color: red; left: 0px; top: 0px; }
+    25% { background-color: blue; left: 200px; top: 0px; }
+    50% { background-color: green; left: 200px; top: 200px; }
+    75% { background-color: yellow; left: 0px; top: 200px; }
+    100% { background-color: red; left: 0px; top: 0px; }
+}
+
+main {
+    padding-bottom: 50px;
+}
+
+@font-face {
+    font-family: 'MinhaFonte';
+    src: url(../media/DeliciousHandrawn-Regular.ttf);
+}
+
+footer {
+    background-color: bisque;
+    font-size: 2em;
+    position: fixed;
+    bottom: 0px;
+    width: 100vw;
+    font-family: 'MinhaFonte';
+}
+
+nav {
+    background-color: blue;
+    color: white;
+    padding: 5px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+nav li {
+    list-style: none;
+}
+
+.menuPrincipal2 > li {
+    display: inline-block;
+    padding-right: 8px;
+}
+
+.subMenu {
+    background-color: lightblue;
+    /*display: none;*/
+    visibility: hidden;
+    position: fixed;
+}
+
+.menuPrincipal2 > li:hover .subMenu {
+    /*display: block;*/
+    visibility: visible;
+}
+
+.exemploFlex {
+    background-color: green;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    height: 300px;
+}
+
+.exemploFlex div {
+    background-color: lightgreen;
+    padding: 20px;
+    margin: 5px;
+    font-size: 2em;
+    height: 50px;
+}
+
+.exemploGrid {
+    background-color: red;
+    color: white;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /*grid-template-rows: auto;*/
+    gap: 5px;
+}
+
+@media screen and (max-width: 360px) {
+    .exemploGrid {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #menuHamburguer {
+        display: block;
+    }
+    #menuHorizontal {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    #menuHamburguer {
+        display: none;
+    }
+    #menuHorizontal {
+        display: block;
+    }
+}
+
+.exemploGrid div {
+    font-size: 2em;
+    background-color: lightcoral;
+    border: 1px solid black;
+    padding: 20px;
+}

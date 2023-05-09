@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 10</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>Página 10</header>
+    <main>
+        <a href="pagina9.html">Página 9</a>
+    </main>
+    <script>
+        console.log('1');
+        var promessa1 = new Promise(
+            (pResolve, pReject) => {
+                var dado = Math.floor(Math.random() * 6) + 1;
+                if (dado == 6) {
+                    pResolve(dado);
+                } else {
+                    pReject(dado);
+                }
+                console.log('2');
+            }
+        );
+
+/*        promessa1.then(
+            (pDado) => {
+                console.log(':) '+pDado);
+            },
+            (pDado) => {
+                console.log(':( '+pDado);
+            }
+        );*/
+        promessa1.then(
+            (pDado) => console.log(':) '+pDado)
+        ).catch(
+            (pDado) => console.log(':( '+pDado)
+        );
+        console.log('3');
+
+        var promise1 = new Promise(
+            (pResolve, pReject) => {
+                setTimeout(pResolve,(Math.random()*2000)+1,'Promise1');
+            }
+        );
+        var promise2 = new Promise(
+            (pResolve, pReject) => {
+                setTimeout(pResolve,(Math.random()*2000)+1,'Promise2');
+            }
+        );
+        var promise3 = new Promise(
+            (pResolve, pReject) => {
+                setTimeout(pResolve,(Math.random()*2000)+1,'Promise3');
+            }
+        );
+
+        Promise.race([promise1,promise2,promise3]).then(
+            (pVencedor) => {
+                console.log(pVencedor);
+            }
+        );
+    </script>
+</body>
+</html>

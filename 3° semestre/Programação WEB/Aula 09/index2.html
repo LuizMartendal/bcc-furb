@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/functions.js"></script>
+    <title>Exemplo Java Script</title>
+    <style>
+        .classe1 {
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1.5em;
+        }
+        .classe2 {
+            text-decoration: underline;
+        }
+        .classe3 {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <button onclick="alert('Olá, mundo!')">Clique aqui!</button><br>
+        <div onclick="mostraAlert()">Clique aqui tb!</div><br>
+        <a href="#" onclick="mostraAlert2('Olá mundo v3')">Clique aqui v3!</a>
+        <div id="mensagem"></div>
+        <div id="teste1" class="classe1">Texto da div.</div>
+        <button onclick="addClasse()">Adiciona classe</button>
+        <button onclick="delClasse()">Remove classe</button>
+        <button onclick="toggleClasse()">Toggle classe</button><br>
+        <button onclick="alteraCor()">Altera cor de fundo</button>
+        <div>
+            <button onclick="escondeDiv1()">Esconde div1</button>
+            <button onclick="escondeDiv2()">Esconde div2</button>
+        </div>
+        <div id="teste2">
+        </div>
+        <div>
+            <button onclick="criaParagrafo()">Cria parágrafo</button>
+            <button onclick="removeParagrafo()">Remove parágrafo</button>
+        </div>
+        <div>
+            <input type="text" name="login" id="login">
+            <button onclick="armazenaCookie()">Armazena cookie</button><br>
+            <a href="pagina7.html">Página 7</a><br>
+            <input type="text" name="nome" id="nome">
+            <input type="number" name="idade" id="idade">
+            <button onclick="armazenaStorage()">Armazena no storage</button>
+        </div>
+    </main>
+</body>
+<script>
+    function armazenaStorage() {
+        localStorage.setItem("nome",document.getElementById("nome").value);
+        localStorage.setItem("idade",document.getElementById("idade").value);
+        localStorage.setItem("pessoa",'{"nome" : "'+
+          document.getElementById("nome").value+'", "idade" : '+
+          document.getElementById("idade").value
+          +'}');
+        localStorage.setItem(
+            "tabela",
+            "[{\"codigo\":1,\"nome\":\""+
+            document.getElementById("nome").value+"\", \"idade\" : "+
+          document.getElementById("idade").value+"},"+
+          "{\"codigo\":2,\"nome\":\""+
+            document.getElementById("nome").value+"\", \"idade\" : "+
+          document.getElementById("idade").value+"}]"
+        );
+        document.getElementById("mensagem").innerHTML = "Valores armazenados!";
+    }
+    function armazenaCookie() {
+        document.cookie="login="+document.getElementById("login").value;
+        document.cookie="outroCookie=outraInformacao";
+        document.getElementById("mensagem").innerHTML = "Cookie salvo!";
+    }
+    var nrParagrafo = 1;
+    function criaParagrafo() {
+        const novoParagrafo = document.createElement('p');
+        novoParagrafo.innerHTML = "Novo parágrafo "+nrParagrafo;
+        nrParagrafo++;
+        novoParagrafo.classList.add('classe1');
+        document.getElementById('teste2').appendChild(novoParagrafo);
+    }
+    function removeParagrafo() {
+        document.getElementById('teste2').removeChild(
+            document.getElementById('teste2').lastChild
+        );
+        nrParagrafo--;
+    }
+    function escondeDiv2() {
+        document.getElementById('teste1').style.visibility = "hidden";
+    }
+    function escondeDiv1() {
+        document.getElementById('mensagem').style.display = "none";
+    }
+    function alteraCor() {
+        document.getElementById('teste1').style.backgroundColor = "red";
+    }
+    function addClasse() {
+        document.getElementById('teste1').classList.add('classe2');
+    }
+    function delClasse() {
+        document.getElementById('teste1').classList.remove('classe1');
+    }
+    function toggleClasse() {
+        document.getElementById('teste1').classList.toggle('classe3');
+    }
+    document.getElementById('mensagem').innerHTML = 'Conteúdo inicial!';
+/*
+Comentários
+*/
+    function mostraAlert() {
+        alert('Olá mundo novamente!');
+        document.getElementById('mensagem').innerHTML = "Olá mundo novamente!";
+    }
+</script>
+</html>

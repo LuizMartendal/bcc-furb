@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Página 8</title>
+</head>
+<body>
+    <header>Página 8</header>
+    <main>
+        <a href="pagina7.html">Página 7</a><br>
+        <a href="pagina9.html">Página 9</a>
+        <div id="horario"></div>
+        <div id="mensagem"></div>
+        <button onclick="minhaFuncao()">Chama função 1</button>
+        <button onclick="x()">Chama função 2</button>
+        <button onclick="y(5)">Chama função 3</button><br>
+        <button onclick="chamaCallback(minhaFuncao,null)">Chama função callBack 1</button>
+        <button onclick="chamaCallback(y,'Teste')">Chama função callBack 2</button><br>
+        <button onclick="percorreVetor()">Percorre vetor</button>
+    </main>
+    <script>
+        function percorreVetor() {
+            var vetPalavras = ["Carro", "Mesa", "Porta", "Casa"];
+            console.log(vetPalavras);
+            vetPalavras.forEach(
+                (pValor,pInd) => {
+                    document.getElementById("mensagem").innerHTML +=
+                        "Posição ["+pInd+"] é '"+pValor+"'<br>";
+                }
+            );
+        }
+
+        function mostraHora() {
+            var vHora = new Date();
+            document.getElementById('horario').innerHTML =
+                vHora.getHours()+":"+vHora.getMinutes()+":"+vHora.getSeconds();
+        }
+        //setInterval(mostraHora,1000);
+        setInterval(
+            () => {
+                var vHora = new Date();
+                document.getElementById('horario').innerHTML =
+                    vHora.getHours()+":"+vHora.getMinutes()+":"+vHora.getSeconds();
+            }
+        ,1000);
+
+        function minhaFuncao() {
+            document.getElementById('mensagem').innerHTML =
+                "Chamou minhaFuncao()";
+        }
+
+/*        x = function() {
+            document.getElementById('mensagem').innerHTML =
+                "Chamou x()";
+        }*/
+        x = () => {
+            document.getElementById('mensagem').innerHTML =
+                "Chamou x()";
+        }
+/*        y = function(pNumero) {
+            document.getElementById('mensagem').innerHTML =
+                "Chamou y() com parâmetro "+pNumero;
+        }*/
+/*        y = (pNumero) => {
+            document.getElementById('mensagem').innerHTML =
+                "Chamou y() com parâmetro "+pNumero;
+        }*/
+        y = (pNumero) => document.getElementById('mensagem').innerHTML =
+                "Chamou y() com parâmetro "+pNumero;
+
+        function chamaCallback(pFuncao, pParametro) {
+            pFuncao(pParametro);
+        }
+    </script>
+</body>
+</html>

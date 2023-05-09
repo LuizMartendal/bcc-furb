@@ -1,7 +1,7 @@
 package RefazendoExercicios.Lista8.Testes;
 
 import Lista8.Veiculo;
-import RefazendoExercicios.Lista8.ArvoreBST;
+import RefazendoExercicios.ArvoreBST;
 
 public class TesteArvoreBinariaBST {
 
