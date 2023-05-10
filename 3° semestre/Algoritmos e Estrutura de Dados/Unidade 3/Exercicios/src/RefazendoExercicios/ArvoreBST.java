@@ -124,19 +124,6 @@ public class ArvoreBST<T extends Comparable<T>> extends ArvoreBinariaAbstract<T>
         return null;
     }
 
-    private NoArvoreBST<T> getNoComMenorElemento() {
-        if (vazia()) {
-            return null;
-        }
-
-        NoArvoreBST<T> no = (NoArvoreBST<T>) this.raiz;
-        while (no.getNoEsq() != null) {
-            no = (NoArvoreBST<T>) no.getNoEsq();
-        }
-
-        return no;
-    }
-
     private T getMenorElemento() {
         NoArvoreBST<T> no = this.getNoComMenorElemento();
 
@@ -186,6 +173,19 @@ public class ArvoreBST<T extends Comparable<T>> extends ArvoreBinariaAbstract<T>
         }
 
         return null;
+    }
+
+    private NoArvoreBST<T> getNoComMenorElemento() {
+        if (vazia()) {
+            return null;
+        }
+
+        NoArvoreBST<T> no = (NoArvoreBST<T>) this.raiz;
+        while (no.getNoEsq() != null) {
+            no = (NoArvoreBST<T>) no.getNoEsq();
+        }
+
+        return no;
     }
 
     public String toStringOrdered() {

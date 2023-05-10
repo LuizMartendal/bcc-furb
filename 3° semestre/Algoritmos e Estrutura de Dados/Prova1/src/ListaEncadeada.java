@@ -1,5 +1,5 @@
 //Luiz Henrique Martendal
-public class ListaEncadeada<T> implements Lista<T>, Comparable<T> {
+public class ListaEncadeada<T extends Comparable<T>> implements Lista<T> {
 
     private NoLista<T> primeiro;
     private NoLista<T> ultimo;
@@ -165,101 +165,43 @@ public class ListaEncadeada<T> implements Lista<T>, Comparable<T> {
         if (x == null) {
             throw new NullPointerException("Null");
         }
-        NoLista<T> novo = new NoLista<>();
-        novo.setInfo(x);
-        if (getTamanho() == 0) {
-            this.inserir(x);
+
+        if (estaVazia() || x.compareTo(ultimo.getInfo()) >= 0) {
+            inserir(x);
         } else {
-            if (compareTo(x) == 0) {
-                this.inserir(x);
-            } else if (compareTo(x) > 0) {
+            NoLista<T> novo = new NoLista<>();
+            novo.setInfo(x);
+            if (x.compareTo(primeiro.getInfo()) < 0) {
+                novo.setProx(primeiro);
+                primeiro = novo;
+            } else {
+                NoLista<T> anterior = primeiro;
                 NoLista<T> p = primeiro;
-                NoLista<T> proximo = null;
-                NoLista<T> anterior = null;
-                for (int i = 0; i < getTamanho(); i++) {
-                    if (p.getInfo().toString().compareTo(x.toString()) < 0) {
-                        if (p.getProx() != null) {
-                            proximo = p.getProx();
-                        } else {
-                            proximo = null;
-                            ultimo = p;
-                        }
-                        if (i > 0) {
-                            anterior.setProx(novo.getProx());
-                        } else {
-
-                        }
-                        anterior = p;
-                        p.setProx(novo);
-                        p = proximo;
-                        novo.setProx(proximo);
-                    }
+                while (x.compareTo(p.getInfo()) > 0) {
+                    anterior = p;
+                    p = p.getProx();
                 }
-                qtdElementos++;
-            } else if (compareTo(x) < 0) {
-                this.inserir(x);
+                anterior.setProx(novo);
+                novo.setProx(p);
             }
+            qtdElementos++;
         }
-    }
-
-    @Override
-    public int compareTo(T o) {
-        if (o.toString().compareTo(primeiro.getInfo().toString()) == 0) {
-            return 0;
-        } else if (o.toString().compareTo(primeiro.getInfo().toString()) > 0) {
-            return 1;
-        }
-        return -1;
     }
 
     public ListaEncadeada<T> interseccao(ListaEncadeada<T> outraLista) {
-        NoLista<T> p = new NoLista<>();
-        NoLista<T> outro = new NoLista<>();
         ListaEncadeada<T> nova = new ListaEncadeada<>();
-        if (getTamanho() < outraLista.getTamanho()) {
-            p = primeiro;
-            outro.setInfo(outraLista.pegar(0));
-            int qtd = 0;
-            for (int i = 0; i < getTamanho(); i++) {
-                if (p.getInfo().toString().compareTo(outro.getInfo().toString()) == 0) {
-                    qtd++;
-                }
-                for (int j = 0; j < outraLista.getTamanho(); j++) {
-                    outro.setInfo(outraLista.pegar(j));
-                    if (p.getInfo().toString().compareTo(outro.getInfo().toString()) == 0) {
-                        qtd++;
-                    }
-                }
-                if (qtd > 0) {
-                    nova.insereOrdenado(p.getInfo());
-                }
-                p = p.getProx();
-                qtd = 0;
-                System.out.println(nova.exibir());
-            }
-        } else {
-            p.setInfo(outraLista.pegar(0));
-            outro = primeiro;
-            int qtd = 0;
-            for (int i = 0; i < outraLista.getTamanho(); i++) {
-                outro = primeiro;
-                p.setInfo(outraLista.pegar(i));
-                if (p.getInfo().toString().compareTo(outro.getInfo().toString()) == 0) {
-                    qtd++;
-                }
-                while (outro.getProx() != null) {
-                    outro = outro.getProx();
-                    if (p.getInfo().toString().compareTo(outro.getInfo().toString()) == 0) {
-                        qtd++;
-                    }
-                }
-                if (qtd > 0) {
-                    nova.insereOrdenado(p.getInfo());
-                }
-                qtd = 0;
-                System.out.println(nova.exibir());
-            }
+        if (estaVazia() || outraLista.estaVazia()) {
+            return nova;
         }
+
+        NoLista<T> p = primeiro;
+        while (p != null) {
+            if (outraLista.buscar(p.getInfo()) != -1 && nova.buscar(p.getInfo()) == -1) {
+                nova.inserir(p.getInfo());
+            }
+            p = p.getProx();
+        }
+
         return nova;
     }
 }
