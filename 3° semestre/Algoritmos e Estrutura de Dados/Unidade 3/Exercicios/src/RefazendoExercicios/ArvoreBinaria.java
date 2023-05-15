@@ -2,9 +2,10 @@ package RefazendoExercicios;
 
 public class ArvoreBinaria<T> extends ArvoreBinariaAbstract<T> {
 
-    public ArvoreBinaria() {}
+    ArvoreBinaria() {}
 
     public void setRaiz(NoArvoreBinaria<T> no) {
         super.setRaiz(no);
     }
+
 }

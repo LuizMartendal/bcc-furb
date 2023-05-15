@@ -1,4 +1,4 @@
-package RefazendoExercicios.Lista8.Testes;
+package RefazendoExercicios.Testes;
 
 import Lista8.Veiculo;
 import RefazendoExercicios.ArvoreBST;

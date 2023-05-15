@@ -52,7 +52,7 @@ public class NoArvoreBinaria<T> {
             str += "<>";
         }
 
-        return str;
+        return str += ">";
     }
 
     public T getInfo() {

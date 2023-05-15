@@ -25,19 +25,19 @@ public class NoArvoreBST<T extends Comparable<T>> extends NoArvoreBinaria<T> {
     public NoArvoreBST<T> buscar(T info) {
         if (this.getInfo().equals(info)) {
             return this;
-        }
-
-        if (info.compareTo(this.getInfo()) < 0) {
-            if (this.getNoEsq() != null) {
-                return ((NoArvoreBST<T>) this.getNoEsq()).buscar(info);
-            }
         } else {
-            if (this.getNoDir() != null) {
+            if (info.compareTo(this.getInfo()) < 0) {
+                if (this.getNoEsq() == null) {
+                    return null;
+                }
+                return ((NoArvoreBST<T>) this.getNoEsq()).buscar(info);
+            } else {
+                if (this.getNoDir() == null) {
+                    return null;
+                }
                 return ((NoArvoreBST<T>) this.getNoDir()).buscar(info);
             }
         }
-
-        return null;
     }
 
     public int getGrau() {
@@ -46,7 +46,6 @@ public class NoArvoreBST<T extends Comparable<T>> extends NoArvoreBinaria<T> {
         if (this.getNoEsq() != null) {
             grau++;
         }
-
         if (this.getNoDir() != null) {
             grau++;
         }
@@ -55,10 +54,9 @@ public class NoArvoreBST<T extends Comparable<T>> extends NoArvoreBinaria<T> {
     }
 
     public NoArvoreBST<T> getUnicoFilho() {
-        if (this.getNoEsq() != null) {
-            return (NoArvoreBST<T>) this.getNoEsq();
+        if (this.getNoDir() != null) {
+            return (NoArvoreBST<T>) this.getNoDir();
         }
-
-        return (NoArvoreBST<T>) this.getNoDir();
+        return (NoArvoreBST<T>) this.getNoEsq();
     }
 }

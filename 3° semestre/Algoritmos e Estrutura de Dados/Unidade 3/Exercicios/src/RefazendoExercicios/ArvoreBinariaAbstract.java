@@ -1,28 +1,26 @@
 package RefazendoExercicios;
 
-public class ArvoreBinariaAbstract<T> {
+public abstract class ArvoreBinariaAbstract<T> {
 
     protected NoArvoreBinaria<T> raiz;
 
-    public ArvoreBinariaAbstract() {}
+    ArvoreBinariaAbstract() {}
 
     protected void setRaiz(NoArvoreBinaria<T> no) {
         this.raiz = no;
     }
 
     public boolean vazia() {
-        if (this.raiz != null) {
-            return false;
+        if (this.raiz == null) {
+            return true;
         }
-
-        return true;
+        return false;
     }
 
     public NoArvoreBinaria<T> pertence(T info) {
         if (vazia()) {
             return null;
         }
-
         return this.raiz.pertence(info);
     }
 
@@ -31,7 +29,6 @@ public class ArvoreBinariaAbstract<T> {
         if (vazia()) {
             return "<>";
         }
-
         return this.raiz.imprimePre();
     }
 }
