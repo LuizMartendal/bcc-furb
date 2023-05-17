@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Arvore<T> {
 
     private NoArvore<T> raiz;
@@ -39,8 +43,36 @@ public class Arvore<T> {
         if (no == null) {
             return -1;
         }
-
         return this.getRaiz().getNivel(no);
+    }
+
+    public boolean isBalanceada() {
+        if (vazia()) {
+            return true;
+        }
+        List<Integer> folhas = this.getFolhas();
+        int maiorNivel = 0;
+        int menorNivel = folhas.get(0);
+        for (int i = 1; i < folhas.size(); i++) {
+            if (folhas.get(i) < menorNivel) {
+                menorNivel = folhas.get(i);
+            }
+            if (folhas.get(i) > maiorNivel) {
+                maiorNivel = folhas.get(i);
+            }
+            if ((maiorNivel - menorNivel) > 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private List<Integer> getFolhas() {
+        return this.getRaiz().getFolhas()
+                .stream()
+                .map( no -> {
+                    return this.getRaiz().getNivel(no);
+                }).collect(Collectors.toList());
     }
 
     @Override

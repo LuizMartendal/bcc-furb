@@ -2,52 +2,92 @@ public class Main {
     public static void main(String[] args) {
         Arvore<Integer> arvore = new Arvore<>();
 
-        NoArvore<Integer> no1 = new NoArvore<>(1);
-        arvore.setRaiz(no1);
-        NoArvore<Integer> no2 = new NoArvore<>(2);
-        no1.setFilho(no2);
         NoArvore<Integer> no3 = new NoArvore<>(3);
-        no2.setFilho(no3);
         NoArvore<Integer> no4 = new NoArvore<>(4);
-        no3.setFilho(no4);
+        no3.inserirFilho(no4);
         NoArvore<Integer> no5 = new NoArvore<>(5);
-        no3.setIrmao(no5);
-        NoArvore<Integer> no6 = new NoArvore<>(6);
-        no2.setIrmao(no6);
-        NoArvore<Integer> no7 = new NoArvore<>(7);
-        no6.setIrmao(no7);
-        NoArvore<Integer> no8 = new NoArvore<>(8);
-        no7.setFilho(no8);
-        NoArvore<Integer> no9 = new NoArvore<>(9);
-        no8.setIrmao(no9);
-        NoArvore<Integer> no10 = new NoArvore<>(10);
-        no9.setFilho(no10);
-        NoArvore<Integer> no11 = new NoArvore<>(11);
-        no10.setFilho(no11);
-        NoArvore<Integer> no12 = new NoArvore<>(12);
-        no5.setFilho(no12);
-        NoArvore<Integer> no13 = new NoArvore<>(13);
-        no12.setFilho(no13);
-        NoArvore<Integer> no14 = new NoArvore<>(14);
-        no13.setFilho(no14);
+        NoArvore<Integer> no2 = new NoArvore<>(2);
+        no2.inserirFilho(no5);
+        no2.inserirFilho(no3);
 
-        int altura = arvore.getAltura();
-        int nivel = arvore.getNivel(8);
-        System.out.println("√Årvore completa = " + arvore);
-        System.out.println("Altura da √°rvore = " + arvore.getAltura());
-        System.out.println("1 = " + arvore.getNivel(1));
-        System.out.println("2 = " + arvore.getNivel(2));
-        System.out.println("3 = " + arvore.getNivel(3));
-        System.out.println("4 = " + arvore.getNivel(4));
-        System.out.println("5 = " + arvore.getNivel(5));
-        System.out.println("6 = " + arvore.getNivel(6));
-        System.out.println("7 = " + arvore.getNivel(7));
-        System.out.println("8 = " + arvore.getNivel(8));
-        System.out.println("9 = " + arvore.getNivel(9));
-        System.out.println("10 = " + arvore.getNivel(10));
-        System.out.println("11 = " + arvore.getNivel(11));
-        System.out.println("12 = " + arvore.getNivel(12));
-        System.out.println("13 = " + arvore.getNivel(13));
-        System.out.println("14 = " + arvore.getNivel(14));
+        NoArvore<Integer> no6 = new NoArvore<>(6);
+
+        NoArvore<Integer> no10 = new NoArvore<>(10);
+        NoArvore<Integer> no9 = new NoArvore<>(9);
+        no9.inserirFilho(no10);
+        NoArvore<Integer> no8 = new NoArvore<>(8);
+        NoArvore<Integer> no7 = new NoArvore<>(7);
+        no7.inserirFilho(no9);
+        no7.inserirFilho(no8);
+
+        NoArvore<Integer> no1 = new NoArvore<>(1);
+        no1.inserirFilho(no7);
+        no1.inserirFilho(no6);
+        no1.inserirFilho(no2);
+        arvore.setRaiz(no1);
+
+        System.out.println("¡rvore completa = " + arvore);
+        System.out.println("Altura da ·rvore = " + arvore.getAltura());
+        System.out.println("1 = nÌvel esperado: 0 | nÌvel retornado: " + arvore.getNivel(1));
+        System.out.println("2 = nÌvel esperado: 1 | nÌvel retornado: " + arvore.getNivel(2));
+        System.out.println("3 = nÌvel esperado: 2 | nÌvel retornado: " + arvore.getNivel(3));
+        System.out.println("4 = nÌvel esperado: 3 | nÌvel retornado: " + arvore.getNivel(4));
+        System.out.println("5 = nÌvel esperado: 2 | nÌvel retornado: " + arvore.getNivel(5));
+        System.out.println("6 = nÌvel esperado: 1 | nÌvel retornado: " + arvore.getNivel(6));
+        System.out.println("7 = nÌvel esperado: 1 | nÌvel retornado: " + arvore.getNivel(7));
+        System.out.println("8 = nÌvel esperado: 2 | nÌvel retornado: " + arvore.getNivel(8));
+        System.out.println("9 = nÌvel esperado: 2 | nÌvel retornado: " + arvore.getNivel(9));
+        System.out.println("10 = nÌvel esperado: 3 | nÌvel retornado: " + arvore.getNivel(10));
+
+        System.out.println("¡rvore balanceada = esperado: false | retornado: " + arvore.isBalanceada());
+
+        NoArvore<Integer> n9 = new NoArvore<Integer>(9);
+        NoArvore<Integer> n10 = new NoArvore<Integer>(10);
+        NoArvore<Integer> n4 = new NoArvore<Integer>(4);
+        n4.inserirFilho(n10);
+        n4.inserirFilho(n9);
+        NoArvore<Integer> n8 = new NoArvore<Integer>(8);
+        NoArvore<Integer> n3 = new NoArvore<Integer>(3);
+        n3.inserirFilho(n8);
+        NoArvore<Integer> n5 = new NoArvore<Integer>(5);
+        NoArvore<Integer> n6 = new NoArvore<Integer>(6);
+        NoArvore<Integer> n7 = new NoArvore<Integer>(7);
+        NoArvore<Integer> n2 = new NoArvore<Integer>(2);
+        n2.inserirFilho(n7);
+        n2.inserirFilho(n6);
+        n2.inserirFilho(n5);
+        NoArvore<Integer> n1 = new NoArvore<Integer>(1);
+        n1.inserirFilho(n4);
+        n1.inserirFilho(n3);
+        n1.inserirFilho(n2);
+        Arvore<Integer> arvore2 = new Arvore<>();
+        arvore2.setRaiz(n1);
+
+        System.out.println();
+        System.out.println("¡rvore completa = " + arvore2);
+        System.out.println("Altura da ·rvore = " + arvore2.getAltura());
+        System.out.println("1 = nÌvel esperado: 0 | nÌvel retornado: " + arvore2.getNivel(1));
+        System.out.println("2 = nÌvel esperado: 1 | nÌvel retornado: " + arvore2.getNivel(2));
+        System.out.println("3 = nÌvel esperado: 1 | nÌvel retornado: " + arvore2.getNivel(3));
+        System.out.println("4 = nÌvel esperado: 1 | nÌvel retornado: " + arvore2.getNivel(4));
+        System.out.println("5 = nÌvel esperado: 2 | nÌvel retornado: " + arvore2.getNivel(5));
+        System.out.println("6 = nÌvel esperado: 2 | nÌvel retornado: " + arvore2.getNivel(6));
+        System.out.println("7 = nÌvel esperado: 2 | nÌvel retornado: " + arvore2.getNivel(7));
+        System.out.println("8 = nÌvel esperado: 2 | nÌvel retornado: " + arvore2.getNivel(8));
+        System.out.println("9 = nÌvel esperado: 2 | nÌvel retornado: " + arvore2.getNivel(9));
+        System.out.println("10 = nÌvel esperado: 2 | nÌvel retornado: " + arvore2.getNivel(10));
+
+        System.out.println("¡rvore balanceada = esperado: true | retornado: " + arvore2.isBalanceada());
+
+        Arvore<Integer> arvore3 = new Arvore<>();
+
+        NoArvore<Integer> noRaiz = new NoArvore<>(1);
+        arvore3.setRaiz(noRaiz);
+
+        System.out.println();
+        System.out.println("¡rvore completa: " + arvore3);
+        System.out.println("Altura da ·rvore = esperado: 0 | retornado: " + arvore3.getAltura());
+        System.out.println("1 = nÌvel esperado: 0 | nÌvel retornado: " + arvore3.getNivel(1));
+        System.out.println("¡rvore balanceada = esperado: true | retornado: " + arvore3.isBalanceada());
     }
 }

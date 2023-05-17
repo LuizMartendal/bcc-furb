@@ -1,3 +1,7 @@
+import java.time.temporal.JulianFields;
+import java.util.ArrayList;
+import java.util.List;
+
 public class NoArvore<T> {
 
     private T info;
@@ -52,30 +56,6 @@ public class NoArvore<T> {
         return null;
     }
 
-    public T getInfo() {
-        return info;
-    }
-
-    public void setInfo(T info) {
-        this.info = info;
-    }
-
-    public NoArvore<T> getFilho() {
-        return filho;
-    }
-
-    public void setFilho(NoArvore<T> filho) {
-        this.filho = filho;
-    }
-
-    public NoArvore<T> getIrmao() {
-        return irmao;
-    }
-
-    public void setIrmao(NoArvore<T> irmao) {
-        this.irmao = irmao;
-    }
-
     public int getAltura() {
         int altura = 0;
         int alturaAtual = 0;
@@ -109,11 +89,11 @@ public class NoArvore<T> {
         } else {
             if (filho != null) {
                 alturaAtual++;
-                int alturaFilho = this.filho.getNivel(no);
-                if (alturaFilho < 0) {
+                int ehFilho = this.filho.getNivel(no);
+                if (ehFilho < 0) {
                     alturaAtual--;
                 } else {
-                    alturaAtual += alturaFilho;
+                    alturaAtual += ehFilho;
                 }
             }
 
@@ -137,5 +117,54 @@ public class NoArvore<T> {
         }
 
         return -1;
+    }
+
+    public List<NoArvore<T>> getFolhas() {
+        List<NoArvore<T>> folhas = new ArrayList<>();
+
+        if (this.ehFolha()) {
+            folhas.add(this);
+        }
+
+        if (filho != null) {
+            folhas.addAll(filho.getFolhas());
+        }
+
+        if (irmao != null) {
+            folhas.addAll(irmao.getFolhas());
+        }
+
+        return folhas;
+    }
+
+    public boolean ehFolha() {
+        if (filho != null) {
+            return false;
+        }
+        return true;
+    }
+
+    public T getInfo() {
+        return info;
+    }
+
+    public void setInfo(T info) {
+        this.info = info;
+    }
+
+    public NoArvore<T> getFilho() {
+        return filho;
+    }
+
+    public void setFilho(NoArvore<T> filho) {
+        this.filho = filho;
+    }
+
+    public NoArvore<T> getIrmao() {
+        return irmao;
+    }
+
+    public void setIrmao(NoArvore<T> irmao) {
+        this.irmao = irmao;
     }
 }
