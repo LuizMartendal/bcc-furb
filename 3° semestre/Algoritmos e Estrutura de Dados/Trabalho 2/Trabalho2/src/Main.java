@@ -89,5 +89,20 @@ public class Main {
         System.out.println("Altura da árvore = esperado: 0 | retornado: " + arvore3.getAltura());
         System.out.println("1 = nível esperado: 0 | nível retornado: " + arvore3.getNivel(1));
         System.out.println("Árvore balanceada = esperado: true | retornado: " + arvore3.isBalanceada());
+
+        Arvore<Integer> arvore4 = new Arvore<>();
+
+        NoArvore<Integer> noRaiz1 = new NoArvore<>(1);
+        arvore4.setRaiz(noRaiz1);
+        NoArvore<Integer> nor1 = new NoArvore<>(2);
+        noRaiz1.inserirFilho(nor1);
+        NoArvore<Integer> nor2 = new NoArvore<>(3);
+        nor1.inserirFilho(nor2);
+
+        System.out.println();
+        System.out.println("Árvore completa: " + arvore4);
+        System.out.println("Altura da árvore = esperado: 2 | retornado: " + arvore4.getAltura());
+        System.out.println("1 = nível esperado: 0 | nível retornado: " + arvore4.getNivel(1));
+        System.out.println("Árvore balanceada = esperado: true | retornado: " + arvore4.isBalanceada());
     }
 }
