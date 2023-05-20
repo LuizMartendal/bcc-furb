@@ -89,11 +89,11 @@ public class NoArvore<T> {
         } else {
             if (filho != null) {
                 alturaAtual++;
-                int ehFilho = this.filho.getNivel(no);
-                if (ehFilho < 0) {
+                int nivelFilho = this.filho.getNivel(no);
+                if (nivelFilho < 0) {
                     alturaAtual--;
                 } else {
-                    alturaAtual += ehFilho;
+                    alturaAtual += nivelFilho;
                 }
             }
 
