@@ -4,14 +4,14 @@ public abstract class ArvoreBinariaAbstract<T> {
 
     protected NoArvoreBinaria<T> raiz;
 
-    ArvoreBinariaAbstract() {}
+    public ArvoreBinariaAbstract() {}
 
     protected void setRaiz(NoArvoreBinaria<T> no) {
         this.raiz = no;
     }
 
     public boolean vazia() {
-        if (this.raiz == null) {
+        if (raiz == null) {
             return true;
         }
         return false;

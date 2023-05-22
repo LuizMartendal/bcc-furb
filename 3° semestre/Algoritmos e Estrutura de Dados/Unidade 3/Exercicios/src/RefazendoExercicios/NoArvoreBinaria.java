@@ -3,33 +3,33 @@ package RefazendoExercicios;
 public class NoArvoreBinaria<T> {
 
     private T info;
-    private NoArvoreBinaria<T> noEsq;
-    private NoArvoreBinaria<T> noDir;
+    private NoArvoreBinaria<T> esq;
+    private NoArvoreBinaria<T> dir;
 
     public NoArvoreBinaria(T info) {
         this.info = info;
     }
 
-    public NoArvoreBinaria(T info, NoArvoreBinaria<T> noEsq, NoArvoreBinaria<T> noDir) {
+    public NoArvoreBinaria(T info, NoArvoreBinaria<T> esq, NoArvoreBinaria<T> dir) {
         this.info = info;
-        this.noEsq = noEsq;
-        this.noDir = noDir;
+        this.esq = esq;
+        this.dir = dir;
     }
 
     public NoArvoreBinaria<T> pertence(T info) {
-        if (this.info.equals(info)) {
+        if (info.equals(this.info)) {
             return this;
         }
 
-        if (this.noEsq != null) {
-            NoArvoreBinaria<T> no = this.noEsq.pertence(info);
+        if (this.getEsq() != null) {
+            NoArvoreBinaria<T> no =  this.getEsq().pertence(info);
             if (no != null) {
                 return no;
             }
         }
 
-        if (this.noDir != null) {
-            return this.noDir.pertence(info);
+        if (this.getDir() != null) {
+            return this.getDir().pertence(info);
         }
 
         return null;
@@ -38,18 +38,14 @@ public class NoArvoreBinaria<T> {
     public String imprimePre() {
         String str = "<";
 
-        str += this.info.toString();
+        str += this.getInfo();
 
-        if (this.noEsq != null) {
-            str += this.noEsq.imprimePre();
-        } else if (this.noDir != null) {
-            str += "<>";
+        if (this.getEsq() != null) {
+            str += this.getEsq().imprimePre();
         }
 
-        if (this.noDir != null) {
-            str += this.noDir.imprimePre();
-        } else if (this.noEsq != null) {
-            str += "<>";
+        if (this.getDir() != null) {
+            str += this.getDir().imprimePre();
         }
 
         return str += ">";
@@ -63,19 +59,19 @@ public class NoArvoreBinaria<T> {
         this.info = info;
     }
 
-    public NoArvoreBinaria<T> getNoEsq() {
-        return noEsq;
+    public NoArvoreBinaria<T> getEsq() {
+        return esq;
     }
 
-    public void setNoEsq(NoArvoreBinaria<T> noEsq) {
-        this.noEsq = noEsq;
+    public void setEsq(NoArvoreBinaria<T> esq) {
+        this.esq = esq;
     }
 
-    public NoArvoreBinaria<T> getNoDir() {
-        return noDir;
+    public NoArvoreBinaria<T> getDir() {
+        return dir;
     }
 
-    public void setNoDir(NoArvoreBinaria<T> noDir) {
-        this.noDir = noDir;
+    public void setDir(NoArvoreBinaria<T> dir) {
+        this.dir = dir;
     }
 }

@@ -26,6 +26,8 @@ public class Main {
         no1.inserirFilho(no2);
         arvore.setRaiz(no1);
 
+        arvore.getNivel(6);
+
         System.out.println("Árvore completa = " + arvore);
         System.out.println("Altura da árvore = " + arvore.getAltura());
         System.out.println("1 = nível esperado: 0 | nível retornado: " + arvore.getNivel(1));

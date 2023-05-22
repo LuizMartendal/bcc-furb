@@ -81,37 +81,32 @@ public class NoArvore<T> {
     }
 
     public int getNivel(NoArvore<T> no) {
-        int altura = 0;
-        int alturaAtual = 0;
+        int nivel = 0;
+        int nivelAtual = 0;
 
         if (this == no) {
             return 0;
         } else {
             if (filho != null) {
-                alturaAtual++;
+                nivelAtual++;
                 int ehFilho = this.filho.getNivel(no);
                 if (ehFilho < 0) {
-                    alturaAtual--;
+                    nivelAtual--;
                 } else {
-                    alturaAtual += ehFilho;
+                    nivelAtual += ehFilho;
                 }
             }
 
-            if (alturaAtual > altura) {
-                altura = alturaAtual;
-                return altura;
+            if (nivelAtual > nivel) {
+                nivel = nivelAtual;
+                return nivel;
             }
 
             if (irmao != null) {
                 int irmao = this.irmao.getNivel(no);
                 if (irmao >= 0) {
-                    if (irmao > 0) {
-                        alturaAtual += irmao;
-                        //alturaAtual++;
-                        return alturaAtual;
-                    } else {
-                        return 0;
-                    }
+                    nivelAtual += irmao;
+                    return nivelAtual;
                 }
             }
         }
