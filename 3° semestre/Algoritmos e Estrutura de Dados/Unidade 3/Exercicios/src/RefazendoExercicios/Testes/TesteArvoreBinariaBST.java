@@ -22,7 +22,9 @@ public class TesteArvoreBinariaBST {
         System.out.println(arvoreBST);
         System.out.println("Sucessor de 11: " + arvoreBST.getSucessor(11));
         System.out.println("Antecessor de 13: " + arvoreBST.getAntecessor(13));
-        System.out.println(arvoreBST.toStringOrdered());
+        System.out.println("Árvore pré-fixa = " + arvoreBST);
+        System.out.println("Árvore ordenada = " + arvoreBST.toStringOrdered());
+        System.out.println("Árvore pós-fixa = " + arvoreBST.toStringPos());
 
         arvoreBST.retirar(8);
         arvoreBST.retirar(0);

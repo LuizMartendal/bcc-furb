@@ -31,4 +31,18 @@ public abstract class ArvoreBinariaAbstract<T> {
         }
         return this.raiz.imprimePre();
     }
+
+    public String toStringOrdered() {
+        if (vazia()) {
+            return "{}";
+        }
+        return this.raiz.imprimeOrd();
+    }
+
+    public String toStringPos() {
+        if (vazia()) {
+            return "{}";
+        }
+        return raiz.imprimePos();
+    }
 }

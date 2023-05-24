@@ -42,6 +42,14 @@ public class Main {
         System.out.println("10 = nível esperado: 3 | nível retornado: " + arvore.getNivel(10));
 
         System.out.println("Árvore balanceada = esperado: false | retornado: " + arvore.isBalanceada());
+        System.out.println("Grau da árvore = esperado: 3 | retornado: " + arvore.getGrau());
+        arvore.excluir(9);
+        System.out.println("Após excluir 7 = " + arvore);
+        arvore.mover(6, 5);
+        System.out.println("Após mover " + arvore);
+
+        arvore.excluir(1);
+        System.out.println(arvore);
 
         NoArvore<Integer> n9 = new NoArvore<Integer>(9);
         NoArvore<Integer> n10 = new NoArvore<Integer>(10);
@@ -80,6 +88,7 @@ public class Main {
         System.out.println("10 = nível esperado: 2 | nível retornado: " + arvore2.getNivel(10));
 
         System.out.println("Árvore balanceada = esperado: true | retornado: " + arvore2.isBalanceada());
+        System.out.println("Grau da árvore = esperado: 3 | retornado: " + arvore2.getGrau());
 
         Arvore<Integer> arvore3 = new Arvore<>();
 

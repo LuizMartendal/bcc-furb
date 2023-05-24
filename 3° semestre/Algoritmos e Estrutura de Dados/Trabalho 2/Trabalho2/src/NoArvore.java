@@ -1,4 +1,4 @@
-import java.time.temporal.JulianFields;
+//Luiz Henrique Martendal
 import java.util.ArrayList;
 import java.util.List;
 
@@ -139,6 +139,45 @@ public class NoArvore<T> {
         return true;
     }
 
+    public int getGrau() {
+        int grau = 0;
+        int grauAtual = 0;
+
+        if (this.filho != null) {
+            grauAtual = getGrau(this.filho);
+
+            int grauFilho = filho.getGrau();
+            if (grauFilho > grauAtual) {
+                grauAtual = grauFilho;
+            }
+        }
+
+        if (grauAtual > grau) {
+            grau = grauAtual;
+        }
+
+        if (irmao != null) {
+            int grauIrmao = irmao.getGrau();
+            if (grauIrmao > grauAtual) {
+                grauAtual = grauIrmao;
+            }
+        }
+
+        if (grauAtual > grau) {
+            grau = grauAtual;
+        }
+        return grau;
+    }
+
+    public int getGrau(NoArvore<T> no) {
+        int grau = 1;
+        while (no.irmao != null) {
+            no = no.irmao;
+            grau++;
+        }
+        return grau;
+    }
+
     public T getInfo() {
         return info;
     }
@@ -161,5 +200,30 @@ public class NoArvore<T> {
 
     public void setIrmao(NoArvore<T> irmao) {
         this.irmao = irmao;
+    }
+
+    public void excluir(NoArvore<T> no) {
+
+        if (filho != null) {
+            if (filho == no) {
+                if (filho.irmao != null) {
+                    filho = filho.irmao;
+                }
+            } else {
+                this.filho.excluir(no);
+            }
+        }
+
+        if (irmao != null) {
+            if (irmao == no) {
+                if (irmao.irmao != null) {
+                    irmao = irmao.irmao;
+                } else {
+                    irmao = null;
+                }
+            } else {
+                irmao.excluir(no);
+            }
+        }
     }
 }

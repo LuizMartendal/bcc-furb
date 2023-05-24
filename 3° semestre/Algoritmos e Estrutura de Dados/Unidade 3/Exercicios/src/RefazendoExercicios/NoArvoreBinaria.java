@@ -51,6 +51,38 @@ public class NoArvoreBinaria<T> {
         return str += ">";
     }
 
+    public String imprimeOrd() {
+        String str = "";
+
+        if (this.getEsq() != null) {
+            str += this.getEsq().imprimeOrd();
+        }
+
+        str += this.getInfo().toString() + " ";
+
+        if (this.getDir() != null) {
+            str += this.getDir().imprimeOrd();
+        }
+
+        return str;
+    }
+
+    public String imprimePos() {
+        String str = "";
+
+        if (this.getEsq() != null) {
+            str += this.getEsq().imprimePos();
+        }
+
+        if (this.getDir() != null) {
+            str += this.getDir().imprimePos();
+        }
+
+        str += this.getInfo().toString() + " ";
+
+        return str;
+    }
+
     public T getInfo() {
         return info;
     }
@@ -74,4 +106,5 @@ public class NoArvoreBinaria<T> {
     public void setDir(NoArvoreBinaria<T> dir) {
         this.dir = dir;
     }
+
 }

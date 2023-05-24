@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+//Luiz Henrique Martendal
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -82,5 +82,41 @@ public class Arvore<T> {
         }
 
         return this.getRaiz().imprimePre();
+    }
+
+    public int getGrau() {
+        if (vazia()) {
+            return 0;
+        }
+        return this.raiz.getGrau();
+    }
+
+    public void excluir(T info) {
+        NoArvore<T> no = pertence(info);
+
+        if (no != null) {
+            if (no == raiz) {
+                setRaiz(null);
+            } else {
+                this.raiz.excluir(no);
+            }
+        }
+    }
+
+    public void mover(T info, T destino) {
+        NoArvore<T> no = pertence(info);
+        NoArvore<T> localFinal = pertence(destino);
+
+        if (no != null && localFinal != null && no != raiz) {
+            NoArvore<T> noInserido = new NoArvore<>(no.getInfo());
+            if (no.getFilho() != null) {
+                noInserido.setFilho(no.getFilho());
+            }
+            if (no.getIrmao() != null) {
+                noInserido.setIrmao(no.getIrmao());
+            }
+            localFinal.inserirFilho(noInserido);
+            raiz.excluir(no);
+        }
     }
 }

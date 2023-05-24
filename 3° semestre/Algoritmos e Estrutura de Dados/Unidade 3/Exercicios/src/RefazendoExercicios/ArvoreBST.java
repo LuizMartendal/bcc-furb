@@ -115,21 +115,35 @@ public class ArvoreBST<T extends Comparable<T>> extends ArvoreBinariaAbstract<T>
         return noAntecessor;
     }
 
+//    public String toStringOrdered() {
+//        if (vazia()) {
+//            return "{}";
+//        }
+//
+//        String str = "{ ";
+//        NoArvoreBST<T> no = getNoComMenorElemento();
+//        str += no.getInfo();
+//
+//        while (getSucessor(no) != null) {
+//            no = getSucessor(no);
+//            str += " " + no.getInfo();
+//        }
+//
+//        return str += " }";
+//    }
+
     public String toStringOrdered() {
         if (vazia()) {
             return "{}";
         }
+        return this.raiz.imprimeOrd();
+    }
 
-        String str = "{ ";
-        NoArvoreBST<T> no = getNoComMenorElemento();
-        str += no.getInfo();
-
-        while (getSucessor(no) != null) {
-            no = getSucessor(no);
-            str += " " + no.getInfo();
+    public String toStringPos() {
+        if (vazia()) {
+            return "{}";
         }
-
-        return str += " }";
+        return raiz.imprimePos();
     }
 
     private NoArvoreBST<T> getNoComMaiorElemento() {
