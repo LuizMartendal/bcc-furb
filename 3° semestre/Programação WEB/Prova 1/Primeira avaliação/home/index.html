@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 1</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="./script.js"></script>
+</head>
+<body onpageshow="isLogged()">
+    <header>
+        <a href="./index.html">
+            <img src="../imgs/logo.png" alt="Logo">
+            <h1>DevTech</h1>
+        </a>
+        <div class="user" id="user">
+            Usuário não autenticado
+        </div>
+    </header>
+    <main>
+        <menu class="navigation">
+            <ul>
+                <li class="list">
+                    <a href="./index.html" id="this">
+                        <img src="../imgs/home.png" alt="Home">
+                        Home
+                    </a>
+                </li>
+                <li class="list" id="login-page">
+                    <a href="../login/index.html">
+                        <img src="../imgs/login.png" alt="Login">
+                        Login
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="../cadastrar/index.html">
+                        <img src="../imgs/cadastrar.png" alt="Cadastrar">
+                        Cadastrar
+                    </a>
+                </li>
+                <li class="list" id="logout-page">
+                    <a onclick="logout()">
+                        <img src="../imgs/login.png" alt="Login">
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </menu>
+        <div class="content">
+            <img id="home-images" src="../imgs/logo.png">
+        </div>
+    </main>
+    <footer>
+        Luiz Henrique Martendal
+    </footer>
+</body>
+</html>
