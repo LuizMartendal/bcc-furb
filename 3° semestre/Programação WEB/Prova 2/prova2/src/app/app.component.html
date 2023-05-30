@@ -2,7 +2,7 @@
   <div class="title">
     <button mat-icon-button>
      </button>
-     <span>My App</span>
+     <span routerLink="home">My App</span>
   </div>
   <div class="icons">
     <button mat-icon-button>
@@ -14,10 +14,10 @@
   </div>
 </mat-toolbar>
 
-<mat-tab-group animationDuration="2000ms">
-  <mat-tab label="Home"></mat-tab>
-  <mat-tab label="Funcionários"></mat-tab>
-</mat-tab-group>
+<div class="button-row">
+  <button routerLink="home" mat-button active routerLinkActive="button-active">Home</button>
+  <button routerLink="funcionarios" mat-button routerLinkActive="button-active">Funcionários</button>
+</div>
 
 <router-outlet></router-outlet>
 

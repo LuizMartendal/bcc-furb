@@ -1,30 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SharedRoutingModule } from './shared-routing.module';
-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
+import { DescriptionComponent } from './description/description.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
-
+    DescriptionComponent
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule
   ],
   exports: [
+    DescriptionComponent,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule
   ]
 })
 export class SharedModule { }
