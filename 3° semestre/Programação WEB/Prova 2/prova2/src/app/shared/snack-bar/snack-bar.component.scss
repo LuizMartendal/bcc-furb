@@ -1,0 +1,60 @@
+@import '../../../styles.scss';
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: $secondary-color;
+  width: 110%;
+
+  .frase {
+    width: 75%;
+
+    font-weight: 900;
+    font-size: 1.5rem;
+    background-image: $primary-color;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .icon {
+    width: 25%;
+    font-size: 2vw;
+
+    button {
+      height: 4vh;
+      width: 2vw;
+
+      mat-icon {
+        background-image: $primary-color;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 2rem;
+        height: 4vh;
+        width: 5vw;
+      }
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .frase {
+      width: 80%;
+      font-size: 1.5rem;
+    }
+    .icon {
+      width: 20%;
+      font-size: 2vw;
+      button {
+        height: 4vh;
+        width: 2vw;
+        mat-icon {
+          font-size: 2rem;
+          height: 4vh;
+          width: 10vw;
+        }
+      }
+    }
+  }
+}

@@ -20,7 +20,7 @@
     -webkit-text-fill-color: transparent;
 
     font-weight: 900;
-    font-size: 2vw;
+    font-size: 2rem;
     margin-bottom: 2vh;
   }
 
@@ -28,9 +28,11 @@
     width: 100%;
     background-image: $secondary-color;
     border: none;
+    border-radius: 1rem;
     mat-card-content {
+      white-space: break-spaces;
       font-weight: 900;
-      font-size: 1vw;
+      font-size: 1rem;
 
       background-image: $primary-color;
       background-clip: text;
