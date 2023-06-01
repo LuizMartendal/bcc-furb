@@ -1,6 +1,7 @@
 @import '../styles.scss';
 
 :host {
+  position: fixed;
   overflow: hidden;
   overflow-y: hidden;
   display: flex;

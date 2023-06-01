@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { FuncionariosService } from 'src/app/core/entidades/funcionarios.service';
+import { Funcionario } from 'src/app/models/funcionario';
 
 @Component({
   selector: 'app-funcionarios',
@@ -11,7 +12,7 @@ export class FuncionariosComponent implements OnInit {
   @Output() title = 'Funcionários';
   @Output() message = 'Abaixo está uma lista de funcionários da empresa';
 
-  funcionarios: any = [];
+  funcionarios: Funcionario[] = [];
 
   constructor(
     private funcionariosService: FuncionariosService
