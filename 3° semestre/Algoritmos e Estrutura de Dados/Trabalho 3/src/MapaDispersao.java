@@ -1,72 +1,62 @@
 public class MapaDispersao<K, T> {
 
-    public Lista<ParChaveValor<K,T>>[] tabela;
+    public Lista<ParChaveValor<K, T>>[] tabela;
 
     public MapaDispersao(int quantidade) {
-        this.tabela = new Lista[proximoPrimo(quantidade)];
+        int tamanho = proximoPrimo(quantidade);
+        this.tabela = new Lista[tamanho];
     }
 
-    private int proximoPrimo(int valor) {
-        boolean primo = false;
+    private static int proximoPrimo(int valor) {
         int prox = valor;
-        while (!primo) {
-            primo = ePrimo(prox);
-            if (!primo) {
-                prox++;
-            }
+        while (!ePrimo(prox)) {
+            prox++;
         }
         return prox;
     }
 
-    private static boolean ePrimo(int prox) {
-        boolean primo;
-        primo = true;
-        for (int i = 2; i < prox; i++) {
-            if (prox % i == 0) {
-                primo = false;
-                break;
+    private static boolean ePrimo(int numero) {
+        if (numero < 2) {
+            return false;
+        }
+        for (int i = 2; i < numero; i++) {
+            if (numero % i == 0) {
+                return false;
             }
         }
-        return primo;
+        return true;
     }
 
 
     private int calcularHash(K chave) {
-        return Math.abs(chave.hashCode() % tabela.length);
+        int hash = chave.hashCode();
+        hash = (hash < 0) ? -hash : hash;
+        return hash % tabela.length;
     }
 
     public boolean inserir(K chave, T valor) {
         int pos = calcularHash(chave);
-        Lista<ParChaveValor<K, T>> lista = tabela[pos];
+        ListaMapaDispersao<K, T> lista = (ListaMapaDispersao<K, T>) tabela[pos];
         if (lista == null) {
-            ListaEstatica<ParChaveValor<K, T>> novaLista = new ListaEstatica<>();
+            ListaMapaDispersao<K, T> novaLista = new ListaMapaDispersao<>();
             novaLista.inserir(new ParChaveValor<>(chave, valor));
             tabela[pos] = novaLista;
             return true;
         }
-        if (chaveExiste(lista, chave)) {
+        if (lista.chaveExiste(chave)) {
             return false;
         }
         lista.inserir(new ParChaveValor<>(chave, valor));
         return true;
     }
 
-    private boolean chaveExiste(Lista<ParChaveValor<K, T>> lista, K chave) {
-        for (int i = 0; i < lista.getTamanho(); i++) {
-            if (lista.pegar(i).getChave().equals(chave)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public T remover(K chave) {
         int pos = calcularHash(chave);
-        ListaEstatica<ParChaveValor<K, T>> lista = (ListaEstatica<ParChaveValor<K,T>>) tabela[pos];
+        ListaMapaDispersao<K, T> lista = (ListaMapaDispersao<K,T>) tabela[pos];
         if (lista == null) {
             return null;
         }
-        ParChaveValor<K, T> par = buscarPar(lista, chave);
+        ParChaveValor<K, T> par = lista.buscarPar(chave);
         if (par == null) {
             return null;
         }
@@ -74,23 +64,13 @@ public class MapaDispersao<K, T> {
         return a.getValor();
     }
 
-    private ParChaveValor<K, T> buscarPar(ListaEstatica<ParChaveValor<K,T>> lista, K chave) {
-        for (int i = 0; i < lista.getTamanho(); i++) {
-            ParChaveValor<K, T> par = lista.pegar(i);
-            if (par.getChave().equals(chave)) {
-                return par;
-            }
-        }
-        return null;
-    }
-
     public T buscar(K chave) {
         int pos = calcularHash(chave);
-        ListaEstatica<ParChaveValor<K, T>> lista = (ListaEstatica<ParChaveValor<K,T>>) tabela[pos];
+        ListaMapaDispersao<K, T> lista = (ListaMapaDispersao<K,T>) tabela[pos];
         if (lista == null) {
             return null;
         }
-        ParChaveValor<K, T> par = buscarPar(lista, chave);
+        ParChaveValor<K, T> par = lista.buscarPar(chave);
         if (par == null) {
             return null;
         }

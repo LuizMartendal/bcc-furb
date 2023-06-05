@@ -10,12 +10,14 @@ import { FuncionariosComponent } from './pages/funcionarios/funcionarios.compone
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HeaderComponent } from './pages/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    FuncionariosComponent
+    FuncionariosComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
