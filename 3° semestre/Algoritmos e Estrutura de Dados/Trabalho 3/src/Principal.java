@@ -13,6 +13,8 @@ public class Principal {
         Veiculo i = new Veiculo("OVO-0000", "Gol", 2000, "Joshua");
         Veiculo j = new Veiculo("ABC-1234", "Ferrari", 2015, "Marta");
 
+        a.setPlaca(null);
+
 
         System.out.println("\n\nMétodo inserir()\n");
 

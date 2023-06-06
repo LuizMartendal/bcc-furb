@@ -29,6 +29,9 @@ public class MapaDispersao<K, T> {
 
 
     private int calcularHash(K chave) {
+        if (chave == null) {
+            throw new NullPointerException("Deu problema ai");
+        }
         int hash = chave.hashCode();
         hash = (hash < 0) ? -hash : hash;
         return hash % tabela.length;
