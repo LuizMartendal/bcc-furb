@@ -1,32 +1,28 @@
+import java.util.Arrays;
+import java.util.Random;
+
 public class BubbleSort<T extends Comparable<T>> implements Sort<T> {
 
     public static void main(String[] args) {
-        Sort<Integer> algoritmo = new BubbleSort<>();
+        long tempoInicial = System.currentTimeMillis();
 
-        Integer[] vetor = new Integer[10];
-        vetor[0] = 10;
-        vetor[1] = 9;
-        vetor[2] = 8;
-        vetor[3] = 7;
-        vetor[4] = 6;
-        vetor[5] = 5;
-        vetor[6] = 4;
-        vetor[7] = 3;
-        vetor[8] = 2;
-        vetor[9] = 1;
+        Integer[] array = new Integer[1000];
+        Random r = new Random();
 
-        System.out.println("Vetor antes da ordenação = ");
-        for (int i = 0; i < vetor.length; i++) {
-            System.out.print(vetor[i] + " ");
+        for (int i = 0; i < array.length; i++) {
+            int value = r.nextInt();
+            array[i] = value;
         }
 
-        System.out.println();
+        System.out.println("Array antes da ordenação: " + Arrays.toString(array));
 
-        algoritmo.sort(vetor);
-        System.out.println("Vetor ordenador = ");
-        for (int i = 0; i < vetor.length; i++) {
-            System.out.print(vetor[i] + " ");
-        }
+        BubbleSort<Integer> bubbleSort = new BubbleSort<>();
+        bubbleSort.sort(array);
+
+        System.out.println("Array após a ordenação: " + Arrays.toString(array));
+
+        long tempoFinal = System.currentTimeMillis();
+        System.out.printf("%.3f ms%n", (tempoFinal - tempoInicial) / 1000d);
     }
 
     @Override
