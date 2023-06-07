@@ -5,168 +5,82 @@ import java.util.Random;
 
 public class BlockSort<T extends Comparable<T>> implements Sort<T> {
     public static void main(String[] args) {
-        long tempoInicial = System.currentTimeMillis();
-
-        Integer[] array = new Integer[1000];
+        Integer[] array = new Integer[100000];
         Random r = new Random();
 
         for (int i = 0; i < array.length; i++) {
-            int value = r.nextInt();
+            int value = Math.abs(r.nextInt(20));
             array[i] = value;
         }
 
-        System.out.println("Array antes da ordenação: " + Arrays.toString(array));
+        //System.out.println("Array antes da ordenação: " + Arrays.toString(array));
 
         BlockSort<Integer> blockSort = new BlockSort<>();
-        blockSort.sort(array);
 
-        System.out.println("Array após a ordenação: " + Arrays.toString(array));
+        long tempoInicial = System.currentTimeMillis();
+
+        blockSort.sort(array);
+        //blockSort.insertionSort(array); // A diferença de tempo de execução entre os dois usando vetores maiores é muito grande
 
         long tempoFinal = System.currentTimeMillis();
         System.out.printf("%.3f ms%n", (tempoFinal - tempoInicial) / 1000d);
+
+        //System.out.println("Array após a ordenação: " + Arrays.toString(array));
     }
 
-    @Override
-    public void sort(T[] array) {
-        if (array == null || array.length <= 1) {
+    public void sort(T[] vetor) {
+        if (vetor == null || vetor.length <= 1) {
             return;
         }
 
-        T minValue = findMinValue(array);
-        T maxValue = findMaxValue(array);
+        int tamanhoDoBloco = (int) Math.sqrt(vetor.length);
+        int numBlocos = (int) Math.ceil((double) vetor.length / tamanhoDoBloco);
 
-        int blockSize = (int) Math.sqrt(array.length); // Tamanho do bloco
-
-        int blockCount = (maxValue.compareTo(minValue) / blockSize) + 1; // Número de blocos
-
-        Object[] blocks = new Object[blockCount]; // Array de blocos
-
-        // Distribuir os elementos nos blocos
-        for (T value : array) {
-            int blockIndex = (value.compareTo(minValue) / blockSize) % blockCount;
-
-            if (blocks[blockIndex] == null) {
-                blocks[blockIndex] = new Object[array.length];
-            }
-
-            Object[] block = (Object[]) blocks[blockIndex];
-            int insertionIndex = findInsertionIndex(block, value);
-
-            shiftElementsRight(block, insertionIndex);
-
-            block[insertionIndex] = value;
+        T[][] blocos = (T[][]) new Comparable[numBlocos][];
+        for (int i = 0; i < numBlocos; i++) {
+            int inicio = i * tamanhoDoBloco;
+            int fim = Math.min(inicio + tamanhoDoBloco, vetor.length);
+            int tamanho = fim - inicio;
+            blocos[i] = (T[]) new Comparable[tamanho];
+            System.arraycopy(vetor, inicio, blocos[i], 0, tamanho);
         }
 
-        // Ordenar cada bloco individualmente (usando insertion sort)
-        for (Object block : blocks) {
-            if (block != null) {
-                Object[] sortedBlock = (Object[]) block;
-                int sortedBlockLength = findSortedBlockLength(sortedBlock);
-
-                T[] sortedArray = createGenericArray(sortedBlockLength);
-                for (int i = 0; i < sortedBlockLength; i++) {
-                    sortedArray[i] = (T) sortedBlock[i];
-                }
-
-                insertionSort(sortedArray);
-
-                for (int i = 0; i < sortedBlockLength; i++) {
-                    sortedBlock[i] = sortedArray[i];
-                }
-            }
+        // Ordena cada bloco separadamente
+        for (T[] bloco : blocos) {
+            insertionSort(bloco);
         }
 
-        // Concatenar os blocos ordenados
-        int arrayIndex = 0;
-
-        for (Object block : blocks) {
-            if (block != null) {
-                Object[] sortedBlock = (Object[]) block;
-
-                for (Object value : sortedBlock) {
-                    if (value != null) {
-                        array[arrayIndex] = (T) value;
-                        arrayIndex++;
-                    } else {
-                        break;
-                    }
-                }
-            }
+        // Mescla os blocos ordenados
+        int[] indexes = new int[numBlocos];
+        for (int i = 0; i < vetor.length; i++) {
+            int indexComMenorValorAtual = encontrarIndexComMenorValorAtual(blocos, indexes);
+            vetor[i] = blocos[indexComMenorValorAtual][indexes[indexComMenorValorAtual]];
+            indexes[indexComMenorValorAtual]++;
         }
     }
 
-    private T findMinValue(T[] array) {
-        T minValue = array[0];
-
-        for (int i = 1; i < array.length; i++) {
-            if (array[i].compareTo(minValue) < 0) {
-                minValue = array[i];
-            }
-        }
-
-        return minValue;
-    }
-
-    private T findMaxValue(T[] array) {
-        T maxValue = array[0];
-
-        for (int i = 1; i < array.length; i++) {
-            if (array[i].compareTo(maxValue) > 0) {
-                maxValue = array[i];
-            }
-        }
-
-        return maxValue;
-    }
-
-    private int findInsertionIndex(Object[] block, T value) {
-        int insertionIndex = 0;
-
-        while (insertionIndex < block.length && block[insertionIndex] != null
-                && ((T) block[insertionIndex]).compareTo(value) < 0) {
-            insertionIndex++;
-        }
-
-        return insertionIndex;
-    }
-
-    private void shiftElementsRight(Object[] block, int startIndex) {
-        for (int i = block.length - 1; i > startIndex; i--) {
-            block[i] = block[i - 1];
-        }
-    }
-
-    private int findSortedBlockLength(Object[] block) {
-        int length = 0;
-
-        for (Object value : block) {
-            if (value != null) {
-                length++;
-            } else {
-                break;
-            }
-        }
-
-        return length;
-    }
-
-    private T[] createGenericArray(int length) {
-        return (T[]) new Comparable[length];
-    }
-
-    private void insertionSort(T[] array) {
-        int length = array.length;
-
-        for (int i = 1; i < length; i++) {
-            T key = array[i];
+    private void insertionSort(T[] vetor) {
+        int n = vetor.length;
+        for (int i = 1; i < n; ++i) {
+            T key = vetor[i];
             int j = i - 1;
 
-            while (j >= 0 && array[j].compareTo(key) > 0) {
-                array[j + 1] = array[j];
-                j--;
+            while (j >= 0 && vetor[j].compareTo(key) > 0) {
+                vetor[j + 1] = vetor[j];
+                j = j - 1;
             }
-
-            array[j + 1] = key;
+            vetor[j + 1] = key;
         }
+    }
+
+    private int encontrarIndexComMenorValorAtual(T[][] blocos, int[] indexes) {
+        int indexDoMenorBloco = -1;
+        for (int i = 0; i < blocos.length; i++) {
+            if (indexes[i] < blocos[i].length && (indexDoMenorBloco == -1 ||
+                blocos[i][indexes[i]].compareTo(blocos[indexDoMenorBloco][indexes[indexDoMenorBloco]]) < 0)) {
+                indexDoMenorBloco = i;
+            }
+        }
+        return indexDoMenorBloco;
     }
 }
