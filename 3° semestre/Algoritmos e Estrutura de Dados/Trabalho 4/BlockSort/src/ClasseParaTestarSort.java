@@ -1,4 +1,4 @@
-import ordenacao.BlockSort;
+import ordenacao.Block;
 import ordenacao.Sort;
 
 import java.time.LocalDate;
@@ -17,7 +17,7 @@ class ClasseParaTestarSort {
         initializeClass();
 
         // a linha abaixo precisa ser alterada para a classe criada pela equipe
-        Sort<Veiculo> meuAlgoritmo = new BlockSort<>();
+        Sort<Veiculo> meuAlgoritmo = new Block<>();
 
         long ultimoNanoTime, tempoExecucao;
         for (Integer i : tamanhos) {
@@ -32,7 +32,7 @@ class ClasseParaTestarSort {
         }
 
         // a linha abaixo precisa ser alterada para a classe criada pela equipe
-        Sort<Integer> meuAlgoritmo2 = new BlockSort<>();
+        Sort<Integer> meuAlgoritmo2 = new Block<>();
 
         for (Integer i : tamanhos) {
             Integer[] vetorCopiado = Arrays.copyOf(vetorInts, i);
@@ -46,7 +46,7 @@ class ClasseParaTestarSort {
         }
 
         // a linha abaixo precisa ser alterada para a classe criada pela equipe
-        Sort<String> meuAlgoritmo3 = new BlockSort<>();
+        Sort<String> meuAlgoritmo3 = new Block<>();
 
         for (Integer i : tamanhos) {
             String[] vetorCopiado = Arrays.copyOf(vetorStrings, i);
