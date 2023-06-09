@@ -1,63 +1,11 @@
+// Luiz Henrique Martendal; Guilherme Moll; Gustavo W. Antunes;
+
 package ordenacao;
 
 import java.util.Arrays;
 import java.util.Random;
 
 public class Block<T extends Comparable<T>> implements Sort<T> {
-    public static void main(String[] args) {
-        Integer[] blockSortArray = new Integer[500];
-        Integer[] quickSortArray = new Integer[blockSortArray.length];
-        Integer[] insertionSortArray = new Integer[blockSortArray.length];
-        Integer[] bubbleSortArray = new Integer[blockSortArray.length];
-        Random r = new Random();
-
-        for (int i = 0; i < blockSortArray.length; i++) {
-            int value = Math.abs(r.nextInt(20));
-            blockSortArray[i] = value;
-        }
-
-        System.arraycopy(blockSortArray, 0, quickSortArray, 0, blockSortArray.length);
-        System.arraycopy(blockSortArray, 0, insertionSortArray, 0, blockSortArray.length);
-        System.arraycopy(blockSortArray, 0, bubbleSortArray, 0, blockSortArray.length);
-
-        //System.out.println("Array antes da ordenação: " + Arrays.toString(blockSortArray));
-
-        Block<Integer> blockSort = new Block<>();
-
-        long tempoInicialBlockSort = System.currentTimeMillis();
-
-        blockSort.sort(blockSortArray);
-
-        long tempoFinalBlockSort = System.currentTimeMillis();
-        System.out.print("Tempo de execução do BlockSort = ");
-        System.out.printf("%.3f ms%n", (tempoFinalBlockSort - tempoInicialBlockSort) / 1000d);
-
-        long tempoInicialQuickSort = System.currentTimeMillis();
-
-        blockSort.quickSort(quickSortArray, quickSortArray[0], quickSortArray.length -1);
-
-        long tempoFinalQuickSort = System.currentTimeMillis();
-        System.out.print("Tempo de execução do QuickSort = ");
-        System.out.printf("%.3f ms%n", (tempoFinalQuickSort - tempoInicialQuickSort) / 1000d);
-
-        long tempoInicialInsertionSort = System.currentTimeMillis();
-
-        blockSort.insertionSort(insertionSortArray);
-
-        long tempoFinalInsertionSort = System.currentTimeMillis();
-        System.out.print("Tempo de execução do InsertionSort = ");
-        System.out.printf("%.3f ms%n", (tempoFinalInsertionSort - tempoInicialInsertionSort) / 1000d);
-
-        long tempoInicialBubbleSort = System.currentTimeMillis();
-
-        blockSort.bubbleSort(bubbleSortArray);
-
-        long tempoFinalBubbleSort = System.currentTimeMillis();
-        System.out.print("Tempo de execução do BubbleSort = ");
-        System.out.printf("%.3f ms%n", (tempoFinalBubbleSort - tempoInicialBubbleSort) / 1000d);
-
-        //System.out.println("Array após a ordenação: " + Arrays.toString(blockSortArray));
-    }
 
     public void sort(T[] vetor) {
         if (vetor == null || vetor.length <= 1) {
@@ -98,7 +46,7 @@ public class Block<T extends Comparable<T>> implements Sort<T> {
         return indexDoMenorBloco;
     }
 
-    private void quickSort(T[] vetor, int menorPosicao, int maiorPosicao) {
+    public void quickSort(T[] vetor, int menorPosicao, int maiorPosicao) {
         if (menorPosicao < maiorPosicao) {
             int posicaoDoPivo = particionar(vetor, menorPosicao, maiorPosicao);
 
@@ -130,7 +78,7 @@ public class Block<T extends Comparable<T>> implements Sort<T> {
         vetor[j] = intermediador;
     }
 
-    private void insertionSort(T[] vetor) {
+    public void insertionSort(T[] vetor) {
         int n = vetor.length;
         for (int i = 1; i < n; ++i) {
             T key = vetor[i];
@@ -144,7 +92,7 @@ public class Block<T extends Comparable<T>> implements Sort<T> {
         }
     }
 
-    private void bubbleSort(T[] vetor) {
+    public void bubbleSort(T[] vetor) {
         int tamanho = vetor.length;
         for (int i = 0; i < tamanho; i++) {
             boolean troca = false;
@@ -162,5 +110,95 @@ public class Block<T extends Comparable<T>> implements Sort<T> {
                 break;
             }
         }
+    }
+
+    public void bogoSort(T[] vetor) {
+        while (!eOrdenado(vetor)) {
+            shuffle(vetor);
+        }
+    }
+
+    private void shuffle(T[] vetor) {
+        Random rand = new Random();
+        for (int i = vetor.length - 1; i > 0; i--) {
+            int j = rand.nextInt(i + 1);
+            T temp = vetor[i];
+            vetor[i] = vetor[j];
+            vetor[j] = temp;
+        }
+    }
+
+    private boolean eOrdenado(T[] vetor) {
+        for (int i = 0; i < vetor.length - 1; i++) {
+            if (vetor[i].compareTo(vetor[i + 1]) > 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Integer[] blockSortArray = new Integer[5];
+        Integer[] quickSortArray = new Integer[blockSortArray.length];
+        Integer[] insertionSortArray = new Integer[blockSortArray.length];
+        Integer[] bubbleSortArray = new Integer[blockSortArray.length];
+        Integer[] bogoSortArray = new Integer[blockSortArray.length];
+        Random r = new Random();
+
+        for (int i = 0; i < blockSortArray.length; i++) {
+            int value = Math.abs(r.nextInt(20));
+            blockSortArray[i] = value;
+        }
+
+        System.arraycopy(blockSortArray, 0, quickSortArray, 0, blockSortArray.length);
+        System.arraycopy(blockSortArray, 0, insertionSortArray, 0, blockSortArray.length);
+        System.arraycopy(blockSortArray, 0, bubbleSortArray, 0, blockSortArray.length);
+        System.arraycopy(blockSortArray, 0, bogoSortArray, 0, blockSortArray.length);
+
+        //System.out.println("Array antes da ordenação: " + Arrays.toString(blockSortArray));
+
+        Block<Integer> blockSort = new Block<>();
+
+        long tempoInicialBlockSort = System.currentTimeMillis();
+
+        blockSort.sort(blockSortArray);
+
+        long tempoFinalBlockSort = System.currentTimeMillis();
+        System.out.print("Tempo de execução do BlockSort = ");
+        System.out.printf("%.3f ms%n", (tempoFinalBlockSort - tempoInicialBlockSort) / 1000d);
+
+        long tempoInicialQuickSort = System.currentTimeMillis();
+
+        blockSort.quickSort(quickSortArray, quickSortArray[0], quickSortArray.length -1);
+
+        long tempoFinalQuickSort = System.currentTimeMillis();
+        System.out.print("Tempo de execução do QuickSort = ");
+        System.out.printf("%.3f ms%n", (tempoFinalQuickSort - tempoInicialQuickSort) / 1000d);
+
+        long tempoInicialInsertionSort = System.currentTimeMillis();
+
+        blockSort.insertionSort(insertionSortArray);
+
+        long tempoFinalInsertionSort = System.currentTimeMillis();
+        System.out.print("Tempo de execução do InsertionSort = ");
+        System.out.printf("%.3f ms%n", (tempoFinalInsertionSort - tempoInicialInsertionSort) / 1000d);
+
+        long tempoInicialBubbleSort = System.currentTimeMillis();
+
+        blockSort.bubbleSort(bubbleSortArray);
+
+        long tempoFinalBubbleSort = System.currentTimeMillis();
+        System.out.print("Tempo de execução do BubbleSort = ");
+        System.out.printf("%.3f ms%n", (tempoFinalBubbleSort - tempoInicialBubbleSort) / 1000d);
+
+        long tempoInicialBogoSort = System.currentTimeMillis();
+
+        blockSort.bogoSort(bogoSortArray);
+
+        long tempoFinalBogoSort = System.currentTimeMillis();
+        System.out.print("Tempo de execução do BubbleSort = ");
+        System.out.printf("%.3f ms%n", (tempoFinalBogoSort - tempoInicialBogoSort) / 1000d);
+
+        //System.out.println("Array após a ordenação: " + Arrays.toString(blockSortArray));
     }
 }
