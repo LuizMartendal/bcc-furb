@@ -2,7 +2,7 @@
 
 package ordenacao;
 
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.Random;
 
 public class Block<T extends Comparable<T>> implements Sort<T> {
