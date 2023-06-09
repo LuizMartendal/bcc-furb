@@ -1,4 +1,5 @@
-import ordenacao.Block;
+import ordenacao.
+        Block;
 import ordenacao.Sort;
 
 import java.time.LocalDate;

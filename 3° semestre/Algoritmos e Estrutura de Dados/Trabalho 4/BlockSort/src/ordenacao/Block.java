@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Block<T extends Comparable<T>> implements Sort<T> {
     public static void main(String[] args) {
-        Integer[] blockSortArray = new Integer[10];
+        Integer[] blockSortArray = new Integer[500];
         Integer[] quickSortArray = new Integer[blockSortArray.length];
         Integer[] insertionSortArray = new Integer[blockSortArray.length];
         Integer[] bubbleSortArray = new Integer[blockSortArray.length];
@@ -20,7 +20,7 @@ public class Block<T extends Comparable<T>> implements Sort<T> {
         System.arraycopy(blockSortArray, 0, insertionSortArray, 0, blockSortArray.length);
         System.arraycopy(blockSortArray, 0, bubbleSortArray, 0, blockSortArray.length);
 
-        System.out.println("Array antes da ordenação: " + Arrays.toString(blockSortArray));
+        //System.out.println("Array antes da ordenação: " + Arrays.toString(blockSortArray));
 
         Block<Integer> blockSort = new Block<>();
 
@@ -56,7 +56,7 @@ public class Block<T extends Comparable<T>> implements Sort<T> {
         System.out.print("Tempo de execução do BubbleSort = ");
         System.out.printf("%.3f ms%n", (tempoFinalBubbleSort - tempoInicialBubbleSort) / 1000d);
 
-        System.out.println("Array após a ordenação: " + Arrays.toString(blockSortArray));
+        //System.out.println("Array após a ordenação: " + Arrays.toString(blockSortArray));
     }
 
     public void sort(T[] vetor) {
@@ -75,11 +75,7 @@ public class Block<T extends Comparable<T>> implements Sort<T> {
             int tamanho = fim - inicio;
             blocos[i] = (T[]) new Comparable[tamanho];
             System.arraycopy(vetor, inicio, blocos[i], 0, tamanho);
-        }
-
-        // Ordena cada bloco separadamente
-        for (T[] bloco : blocos) {
-            quickSort(bloco, 0, bloco.length - 1);
+            quickSort(blocos[i], 0, blocos[i].length - 1);
         }
 
         // Mescla os blocos ordenados
