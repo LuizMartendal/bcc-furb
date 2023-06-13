@@ -18,27 +18,32 @@
 <div class="container" *ngIf="cadastro2">
   <mat-card class="container-info">
     <mat-tab-group dynamicHeight>
-      <mat-tab label="Id">
+      <mat-tab>
+        <ng-template mat-tab-label>Id</ng-template>
         <div class="small-box">
           {{ cadastro2.id }}
         </div>
       </mat-tab>
-      <mat-tab label="Nome">
+      <mat-tab>
+        <ng-template mat-tab-label>Nome</ng-template>
         <div class="small-box">
           {{ cadastro2.nome }}
         </div>
       </mat-tab>
-      <mat-tab label="Departamento">
+      <mat-tab>
+        <ng-template mat-tab-label>Departamento</ng-template>
         <div class="small-box">
           {{ cadastro2.departamento }}
         </div>
       </mat-tab>
-      <mat-tab label="Endereço">
+      <mat-tab>
+        <ng-template mat-tab-label>Endereço</ng-template>
         <div class="small-box">
           {{ cadastro2.endereco }}
         </div>
       </mat-tab>
-      <mat-tab label="Email">
+      <mat-tab>
+        <ng-template mat-tab-label>Email</ng-template>
         <div class="small-box">
           {{ cadastro2.email }}
         </div>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "prova2": {
+    "prova3": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {

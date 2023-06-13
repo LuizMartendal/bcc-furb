@@ -13,7 +13,7 @@ import { DialogCompoment } from 'src/app/shared/dialog/dialog.component';
 })
 export class Cadastro2Component implements OnInit {
 
-  @Output() title = 'Requisiões para a prova 3';
+  @Output() title = 'Requisições para a prova 3';
   @Output() message = '';
 
   cadastro2: Cadastro2 | undefined;
@@ -90,8 +90,7 @@ export class Cadastro2Component implements OnInit {
         status: status,
         message: message
       },
-      height: '35%',
-      width: '35%'
+      width: '250px'
     })
   }
 
