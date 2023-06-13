@@ -1,0 +1,94 @@
+<app-description [title]="title"></app-description>
+
+<div class="input-container">
+  <mat-card>
+    <mat-card-content>
+      <section>
+        <input [(ngModel)]="id"
+              matInput
+              #message
+              maxlength="256"
+              placeholder="Entre com o Id">
+      </section>
+      <button mat-raised-button (click)="getById()">Consultar</button>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="container" *ngIf="cadastro2">
+  <mat-card class="container-info">
+    <mat-tab-group dynamicHeight>
+      <mat-tab label="Id">
+        <div class="small-box">
+          {{ cadastro2.id }}
+        </div>
+      </mat-tab>
+      <mat-tab label="Nome">
+        <div class="small-box">
+          {{ cadastro2.nome }}
+        </div>
+      </mat-tab>
+      <mat-tab label="Departamento">
+        <div class="small-box">
+          {{ cadastro2.departamento }}
+        </div>
+      </mat-tab>
+      <mat-tab label="Endereço">
+        <div class="small-box">
+          {{ cadastro2.endereco }}
+        </div>
+      </mat-tab>
+      <mat-tab label="Email">
+        <div class="small-box">
+          {{ cadastro2.email }}
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+    <button mat-raised-button color="primary" (click)="delete()">Deletar</button>
+  </mat-card>
+</div>
+
+<div class="container2" *ngIf="cadastro2">
+  <mat-card class="container-update">
+    <form [formGroup]="formCadastro2" (submit)="update()">
+      <section>
+        <input matInput
+              #message
+              maxlength="256"
+              placeholder="Entre com o Id"
+              [value]="cadastro2.id">
+      </section>
+      <section>
+        <input matInput
+              #message
+              maxlength="256"
+              placeholder="Entre com o Nome"
+              [value]="cadastro2.nome">
+      </section>
+      <section>
+        <input matInput
+              #message
+              maxlength="256"
+              placeholder="Entre com o Departamento"
+              [value]="cadastro2.departamento">
+      </section>
+      <section>
+        <input matInput
+              #message
+              maxlength="256"
+              placeholder="Entre com o Endereço"
+              [value]="cadastro2.endereco">
+      </section>
+      <section>
+        <input matInput
+              #message
+              maxlength="256"
+              placeholder="Entre com o Email"
+              [value]="cadastro2.email">
+      </section>
+      <button class="inserir-button" mat-raised-button [disabled]="formCadastro2.invalid">Inserir</button>
+    </form>
+  </mat-card>
+</div>
+<br><br>
+<button (click)="update()">Update</button>

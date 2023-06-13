@@ -1,0 +1,22 @@
+@import '/src/styles.scss';
+
+main {
+  width: 85%;
+  height: 83%;
+  padding: 15% 0 0 15%;
+
+  -webkit-text-fill-color: white;
+  background-color: greenyellow;
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  div {
+    font-size: 1rem;
+  }
+}
+
+.erro {
+  background-color: red;
+}

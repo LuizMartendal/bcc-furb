@@ -1,0 +1,110 @@
+include "emu8086.inc"
+
+org 100h
+
+DEFINE_SCAN_NUM
+DEFINE_PRINT_STRING
+DEFINE_GET_STRING
+DEFINE_CLEAR_SCREEN
+DEFINE_PRINT_NUM_UNS   
+
+MOV CX, 0001
+
+LOOP:
+    CMP CX, 1
+    JE SEGUNDA
+    CMP CX, 2
+    JE TERCA
+    CMP CX, 3
+    JE QUARTA
+    CMP CX, 4
+    JE QUINTA
+    CMP CX, 5
+    JE SEXTA
+    CMP CX, 6
+    JE SABADO
+    CMP CX, 7
+    JE DOMINGO
+    INC DL
+    JMP RESETAR
+
+SEGUNDA:
+    MOV SI, OFFSET segunda_string
+    CALL IMPRIMIR_DIA_DA_SEMANA  
+    INC CX
+    JMP LOOP
+
+TERCA:
+    MOV SI, OFFSET terca_string
+    CALL IMPRIMIR_DIA_DA_SEMANA  
+    INC CX
+    JMP LOOP
+
+QUARTA:
+    MOV SI, OFFSET quarta_string
+    CALL IMPRIMIR_DIA_DA_SEMANA  
+    INC CX
+    JMP LOOP
+
+QUINTA:
+    MOV SI, OFFSET quinta_string
+    CALL IMPRIMIR_DIA_DA_SEMANA  
+    INC CX
+    JMP LOOP
+
+SEXTA:
+    MOV SI, OFFSET sexta_string
+    CALL IMPRIMIR_DIA_DA_SEMANA  
+    INC CX
+    JMP LOOP
+
+SABADO:
+    MOV SI, OFFSET sabado_string
+    CALL IMPRIMIR_DIA_DA_SEMANA  
+    INC CX
+    JMP LOOP
+
+DOMINGO:
+    MOV SI, OFFSET domingo_string
+    CALL IMPRIMIR_DIA_DA_SEMANA   
+    INC CX
+    JMP LOOP
+
+IMPRIMIR_DIA_DA_SEMANA:
+    CALL PRINT_STRING 
+    RET 
+    
+PULA_LINHA:                      
+    PUSHF
+    PUSH AX
+    PUSH DX
+    MOV AH,2
+    MOV DL,13        
+    INT 21H
+    MOV AH,2
+    MOV DL,10
+    INT 21H
+    POP DX        
+    POP AX
+    POPF
+    RET    
+
+RESETAR:
+    CMP DL, 4
+    JE FINALIZAR_PROGRAMA 
+    CALL PULA_LINHA
+    MOV CX, 0001
+    JMP LOOP
+
+FINALIZAR_PROGRAMA:                                                                             
+    MOV AH,4CH
+    MOV AL, 0
+    INT 21H
+
+segunda_string db "Segunda " ,0
+terca_string db "Terça " ,0
+quarta_string db "Quarta " ,0
+quinta_string db "Quinta " ,0 
+sexta_string db "Sexta " ,0
+sabado_string db "Sábado " ,0
+domingo_string db "Domingo" ,0

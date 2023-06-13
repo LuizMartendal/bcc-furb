@@ -1,0 +1,13 @@
+<main *ngIf="data.status === 'Ok'">
+  <h1 class="title">{{ data.status }}</h1>
+  <div class="container">
+    {{ data.message }}
+  </div>
+</main>
+
+<main class="erro" *ngIf="data.status === 'Erro'">
+  <h1 class="title">{{ data.status }}</h1>
+  <div class="container">
+    {{ data.message }}
+  </div>
+</main>

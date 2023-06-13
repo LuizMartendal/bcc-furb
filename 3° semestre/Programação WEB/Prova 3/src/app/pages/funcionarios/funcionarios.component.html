@@ -1,0 +1,23 @@
+<app-description [title]="title" [message]="message"></app-description>
+
+<div class="host">
+  <div class="container">
+    <div class="boxes" *ngFor="let funcionario of funcionarios">
+      <img src="{{ funcionario.foto }}" alt="Foto do funcionário">
+      <div class="descricao">
+        <span>
+          {{ funcionario.nome }}
+        </span>
+        <span>
+          {{ funcionario.subobjeto.propriedade1 }}
+        </span>
+        <span>
+          {{ funcionario.subobjeto.propriedade2 }}
+        </span>
+      </div>
+      <div class="email">
+        <a href="mailto:{{ funcionario.email }}">{{ funcionario.email }}</a>
+      </div>
+    </div>
+  </div>
+</div>
