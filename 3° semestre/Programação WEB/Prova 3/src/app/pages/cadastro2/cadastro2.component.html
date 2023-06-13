@@ -56,39 +56,37 @@
               #message
               maxlength="256"
               placeholder="Entre com o Id"
-              [value]="cadastro2.id">
+              formControlName="id">
       </section>
       <section>
         <input matInput
               #message
               maxlength="256"
               placeholder="Entre com o Nome"
-              [value]="cadastro2.nome">
+              formControlName="nome">
       </section>
       <section>
         <input matInput
               #message
               maxlength="256"
               placeholder="Entre com o Departamento"
-              [value]="cadastro2.departamento">
+              formControlName="departamento">
       </section>
       <section>
         <input matInput
               #message
               maxlength="256"
               placeholder="Entre com o Endereço"
-              [value]="cadastro2.endereco">
+              formControlName="endereco">
       </section>
       <section>
         <input matInput
               #message
               maxlength="256"
               placeholder="Entre com o Email"
-              [value]="cadastro2.email">
+              formControlName="email">
       </section>
       <button class="inserir-button" mat-raised-button [disabled]="formCadastro2.invalid">Inserir</button>
     </form>
   </mat-card>
 </div>
-<br><br>
-<button (click)="update()">Update</button>

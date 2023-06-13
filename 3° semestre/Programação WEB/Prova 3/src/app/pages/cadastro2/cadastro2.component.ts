@@ -34,7 +34,7 @@ export class Cadastro2Component implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
+    this.patchForm();
   }
 
   list() {
@@ -50,6 +50,7 @@ export class Cadastro2Component implements OnInit {
               this.openDialog(res.status, res.mensagem);
             } else {
               this.cadastro2 = res;
+              this.patchForm();
             }
           }
       });
@@ -92,5 +93,11 @@ export class Cadastro2Component implements OnInit {
       height: '35%',
       width: '35%'
     })
+  }
+
+  private patchForm() {
+    if (this.cadastro2) {
+      this.formCadastro2.patchValue(this.cadastro2);
+    }
   }
 }
