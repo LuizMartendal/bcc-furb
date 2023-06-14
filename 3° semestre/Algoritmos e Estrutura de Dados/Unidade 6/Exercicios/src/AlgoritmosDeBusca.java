@@ -1,10 +1,10 @@
 public class AlgoritmosDeBusca<T extends Comparable<T>> {
 
-    public int buscarLinear(T[] info, T valorBuscar) {
+    public int buscaLinear(T[] info, T valorBuscar) {
         int n = info.length;
 
         for (int i = 0; i < n; i++) {
-            if (info[i] == valorBuscar) {
+            if (info[i].equals(valorBuscar)) {
                 return i;
             } else {
                 if (valorBuscar.compareTo(info[i]) < 0) {
@@ -25,7 +25,7 @@ public class AlgoritmosDeBusca<T extends Comparable<T>> {
             if (valorBuscar.compareTo(info[meio]) < 0) {
                 fim = meio - 1;
             } else {
-                if (valorBuscar.compareTo(info[meio]) >= 0) {
+                if (valorBuscar.compareTo(info[meio]) > 0) {
                     inicio = meio + 1;
                 } else {
                     return meio;
