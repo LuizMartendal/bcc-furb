@@ -46,8 +46,10 @@ export class Cadastro2Component implements OnInit {
       this.service.getById(this.id)
         .subscribe({
           next: (res: any) => {
-            if (res.status != null) {
-              this.openDialog(res.status, res.mensagem);
+            console.log(res);
+
+            if (res == null) {
+              this.openDialog('Erro', 'Não encontrado');
             } else {
               this.cadastro2 = res;
               this.patchForm();
