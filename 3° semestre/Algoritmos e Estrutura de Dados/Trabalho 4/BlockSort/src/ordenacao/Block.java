@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class Block<T extends Comparable<T>> implements Sort<T> {
 
+    @Override
     public void sort(T[] vetor) {
         if (vetor == null || vetor.length <= 1) {
             return;
@@ -138,7 +139,7 @@ public class Block<T extends Comparable<T>> implements Sort<T> {
     }
 
     public static void main(String[] args) {
-        Integer[] blockSortArray = new Integer[5];
+        Integer[] blockSortArray = new Integer[1000000];
         Integer[] quickSortArray = new Integer[blockSortArray.length];
         Integer[] insertionSortArray = new Integer[blockSortArray.length];
         Integer[] bubbleSortArray = new Integer[blockSortArray.length];
