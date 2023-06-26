@@ -6,7 +6,7 @@ function logout() {
 function isLogged() {
     document.getElementById('this').style.backgroundColor = 'lightgray'
     if (localStorage.getItem('login') == null) {
-        location.href = '/Primeira%20avaliação/login/index.html'
+        location.href = '/login/index.html'
     } else {
         let image = document.createElement('img')
         image.src = '../imgs/logged.png'

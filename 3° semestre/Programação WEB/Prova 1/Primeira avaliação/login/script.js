@@ -13,6 +13,6 @@ function isLogged() {
     document.getElementById('login-page').style.backgroundColor = 'lightgray'
     
     if (localStorage.getItem('login') != null) {
-        location.href = '/Primeira%20avaliação/home/index.html'
+        location.href = '/home/index.html'
     }
 }
