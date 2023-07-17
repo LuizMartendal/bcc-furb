@@ -47,7 +47,7 @@ public class FilaVetor<T> implements Fila<T>{
         T valor = vetor[inicio];
         vetor[inicio] = null;
         tamanho--;
-        inicio = (inicio + tamanho) % limite;
+        inicio = (inicio + 1) % limite;
         return valor;
     }
 
