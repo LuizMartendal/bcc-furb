@@ -1,9 +1,10 @@
-package br.furb.restapifurb.controllers.produto;
+package br.furb.restapifurb.controllers.comanda;
 
 import br.furb.restapifurb.controllers.ControllerImpl;
-import br.furb.restapifurb.models.produto.Produto;
+import br.furb.restapifurb.dtos.ComandaDTO;
+import br.furb.restapifurb.models.comanda.Comanda;
 import br.furb.restapifurb.services.Service;
-import br.furb.restapifurb.services.produto.ProdutoService;
+import br.furb.restapifurb.services.comanda.ComandaService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,34 +15,34 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Tag(name = "Serviço de produtos", description = "Serviço responsável por gerenciar os produtos da lanchonete")
+@Tag(name = "Serviço de comandas", description = "Serviço responsável por gerenciar as comandas")
 @RestController
-@RequestMapping("/produto")
-public class ProdutoController extends ControllerImpl<Produto> {
+@RequestMapping("/comanda")
+public class ComandaController extends ControllerImpl<ComandaDTO> {
 
     @Autowired
-    private ProdutoService service;
+    private ComandaService service;
 
     @Override
-    public Service<Produto> getService() {
+    public Service<ComandaDTO> getService() {
         return service;
     }
 
     @SecurityRequirement(name = "Bearer Authentication")
     @Override
-    public ResponseEntity<Produto> create(@RequestBody Produto entity) {
+    public ResponseEntity<ComandaDTO> create(@RequestBody ComandaDTO entity) {
         return super.create(entity);
     }
 
     @SecurityRequirement(name = "Bearer Authentication")
     @Override
-    public ResponseEntity<List<Produto>> findAll() {
+    public ResponseEntity<List<ComandaDTO>> findAll() {
         return super.findAll();
     }
 
     @SecurityRequirement(name = "Bearer Authentication")
     @Override
-    public ResponseEntity<Produto> findById(Long id) {
+    public ResponseEntity<ComandaDTO> findById(Long id) {
         return super.findById(id);
     }
 }

@@ -1,14 +1,18 @@
 package br.furb.restapifurb.models;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @MappedSuperclass
 public abstract class ModelImpl implements Serializable {
 
@@ -18,5 +22,5 @@ public abstract class ModelImpl implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    protected Long id;
 }
