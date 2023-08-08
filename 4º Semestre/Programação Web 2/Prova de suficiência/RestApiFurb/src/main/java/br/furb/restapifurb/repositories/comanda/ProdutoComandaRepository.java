@@ -16,4 +16,6 @@ public interface ProdutoComandaRepository extends JpaRepository<ProdutoComanda, 
     List<ProdutoComanda> findAllProdutoComandaByComanda(Comanda comanda);
 
     List<ProdutoComanda> findAllProdutoComandaByProduto(@NotNull(message = "Produto não pode ser núlo") Produto produto);
+
+    ProdutoComanda findProdutoComandaByProdutoAndComanda(Produto produto, Comanda comanda);
 }

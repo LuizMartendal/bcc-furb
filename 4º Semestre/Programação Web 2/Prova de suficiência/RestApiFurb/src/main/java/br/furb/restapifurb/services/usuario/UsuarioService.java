@@ -1,5 +1,6 @@
 package br.furb.restapifurb.services.usuario;
 
+import br.furb.restapifurb.exceptions.runtime.BadRequestException;
 import br.furb.restapifurb.models.comanda.Comanda;
 import br.furb.restapifurb.models.usuario.Usuario;
 import br.furb.restapifurb.repositories.usuario.UsuarioRepository;
@@ -33,6 +34,9 @@ public class UsuarioService extends ServiceImpl<Usuario> implements UserDetailsS
 
     @Override
     public Usuario create(Usuario entity) {
+        if (repository.findByUsuario(entity.getUsuario()).isPresent()) {
+            throw new BadRequestException("Nome de usuário já utilizado");
+        }
         entity.setSenha(new BCryptPasswordEncoder().encode(entity.getSenha()));
         return super.create(entity);
     }

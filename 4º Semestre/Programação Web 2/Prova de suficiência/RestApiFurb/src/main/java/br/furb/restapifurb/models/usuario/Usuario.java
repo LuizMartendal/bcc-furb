@@ -29,7 +29,7 @@ public class Usuario extends ModelImpl implements Serializable {
     @NotNull(message = "O campo usuário não pode ser núlo")
     @NotEmpty(message = "O campo usuário não pode ser vázio")
     @NotBlank(message = "O campo usuário não pode estár em branco")
-    @Column(name = "usuario", columnDefinition = "varchar(100)")
+    @Column(name = "usuario", columnDefinition = "varchar(100)", unique = true)
     private String usuario;
 
     @Length(min = 4, max = 100, message = "A senha do usuário deve conter entre 4 a 100 caracteres")

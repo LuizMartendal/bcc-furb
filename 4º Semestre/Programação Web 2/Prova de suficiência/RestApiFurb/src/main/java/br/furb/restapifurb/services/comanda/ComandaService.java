@@ -58,7 +58,9 @@ public class ComandaService implements br.furb.restapifurb.services.Service<Coma
                 if (produtoService.findById(p.getId()) == null) {
                     throw new NotFoundException("Produto " + p.getNome() + " não encontrado");
                 }
-                produtoComandaService.create(new ProdutoComanda(p, comanda));
+                if (produtoComandaService.findProdutoComandaByProdutoIdAndComandaId(p.getId(), comanda.getId()) == null) {
+                    produtoComandaService.create(new ProdutoComanda(p, comanda));
+                }
             }
             return entity;
         }

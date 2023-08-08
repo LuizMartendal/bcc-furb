@@ -49,6 +49,10 @@ public class ProdutoComandaService extends ServiceImpl<ProdutoComanda> {
         return repository.findAllProdutoComandaByProduto(produtoRepository.findById(id).get());
     }
 
+    public ProdutoComanda findProdutoComandaByProdutoIdAndComandaId(Long produto, Long comanda) {
+        return repository.findProdutoComandaByProdutoAndComanda(produtoRepository.findById(produto).get(), comandaRepository.findById(comanda).get());
+    }
+
     public void deleteAll(List<ProdutoComanda> produtoComandas) {
         repository.deleteAll(produtoComandas);
     }
