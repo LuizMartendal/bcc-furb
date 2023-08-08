@@ -122,6 +122,8 @@ public class ComandaService implements br.furb.restapifurb.services.Service<Coma
     }
 
     public void deleteAll(List<Comanda> comandas) {
-        repository.deleteAll(comandas);
+        for (int i = 0; i < comandas.size(); i++) {
+            delete(comandas.get(i).getId());
+        }
     }
 }
