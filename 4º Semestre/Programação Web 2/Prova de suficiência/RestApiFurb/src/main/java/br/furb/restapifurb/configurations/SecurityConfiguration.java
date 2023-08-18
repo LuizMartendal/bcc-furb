@@ -1,5 +1,6 @@
 package br.furb.restapifurb.configurations;
 
+import br.furb.restapifurb.exceptions.AccessDeniedHandlerImpl;
 import br.furb.restapifurb.security.JwtTokenFilter;
 import br.furb.restapifurb.security.JwtTokenProvider;
 import br.furb.restapifurb.services.usuario.UsuarioService;
@@ -25,6 +26,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private UsuarioService usuarioService;
 
+    @Autowired
+    private AccessDeniedHandlerImpl accessDeniedHandlerImpl;
+
     private static final String[] PUBLIC_MATCHER = {"/swagger-ui/**", "/swagger-ui.html", "/v3/**"};
     private static final String[] PUBLIC_MATCHER_POST = {"/login", "/usuario", "swagger-ui/index.html"};
     private static final String[] PUBLIC_MATCHER_GET = {"/produto", "/*.js", "/*.js.map", "/*.html", "/", "/*.css", "/*.json",
@@ -46,6 +50,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .httpBasic().disable()
                 .csrf().disable()
+                .exceptionHandling().accessDeniedHandler(accessDeniedHandlerImpl)
+                .and()
                 .sessionManagement(
                         session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeRequests(
