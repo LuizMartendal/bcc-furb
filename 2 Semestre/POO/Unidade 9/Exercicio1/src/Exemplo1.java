@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -11,6 +12,7 @@ public class Exemplo1 {
 	
 	public static void main(String[] args) throws IOException {
 		// try with resources
+
 		try (FileWriter fw = new FileWriter("ArqTextoExerc1.txt")){
 			fw.write("12345");
 		} catch (IOException e) {
