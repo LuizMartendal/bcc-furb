@@ -1,0 +1,75 @@
+1a parte: ESPECIFICAÇÃO
+1) efetuar, se for o caso, as correções indicadas no avaliação do 
+   trabalho no.1
+
+2) especificar definições regulares auxiliares, adaptando à notação 
+   da ferramenta utilizada
+
+3) como usar as definições regulares auxiliares especificadas?
+   - https://gals.sourceforge.net/help.html#Opcoes_do_Analisador_Lexico
+   - https://gals.sourceforge.net/help.html#Definicao_dos_Aspectos_Lexicos
+   - https://gals.sourceforge.net/tutorial/scanner.html
+
+4) especificar tokens (palavra reservada, identificador, constante 
+   int, constante float, constante string) adaptando à notação da 
+   ferramenta utilizada
+
+5) incluir a relação das palavras reservadas (parte 2) da linguagem 
+   como casos especiais do token palavra reservada
+
+6) incluir a relação dos símbolos especiais (parte 2)
+
+7) incluir especificação para reconhecer e ignorar caracteres de 
+   formatação
+
+8) incluir especificação para reconhecer e ignorar comentários
+
+
+
+
+
+2a parte: IMPLEMENTAÇÃO
+1) verificar opções (em Ferramentas > Opções): 
+	Forma de Entrada: String
+	Implementação do Autômato: Tabela Compactada (Java)
+	Diferenciar maiúsculas/minúsculas ...
+
+2) gerar código (em Ferramentas > Gerar Código): escolher pasta, gerar 
+   todos os arquivos
+
+3) para usar o código gerado, deve ser chamado a partir da ação 
+   associada ao botão compilar
+
+   Lexico lexico = new Lexico();
+   lexico.setInput( /* texto do editor de textos */ );
+   try {
+   Token t = null;
+   while ( (t = lexico.nextToken()) != null ) {
+     System.out.println(t.getLexeme()); 
+     
+     // só escreve o lexema
+	 // necessário escrever t.getId (), t.getPosition()
+    
+     // t.getId () - retorna o identificador da classe. 
+	 // olhar Constants.java e adaptar, pois deve ser apresentada 
+	 // a classe por extenso
+     //
+	 // t.getPosition () - retorna a posição inicial do lexema 
+	 // no editor, necessário adaptar para mostrar a linha	
+
+     // esse código apresenta os tokens enquanto não ocorrer erro
+     // no entanto, os tokens devem ser apresentados SÓ se não 
+	 // ocorrer erro, necessário adaptar para atender o que foi 
+	 // solicitado		   
+   }
+   }
+   catch ( LexicalError e ) {  // tratamento de erros
+     System.out.println(e.getMessage() + " em " + e.getPosition());
+ 
+     // e.getMessage() - retorna a mensagem de erro de SCANNER_ERRO 
+	 // (olhar ScannerConstants.java e adaptar conforme o enunciado 
+	 // da parte 2)
+     //
+	 // e.getPosition() - retorna a posição inicial do erro, tem 
+	 // que adaptar para mostrar a linha  
+    } 
