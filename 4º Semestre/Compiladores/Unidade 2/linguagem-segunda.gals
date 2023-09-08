@@ -1,0 +1,42 @@
+#Options
+GenerateScanner = true
+GenerateParser = false
+Language = Java
+ScannerName = Lexico
+ScannerCaseSensitive = true
+ScannerTable = Compact
+Input = String
+#RegularDefinitions
+
+    mai: [A-Z]
+    min: [a-z]
+    dig: [0-9]
+
+    linha: # [^\n]*
+
+
+   
+#Tokens
+palavra: {min}+
+
+//identificador
+// constante_int
+// constante_ float
+// constante_string
+
+// relação de palavras reservadas
+// do else false fun if in main out repeat true while
+do = palavra: "do"
+
+
+// relação de símbolos especiais
+// & | ! , ; = : ( ) { } == != < > + - * /
+andDaJoyce: "&"
+"|"
+"!"
+
+// reconhecer e ignorar caracteres de formatação
+:[\s\t\n\r]
+
+// reconhecer e ignorar comentários de linha e de bloco
+:!{linha}
