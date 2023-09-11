@@ -137,7 +137,7 @@ public class Main {
         System.out.println("Tipo do Grafo: \n"+tipoDoGrafo(matriz)+"\nArestas do Grafo: \n"+arestasDoGrafo(matriz)+"\nGraus do Vértice: \n"+grausDoVertice(matriz)+"\nFim :)");
     }
 
-    private static String tipoDoGrafo(int[][] matriz) {
+    public static String tipoDoGrafo(int[][] matriz) {
         String str = "";
         boolean ehDirigido = ehUmGrafoDirigido(matriz);
         if (ehDirigido) {
@@ -172,7 +172,7 @@ public class Main {
         return str;
     }
 
-    private static String arestasDoGrafo(int[][] matriz) {
+    public static String arestasDoGrafo(int[][] matriz) {
         boolean ehDirigido = ehUmGrafoDirigido(matriz);
         String str = "";
         List<Integer> sequenciaDeGraus = pegarGrauDosVertices(matriz, ehDirigido);
@@ -203,7 +203,7 @@ public class Main {
         return str + "}";
     }
 
-    private static String grausDoVertice(int[][] matriz) {
+    public static String grausDoVertice(int[][] matriz) {
         String str = "\tV = { ";
         for (int i = 0; i < matriz.length; i++) {
             if (i == matriz.length - 1) {
@@ -254,7 +254,7 @@ public class Main {
     private static boolean ehUmGrafoRegular(int[][] matriz, boolean ehDirigido) {
         List<Integer> grauDosVertices = pegarGrauDosVertices(matriz, ehDirigido);
         int grauDeReferencia = grauDosVertices.get(0);
-        if (grauDeReferencia == 0 || matriz.length <= 1) {
+        if (matriz.length == 0) {
             return false;
         }
         for (int i = 1; i < grauDosVertices.size(); i++) {
