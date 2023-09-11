@@ -1,20 +1,140 @@
+//Luiz Henrique Martendal
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+//        int[][] matriz = {
+//                {0, 1, 1, 1, 1, 0, 0},
+//                {1, 0, 0, 0, 0, 1, 1},
+//                {1, 0, 0, 0, 0, 1, 1},
+//                {1, 0, 0, 0, 0, 1, 1},
+//                {1, 0, 0, 0, 0, 1, 1},
+//                {0, 1, 1, 1, 1, 0, 0},
+//                {0, 1, 1, 1, 1, 0, 0}
+//        };
+        /*
+        Tipo do Grafo:
+	        Não dirigido; Simples; Bipartido;
+        Arestas do Grafo:
+	        Quantidade de arestas: 12
+	        E = { (0,1) (0,2) (0,3) (0,4) (1,5) (1,6) (2,5) (2,6) (3,5) (3,6) (4,5) (4,6) }
+        Graus do Vértice:
+            V = { 0, 1, 2, 3, 4, 5, 6 }
+            Grau do vétice 0: 4
+            Grau do vétice 1: 3
+            Grau do vétice 2: 3
+            Grau do vétice 3: 3
+            Grau do vétice 4: 3
+            Grau do vétice 5: 4
+            Grau do vétice 6: 4
+            Sequência de graus: (3, 3, 3, 3, 4, 4, 4)
+        */
+
+//        int[][] matriz = {
+//                {1, 1, 1, 1, 1, 0, 0},
+//                {1, 0, 0, 0, 0, 1, 1},
+//                {1, 0, 2, 0, 0, 1, 1},
+//                {1, 0, 0, 0, 0, 1, 1},
+//                {1, 0, 0, 0, 0, 1, 1},
+//                {0, 1, 1, 1, 1, 0, 0},
+//                {0, 1, 1, 1, 1, 0, 0}
+//        };
+        /*
+            Tipo do Grafo:
+                Não dirigido; Multigrafo;
+            Arestas do Grafo:
+                Quantidade de arestas: 15
+	            E = { (0,0) (0,1) (0,2) (0,3) (0,4) (1,5) (1,6) (2,2) (2,2) (2,5) (2,6) (3,5) (3,6) (4,5) (4,6) }
+            Graus do Vértice:
+                V = { 0, 1, 2, 3, 4, 5, 6 }
+                Grau do vétice 0: 6
+                Grau do vétice 1: 3
+                Grau do vétice 2: 7
+                Grau do vétice 3: 3
+                Grau do vétice 4: 3
+                Grau do vétice 5: 4
+                Grau do vétice 6: 4
+                Sequência de graus: (3, 3, 3, 4, 4, 6, 7)
+
+        */
+
+//        int[][] matriz = {
+//                {0, 0, 1, 0, 1, 0, 0},
+//                {1, 0, 0, 0, 0, 0, 1},
+//                {0, 0, 0, 0, 0, 1, 0},
+//                {1, 0, 0, 0, 0, 0, 1},
+//                {0, 0, 0, 0, 0, 1, 0},
+//                {0, 1, 0, 1, 0, 0, 0},
+//                {0, 0, 1, 0, 1, 0, 0}
+//        };
+        /*
+            Tipo do Grafo:
+                Dirigido; Simples; Bipartido;
+            Arestas do Grafo:
+                Quantidade de arestas: 12
+                E = { (0,2) (0,4) (1,0) (1,6) (2,5) (3,0) (3,6) (4,5) (5,1) (5,3) (6,2) (6,4) }
+            Graus do Vértice:
+                V = { 0, 1, 2, 3, 4, 5, 6 }
+                Grau do vétice 0: 2
+                Grau do vétice 1: 2
+                Grau do vétice 2: 1
+                Grau do vétice 3: 2
+                Grau do vétice 4: 1
+                Grau do vétice 5: 2
+                Grau do vétice 6: 2
+                Sequência de graus: (1, 1, 2, 2, 2, 2, 2)
+        */
+
+//        int[][] matriz = {
+//                {1, 0, 1, 0, 1, 0, 0},
+//                {1, 0, 0, 0, 0, 0, 1},
+//                {0, 0, 2, 0, 0, 1, 0},
+//                {1, 0, 0, 0, 0, 0, 1},
+//                {0, 0, 0, 0, 0, 1, 0},
+//                {0, 1, 0, 1, 0, 0, 0},
+//                {0, 0, 1, 0, 1, 0, 0}
+//        };
+        /*
+            Tipo do Grafo:
+                Dirigido; Multigrafo;
+            Arestas do Grafo:
+                Quantidade de arestas: 15
+                E = { (0,0) (0,2) (0,4) (1,0) (1,6) (2,2) (2,5) (3,0) (3,6) (4,5) (5,1) (5,3) (6,2) (6,4) }
+            Graus do Vértice:
+                V = { 0, 1, 2, 3, 4, 5, 6 }
+                Grau do vétice 0: 3
+                Grau do vétice 1: 2
+                Grau do vétice 2: 3
+                Grau do vétice 3: 2
+                Grau do vétice 4: 1
+                Grau do vétice 5: 2
+                Grau do vétice 6: 2
+                Sequência de graus: (1, 2, 2, 2, 2, 3, 3)
+        */
+
         int[][] matriz = {
-                {0, 1, 1, 1, 1, 0, 0},
-                {1, 0, 0, 0, 0, 1, 1},
-                {1, 0, 0, 0, 0, 1, 1},
-                {1, 0, 0, 0, 0, 1, 1},
-                {1, 0, 0, 0, 0, 1, 1},
-                {0, 1, 1, 1, 1, 0, 0},
-                {0, 1, 1, 1, 1, 0, 0}
+                {0, 0, 0},
+                {0, 0, 0},
+                {0, 0, 0}
         };
-        System.out.println("Tipo do Grafo: \n"+tipoDoGrafo(matriz)+"\nArestas do Grafo: \n"+arestasDoGrafo(matriz)+"\nGraus do Vértice: \n"+grausDoVertice(matriz)+"\nEste trabalho foi terminado ás 1:43 no dia 08/09/23 :)");
+        /*
+            Tipo do Grafo:
+                Não dirigido; Simples; Núlo;
+            Arestas do Grafo:
+                Quantidade de arestas: 0
+                E = { }
+            Graus do Vértice:
+                V = { 0, 1, 2 }
+                Grau do vétice 0: 0
+                Grau do vétice 1: 0
+                Grau do vétice 2: 0
+                Sequência de graus: (0, 0, 0)
+        */
+
+        System.out.println("Tipo do Grafo: \n"+tipoDoGrafo(matriz)+"\nArestas do Grafo: \n"+arestasDoGrafo(matriz)+"\nGraus do Vértice: \n"+grausDoVertice(matriz)+"\nFim :)");
     }
 
     private static String tipoDoGrafo(int[][] matriz) {
@@ -31,10 +151,10 @@ public class Main {
         } else {
             str += " Multigrafo;";
         }
-        if (ehUmGrafoRegular(matriz)) {
+        if (ehUmGrafoRegular(matriz, ehDirigido)) {
             str += " Regular;";
             if (ehSimples) {
-                boolean ehCompleto = ehUmGrafoCompleto(matriz);
+                boolean ehCompleto = ehUmGrafoCompleto(matriz, ehDirigido);
                 if (ehCompleto) {
                     str += " Completo;";
                 } else {
@@ -42,20 +162,22 @@ public class Main {
                 }
             }
         }
-        if (ehUmGrafoNulo(matriz)) {
-            str += " Núlo";
+        boolean ehNulo = ehUmGrafoNulo(matriz, ehDirigido);
+        if (ehNulo) {
+            str += " Núlo;";
         }
-        if (ehUmGrafoBipartido(matriz)) {
+        if (ehUmGrafoBipartido(matriz) && !ehNulo) {
             str += " Bipartido;";
         }
         return str;
     }
 
     private static String arestasDoGrafo(int[][] matriz) {
+        boolean ehDirigido = ehUmGrafoDirigido(matriz);
         String str = "";
-        List<Integer> sequenciaDeGraus = pegarGrauDosVertices(matriz);
+        List<Integer> sequenciaDeGraus = pegarGrauDosVertices(matriz, ehDirigido);
         Collections.sort(sequenciaDeGraus);
-        if (ehUmGrafoDirigido(matriz)) {
+        if (ehDirigido) {
             str = "\tQuantidade de arestas: " + sequenciaDeGraus.stream().mapToInt(Integer::intValue).sum() + "\n";
         } else {
             str = "\tQuantidade de arestas: " + sequenciaDeGraus.stream().mapToInt(Integer::intValue).sum() / 2 + "\n";
@@ -64,7 +186,17 @@ public class Main {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
                 if (matriz[i][j] != 0) {
-                    str += "(" + i + "," + j + ") ";
+                    int qtdArestas = matriz[i][j];
+                    if (!ehDirigido) {
+                        if (i <= j)
+                            for (int k = 0; k < qtdArestas; k++) {
+                                str += "(" + i + "," + j + ") ";
+                            }
+                    } else {
+                        for (int k = 0; k < qtdArestas; k++) {
+                            str += "(" + i + "," + j + ") ";
+                        }
+                    }
                 }
             }
         }
@@ -80,7 +212,8 @@ public class Main {
                 str += i + ", ";
             }
         }
-        List<Integer> grauDosVertices = pegarGrauDosVertices(matriz);
+        boolean ehDirigido = ehUmGrafoDirigido(matriz);
+        List<Integer> grauDosVertices = pegarGrauDosVertices(matriz, ehDirigido);
         for (int i = 0; i < matriz.length; i++) {
             str += "\tGrau do vétice " + i + ": " + grauDosVertices.get(i) + "\n";
         }
@@ -118,8 +251,8 @@ public class Main {
         return true;
     }
 
-    private static boolean ehUmGrafoRegular(int[][] matriz) {
-        List<Integer> grauDosVertices = pegarGrauDosVertices(matriz);
+    private static boolean ehUmGrafoRegular(int[][] matriz, boolean ehDirigido) {
+        List<Integer> grauDosVertices = pegarGrauDosVertices(matriz, ehDirigido);
         int grauDeReferencia = grauDosVertices.get(0);
         if (grauDeReferencia == 0 || matriz.length <= 1) {
             return false;
@@ -132,21 +265,25 @@ public class Main {
         return true;
     }
 
-    private static List<Integer> pegarGrauDosVertices(int[][] matriz) {
+    private static List<Integer> pegarGrauDosVertices(int[][] matriz, boolean ehDirigido) {
         ArrayList<Integer> grauDosVertices = new ArrayList<>();
-        for(int i = 0; i < matriz.length; i++) {
+        for (int i = 0; i < matriz.length; i++) {
             int grau = 0;
             for (int j = 0; j < matriz[0].length; j++) {
-                grau += matriz[i][j];
+                if (!ehDirigido && i == j) {
+                    grau += (matriz[i][j] * 2);
+                } else {
+                    grau += matriz[i][j];
+                }
             }
             grauDosVertices.add(grau);
         }
         return grauDosVertices;
     }
 
-    private static boolean ehUmGrafoCompleto(int[][] matriz) {
+    private static boolean ehUmGrafoCompleto(int[][] matriz, boolean ehDirigido) {
         int grauDeReferencia = matriz.length - 1;
-        List<Integer> grauDosVertices = pegarGrauDosVertices(matriz);
+        List<Integer> grauDosVertices = pegarGrauDosVertices(matriz, ehDirigido);
         for (int i = 0; i < matriz.length; i++) {
             if (grauDosVertices.get(i) != grauDeReferencia) {
                 return false;
@@ -155,8 +292,8 @@ public class Main {
         return true;
     }
 
-    private static boolean ehUmGrafoNulo(int[][] matriz) {
-        List<Integer> grauDosVertices = pegarGrauDosVertices(matriz);
+    private static boolean ehUmGrafoNulo(int[][] matriz, boolean ehDirigido) {
+        List<Integer> grauDosVertices = pegarGrauDosVertices(matriz, ehDirigido);
         for (int i = 0; i < matriz.length; i++) {
             if (grauDosVertices.get(i) != 0) {
                 return false;
@@ -168,29 +305,27 @@ public class Main {
     private static boolean ehUmGrafoBipartido(int[][] matriz) {
         ArrayList<Integer> v1 = new ArrayList<>();
         ArrayList<Integer> v2 = new ArrayList<>();
-        if (temLacos(matriz)) {
-            return false;
-        }
-
+        if (temLacos(matriz) || matriz.length <= 1) return false;
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
-                if (!v2.contains(i) && i != j) {
-                    if (!v1.contains(i)) {
-                        v1.add(i);
-                    }
-                    if (!v2.contains(j) && matriz[i][j] != 0) {
+                if (!v1.contains(i) && !v2.contains(i) && i != j) {
+                    if (matriz[i][j] > 0) {
                         if (v1.contains(j)) {
-                            return false;
+                            v2.add(i);
+                        } else {
+                            v1.add(i);
+                            if (!v2.contains(j)) v2.add(j);
                         }
-                        v2.add(j);
                     }
-                }
-                if (v2.contains(i) && i != j) {
-                    if (!v1.contains(j) && matriz[i][j] != 0) {
-                        if (v2.contains(j)) {
-                            return false;
-                        }
-                        v1.add(j);
+                } else if (v1.contains(i) && !v2.contains(i) && i != j) {
+                    if (matriz[i][j] > 0) {
+                        if (v1.contains(j)) return false;
+                        if (!v2.contains(j)) v2.add(j);
+                    }
+                } else if (!v1.contains(i) && v2.contains(i) && i != j) {
+                    if (matriz[i][j] > 0) {
+                        if (v2.contains(j)) return false;
+                        if (!v1.contains(j)) v1.add(j);
                     }
                 }
             }
@@ -200,10 +335,8 @@ public class Main {
 
     private static boolean temLacos(int[][] matriz) {
         for (int i = 0; i < matriz.length; i++) {
-            for (int j = i; j <= i; j++) {
-                if (matriz[i][j] > 0) {
-                    return true;
-                }
+            if (matriz[i][i] > 0) {
+                return true;
             }
         }
         return false;
