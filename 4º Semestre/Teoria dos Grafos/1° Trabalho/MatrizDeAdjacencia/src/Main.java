@@ -33,15 +33,15 @@ public class Main {
             Sequência de graus: (3, 3, 3, 3, 4, 4, 4)
         */
 
-//        int[][] matriz = {
-//                {1, 1, 1, 1, 1, 0, 0},
-//                {1, 0, 0, 0, 0, 1, 1},
-//                {1, 0, 2, 0, 0, 1, 1},
-//                {1, 0, 0, 0, 0, 1, 1},
-//                {1, 0, 0, 0, 0, 1, 1},
-//                {0, 1, 1, 1, 1, 0, 0},
-//                {0, 1, 1, 1, 1, 0, 0}
-//        };
+        int[][] matriz = {
+                {1, 1, 1, 1, 1, 0, 0},
+                {1, 0, 0, 0, 0, 1, 1},
+                {1, 0, 2, 0, 0, 1, 1},
+                {1, 0, 0, 0, 0, 1, 1},
+                {1, 0, 0, 0, 0, 1, 1},
+                {0, 1, 1, 1, 1, 0, 0},
+                {0, 1, 1, 1, 1, 0, 0}
+        };
         /*
             Tipo do Grafo:
                 Não dirigido; Multigrafo;
@@ -115,11 +115,11 @@ public class Main {
                 Sequência de graus: (1, 2, 2, 2, 2, 3, 3)
         */
 
-        int[][] matriz = {
-                {0, 0, 0},
-                {0, 0, 0},
-                {0, 0, 0}
-        };
+//        int[][] matriz = {
+//                {0, 0, 0},
+//                {0, 0, 0},
+//                {0, 0, 0}
+//        };
         /*
             Tipo do Grafo:
                 Não dirigido; Simples; Núlo;
@@ -175,7 +175,8 @@ public class Main {
     public static String arestasDoGrafo(int[][] matriz) {
         boolean ehDirigido = ehUmGrafoDirigido(matriz);
         String str = "";
-        List<Integer> sequenciaDeGraus = pegarGrauDosVertices(matriz, ehDirigido);
+        // Independente de dirigido ou não, optei por calcular o tamanho do grafo a partir da sequência de graus de saída
+        List<Integer> sequenciaDeGraus = pegarGrauDeSaidaDosVertices(matriz, ehDirigido);
         Collections.sort(sequenciaDeGraus);
         if (ehDirigido) {
             str = "\tQuantidade de arestas: " + sequenciaDeGraus.stream().mapToInt(Integer::intValue).sum() + "\n";
@@ -213,12 +214,34 @@ public class Main {
             }
         }
         boolean ehDirigido = ehUmGrafoDirigido(matriz);
-        List<Integer> grauDosVertices = pegarGrauDosVertices(matriz, ehDirigido);
+        str += separarGrausESequencia(matriz, pegarGrauDeSaidaDosVertices(matriz, ehDirigido), "saída");
+        if (ehDirigido) {
+            str += "\n" + separarGrausESequencia(matriz, pegarGrauDeEntradaDosVertices(matriz), "entrada");
+        }
+        return str;
+    }
+
+    private static List<Integer> pegarGrauDeEntradaDosVertices(int[][] matriz) {
+        ArrayList<Integer> grauDosVertices = new ArrayList<>();
         for (int i = 0; i < matriz.length; i++) {
-            str += "\tGrau do vétice " + i + ": " + grauDosVertices.get(i) + "\n";
+            int valor = 0;
+            for (int j = 0; j < matriz.length; j++) {
+                if (matriz[j][i] > 0) {
+                    valor += matriz[j][i];
+                }
+            }
+            grauDosVertices.add(valor);
+        }
+        return grauDosVertices;
+    }
+
+    private static String separarGrausESequencia(int[][] matriz, List<Integer> grauDosVertices, String tipo) {
+        String str = "\tGraus de " + tipo + ":\n";
+        for (int i = 0; i < matriz.length; i++) {
+            str += "\t\tGrau do vértice " + i + ": " + grauDosVertices.get(i) + "\n";
         }
         Collections.sort(grauDosVertices);
-        str += "\tSequência de graus: (";
+        str += "\tSequência de graus de " + tipo + ": (";
         for (int i = 0; i < matriz.length; i++) {
             if (i == matriz.length - 1) {
                 str += grauDosVertices.get(i);
@@ -252,7 +275,7 @@ public class Main {
     }
 
     private static boolean ehUmGrafoRegular(int[][] matriz, boolean ehDirigido) {
-        List<Integer> grauDosVertices = pegarGrauDosVertices(matriz, ehDirigido);
+        List<Integer> grauDosVertices = pegarGrauDeSaidaDosVertices(matriz, ehDirigido);
         int grauDeReferencia = grauDosVertices.get(0);
         if (matriz.length == 0) {
             return false;
@@ -265,7 +288,7 @@ public class Main {
         return true;
     }
 
-    private static List<Integer> pegarGrauDosVertices(int[][] matriz, boolean ehDirigido) {
+    private static List<Integer> pegarGrauDeSaidaDosVertices(int[][] matriz, boolean ehDirigido) {
         ArrayList<Integer> grauDosVertices = new ArrayList<>();
         for (int i = 0; i < matriz.length; i++) {
             int grau = 0;
@@ -283,7 +306,7 @@ public class Main {
 
     private static boolean ehUmGrafoCompleto(int[][] matriz, boolean ehDirigido) {
         int grauDeReferencia = matriz.length - 1;
-        List<Integer> grauDosVertices = pegarGrauDosVertices(matriz, ehDirigido);
+        List<Integer> grauDosVertices = pegarGrauDeSaidaDosVertices(matriz, ehDirigido);
         for (int i = 0; i < matriz.length; i++) {
             if (grauDosVertices.get(i) != grauDeReferencia) {
                 return false;
@@ -293,7 +316,7 @@ public class Main {
     }
 
     private static boolean ehUmGrafoNulo(int[][] matriz, boolean ehDirigido) {
-        List<Integer> grauDosVertices = pegarGrauDosVertices(matriz, ehDirigido);
+        List<Integer> grauDosVertices = pegarGrauDeSaidaDosVertices(matriz, ehDirigido);
         for (int i = 0; i < matriz.length; i++) {
             if (grauDosVertices.get(i) != 0) {
                 return false;
