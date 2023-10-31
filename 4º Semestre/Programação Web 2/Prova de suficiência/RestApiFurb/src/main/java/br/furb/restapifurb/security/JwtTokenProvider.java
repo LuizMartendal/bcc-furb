@@ -21,7 +21,7 @@ import java.util.Date;
 @Service
 public class JwtTokenProvider {
 
-    private String chaveSecreta = "restapifurb";
+    private final String chaveSecreta = "restapifurb";
     private final long validadeDoToken = 3600000;
 
     @Autowired
