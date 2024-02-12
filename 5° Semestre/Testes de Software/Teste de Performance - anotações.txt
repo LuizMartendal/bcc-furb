@@ -1,0 +1,24 @@
+Teste de performance: colocamos um certo volume de acessos/ações em um software, para medir como ele vai se comportar em relação aos seguintes pontos:
+
+  - Escalabilidade;
+  - Em desempenho;
+  - Em memória;
+  - Se o banco de dados vai aguentar a quantidade de acessos; 
+  - E entre outros fatores;
+
+Tipos de teste de performance:
+
+  - Teste de carga (load test): temos um software onde colocamos uma quantidade de acessos que esperamos esse determidado produto tenha.
+  - Teste de estresse (stress test): colocamos uma quantidade enorme de transações de acessos nesse produto para ver o quanto esse produto aguenta. Verificando se conseguimos de fato, estressar a aplicação.
+Quando aplicado em microsserviços, o teste procura identificar em qual serviço a aplicação vai quebrar.
+  - Teste de duração (endurance test): deixamos o produto rodando por um longo tempo para vermos como ele se comporta.
+  - Teste de pico (peak/spike test): basicamente, colocamos poucos acessos ou até em quantidade normal e logo, adicionamos um grande quantidade para garantir que a aplicação não quebre. Simulando por exemplo, horários em que a aplicação é muito acessada.   
+  - Teste de volume (volume test): Focado em banco de dados, verificando migrações, abertura de novos produtos, onde temos volumes muito grandes de uma vez só.
+  - Teste de escalabilidade (scalability test): Uma aplicação escalável, é uma que atende somende 5 pessoas, mas também aguenta mais de 5000000. E conforme ela vai sendo acessada, consegue criar novas instancias que se comportam como única aplicação.
+O teste consiste em verificar se a aplicação consegue lidar com o scale up e também com o scale down.
+
+Quais deles devemos usar??
+
+  - Em geral, devemos avaliar o que estamos precisando de uma determinada aplicação, ou seja, se é uma aplicação muito crítica, se terá milhares de usuários. Muitas vezes, acabamos utilizando uma combinação desses tipos de teste.
+
+Em outras palavras, teste de performance se divide em 6 tipos de testes, e precisamos fazer uma avaliação para identificar quais fazem mais sentido no momento. 
