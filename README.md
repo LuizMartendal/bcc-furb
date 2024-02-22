@@ -10,12 +10,12 @@ Este repositório foi criado para armazenar e compartilhar o conhecimento adquir
 
 O repositório está organizado da seguinte forma:
 
-- **Semestres**: Primeiramente, dividi todos os conteúdos do curso em semestres
-- **Disciplinas**: Depois, eu consigo organizar tudo em disciplinas diferentes
+- **Semestres**: Primeiramente, dividi todos os conteúdos do curso em semestres.
+- **Disciplinas**: Depois, eu consigo organizar tudo em disciplinas diferentes.
 - E então elas seguem o seguinte padrão:
-- **Aulas**: Este diretório contém resumos, anotações e materiais de estudo de todas as aulas.
+- **Unidades**: É onde ficam os conteúdos aprendidos em aulas, além de pequenos exercícios introdutórios.
 - **Exercícios**: Aqui você encontrará uma coleção de exercícios resolvidos.
-- **Trabalhos**: Neste diretório estão armazenados todos os trabalhos práticos e projetos desenvolvidos ao longo do curso.
+- **Trabalhos**: Neste diretório estão armazenados todos os trabalhos práticos e projetos desenvolvidos.
 
 ## Como Contribuir
 
