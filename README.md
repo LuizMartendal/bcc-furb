@@ -23,6 +23,6 @@ Se você é um colega de classe ou apenas um entusiasta da computação e deseja
 Caso tenha alguma dúvida, sugestão ou apenas queira trocar ideias sobre Ciência da Computação, sinta-se à vontade para me contatar por meio das seguintes plataformas:
 
 - Email: lhmartendal@furb.br OU luiz.martendal52@gmail.com
-- LinkedIn: Luiz Henrique Martendal(https://www.linkedin.com/in/luiz-henrique-martendal-17b61a269/)]
+- LinkedIn: https://www.linkedin.com/in/luiz-henrique-martendal-17b61a269/
 
 Obrigado por visitar meu repositório e espero que encontre recursos úteis aqui!
