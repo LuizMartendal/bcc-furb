@@ -1,0 +1,76 @@
+Equipe: Bárbara Moro; Luiz Henrique Martendal; Maria Júlia Testoni; Nícolas Zimermann
+Cenários de testes - BDD 
+
+ 
+
+Tema: Estacionamento rotativo 
+
+ 
+
+Cenário: Estacionamento vazio 
+
+  
+
+Dado que o estacionamento está vazio 
+
+Quando um veículo tenta entrar no estacionamento 
+
+Então o veículo é permitido a entrar no estacionamento com sucesso 
+
+E o número de vagas ocupadas aumenta para 1 
+
+ 
+
+Cenário: Estacionamento cheio 
+
+  
+
+Dado que o estacionamento está completamente ocupado 
+
+Quando um veículo tenta entrar no estacionamento 
+
+Então o veículo não é permitido a entrar no estacionamento 
+
+E uma mensagem informando "Estacionamento lotado" é exibida 
+
+ 
+
+3. Cenário: Saída de veículo do estacionamento 
+
+  
+
+Dado que há um veículo estacionado no estacionamento 
+
+Quando o veículo solicita a saída do estacionamento 
+
+Então o veículo é permitido a sair do estacionamento com sucesso 
+
+E o número de vagas ocupadas diminui para 0 
+
+ 
+
+4. Cenário: Estacionamento com vagas disponíveis 
+
+  
+
+Dado que há vagas disponíveis no estacionamento 
+
+Quando um veículo tenta entrar no estacionamento 
+
+Então o veículo é permitido a entrar no estacionamento com sucesso 
+
+E o número de vagas ocupadas aumenta em 1 
+
+ 
+
+5. Cenário: Calculo do custo de estacionamento 
+
+  
+
+Dado que um carro vai sair do estacionamento 
+
+Quando registrado um horário de entrada e saída e a placa de respectivo veículo 
+
+Então é calculado e informado o valor a ser pago ao cliente 
+
+E o desconto é aplicado corretamente ao valor total do estacionamento  
