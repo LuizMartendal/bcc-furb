@@ -1,4 +1,4 @@
-# Repositório do curso de Ciência da Computação - FURB
+# Ciência da Computação - FURB
 
 Bem-vindo(a)! Aqui você encontrará uma compilação de todas as informações, exercícios e trabalhos desenvolvidos ao longo do meu curso.
 
