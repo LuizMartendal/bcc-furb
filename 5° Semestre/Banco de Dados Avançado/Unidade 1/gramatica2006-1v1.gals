@@ -1,0 +1,1437 @@
+#Options
+GenerateScanner = true
+GenerateParser = true
+Language = Delphi
+ScannerName = Lexico
+ParserName = Sintatico
+SemanticName = Semantico
+ScannerCaseSensitive = false
+ScannerTable = Hardcode
+Input = Stream
+Parser = LL
+#RegularDefinitions
+
+Digit     : [0-9]
+
+minuscula : [a-z]
+
+maiuscula : [A-Z]
+
+UnderLine : [_]
+
+Letter    : {maiuscula}|{minuscula}|{UnderLine}
+
+noQuote   : [^"'"\n\r]  
+
+COMMENT   : "/*"[^"*"]*"*/"
+
+WS 	 : [\s\t\n\r]
+
+
+
+A : A|a
+
+B : B|b
+
+C : C|c
+
+D : D|d
+
+E : E|e
+
+F : F|f
+
+G : G|g
+
+H : H|h
+
+I : I|i
+
+J : J|j
+
+K : K|k
+
+L : L|l
+
+M : M|m
+
+N : N|n
+
+O : O|o
+
+P : P|p
+
+Q : Q|q
+
+R : R|r
+
+S : S|s
+
+T : T|t
+
+U : U|u
+
+V : V|v
+
+W : W|w
+
+X : X|x
+
+Y : Y|y
+
+Z : Z|z
+
+
+
+#Tokens
+
+// Palavras reservadas
+
+
+
+UNION			: {U}{N}{I}{O}{N}
+
+ALL			: {A}{L}{L}
+
+UPDATE			: {U}{P}{D}{A}{T}{E}
+
+SET			: {S}{E}{T}
+
+INSERT			: {I}{N}{S}{E}{R}{T}
+
+INTO			: {I}{N}{T}{O}
+
+VALUES			: {V}{A}{L}{U}{E}{S}
+
+DELETE			: {D}{E}{L}{E}{T}{E}
+
+FROM			: {F}{R}{O}{M} 
+
+SELECT			: {S}{E}{L}{E}{C}{T} 
+
+DISTINCT			: {D}{I}{S}{T}{I}{N}{C}{T}
+
+AS			: {A}{S} 
+
+USING			: {U}{S}{I}{N}{G}
+
+WHERE			: {W}{H}{E}{R}{E}
+
+HAVING			: {H}{A}{V}{I}{N}{G}
+
+ORDER			: {O}{R}{D}{E}{R}
+
+GROUP			: {G}{R}{O}{U}{P}
+
+BY			: {B}{Y}
+
+TIMESTAMP		: {T}{I}{M}{E}{S}{T}{A}{M}{P}
+
+UPPER			: {U}{P}{P}{E}{R}
+
+MONTH			: {M}{O}{N}{T}{H}
+
+YEAR			: {Y}{E}{A}{R}
+
+COUNT			: {C}{O}{U}{N}{T}
+
+SUM			: {S}{U}{M}
+
+MAX			: {M}{A}{X}
+
+MIN			: {M}{I}{N}
+
+AVG			: {A}{V}{G}
+
+NULL			: {N}{U}{L}{L}
+
+DESC			: {D}{E}{S}{C}
+
+ASC			: {A}{S}{C}
+
+NOT			: {N}{O}{T}
+
+AND			: {A}{N}{D}
+
+OR			: {O}{R}
+
+LIKE			: {L}{I}{K}{E}
+
+ESCAPE			: {E}{S}{C}{A}{P}{E}
+
+IS			: {I}{S}
+
+BETWEEN			: {B}{E}{T}{W}{E}{E}{N}
+
+IN			: {I}{N}
+
+CHAR			: {C}{H}{A}{R}
+
+CHARACTER		: {C}{H}{A}{R}{A}{C}{T}{E}{R}
+
+INTEGER			: {I}{N}{T}{E}{G}{E}{R}
+
+VARCHAR2			: {V}{A}{R}{C}{H}{A}{R}2
+
+VARCHAR			: {V}{A}{R}{C}{H}{A}{R}
+
+INT			: {I}{N}{T}
+
+NUMBER			: {N}{U}{M}{B}{E}{R}
+
+NUMERIC			: {N}{U}{M}{E}{R}{I}{C}
+
+SMALLINT			: {S}{M}{A}{L}{L}{I}{N}{T}
+
+DATE			: {D}{A}{T}{E}
+
+TIME			: {T}{I}{M}{E}
+
+DEFAULT			: {D}{E}{F}{A}{U}{L}{T} 
+
+PRIMARY			: {P}{R}{I}{M}{A}{R}{Y} 
+
+KEY			: {K}{E}{Y}
+
+FOREIGN			: {F}{O}{R}{E}{I}{G}{N}
+
+REFERENCES		: {R}{E}{F}{E}{R}{E}{N}{C}{E}{S}
+
+MATCH			: {M}{A}{T}{C}{H}
+
+PARTIAL			: {P}{A}{R}{T}{I}{A}{L}
+
+CASCADE			: {C}{A}{S}{C}{A}{D}{E}
+
+NO			: {N}{O}
+
+ACTION			: {A}{C}{T}{I}{O}{N}
+
+UNIQUE			: {U}{N}{I}{Q}{U}{E}
+
+CHECK			: {C}{H}{E}{C}{K}
+
+CREATE			: {C}{R}{E}{A}{T}{E}
+
+TABLE			: {T}{A}{B}{L}{E}
+
+RESTRICT			: {R}{E}{S}{T}{R}{I}{C}{T}
+
+DROP			: {D}{R}{O}{P}
+
+ADD			: {A}{D}{D}
+
+CONSTRAINT		: {C}{O}{N}{S}{T}{R}{A}{I}{N}{T}
+
+MODIFY			: {M}{O}{D}{I}{F}{Y} 
+
+INDEX			: {I}{N}{D}{E}{X}
+
+DESCRIBE			: {D}{E}{S}{C}{R}{I}{B}{E}
+
+WORK			: {W}{O}{R}{K}
+
+COMMIT			: {C}{O}{M}{M}{I}{T}
+
+ROLLBACK			: {R}{O}{L}{L}{B}{A}{C}{K}
+
+ALTER			: {A}{L}{T}{E}{R}
+
+COLUMN			: {C}{O}{L}{U}{M}{N}
+
+
+
+
+
+// Símbolos especiais
+
+
+
+"("
+
+")"
+
+"*"
+
+"+"
+
+","
+
+"-"
+
+"."
+
+"/"
+
+":"
+
+";"
+
+"<"
+
+"="
+
+">"
+
+
+
+"<>"
+
+"<="
+
+">="
+
+"'"
+
+
+
+
+
+
+
+// outros
+
+
+
+ident      : {Letter} ( {Letter} | {Digit} )*
+
+integer_   : {Digit} ( {Digit} )*
+
+float_     : {Digit} {Digit}* ("." {Digit} {Digit}*)?
+
+Data	  : "'" {Digit} {Digit} "-" ( {Digit} {Digit} | {Letter}{Letter}{Letter}) "-" {Digit}{Digit}({Digit}{Digit})? "'"
+
+SQLString  : "'" {noQuote}* "'"
+
+
+
+ 
+
+
+
+// Ignorar
+
+
+
+: {WS}*
+
+:! {COMMENT}
+
+#NonTerminals
+
+<SQLTest>
+
+<Comando>
+
+<PontoVirgula>
+
+<ShowTables>
+
+<Describe>
+
+<SelectSQL>
+
+<UnionSelect>
+
+<AllOpcional>
+
+<SubSelectSQL>
+
+<Colunas1>
+
+<UpdateSQL>
+
+<CreateTable1>
+
+<CreateTable2>
+
+<CreateTable3>
+
+<InsertSQL>
+
+<DeleteSQL>
+
+<Modify>
+
+<UpdateStmt>
+
+<WhereOpcional>
+
+<UpdateField>
+
+<UpdateFieldList>
+
+<UpdateRepete>
+
+<InsertStmt>
+
+<Values>
+
+<ValuesList>
+
+<ColumnListOpcional>
+
+<DeleteStmt>
+
+<SelectStmt>
+
+<OrderByClauseOpcional>
+
+<HavingClauseOpcional>
+
+<GroupByClauseOpcional>
+
+<SelectClause>
+
+<DistinctAllOpcional>
+
+<FromClause>
+
+<FromTableList>
+
+<QualifiedSeparator>
+
+<CampoRefOpcional>
+
+<QualifiedTable>
+
+<AsAliasOpcional>
+
+<AsOpcional>
+
+<identOpcional>
+
+<WhereClause>
+
+<HavingClause>
+
+<OrderByClause>
+
+<GroupByClause>
+
+<SelectFieldList>
+
+<SeparatorSelectField>
+
+<SelectField>
+
+<AsAlias>
+
+<FunctionExpr>
+
+<SeparatorExpression>
+
+<W> 
+
+<ColumnFunction>
+
+<AsteriscoDistinct>
+
+<DistinctExpression>
+
+<DistinctOpcional>
+
+<Function>
+
+<ColumnList>
+
+<SeparatorColumnName>
+
+<ColumnName>
+
+<PontoCampo>
+
+<IdentAsterisco>
+
+<SimpleColumnName>
+
+<ColumnOpcional>
+
+<SimpleColumnList>
+
+<SeparatorSimpColumn>
+
+<SimpleColumnParam>
+
+<FieldList>
+
+<SeparatorField>
+
+<Field>
+
+<Null>
+
+<Table>
+
+<Alias>
+
+<OrderByFldList>
+
+<SeparatorOrderBy>
+
+<OrderByField>
+
+<ColumnInteger>
+
+<OrdemOpcional>
+
+<SearchCondition>
+
+<Expression>
+
+<RelationSimpleExp>
+
+<SimpleExpression>
+
+<RepeteOperator>
+
+<NotOpcional>
+
+<Term>
+
+<K>
+
+<OpenExpClose>
+
+<ExpSubSel>
+
+<FieldTest>
+
+<TestOpcional>
+
+<MenosOpcional>
+
+<Param>
+
+<NotOperator>
+
+<Operator>
+
+<MathOperator>
+
+<WordOperator>
+
+<LikeTest>
+
+<EscapeOpcional>
+
+<SqlParam>
+
+<NullTest>
+
+<Relation>
+
+<TestExpr>
+
+<L>
+
+<BetweenExpr>
+
+<InSetExpr>
+
+<FieldSub>
+
+<Transaction>
+
+<WorkOpcional>
+
+<CommitRollBack>
+
+<len>
+
+<lenParam>
+
+<precision>
+
+<IntOpcional>
+
+<DataType>
+
+<TimeStamp>
+
+<Time> 
+
+<DataNum>
+
+<Num>
+
+<Int>
+
+<References>
+
+<DataVarChar>
+
+<VarChar> 
+
+<DataChar>
+
+<Char> 
+
+<ColumnDefault>
+
+<Tipo>
+
+<lenParam3>
+
+<lenParam1>
+
+<ColumnDefList>
+
+<ItemColumn>
+
+<ColumnDef>
+
+<TiposConstraint>
+
+<Constraint1>
+
+<Restricao1>
+
+<ColumnNotNull>
+
+<U>
+
+<NotNull>
+
+<PrimaryKey>
+
+<RelationName>
+
+<Restricao2>
+
+<ConstraintName>
+
+<Colunas>
+
+<ListaIds>
+
+<RlistaIds>
+
+<ForeignKey>
+
+<Q>
+
+<Number>
+
+<Numeric>
+
+<OnDel>
+
+<CascadeSetNullDef>
+
+<SetNullDef>
+
+<NullDefault>
+
+<NoAction>
+
+<DelUpdate> 
+
+<N>
+
+<FullPartial>
+
+<Unique>
+
+<CheckConstraint>
+
+<CreatePart>
+
+<CreateExpr>
+
+<TableIndex>
+
+<CreateTable>
+
+<ItemCreatePart>
+
+<Drop>
+
+<DropTableIndex>
+
+<DropTable>
+
+<Add>
+
+<WhatAdd>
+
+<DropSet>
+
+<SetColumn>
+
+<DropDef>
+
+<DropPart>
+
+<WhatDrop>
+
+<AlterTable>
+
+<Z> 
+
+<IndexColumn>
+
+<IndexColumnList>
+
+<E>
+
+<V>
+
+<IndexName>
+
+<CreateIndex>
+
+<CreateIndex1>
+
+<IndexAndName>
+
+<ItemSeparator>
+
+<OpenParens>
+
+<CloseParens>
+
+
+
+#Grammar
+
+<SQLTest> ::=  <Comando>  <PontoVirgula>;
+
+
+
+<Comando> ::= <SelectSQL> | <UpdateSQL> | <InsertSQL> | <DeleteSQL> | <Transaction> | <CreateExpr> | <Drop> | <AlterTable> | <Describe> | <ShowTables>;
+
+
+
+<PontoVirgula> ::= ";" | î ;
+
+                      
+
+<SelectSQL> ::=  <SelectStmt> <UnionSelect> ; 
+
+
+
+<UnionSelect> ::= UNION <AllOpcional> <SelectStmt> <UnionSelect> | î ;
+
+
+
+<AllOpcional> ::= ALL | î ;
+
+
+
+<SubSelectSQL> ::= <SelectSQL> ;
+
+                      
+
+<UpdateSQL> ::= <UpdateStmt> ;
+
+
+
+<InsertSQL> ::= <InsertStmt> ;
+
+
+
+<DeleteSQL> ::= <DeleteStmt> ;
+
+
+
+<Describe> ::= DESCRIBE ident #15 | DESC ident #15 ;
+
+
+<ShowTable> ::= SHOW TABLES;
+
+
+<UpdateStmt> ::= UPDATE <Table> SET <UpdateFieldList> <WhereOpcional> ;
+
+
+
+<WhereOpcional> ::= <WhereClause> | î ;
+
+
+
+<UpdateField> ::= <ColumnName> "=" <Expression> ;
+
+
+
+<UpdateFieldList> ::= <UpdateField> <UpdateRepete> ;
+
+
+
+<UpdateRepete> ::= <ItemSeparator> <UpdateField> <UpdateRepete>| î ;
+
+  
+
+<InsertStmt> ::= INSERT INTO #27 <Table> #25 <ColumnListOpcional> <Values> #28;
+
+
+
+<Values> ::= <ValuesList> | <SelectSQL> ;
+
+
+
+<ValuesList> ::= VALUES <OpenParens> <FieldList> <CloseParens>;
+
+
+
+<ColumnListOpcional> ::= <OpenParens> <ColumnList> <CloseParens> | î;
+
+                     
+
+<DeleteStmt> ::= DELETE FROM <Table> <WhereOpcional>;
+
+
+
+<SelectStmt> ::= <SelectClause> <FromClause> <WhereOpcional> <GroupByClauseOpcional> <HavingClauseOpcional> <OrderByClauseOpcional>;
+
+
+
+<OrderByClauseOpcional> ::= <OrderByClause> | î ; 
+
+
+
+<HavingClauseOpcional> ::= <HavingClause> | î ; 
+
+
+
+<GroupByClauseOpcional> ::= <GroupByClause> | î ; 
+
+
+
+<SelectClause> ::= SELECT <DistinctAllOpcional> <SelectFieldList>;
+
+
+
+<DistinctAllOpcional> ::= DISTINCT | ALL | î ;
+
+
+
+<FromClause> ::= FROM <FromTableList>;
+
+
+
+<FromTableList> ::= <QualifiedTable>;
+
+
+
+<QualifiedSeparator> ::= <ItemSeparator> <QualifiedTable> ;
+
+
+
+<QualifiedTable> ::= ident <identOpcional> <AsAliasOpcional> ; 
+
+
+
+<AsAliasOpcional> ::= <AsOpcional> <Alias> |  î ; 
+
+
+
+<AsOpcional> ::= AS | î ;
+
+
+
+<identOpcional> ::=  "." ident | î ;
+
+
+<WhereClause> ::= WHERE <SearchCondition>; 
+
+
+
+<HavingClause> ::= HAVING <SearchCondition> ;
+
+
+
+<OrderByClause> ::= ORDER BY <OrderByFldList>;
+
+
+
+<GroupByClause> ::= GROUP BY <FieldList>;
+
+
+
+<SelectFieldList> ::= <SelectField> <SeparatorSelectField>;
+
+
+
+<SeparatorSelectField> ::= <ItemSeparator> <SelectField> <SeparatorSelectField> | î ;
+
+
+
+<SelectField> ::= <Expression> <AsAlias> | "*" ; 
+
+
+
+<AsAlias> ::= AS <Alias> |  î ;
+
+
+
+<FunctionExpr> ::= <W> <OpenParens> <Expression> <SeparatorExpression> <CloseParens> ;
+
+
+
+<SeparatorExpression> ::= <ItemSeparator> <Expression> <SeparatorExpression> |  î ;
+
+
+
+<W> ::= TIMESTAMP| UPPER| MONTH| YEAR ;
+
+                                      
+
+<ColumnFunction> ::= <Function> <OpenParens> <AsteriscoDistinct> <CloseParens>;
+
+
+
+<AsteriscoDistinct> ::= "*"| <DistinctExpression>;
+
+
+
+<DistinctExpression> ::= <DistinctOpcional> <Expression> ;
+
+
+
+<DistinctOpcional> ::= DISTINCT | î ;
+
+
+
+<Function> ::= COUNT| SUM | MAX| MIN|AVG ;
+
+
+
+<ColumnList> ::= <ColumnName> #28 <SeparatorColumnName>;
+
+
+
+<SeparatorColumnName> ::= <ItemSeparator> <ColumnName> #28 <SeparatorColumnName> | î;
+
+                    
+
+<ColumnName> ::= ident <PontoCampo>;
+
+
+
+<PontoCampo> ::= "." <IdentAsterisco> |  î ;
+
+
+
+<IdentAsterisco> ::= ident| "*" ;
+
+                    
+
+<SimpleColumnName>::= <ColumnOpcional> ident #26;
+
+
+
+<ColumnOpcional> ::= COLUMN | î ;
+
+
+
+<SimpleColumnList> ::= <SimpleColumnName> <SeparatorSimpColumn>;
+
+
+
+<SeparatorSimpColumn> ::= <ItemSeparator> <SimpleColumnName> <SeparatorSimpColumn> |  î ;
+
+
+
+<SimpleColumnParam> ::= <OpenParens> <SimpleColumnList> <CloseParens> | î ;
+
+                    
+
+<FieldList> ::= <Field> #29 <SeparatorField> ;
+
+
+
+<SeparatorField> ::= <ItemSeparator> <Field> #29 <SeparatorField> |  î ;
+
+                    
+
+<Field> ::= <ColumnName> | <Null> #24 | float_ #22 | integer_ #21 | SQLString #23 | Data |<Param>;
+
+                                            
+
+<Null> ::= NULL;
+
+
+
+<Table> ::= ident;
+
+
+
+<Alias> ::= ident;
+
+
+
+<OrderByFldList> ::= <OrderByField> <SeparatorOrderBy>;
+
+
+
+<SeparatorOrderBy> ::= <ItemSeparator> <OrderByField> <SeparatorOrderBy> |  î ;
+
+
+
+<OrderByField> ::= <ColumnInteger> <OrdemOpcional>;
+
+
+
+<ColumnInteger> ::= <ColumnName> | integer_ ;
+
+
+
+<OrdemOpcional> ::= DESC| ASC |  î ;
+
+
+
+<SearchCondition> ::= <Expression>;
+
+
+
+<Expression> ::= <SimpleExpression> <RelationSimpleExp>;
+
+
+
+<RelationSimpleExp> ::= <Relation> <SimpleExpression> <RelationSimpleExp>  |  î ;
+
+
+
+<SimpleExpression> ::= <NotOpcional> <Term> <RepeteOperator>;
+
+
+
+<RepeteOperator> ::= <Operator> <NotOpcional> <Term> <RepeteOperator> |  î ;
+
+
+
+<NotOpcional> ::= <NotOperator> |  î ;
+
+
+
+<Term> ::= <MenosOpcional> <K>;
+
+
+
+<K> ::= <FieldTest> | <ColumnFunction> | <FunctionExpr> | <OpenExpClose> ;
+
+
+
+<OpenExpClose> ::= <OpenParens> <ExpSubSel> <CloseParens>;
+
+
+
+<ExpSubSel> ::= <Expression> | <SubSelectSQL>;
+
+
+
+<FieldTest> ::= <Field> <TestOpcional>;
+
+
+
+<TestOpcional> ::= <TestExpr> |  î ;
+
+
+
+<MenosOpcional> ::= "-" | î ;
+
+
+
+<Param> ::= ":" ident;
+
+
+
+<NotOperator>::= NOT;
+
+
+
+<Operator> ::= <MathOperator> | <WordOperator>;
+
+
+
+<MathOperator> ::= "*" | "/"| "+"| "-" ;
+
+
+
+<WordOperator> ::= AND | OR ;
+
+
+
+<LikeTest> ::= LIKE <SqlParam> <EscapeOpcional> ;
+
+
+
+<EscapeOpcional> ::= ESCAPE SQLString |  î ;
+
+
+
+<SqlParam> ::= SQLString | <Param>;
+
+
+
+<NullTest>::= IS <NotOpcional>  <Null>  ; 
+
+                   
+
+<Relation> ::= "=" | "<>"| "<" | "<=" | ">" | ">=" ;
+
+
+
+<TestExpr> ::= <NullTest> | <NotOpcional> <L> ;
+
+
+
+<L> ::= <InSetExpr> | <BetweenExpr> | <LikeTest> ;
+
+                     
+
+<BetweenExpr> ::= BETWEEN <Field> AND <Field>;
+
+    
+
+<InSetExpr> ::= IN <OpenParens> <FieldSub> <CloseParens>;
+
+
+
+<FieldSub> ::= <FieldList> | <SubSelectSQL>;
+
+
+
+<Transaction> ::= <CommitRollBack> <WorkOpcional>;
+
+
+
+<WorkOpcional> ::= WORK |  î ;
+
+
+
+<CommitRollBack> ::= COMMIT | ROLLBACK ;
+
+                                       
+
+<len> ::= integer_;                    
+
+
+
+<lenParam> ::= <OpenParens> <len> #21 <CloseParens> #10 ;
+
+
+
+<lenParam1> ::= <OpenParens> <len> #21 <CloseParens> #11 ;                  
+
+
+
+<lenParam3> ::= <OpenParens> <len> #21 <CloseParens> #13 ;
+
+                    
+
+<precision> ::= integer_#21 <IntOpcional> ;
+
+
+
+<IntOpcional> ::= <ItemSeparator> integer_ #21 | î ;
+
+      
+
+<DataType> ::= <DataChar>| <DataVarChar>| <Int> #9 | SMALLINT | <DataNum>| DATE #12 | <Time> | <TimeStamp>;
+
+
+
+<TimeStamp> ::=  TIMESTAMP <lenParam> ;
+
+
+
+<Time> ::=  TIME <lenParam> ;
+
+
+
+<DataNum> ::=  <Number>  <OpenParens> <precision> <CloseParens> #7 | <Numeric>  <OpenParens> <precision> <CloseParens> #8 ;
+
+
+
+<Number> ::= NUMERIC ;
+
+
+
+<Numeric> ::= NUMBER ;
+
+
+
+<Int> ::=  INTEGER | INT ;
+
+
+
+<DataVarChar> ::=  VARCHAR <lenParam> | VARCHAR2 <lenParam1> ;
+
+
+
+<VarChar> ::= VARCHAR  | VARCHAR2 ;
+
+
+
+<DataChar> ::= <Char> <lenParam3> ;
+
+
+
+<Char> ::= CHAR | CHARACTER ;
+
+
+
+<ColumnDefault> ::= DEFAULT  <Tipo>;
+
+
+
+<Tipo> ::=  SQLString | integer_ | float_ | Data;
+
+
+
+<ColumnDefList> ::= <ColumnDef> <ItemColumn>;
+
+
+
+<ItemColumn> ::= <ItemSeparator> <ColumnDef> <ItemColumn> |  î ;
+
+                    
+
+<ColumnDef> ::= <SimpleColumnName> #3 <DataType> #4 <Constraint1> ;
+
+
+
+<TiposConstraint> ::= <PrimaryKey> | <ForeignKey> | <Unique> | <CheckConstraint> | <NotNull> | <References> ;
+
+
+
+<References> ::= REFERENCES #19 ident #25 <CampoRefOpcional> ;
+
+
+
+<CampoRefOpcional> ::= <OpenParens> <ListaIds> <CloseParens> | î ;
+
+
+
+<Constraint1> ::= CONSTRAINT <Restricao1> #6 | <Restricao2> #6 | î ;
+
+
+
+<Restricao1> ::= <ConstraintName> #5 <TiposConstraint> ;
+
+
+
+<Restricao2> ::= <TiposConstraint> ;  
+
+
+
+<ColumnNotNull> ::= <U> <ColumnNotNull> | î;
+
+
+
+<U> ::= <ColumnDefault> |<NotNull> ;
+
+
+
+<NotNull> ::= <NotOperator> <Null> #17 | <Null> #16 ;
+
+
+
+<PrimaryKey> ::= PRIMARY KEY  #18 <SimpleColumnParam>;
+
+                    
+
+<RelationName> ::= ident ;              
+
+  
+
+<ConstraintName> ::= ident;
+
+                    
+
+<ForeignKey> ::= FOREIGN KEY #20 <SimpleColumnParam> REFERENCES #19 <Table> #25 <Colunas1> <N> <Q> ;
+
+
+
+<Colunas> ::= <OpenParens> <ListaIds> <CloseParens> |  î ;  
+
+
+
+<Colunas1> ::= <OpenParens> ident #26 <CloseParens> |  î ;  
+
+
+
+<ListaIds> ::= ident #26 <RlistaIds> ;
+
+
+
+<RlistaIds> ::= <ItemSeparator> <ListaIds> |  î ;
+
+
+
+<Q> ::= <V> <Q> | î ;
+
+
+
+<V> ::= <OnDel>| <NoAction> ;
+
+
+
+<OnDel> ::= ON <DelUpdate> <CascadeSetNullDef> ;
+
+
+
+<CascadeSetNullDef> ::=  CASCADE| <SetNullDef> ;
+
+
+
+<SetNullDef> ::=  SET <NullDefault> ;
+
+
+
+<NullDefault> ::=  <Null> | DEFAULT ;
+
+
+
+<NoAction> ::=  NO ACTION ;
+
+
+
+<DelUpdate> ::= DELETE|UPDATE ;
+
+
+
+<N> ::= MATCH <FullPartial> | î ;
+
+
+
+<FullPartial> ::=  FULL | PARTIAL ;
+
+                            
+
+<Unique> ::= UNIQUE <SimpleColumnParam>;
+
+                    
+
+<CheckConstraint> ::= CHECK <OpenParens> <Expression> <CloseParens> ;
+
+                     
+
+<CreatePart> ::= <ColumnDef> | <Constraint1> ; 
+
+
+
+<CreateExpr> ::= CREATE <TableIndex>;
+
+
+
+<TableIndex> ::= <CreateTable> | <CreateIndex> ;
+
+                    
+
+<CreateTable> ::= TABLE <CreateTable3> ;
+
+
+
+<CreateTable1> ::=  <Table> #1 <OpenParens> <CreatePart> <ItemCreatePart> <CloseParens> #2 ;
+
+
+
+<CreateTable2> ::= AS <OpenParens> <SelectStmt> <CloseParens> ;
+
+
+
+<CreateTable3> ::= <CreateTable1> | <CreateTable2> ; 
+
+
+
+<ItemCreatePart> ::= <ItemSeparator> <CreatePart> <ItemCreatePart> |  î ;
+
+                  
+
+<Drop> ::= DROP <DropTableIndex>;
+
+
+
+<DropTableIndex> ::= <DropTable> | <IndexAndName> #30;
+
+
+
+<DropTable> ::= TABLE <QualifiedTable> #14;
+
+
+
+<Add>::= ADD <WhatAdd> ;
+
+
+
+<WhatAdd> ::= <ColumnDefList> | <Constraint1> ;
+
+
+
+<DropSet> ::= <DropDef>| <SetColumn> ;
+
+
+
+<SetColumn> ::=  SET <ColumnDefault> ;
+
+
+
+<DropDef> ::= DROP DEFAULT ;
+
+
+
+<DropPart> ::= DROP <WhatDrop>;
+
+
+
+<WhatDrop> ::= <SimpleColumnName> #34 | PRIMARY KEY #31 | FOREIGN KEY <RelationName> #32 | CONSTRAINT <ConstraintName> #33 ;
+
+                                                         
+
+<AlterTable> ::= ALTER TABLE <QualifiedTable> <Z>;
+
+
+
+<Z> ::= <Add> | <DropPart> | <Modify> ;
+
+
+
+<Modify> ::= MODIFY ident #26 <DataType> ;
+
+
+
+<IndexColumn> ::= <SimpleColumnName> <OrdemOpcional> ;
+
+                   
+
+<IndexColumnList> ::= <IndexColumn> <E> ;
+
+
+
+<E> ::= <ItemSeparator> <IndexColumn> <E> | î ;
+
+                   
+
+<IndexName> ::= ident;
+
+
+
+<CreateIndex> ::= <CreateIndex1> <IndexAndName> #29 ON <Table> #25 <OpenParens> <IndexColumnList> <CloseParens> ;
+
+
+
+<CreateIndex1> ::= UNIQUE | î ;
+
+
+
+<IndexAndName> ::= INDEX <IndexName>;
+
+
+
+<ItemSeparator> ::= "," ;  
+
+                   
+
+<OpenParens> ::= "("  ;                                       
+
+                   
+
+<CloseParens> ::= ")" ;
+
+
+
+
+
+
