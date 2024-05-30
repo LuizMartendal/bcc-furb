@@ -1,0 +1,9 @@
+SN74LS90.PDF
+sn74ls260.pdf
+sn74ls266.pdf
+sn74ls279.pdf
+SN74LS47.PDF
+SN74LS48.PDF
+sn74ls83a.pdf
+MC74HC76.PDF
+
