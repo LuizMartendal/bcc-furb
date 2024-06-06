@@ -29,16 +29,15 @@ def buscar_frase_similar(frase_input):
         SELECT id, frase, embedding <=> %s::vector AS distancia
         FROM frases_embeddings
         ORDER BY distancia
-        LIMIT 1;
+        LIMIT 3;
     """, (embedding_input_str,))
 
     # Obter o resultado
-    resultado = cursor.fetchone()
+    resultado = cursor.fetchall()
     conn.close()
 
     if resultado:
-        id, frase, distancia = resultado
-        return id, frase, distancia
+        return resultado
     else:
         return None
 
@@ -51,10 +50,11 @@ def main():
     resultado = buscar_frase_similar(frase_input)
 
     if resultado:
-        id, frase, distancia = resultado
-        print(f"Frase mais similar encontrada (ID: {id}):")
-        print(f"Frase: {frase}")
-        print(f"Distância: {distancia}")
+        for i in range(len(resultado)):
+            id, frase, distancia = resultado[i]
+            print(f"\nFrase mais similar encontrada (ID: {id}):")
+            print(f"Frase: {frase}")
+            print(f"Distância: {distancia}")
     else:
         print("Nenhuma frase similar encontrada.")
 
