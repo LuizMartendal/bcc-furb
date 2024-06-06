@@ -57,8 +57,8 @@ def create_individual_from_title(title):
 
 def main(target_string):
     global TARGET
-
     TARGET = target_string
+
     global GENE_LENGTH 
     GENE_LENGTH = len(TARGET)
 
