@@ -28,8 +28,7 @@ def buscar_frase_similar(frase_input):
     cursor.execute("""
         SELECT id, frase, embedding <=> %s::vector AS distancia
         FROM frases_embeddings
-        ORDER BY distancia
-        LIMIT 5;
+        ORDER BY distancia;
     """, (embedding_input_str,))
 
     # Obter o resultado
