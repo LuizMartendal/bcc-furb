@@ -4,32 +4,46 @@ from heapq import heappop, heappush
 from IPython.display import clear_output
 import copy
 
-linhas, colunas = 4, 4
+linhas, colunas = 6, 6
+posAPAx, posAPAy = 1, 1
 pontos = 0
 ambiente = None
 direcoes = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 
 
-def simular_aspirador():
-    gerar_ambiente()
-    posicao_inicial = (1, 1)
-    ambiente_clone = copy.deepcopy(ambiente)
+def main():
+  global pontos
+  gerar_ambiente()
 
-    melhor_caminho = limpar_todas_sujeiras(posicao_inicial, ambiente_clone)
+  if (len(ambiente) > 2) and (len(ambiente[0]) > 2):
+    posAPAx = np.random.choice([1, linhas - 2])
+    posAPAy = np.random.choice([1, colunas - 2])
 
-    for proxima_posicao in melhor_caminho:
-        x, y = proxima_posicao
-        global pontos
-        pontos += 1
-        exibir(proxima_posicao)
+  posicao_inicial = posAPAx, posAPAy
+  exibir(posicao_inicial)
 
-        if ambiente[x][y] == 2:
-            ambiente[x][y] = 0
-            print(f"Sujeira aspirada na posição ({x}, {y})")
-            pontos += 1
-            exibir(proxima_posicao)
+  if ambiente[posAPAx][posAPAy] == 2:
+    ambiente[posAPAx][posAPAy] = 0
+    print(f"Sujeira aspirada na posição ({posAPAx}, {posAPAy})")
+    pontos += 1
+    exibir(posicao_inicial)
 
-    print(f"Ambiente limpo em {pontos} pontos!")
+  ambiente_clone = copy.deepcopy(ambiente)
+
+  melhor_caminho = limpar_todas_sujeiras(posicao_inicial, ambiente_clone)
+
+  for proxima_posicao in melhor_caminho:
+    exibir(proxima_posicao)
+    x, y = proxima_posicao
+    pontos += 1
+
+    if ambiente[x][y] == 2:
+      ambiente[x][y] = 0
+      print(f"Sujeira aspirada na posição ({x}, {y})")
+      exibir(proxima_posicao)
+      pontos += 1
+
+  print(f"Ambiente limpo em {pontos} pontos!")
 
 
 def checkObj(sala):
