@@ -15,10 +15,6 @@ def main():
   global pontos
   gerar_ambiente()
 
-  if (len(ambiente) > 2) and (len(ambiente[0]) > 2):
-    posAPAx = np.random.choice([1, linhas - 2])
-    posAPAy = np.random.choice([1, colunas - 2])
-
   posicao_inicial = posAPAx, posAPAy
   exibir(posicao_inicial)
 
@@ -123,16 +119,19 @@ def a_star(inicio, objetivo, ambiente_clone):
 def limpar_todas_sujeiras(posicao_inicial, ambiente_clone):
   caminho_completo = []
   posicao_atual = posicao_inicial
-
+  sujeiras = [(i, j) for i in range(linhas) for j in range(colunas) if ambiente_clone[i, j] == 2]
   while checkObj(ambiente_clone):
-    sujeiras = [(i, j) for i in range(linhas) for j in range(colunas) if ambiente_clone[i, j] == 2]
-    proximidade_sujeira = [(posicao_atual[0] + direcao[0], posicao_atual[1] + direcao[1]) for direcao in direcoes if 0 <= posicao_atual[0] + direcao[0] < linhas and 0 <= posicao_atual[1] + direcao[1] < colunas and ambiente_clone[posicao_atual[0] + direcao[0], posicao_atual[1] + direcao[1]] == 2]
+
+    proximidade_sujeira = [(posicao_atual[0] + direcao[0], posicao_atual[1] + direcao[1]) for direcao in direcoes if 0 <= posicao_atual[0] + direcao[0] < linhas and
+                           0 <= posicao_atual[1] + direcao[1] < colunas and ambiente_clone[posicao_atual[0] + direcao[0], posicao_atual[1] + direcao[1]] == 2]
 
     if proximidade_sujeira:
       proxima_sujeira = proximidade_sujeira[0]
       caminho_completo.append(proxima_sujeira)
       posicao_atual = proxima_sujeira
       ambiente_clone[posicao_atual[0], posicao_atual[1]] = 0
+      sujeiras.remove(proxima_sujeira)
+
     else:
       distancias = [(distancia_manhattan(posicao_atual, sujeira), sujeira) for sujeira in sujeiras]
       _, sujeira_mais_proxima = min(distancias)
@@ -140,9 +139,14 @@ def limpar_todas_sujeiras(posicao_inicial, ambiente_clone):
       caminho_completo += caminho[1:]
       posicao_atual = sujeira_mais_proxima
       ambiente_clone[posicao_atual[0], posicao_atual[1]] = 0
+      sujeiras.remove(sujeira_mais_proxima)
 
   return caminho_completo
 
 
 if __name__ == '__main__':
   main()
+
+#   B) É possível ter todo o espaço limpo efetivamente? Justifique sua resposta.
+#     R: Sim, pois utilizamos o algoritmo A*, onde ele mapea o caminho mais curto entre a posição atual e a sujeira mais próxima
+#        fazendo com que que ele encontre o caminho mais curto, assim limpando de forma efetiva

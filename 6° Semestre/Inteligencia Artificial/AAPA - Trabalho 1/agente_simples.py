@@ -1,113 +1,115 @@
+# Eduardo Lyra, Lucas Fritzke, Luiz Martendal, Daniel Kruger
+
 import numpy as np
 import matplotlib.pyplot as plt
 from IPython.display import clear_output
-import random
 
-colunas = 6
-linhas = 6
-
-ambiente: any
-sujeiras = 0
+COL_SIZE = 6
+LINE_SIZE = 6
 
 def main():
-  ambiente = criar_ambiente()
-  posAPAx, posAPAy = 0, 0
+    global avancarX
+    avancarX = 1
+    global avancarY
+    avancarY = 1
 
-  if (linhas > 2) and (colunas > 2):
-    posAPAx = np.random.choice([1, linhas - 2])
-    posAPAy = np.random.choice([1, colunas - 2])
+    global posAPAx
+    posAPAx = 1
+    global posAPAy
+    posAPAy = 1
 
-  exibir(ambiente, posAPAx, posAPAy)
+    global contagem
+    contagem = 0
 
-  while True:
-    percepcao = funcaoMapear(ambiente, posAPAx, posAPAy)
-    acoes = agenteReativoSimples(ambiente, percepcao)
+    gerar_matriz_com_paredes()
+    executar()
 
-    if acoes != []:
-      acoes = random.choice(acoes)
-    posAPAx, posAPAy = mover_agente(ambiente, acoes, posAPAx, posAPAy)
-    exibir(ambiente, posAPAx, posAPAy)
+def executar():
+    global posAPAx, posAPAy, matriz
+    while True:
+        status = funcaoMapear()
+        print(agenteReativoSimples(status[1]))
+        exibir(posAPAy, posAPAx, matriz)
 
+def funcaoMapear():
+    global posAPAx, posAPAy, matriz
+    if matriz[posAPAx][posAPAy] == 2:
+        status = "sujo"
+    else:
+        status = "limpo"
+    return ((posAPAx, posAPAy), status)
 
-def criar_ambiente():
-  ambiente = np.zeros((linhas, colunas), dtype=int)
+def agenteReativoSimples(status):
+    global avancarX, avancarY, posAPAx, posAPAy, matriz, contagem
+    if status == "sujo":
+        matriz[posAPAx][posAPAy] = 0
+        contagem += 1
+        return 'aspirar'
+    if matriz[posAPAx + avancarX][posAPAy] != 1:
+        moverAgente('x')
+        return verificaDirecaoX()
+    if matriz[posAPAx][avancarY + posAPAy] != 1:
+        moverAgente('y')
+        avancarX *= -1
+        return verificaDirecaoY()
+    else:
+        avancarY *= -1
+        avancarX *= -1
+        moverAgente('y')
+        return verificaDirecaoY()
 
-  ambiente[0, :] = 1
-  ambiente[-1, :] = 1
-  ambiente[:, 0] = 1
-  ambiente[:, -1] = 1
+def moverAgente(flag):
+    global avancarX, avancarY, posAPAx, posAPAy
+    if flag == 'x':
+        posAPAx += avancarX
+    else:
+        posAPAy += avancarY
 
-  if linhas > 2 or colunas > 2:
-    ambiente[1:-1, 1:-1] = np.random.choice([0, 2], size=(linhas-2, colunas-2))
+def verificaDirecaoX():
+    global avancarX
+    if avancarX > 0:
+        return 'abaixo'
+    else:
+        return 'acima'
 
-  return ambiente
-
-
-def exibir(ambiente, posAPAx, posAPAy):
-  global sujeiras
-  plt.pause(0.2)
-  clear_output(wait=True)
-
-  plt.imshow(ambiente, 'Blues')
-  plt.title(f"Quantidade de sujeiras encontradas: {sujeiras}")
-  plt.nipy_spectral()
-
-  plt.plot([posAPAy],[posAPAx], marker='o', color='r', ls='')
-
-  plt.show(block=False)
-
-  plt.pause(0.2)
-  plt.clf()
-
-
-def agenteReativoSimples(ambiente, percepcao):
-  posicao, status = percepcao
-  if status == 'sujo':
-    return ['aspirar']
-  else:
-    x, y = posicao
-    movimentos = []
-
-    if x > 1:
-      if ambiente[x - 1][y] == 2:
-        return ['acima']
-      movimentos.append('acima')
-    if x < linhas - 2:
-      if ambiente[x + 1][y] == 2:
-        return ['abaixo']
-      movimentos.append('abaixo')
-    if y > 1:
-      if ambiente[x][y - 1] == 2:
-        return ['esquerda']
-      movimentos.append('esquerda')
-    if y < colunas - 2:
-      if ambiente[x][y + 1] == 2:
-        return ['direita']
-      movimentos.append('direita')
-
-  return movimentos
+def verificaDirecaoY():
+    global avancarY
+    if avancarY > 0:
+        return 'direita'
+    else:
+        return 'esquerda'
 
 
-def funcaoMapear(ambiente, x, y):
-  status = 'sujo' if ambiente[x][y] == 2 else 'limpo'
-  return ((x, y), status)
+def gerar_matriz_com_paredes():
+    global matriz, contagem
+    matriz = np.zeros((LINE_SIZE, COL_SIZE), dtype=int)
+
+    matriz[0, :] = 1
+    matriz[-1, :] = 1
+    matriz[:, 0] = 1
+    matriz[:, -1] = 1
+
+    matriz[1:-1, 1:-1] = np.random.choice([0, 2], size=(LINE_SIZE-2, COL_SIZE-2))
 
 
-def mover_agente(ambiente, acao, posAPAx, posAPAy):
-  global sujeiras
-  if acao == 'aspirar':
-    ambiente[posAPAx][posAPAy] = 0
-    sujeiras += 1
-  elif acao == 'direita' and ambiente[posAPAx][posAPAy + 1] != 1:
-    posAPAy += 1
-  elif acao == 'abaixo' and ambiente[posAPAx + 1][posAPAy] != 1:
-    posAPAx += 1
-  elif acao == 'esquerda' and ambiente[posAPAx][posAPAy - 1] != 1:
-    posAPAy -= 1
-  elif acao == 'acima' and ambiente[posAPAx - 1][posAPAy] != 1:
-    posAPAx -= 1
-  return posAPAx, posAPAy
+def exibir(y, x, matriz):
+    global contagem
 
+    clear_output(wait=True)
+    plt.imshow(matriz, 'Blues')
+    plt.title(f"Quantidade de sujeiras encontradas: {contagem}")
+    plt.nipy_spectral()
+
+    plt.plot([y],[x], marker='o', color='r', ls='')
+
+    plt.show(block=False)
+
+    plt.pause(0.5)
+    plt.clf()
 
 if __name__ == "__main__":
   main()
+
+
+# A) A sua solução é extensível para um mundo 3 x 3? E para um mundo 6 x 6? Explique sua resposta
+# R: Sim, pois nosso algoritmo realiza o caminhamento de cima para baixo, e depois de baixo para cima. Ele se baseia nos extremos (paredes)
