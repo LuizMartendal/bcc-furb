@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Configurations {
 
-    public static final int PORT = 8080;
+    public static final int PORT = 8900;
 
     public static Map<String, Controller> getRoutes() {
         Map<String, Controller> routes = new HashMap<>();
