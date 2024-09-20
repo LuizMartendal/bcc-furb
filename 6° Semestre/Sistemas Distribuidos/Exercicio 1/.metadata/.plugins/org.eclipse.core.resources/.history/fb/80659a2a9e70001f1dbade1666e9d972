@@ -1,0 +1,10 @@
+package controllers;
+
+public class TesteVisa implements Handler {
+
+	@Override
+	public String handlerName() {
+		return "testeVisa";
+	}
+
+}
