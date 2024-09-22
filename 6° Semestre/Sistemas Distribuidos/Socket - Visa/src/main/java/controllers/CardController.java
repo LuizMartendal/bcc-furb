@@ -3,14 +3,13 @@ package controllers;
 import com.google.gson.Gson;
 import infra.BaseHandler;
 import infra.Controller;
+import models.Card;
 import models.Pay;
 import models.Transaction;
 
-import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
-import java.util.regex.Pattern;
 
 public class CardController extends BaseHandler implements Controller {
 
@@ -26,5 +25,10 @@ public class CardController extends BaseHandler implements Controller {
         response.setName(pay.getName());
         response.setClientValue(pay.getTransactionValue());
         return response;
+    }
+
+    public Object createCard(String cardJson) {
+        Card card = new Gson().fromJson(cardJson, Card.class);
+        return card;
     }
 }

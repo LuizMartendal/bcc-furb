@@ -11,7 +11,7 @@ public class Route {
         String path = parts.length > 1 ? parts[1] : "index";
 
         Map<String, Controller> routes = Configurations.getRoutes();
-        String basePath = path.split("/")[1];
+        String basePath = path.split("/").length > 0 ? path.split("/")[1] : "baseHandler";
         String method =  path.split("/").length > 2 //
                 ? path.split("/")[2].split("\\?").length > 0 ? path.split("/")[2].split("\\?")[0] : null //
                 : "healthCheck";
