@@ -1,4 +1,0 @@
-INDEX VERSION 1.134+C:\Users\lhmartendal\Documents\GitHub\bcc-furb\6° Semestre\Sistemas Distribuidos\Exercicio 1\.metadata\.plugins\org.eclipse.jdt.core
-1865797976.index
-513148075.index
-3932173654.index
