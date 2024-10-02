@@ -1,29 +1,28 @@
 package models;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 public class Card implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private String code;
+
+    private String validDate;
+
+    private String username;
+
+    private String cvv;
+
     public Card() {
     }
 
-    public Card(String code, LocalDate validDate, String username, String cvv) {
+    public Card(String code, String validDate, String username, String cvv) {
         this.code = code;
         this.validDate = validDate;
         this.username = username;
         this.cvv = cvv;
     }
-
-    private String code;
-
-    private LocalDate validDate;
-
-    private String username;
-
-    private String cvv;
 
     public String getCode() {
         return code;
@@ -33,11 +32,11 @@ public class Card implements Serializable {
         this.code = code;
     }
 
-    public LocalDate getValidDate() {
+    public String getValidDate() {
         return validDate;
     }
 
-    public void setValidDate(LocalDate validDate) {
+    public void setValidDate(String validDate) {
         this.validDate = validDate;
     }
 
