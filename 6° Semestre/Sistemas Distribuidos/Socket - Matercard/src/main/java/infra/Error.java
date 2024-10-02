@@ -3,13 +3,11 @@ package infra;
 public class Error extends RuntimeException {
 
     private Integer status;
-    private String error;
     private String message;
 
-    public Error(Integer status, String message, String error) {
+    public Error(Integer status, String message) {
         this.status = status;
         this.message = message;
-        this.error = error;
     }
 
     public Integer getStatus() {
@@ -26,13 +24,5 @@ public class Error extends RuntimeException {
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
     }
 }

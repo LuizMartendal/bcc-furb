@@ -1,5 +1,6 @@
 package infra;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ public class Route {
         String path = parts.length > 1 ? parts[1] : "index";
 
         Map<String, Controller> routes = Configurations.getRoutes();
-        String basePath = path.split("/")[1];
+        String basePath = path.split("/").length > 0 ? path.split("/")[1] : "baseHandler";
         String method =  path.split("/").length > 2 //
                 ? path.split("/")[2].split("\\?").length > 0 ? path.split("/")[2].split("\\?")[0] : null //
                 : "healthCheck";
@@ -31,11 +32,16 @@ public class Route {
                     return controllerMethod.invoke(controller);
                 }
             } catch (NoSuchMethodException e) {
-                return new Error(405, null, "METHOD NOT IMPLEMENTED");
+                return new Error(405, "Método não implementado");
             } catch (Error e) {
                 return e;
+            } catch (InvocationTargetException ite){
+                if (ite.getCause().getMessage() != null && ((Error) ite.getCause()).getStatus() != null) {
+                    return new Error(((Error) ite.getCause()).getStatus(), ite.getCause().getMessage());
+                }
+                return new Error(500, "Internal Error");
             } catch (Exception e) {
-                return new Error(500, null, "INTERNAL SERVER ERROR");
+                return new Error(500, "Internal Error");
             }
         } else {
             return "404 Not Found: Controlador não encontrado";

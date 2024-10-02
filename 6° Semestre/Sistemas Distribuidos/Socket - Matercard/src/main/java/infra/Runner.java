@@ -70,9 +70,7 @@ public class Runner {
                                 out.println("Content-Type: application/json");
                                 out.println("Content-Length: " + jsonResponse.length());
                                 out.println();
-                                if (((Error) responseObject).getMessage() != null) {
-                                    out.println(((Error) responseObject).getMessage());
-                                }
+                                out.println(((Error) responseObject).getMessage());
                             } else {
                                 out.println("HTTP/1.1 200 OK");
                                 out.println("Content-Type: application/json");

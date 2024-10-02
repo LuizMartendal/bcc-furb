@@ -1,5 +1,6 @@
 package infra;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
@@ -34,6 +35,11 @@ public class Route {
                 return new Error(405, "Método não implementado");
             } catch (Error e) {
                 return e;
+            } catch (InvocationTargetException ite){
+                if (ite.getCause().getMessage() != null && ((Error) ite.getCause()).getStatus() != null) {
+                    return new Error(((Error) ite.getCause()).getStatus(), ite.getCause().getMessage());
+                }
+                return new Error(500, "Internal Error");
             } catch (Exception e) {
                 return new Error(500, "Internal Error");
             }

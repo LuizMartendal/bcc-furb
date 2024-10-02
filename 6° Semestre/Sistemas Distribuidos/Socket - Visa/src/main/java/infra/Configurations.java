@@ -1,6 +1,7 @@
 package infra;
 
 import controllers.CardController;
+import controllers.PaymentController;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +14,7 @@ public class Configurations {
         Map<String, Controller> routes = new HashMap<>();
         routes.put("/baseHandler", new BaseHandler());
         routes.put("/card", new CardController());
+        routes.put("/payment", new PaymentController());
         return routes;
     }
 }
