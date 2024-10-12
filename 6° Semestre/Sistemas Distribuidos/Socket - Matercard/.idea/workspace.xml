@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e724697-995a-40bb-a1ba-9eea955eb28b" name="Changes" comment="" />
+    <list default="true" id="4e724697-995a-40bb-a1ba-9eea955eb28b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Aula 8/ola.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Aula 8/olaCliente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Aula 8/olaServidor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +42,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/luizm/Documents/Graduações/FURB/6° Semestre/Sistemas Distribuidos/Socket - Matercard&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/luizm/Documents/Graduações/FURB/6° Semestre/Sistemas Distribuidos/RMI-RPC&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -79,6 +85,8 @@
       <workItem from="1727824298140" duration="3520000" />
       <workItem from="1727828673928" duration="367000" />
       <workItem from="1727829603726" duration="208000" />
+      <workItem from="1728075351427" duration="408000" />
+      <workItem from="1728076097151" duration="16000" />
     </task>
     <servers />
   </component>
