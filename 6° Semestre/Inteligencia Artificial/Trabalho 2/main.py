@@ -8,10 +8,13 @@ import numpy as np
 # Constantes
 LINHAS = 6
 COLUNAS = 7
+PROFUNDIDADE_MAXIMA = 6
+
 JOGADOR = 0
 IA = 1
 PECA_JOGADOR = 1
 PECA_IA = 2
+
 COR_VAZIA = "black"
 COR_JOGADOR = "red"
 COR_IA = "blue"
@@ -157,12 +160,15 @@ def minimax(tabuleiro, profundidade, alfa, beta, maximizador):
 
 # Atualiza a interface gráfica com o estado atual do tabuleiro
 def atualizar_tabuleiro_gui(tabuleiro):
+    tabuleiro_invertido = np.flip(tabuleiro, 0)
+    linhas, colunas = tabuleiro_invertido.shape
+    tabuleiro_invertido = tabuleiro_invertido.astype(int)
     for l in range(LINHAS):
         for c in range(COLUNAS):
             cor = COR_VAZIA
-            if tabuleiro[l][c] == PECA_JOGADOR:
+            if tabuleiro_invertido[l][c] == PECA_JOGADOR:
                 cor = COR_JOGADOR
-            elif tabuleiro[l][c] == PECA_IA:
+            elif tabuleiro_invertido[l][c] == PECA_IA:
                 cor = COR_IA
             botoes_tabuleiro[l][c].config(bg=cor)
 
@@ -183,7 +189,7 @@ def jogador_joga(coluna):
 
 # Simula o turno da IA
 def vez_ia():
-    coluna, _ = minimax(tabuleiro, 3, -math.inf, math.inf, True)
+    coluna, _ = minimax(tabuleiro, PROFUNDIDADE_MAXIMA, -math.inf, math.inf, True)
     if localizacao_valida(tabuleiro, coluna):
         linha = obter_linha_aberta(tabuleiro, coluna)
         soltar_peca(tabuleiro, linha, coluna, PECA_IA)

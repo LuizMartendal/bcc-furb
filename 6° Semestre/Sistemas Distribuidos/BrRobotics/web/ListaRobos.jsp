@@ -2,7 +2,7 @@
     Document   : ListaPizzas
     Created on : 18/07/2013, 12:17:48
     Author     : joaosantanna
---%>
+--%>/
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
