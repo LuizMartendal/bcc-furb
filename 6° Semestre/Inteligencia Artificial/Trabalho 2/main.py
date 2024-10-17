@@ -8,7 +8,7 @@ import numpy as np
 # Constantes
 LINHAS = 6
 COLUNAS = 7
-PROFUNDIDADE_MAXIMA = 6
+PROFUNDIDADE_MAXIMA = 8
 
 JOGADOR = 0
 IA = 1
