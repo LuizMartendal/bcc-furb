@@ -1,22 +1,79 @@
-<project name="BrRobotics" default="default" basedir=".">
-    <description>Builds, tests, and runs the project BrRobotics.</description>
-    <import file="nbproject/build-impl.xml"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="BrRobotics">
+    <!-- Propriedades do ambiente -->
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../eclipse/java-2022-12/eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="17"/>
+    <property name="source" value="17"/>
 
-    <property name="build.classes.dir" value="build/classes" />
-    <property name="src.dir" value="src/java" /> <!-- Ajuste conforme necessário -->
-    <property name="libs.CopyLibs.classpath" location="lib/org-netbeans-modules-java-j2seproject-copylibstask.jar" />
+    <!-- Diretórios -->
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="web.dir" value="web"/>
+    <property name="dist.dir" value="."/> <!-- Diretório para gerar o .war na raiz do projeto -->
 
-    <target name="prepare">
-        <mkdir dir="${build.classes.dir}" />
+    <!-- Classpath -->
+    <path id="BrRobotics.classpath"/>
+	
+	<path id="project.classpath">
+	    <fileset dir="${libs.dir}">
+	        <include name="**/*.jar"/>
+	    </fileset>
+	    <!-- Adicione manualmente o caminho para o servlet-api e jaxrs-api -->
+	    <pathelement location="/lib/servlet-api.jar"/>
+	    <pathelement location="/lib/javax.ws.rs-api-2.1.1.jar"/>
+	</path>
+
+    <!-- Inicializar diretórios necessários -->
+    <target name="init">
+        <mkdir dir="${build.dir}/classes"/>
+        <mkdir dir="${build.dir}/web"/>
+        <mkdir dir="${dist.dir}"/>
     </target>
 
-    <target name="compile" depends="prepare">
-        <javac srcdir="${src.dir}" destdir="${build.classes.dir}" source="1.8" target="1.8">
-            <classpath>
-                <path path="${libs.CopyLibs.classpath}"/>
-            </classpath>
+    <!-- Limpar diretório de build -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <mkdir dir="${build.dir}"/>
+    </target>
+
+    <!-- Alvo para limpar tudo -->
+    <target depends="clean" name="cleanall"/>
+
+    <!-- Compilar o projeto -->
+    <target depends="init" name="build-project">
+        <javac srcdir="${src.dir}" destdir="${build.dir}/classes" includeantruntime="false" debug="${debuglevel}" target="${target}" source="${source}">
+            <classpath refid="BrRobotics.classpath"/>
         </javac>
     </target>
 
-    <!-- Outros targets conforme necessário -->
+    <!-- Copiar arquivos do webapp (JSPs, HTMLs, etc.) -->
+    <target name="prepare" depends="build-project">
+        <copy todir="${build.dir}/web">
+            <fileset dir="${web.dir}">
+                <exclude name="WEB-INF/web.xml"/>
+            </fileset>
+        </copy>
+
+        <!-- Copiar o web.xml -->
+        <copy file="${web.dir}/WEB-INF/web.xml" todir="${build.dir}/web/WEB-INF"/>
+    </target>
+
+    <!-- Gerar o arquivo .war na raiz do projeto -->
+    <target name="dist" depends="prepare">
+        <war destfile="${dist.dir}/BrRobotics.war" webxml="${build.dir}/web/WEB-INF/web.xml">
+            <fileset dir="${build.dir}/web"/>
+            <classes dir="${build.dir}/classes"/>
+        </war>
+    </target>
+
+    <!-- Compilar o projeto usando o compilador do Eclipse -->
+    <target name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+
+    <!-- Alvo padrão para construir o projeto -->
+    <target name="build" depends="build-project, dist"/>
 </project>
