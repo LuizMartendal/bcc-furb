@@ -8,7 +8,7 @@ import numpy as np
 # Constantes
 LINHAS = 6
 COLUNAS = 7
-PROFUNDIDADE_MAXIMA = 8
+PROFUNDIDADE_MAXIMA = 6
 
 JOGADOR = 0
 IA = 1
@@ -86,10 +86,10 @@ def pontuar_posicao(tabuleiro, peca):
     pontuacao = 0
     peca_oponente = PECA_JOGADOR
     tabuleiro_avaliacao = np.array([[3, 4, 5, 7, 5, 4, 3],
-                                    [4, 6, 8, 10, 8, 6, 4],
+                                    [4, 6, 11, 10, 11, 6, 4],
                                     [5, 7, 11, 13, 11, 7, 5],
                                     [5, 7, 11, 13, 11, 7, 5],
-                                    [4, 6, 8, 10, 11, 6, 4],
+                                    [4, 6, 11, 10, 11, 6, 4],
                                     [3, 4, 5, 7, 5, 4, 3]])
 
     pontuacao_peca = np.sum(tabuleiro_avaliacao[tabuleiro == peca])
