@@ -30,7 +30,7 @@ public class DAOPedido {
         try {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
 
-            String url = "jdbc:derby://localhost:1527/BrRobotics;create=true";
+            String url = "jdbc:derby://localhost:1527/BrRobotics";
             String user = "root";
             String pass = "root";
 

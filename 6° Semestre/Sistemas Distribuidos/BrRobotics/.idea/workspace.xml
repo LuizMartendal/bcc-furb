@@ -5,64 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d3c0fea-2645-4ee3-b963-af9d12fd88fe" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../BrRobotics build/BrRobotics.war" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/com/brrobotics/dao/DAOPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/brrobotics/dao/DAOPedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.mylyn/repositories.xml.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.location" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/history.version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.resources/.root/1.tree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jsch.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jst.j2ee.webservice.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.m2e.discovery.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.context.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.monitor.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.tasks.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.navigator.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.workbench.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.urischeme.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.egit.core/.org.eclipse.egit.core.cmp/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.egit.core/.org.eclipse.egit.core.cmp/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.jdt.core/assumedExternalFilesCache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.jdt.core/externalFilesCache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.jdt.core/javaLikeNames.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.jdt.ui/OpenTypeHistory.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.jdt.ui/QualifiedTypeNameHistory.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.m2e.core/workspaceState.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.m2e.logback/0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.6.1.20240411-1122.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.mylyn.github.ui/avatars.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.oomph.setup/workspace.setup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.tips.ide/dialog_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.ui.intro/introstate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.ui.workbench/dialog_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/.metadata/version.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/CriptografiaHASH.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/CriptografiaRSA.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/EncriptaDecriptaOTP.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/EncriptaDecriptaRC4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Criptografia/EncriptaDescriptaAES.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StarkSystem/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StarkSystem/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StarkSystem/.settings/.jsdtscope" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StarkSystem/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StarkSystem/.settings/org.eclipse.wst.common.component" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StarkSystem/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StarkSystem/.settings/org.eclipse.wst.jsdt.ui.superType.container" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StarkSystem/.settings/org.eclipse.wst.jsdt.ui.superType.name" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,25 +25,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/luizm/Documents/Graduações/FURB/6° Semestre/Sistemas Distribuidos/StarkSystem/build.xml",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/luizm/Documents/Graduações/FURB/6° Semestre/Sistemas Distribuidos/StarkSystem/build.xml&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -116,6 +61,9 @@
       <workItem from="1729478264679" duration="17000" />
       <workItem from="1729544335402" duration="13000" />
       <workItem from="1729644921738" duration="1235000" />
+      <workItem from="1729724890843" duration="715000" />
+      <workItem from="1729893969339" duration="23000" />
+      <workItem from="1729895186175" duration="26000" />
     </task>
     <servers />
   </component>
