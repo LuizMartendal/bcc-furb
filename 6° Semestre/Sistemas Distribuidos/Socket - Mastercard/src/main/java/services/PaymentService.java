@@ -34,8 +34,8 @@ public class PaymentService {
         } catch (Exception e) {
             throw new Error(400, "Número do cartão de crédito inválido");
         }
-        if (!number.substring(1).matches("5[1-5]") || number.length() != 16) {
-            throw new Error(400, "Cartão de crédito não é da bandeira Visa");
+        if (!number.substring(0, 2).matches("5[1-5]") || number.length() != 16) {
+            throw new Error(400, "Cartão de crédito não é da bandeira Mastercard");
         }
         if (pay.getName() == null || pay.getName().isEmpty()) {
             throw new Error(400, "Nome é obrigatório");

@@ -39,8 +39,8 @@ public class Runner {
                         }
 
                         System.out.println("Cabeçalhos HTTP: " + headersMap);
-
-                        if (headersMap.containsKey("Content-Length")) {
+                        boolean hasContentLength = headersMap.containsKey("Content-Length");
+                        if (hasContentLength) {
                             int contentLength = Integer.parseInt(headersMap.get("Content-Length"));
                             char[] bodyChars = new char[contentLength];
                             int readLength = in.read(bodyChars, 0, contentLength);
@@ -78,9 +78,15 @@ public class Runner {
                                 out.println();
                                 out.println(jsonResponse);
                             }
+                        } else {
+                            String jsonResponse = gson.toJson("Tudo funcionando!");
+                            out.println("HTTP/1.1 200 OK");
+                            out.println("Content-Type: application/json");
+                            out.println("Content-Length: " + jsonResponse.length());
+                            out.println();
+                            out.println(jsonResponse);
                         }
                     }
-
                 } catch (SocketException e) {
                     System.err.println("Erro de I/O na comunicação com o cliente: " + e.getMessage());
                     e.printStackTrace();
