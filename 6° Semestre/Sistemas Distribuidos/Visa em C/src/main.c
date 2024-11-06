@@ -128,5 +128,5 @@ int main() {
     }
 
     encerrar_socket(socket_servidor);
-    return 0;
+    return EXIT_SUCCESS;
 }
