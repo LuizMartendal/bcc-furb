@@ -117,8 +117,8 @@ void encerrar_com_erro(int socket_cliente, int socket_servidor, char* mensagem) 
 }
 
 void encerrar_sockets(int socket_servidor, int socket_cliente) {
-    if (socket_servidor != -1) close(socket_servidor);
-    if (socket_cliente != -1) close(socket_cliente);
+    encerrar_socket(socket_servidor);
+    encerrar_socket(socket_cliente);
 }
 
 void encerrar_socket(int socket) {
