@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\luizm\\Documents\\Gradua\u00E7\u00F5es\\FURB\\6\u00B0 Semestre\\Sistemas Operacionais\\Trabalho Final\\CPUExtressor\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1B0BF1A8-F3A1-43C5-9CDD-2D33B7B9DEB4}|CPUExtressor\\CPUExtressor.vcxproj|C:\\Users\\luizm\\Documents\\Gradua\u00E7\u00F5es\\FURB\\6\u00B0 Semestre\\Sistemas Operacionais\\Trabalho Final\\CPUExtressor\\CPUExtressor\\extressor.cu||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{1B0BF1A8-F3A1-43C5-9CDD-2D33B7B9DEB4}|CPUExtressor\\CPUExtressor.vcxproj|solutionrelative:CPUExtressor\\extressor.cu||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "extressor.cu",
+              "DocumentMoniker": "C:\\Users\\luizm\\Documents\\Gradua\u00E7\u00F5es\\FURB\\6\u00B0 Semestre\\Sistemas Operacionais\\Trabalho Final\\CPUExtressor\\CPUExtressor\\extressor.cu",
+              "RelativeDocumentMoniker": "CPUExtressor\\extressor.cu",
+              "ToolTip": "C:\\Users\\luizm\\Documents\\Gradua\u00E7\u00F5es\\FURB\\6\u00B0 Semestre\\Sistemas Operacionais\\Trabalho Final\\CPUExtressor\\CPUExtressor\\extressor.cu",
+              "RelativeToolTip": "CPUExtressor\\extressor.cu",
+              "ViewState": "AgIAALEAAAAAAAAAAAAkwN4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-15T22:01:05.32Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
