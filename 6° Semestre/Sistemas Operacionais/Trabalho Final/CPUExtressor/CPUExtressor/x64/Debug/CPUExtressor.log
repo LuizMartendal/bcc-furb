@@ -3,5 +3,14 @@
   
   C:\Users\luizm\Documents\Graduações\FURB\6° Semestre\Sistemas Operacionais\Trabalho Final\CPUExtressor\CPUExtressor>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\bin\nvcc.exe" -gencode=arch=compute_52,code=\"sm_52,compute_52\" --use-local-env -ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\bin\HostX64\x64" -x cu   -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include"  -G   --keep-dir x64\Debug  -maxrregcount=0   --machine 64 --compile -cudart static  -g  -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MDd " -Xcompiler "/Fdx64\Debug\vc143.pdb" -o "C:\Users\luizm\Documents\Graduações\FURB\6° Semestre\Sistemas Operacionais\Trabalho Final\CPUExtressor\CPUExtressor\x64\Debug\extressor.cu.obj" "C:\Users\luizm\Documents\Graduações\FURB\6° Semestre\Sistemas Operacionais\Trabalho Final\CPUExtressor\CPUExtressor\extressor.cu" 
   extressor.cu
-  tmpxft_00005ad0_00000000-7_extressor.cudafe1.cpp
-  CPUExtressor.vcxproj -> C:\Users\luizm\Documents\Graduações\FURB\6° Semestre\Sistemas Operacionais\Trabalho Final\CPUExtressor\x64\Debug\GPUExtressor.exe
+  tmpxft_000049e0_00000000-7_extressor.cudafe1.cpp
+C:\Users\luizm\Documents\Graduações\FURB\6° Semestre\Sistemas Operacionais\Trabalho Final\CPUExtressor\CPUExtressor\extressor.cu(69): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+C:\Users\luizm\Documents\Graduações\FURB\6° Semestre\Sistemas Operacionais\Trabalho Final\CPUExtressor\CPUExtressor\extressor.cu(92): warning C4018: '<': incompatibilidade de signed/unsigned
+C:\Users\luizm\Documents\Graduações\FURB\6° Semestre\Sistemas Operacionais\Trabalho Final\CPUExtressor\CPUExtressor\extressor.cu(97): warning C4267: '=': conversão de 'size_t' para 'int', possível perda de dados
+     Criando biblioteca C:\Users\luizm\Documents\Graduações\FURB\6° Semestre\Sistemas Operacionais\Trabalho Final\CPUExtressor\x64\Debug\GPUExtressor.lib e objeto C:\Users\luizm\Documents\Graduações\FURB\6° Semestre\Sistemas Operacionais\Trabalho Final\CPUExtressor\x64\Debug\GPUExtressor.exp
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflita com uso de outras bibliotecas; use /NODEFAULTLIB:library
+extressor.cu.obj : error LNK2019: símbolo externo não resolvido, nvmlInit_v2, referenciado na função startStress3D
+extressor.cu.obj : error LNK2019: símbolo externo não resolvido, nvmlShutdown, referenciado na função startStress3D
+extressor.cu.obj : error LNK2019: símbolo externo não resolvido, nvmlDeviceGetHandleByIndex_v2, referenciado na função startStress3D
+extressor.cu.obj : error LNK2019: símbolo externo não resolvido, nvmlDeviceGetUtilizationRates, referenciado na função startStress3D
+C:\Users\luizm\Documents\Graduações\FURB\6° Semestre\Sistemas Operacionais\Trabalho Final\CPUExtressor\x64\Debug\GPUExtressor.exe : fatal error LNK1120: 4 externo não resolvidos

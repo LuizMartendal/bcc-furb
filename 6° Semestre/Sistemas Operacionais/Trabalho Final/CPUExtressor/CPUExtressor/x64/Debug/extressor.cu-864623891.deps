@@ -38,6 +38,7 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.3412
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\cctype
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\cerrno
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\cfloat
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\chrono
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\climits
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\clocale
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\cmath
@@ -85,7 +86,6 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.3412
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vcruntime_startup.h
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vcruntime_string.h
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vcruntime_typeinfo.h
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vector
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xatomic.h
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xcall_once.h
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xerrc.h
@@ -103,7 +103,6 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.3412
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\yvals.h
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\yvals_core.h
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\__msvc_bit_utils.hpp
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\__msvc_chrono.hpp
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\__msvc_iter_core.hpp
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\__msvc_sanitizer_annotate_container.hpp
@@ -126,7 +125,6 @@ C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\crt\math_functi
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\crt\sm_70_rt.h
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\crt\sm_80_rt.h
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\crt\sm_90_rt.h
-C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\cuda.h
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\cuda_device_runtime_api.h
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\cuda_runtime.h
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\cuda_runtime_api.h
@@ -136,6 +134,7 @@ C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\device_types.h
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\driver_functions.h
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\driver_types.h
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\library_types.h
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\nvml.h
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\sm_20_atomic_functions.h
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\sm_20_intrinsics.h
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\sm_30_intrinsics.h
