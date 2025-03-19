@@ -1,0 +1,13 @@
+250306 20:53:05 [Note] Plugin 'FEDERATED' is disabled.
+250306 20:53:05  InnoDB: Started; log sequence number 0 44233
+250306 20:53:05 [Note] Recovering after a crash using mysql-bin
+250306 20:53:05 [Note] Starting crash recovery...
+250306 20:53:05 [Note] Crash recovery finished.
+Can't start server: Bind on TCP/IP port: No such file or directory
+250306 20:53:05 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+250306 20:53:05 [ERROR] Aborting
+
+250306 20:53:05  InnoDB: Starting shutdown...
+250306 20:53:10  InnoDB: Shutdown completed; log sequence number 0 44233
+250306 20:53:10 [Note] C:\Users\luizm\Documents\Graduações\FURB\7° Semestre\Segurança da Informação\Exercício 2\UwAmp\mysql\bin\mysqld.exe: Shutdown complete
+
