@@ -28,24 +28,29 @@ print(f"Coeficientes (beta): {beta}")
 y_hat = np.dot(X, beta)
 
 
+# Criar grades de valores para a superfície de regressão
+X_range = np.linspace(X[:, 1].min(), X[:, 1].max(), 30)
+Y_range = np.linspace(X[:, 2].min(), X[:, 2].max(), 30)
+X_grid, Y_grid = np.meshgrid(X_range, Y_range)
+
+
 # Função para calcular Z
 def calculate_Z(X_grid, Y_grid, beta):
     return beta[0] + beta[1] * X_grid + beta[2] * Y_grid
 
 
 def correlacao(x, y):
-    if len(x) == len(y):
-        x_mean = np.mean(x)
-        y_mean = np.mean(y)
+  if len(x)==len(y):
+      x_mean = np.mean(x)
+      y_mean = np.mean(y)
 
-        sum_xy = sum((x - x_mean) * (y - y_mean))
+      sum_xy = sum((x-x_mean)*(y-y_mean))
 
-        sum_x_sqrd = sum((x - x_mean) ** 2)
-        sum_y_sqrd = sum((y - y_mean) ** 2)
+      sum_x_sqrd = sum((x-x_mean)**2)
+      sum_y_sqrd = sum((y-y_mean)**2)
 
-        corr = sum_xy / np.sqrt(sum_x_sqrd * sum_y_sqrd)
-        return corr
-
+      corr = sum_xy / np.sqrt(sum_x_sqrd * sum_y_sqrd)
+  return corr
 
 x = data[[0, 1]]
 y = data[[2]]
@@ -86,8 +91,8 @@ layout = go.Layout(
         type='buttons',
         showactive=False,
         buttons=[dict(label='Play',
-                      method='animate',
-                      args=[None, dict(frame=dict(duration=200, redraw=True), fromcurrent=True)])]
+                     method='animate',
+                     args=[None, dict(frame=dict(duration=200, redraw=True), fromcurrent=True)])]
     )]
 )
 
