@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 # Carregar os dados do CSV (sem cabeçalho)
-data = pd.read_csv("data.csv", header=None)
+data = pd.read_csv("/content/data.csv", header=None)
 
 # Definir as variáveis independentes X (tamanho da casa e número de quartos)
 X = data[[0, 1]].values
@@ -24,33 +24,42 @@ beta = np.dot(XtX_inv, Xty)
 # Verificando os coeficientes
 print(f"Coeficientes (beta): {beta}")
 
-# Calculando as previsões (ŷ = X * β)
-y_hat = np.dot(X, beta)
+
+def generate_meshgrid(X, num_points=30):
+    ranges = [np.linspace(X[:, i].min(), X[:, i].max(), num_points) for i in range(X.shape[1])]
+    grids = np.meshgrid(*ranges)
+
+    # Achata todas as grades e empilha como colunas
+    X_mesh = np.column_stack([grid.ravel() for grid in grids])
+
+    return grids, X_mesh
 
 
-# Criar grades de valores para a superfície de regressão
-X_range = np.linspace(X[:, 1].min(), X[:, 1].max(), 30)
-Y_range = np.linspace(X[:, 2].min(), X[:, 2].max(), 30)
-X_grid, Y_grid = np.meshgrid(X_range, Y_range)
+def calculate_Z(X_mesh, beta):
+    X_mesh = np.c_[np.ones(X_mesh.shape[0]), X_mesh]
+    Z = X_mesh @ beta
+
+    return Z.reshape((X_mesh.shape[0],))
 
 
-# Função para calcular Z
-def calculate_Z(X_grid, Y_grid, beta):
-    return beta[0] + beta[1] * X_grid + beta[2] * Y_grid
+grids, X_mesh = generate_meshgrid(X[:, 1:])
+
+Z_grid = calculate_Z(X_mesh, beta).reshape(grids[0].shape)  # Cálculo da regressão
 
 
 def correlacao(x, y):
-  if len(x)==len(y):
-      x_mean = np.mean(x)
-      y_mean = np.mean(y)
+    if len(x) == len(y):
+        x_mean = np.mean(x)
+        y_mean = np.mean(y)
 
-      sum_xy = sum((x-x_mean)*(y-y_mean))
+        sum_xy = sum((x - x_mean) * (y - y_mean))
 
-      sum_x_sqrd = sum((x-x_mean)**2)
-      sum_y_sqrd = sum((y-y_mean)**2)
+        sum_x_sqrd = sum((x - x_mean) ** 2)
+        sum_y_sqrd = sum((y - y_mean) ** 2)
 
-      corr = sum_xy / np.sqrt(sum_x_sqrd * sum_y_sqrd)
-  return corr
+        corr = sum_xy / np.sqrt(sum_x_sqrd * sum_y_sqrd)
+    return corr
+
 
 x = data[[0, 1]]
 y = data[[2]]
@@ -66,14 +75,11 @@ scatter = go.Scatter3d(
     name='Dados reais'
 )
 
-# Surface inicial
-Z_grid = calculate_Z(X_grid, Y_grid, beta)
-
 # Superfície de regressão
 surface = go.Surface(
     z=Z_grid,
-    x=X_grid,
-    y=Y_grid,
+    x=grids[0],
+    y=grids[1],
     colorscale='Reds',
     opacity=0.5,
     showscale=False
@@ -91,17 +97,17 @@ layout = go.Layout(
         type='buttons',
         showactive=False,
         buttons=[dict(label='Play',
-                     method='animate',
-                     args=[None, dict(frame=dict(duration=200, redraw=True), fromcurrent=True)])]
+                      method='animate',
+                      args=[None, dict(frame=dict(duration=200, redraw=True), fromcurrent=True)])]
     )]
 )
 
 # Animação
 frames = [go.Frame(
     data=[go.Surface(
-        z=calculate_Z(X_grid, Y_grid, beta + 0.05 * i),
-        x=X_grid,
-        y=Y_grid,
+        z=Z_grid,
+        x=grids[0],
+        y=grids[1],
         colorscale='Blues',
         opacity=0.5,
         showscale=False
