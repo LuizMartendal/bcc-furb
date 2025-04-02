@@ -1,0 +1,13 @@
+@startuml include
+!include ./Poligono.puml
+!include ./SrPalito.puml
+!include ./Mundo.puml
+!include ./Retangulo.puml
+!include ./Objeto.puml
+!include ./SplineBezier.puml
+!include ./SplineInter.puml
+!include ./Ponto.puml
+!include ./Circulo.puml
+!include ./SegReta.puml
+!include ./Program.puml
+@enduml
