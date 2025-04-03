@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 # Carregar os dados do CSV (sem cabeçalho)
-data = pd.read_csv("/content/data.csv", header=None)
+data = pd.read_csv("data.csv", header=None)
 
 # Definir as variáveis independentes X (tamanho da casa e número de quartos)
 X = data[[0, 1]].values
